@@ -1,0 +1,3 @@
+Convert various file formats such as XLSX, XLS, XLSM, XLTX, CSV, and TSV into a `System.Data.DataTable`. This conversion facilitates seamless interoperability with `System.Data.SQL` and allows for easy population of a `DataGrid`.
+
+Pass the boolean value `true` to the `ToDataTable` method to designate the first row of the file as the column headers of the `DataTable`. This `DataTable` can then be used to fill a `DataGrid`.

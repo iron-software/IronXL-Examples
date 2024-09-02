@@ -1,0 +1,1 @@
+IronXL enables the merging of multiple `IronXL.Ranges.Range` instances by using the '+' operator.
