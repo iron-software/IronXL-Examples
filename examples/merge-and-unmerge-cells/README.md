@@ -1,11 +1,13 @@
-IronXL supports the programmable merging and unmerging of cells in a spreadsheet. The code example provided demonstrates how you can effortlessly merge a range of cells by indicating the cell addresses.
+***Based on <https://ironsoftware.com/examples/merge-and-unmerge-cells/>***
+
+IronXL supports both merging and separating cells within a spreadsheet programmatically. The provided code snippet illustrates how to seamlessly merge a specific range of cells by defining their addresses.
 
 ## Merge
 
-Utilizing the `Merge` method allows you to combine a specified range of cells. During the merge process, no data from the cells are deleted; however, only the value from the first cell in both the row and column of the merged area will be displayed. The data from all merged cells remains intact and accessible within IronXL.
+Using the `Merge` method, it is possible to combine multiple cells into a single cell. This action keeps all original cell values intact, but only the value located in the top-left cell of the merged area will be displayed. Nonetheless, all data from the merged cells remain retrievable in IronXL.
 
 ## Unmerge
 
-To split a previously merged cell region, there are two methods available. The most direct approach is by specifying the exact cell range that was merged, for example, `"D1:D3"`. It is important to ensure that the address corresponds exactly to the merged region as partial unmerging within a merged region is not supported.
+To separate previously merged cells, there are a couple of strategies you can employ. The most direct method is to identify the cell range, such as "D1:D3", ensuring that the range matches exactly with the initially merged area. It is important to recognize that it is not feasible to unmerge just a segment of a merged region.
 
-Alternatively, unmerging can be done based on the index of the merged region. The list of merged regions is maintained in chronological order. However, it is important to note that retrieving this list is not currently supported.
+Alternatively, you can unmerge cells by referring to the index of the merged regions. These indices are arranged in the order they were merged. Currently, there is no capability to query the comprehensive list of merged regions on the platform.

@@ -1,56 +1,77 @@
-# Saving and Exporting Excel Spreadsheets
+# How to Save or Export Spreadsheets
 
-The `DataSet` class, part of Microsoft's .NET framework, is a core element of ADO.NET technology, predominantly used in database-related applications. It facilitates interaction with data stemming from various sources, including databases, XML, and more.
+***Based on <https://ironsoftware.com/how-to/export-spreadsheet/>***
 
-IronXL empowers users to transform Excel documents into several formats and inline code objects. The supported file formats include XLS, XLSX, XLSM, CSV, TSV, JSON, XML, and HTML, while inline code objects allow exports as HTML strings, binaries, byte arrays, datasets, and streams.
 
-## Export Spreadsheet Example
+The `DataSet` class is a pivotal aspect of the ADO.NET architecture within Microsoft’s .NET framework. It facilitates manipulation and access to data originating from various sources such as databases, XML files, and other data types, making it essential for database-related applications.
 
-Once modifications to an Excel workbook are completed, utilize the `SaveAs` method to convert the workbook to the required file format. This method supports a range of formats like XLS, XLSX, XLSM, CSV, TSV, JSON, XML, and HTML.
+With IronXL, users can transform Excel workbooks into numerous file formats or into inline code objects for increased flexibility. Supported file formats include `XLS`, `XLSX`, `XLSM`, `CSV`, `TSV`, `JSON`, `XML`, and `HTML`. The inline code objects enable the exporting of an Excel file as a `HTML` string, binary data, byte array, dataset, or stream.
 
-Remember to specify the file extension during the import/export process. By default, Excel files are stored in the 'bin > Debug > net6.0' directory within your project.
+## Export Spreadsheet Tutorial
+
+Once you have completed modifying or reviewing your workbook, you can employ the `SaveAs` method to save your Excel spreadsheet into one of the supported file formats, including `XLS`, `XLSX`, `XLSM`, `CSV`, `TSV`, `JSON`, `XML`, and `HTML`.
+
+It is important to specify the file extension during export. Newly created Excel files will generally be saved in the 'bin > Debug > net6.0' directory within your project.
 
 ```cs
 using IronXL;
+using IronXL.Excel;
+namespace ironxl.ExportSpreadsheet
+{
+    public class ExportExample
+    {
+        public void Execute()
+        {
+            // Instantiate a new Excel workbook
+            WorkBook workbook = WorkBook.Create();
 
-// Instantiate a new Excel workbook
-WorkBook workBook = WorkBook.Create();
+            // Generate a new WorkSheet
+            WorkSheet sheet = workbook.CreateWorkSheet("example_sheet");
 
-// Add a new worksheet
-WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
-
-// Export the Excel workbook to a specified format
-workBook.SaveAs("sample.xls");
+            // Save the document in different formats like XLS, XLSX, XLSM, CSV, TSV, JSON, XML, HTML
+            workbook.SaveAs("example.xls");
+        }
+    }
+}
 ```
 
 <hr>
 
 ## Exporting CSV, JSON, XML, and HTML Files
 
-While the `SaveAs` method is capable of exporting to formats like CSV, JSON, XML, and HTML, it is preferable to use dedicated methods for these tasks like `SaveAsCsv`, `SaveAsJson`, `SaveAsXml`, and `ExportToHtml`.
+While the `SaveAs` method allows for exporting to `CSV`, `JSON`, `XML`, and `HTML` formats, it is advised to use specific methods tailored for each format. Use `SaveAsCsv`, `SaveAsJson`, `SaveAsXml`, and `ExportToHtml` for best results.
 
 ```cs
 using IronXL;
+using IronXL.Excel;
+namespace ironxl.ExportSpreadsheet
+{
+    public class ExportFormats
+    {
+        public void Execute()
+        {
+            // Instantiate a new Excel WorkBook
+            WorkBook workbook = WorkBook.Create();
 
-// Generate a new Excel workbook
-WorkBook workBook = WorkBook.Create();
+            // Initialize multiple WorkSheets
+            WorkSheet sheet1 = workbook.CreateWorkSheet("worksheetA");
+            WorkSheet sheet2 = workbook.CreateWorkSheet("worksheetB");
 
-// Add multiple worksheets
-WorkSheet workSheet1 = workBook.CreateWorkSheet("sheet1");
-WorkSheet workSheet2 = workBook.CreateWorkSheet("sheet2");
+            // Populate cells with data
+            sheet1["A1"].StringValue = "Data1";
+            sheet2["A1"].StringValue = "Data2";
 
-// Populate cells
-workSheet1["A1"].StringValue = "A1";
-workSheet2["A1"].StringValue = "A1";
-
-// Perform exports to various formats
-workBook.SaveAsCsv("sample.csv");
-workBook.SaveAsJson("sample.json");
-workBook.SaveAsXml("sample.xml");
-workBook.ExportToHtml("sample.html");
+            // Export as different file formats
+            workbook.SaveAsCsv("data.csv");
+            workbook.SaveAsJson("data.json");
+            workbook.SaveAsXml("data.xml");
+            workbook.ExportToHtml("data.html");
+        }
+    }
+}
 ```
 
-It is important to note that for formats like CSV, TSV, JSON, and XML, a unique file is generated for each sheet following the naming pattern **fileName.sheetName.format**. Here is an example of the naming convention for different file formats:
+Please note that for `CSV`, `TSV`, `JSON`, and `XML` file formats, distinct files will be generated for each sheet following the format **fileName.sheetName.format**. The illustration below shows files created for each format.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -60,30 +81,39 @@ It is important to note that for formats like CSV, TSV, JSON, and XML, a unique 
 
 <hr>
 
-## Exporting to Inline Code Objects
+## Export to Inline Code Object
 
-Convert your Excel workbooks to various inline code objects like HTML strings, binary data, byte arrays, streams, and data sets. These exported objects are immediately usable for further application processing.
+Export the Excel workbook to a variety of inline code objects like HTML strings, binary data, byte arrays, streams, and a .NET `DataSet`. These objects can be directly utilized for further applications.
 
 ```cs
-using IronXL;
 using System.IO;
+using IronXL.Excel;
+namespace ironxl.ExportSpreadsheet
+{
+    public class InlineExport
+    {
+        public void Execute()
+        {
+            // Create a new Excel WorkBook
+            WorkBook workbook = WorkBook.Create();
 
-// Instantiate a new Excel workbook
-WorkBook workBook = WorkBook.Create();
+            // Add a fresh WorkSheet
+            WorkSheet sheet = workbook.CreateWorkSheet("new_sheet");
 
-// Add a new worksheet
-WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
+            // Export to HTML string
+            string htmlContent = workbook.ExportToHtmlString();
 
-// Convert to HTML string
-string htmlString = workBook.ExportToHtmlString();
+            // Export as both binary and byte array
+            byte[] binaryData = workbook.ToBinary();
+            byte[] byteArrayData = workbook.ToByteArray();
 
-// Convert to binary and byte arrays
-byte[] binary = workBook.ToBinary();
-byte[] byteArray = workBook.ToByteArray();
+            // Export as Stream
+            Stream fileStream = workbook.ToStream();
 
-// Convert to stream
-Stream stream = workBook.ToStream();
-
-// Convert to DataSet for seamless integration with DataGrids, and SQL
-System.Data.DataSet dataSet = workBook.ToDataSet();
+            // Convert to DataSet for easy data manipulation
+            System.Data.DataSet dataSet = workbook.ToDataSet();
+        }
+    }
+}
 ```
+This rephrased content keeps professional and conversational tones, enhancing clarity and comprehension.

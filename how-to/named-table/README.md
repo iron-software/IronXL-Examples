@@ -1,72 +1,101 @@
-# How to Add a Named Table in Excel
+# Adding a Named Table in Excel
 
-A named table, often referred to as an Excel Table, is a designated range within an Excel sheet that is given a unique name and comes with enhanced features and capabilities.
+***Based on <https://ironsoftware.com/how-to/named-table/>***
 
-## Example of Adding a Named Table
 
-To insert a named table, utilize the `AddNamedTable` method. This method necessitates specifying the table's name as a string, the range to be converted into the table, and optionally, the table style and a filter toggle.
+A named table, often referred to as an Excel Table, is a specific range in Excel that is designated with a name and possesses enhanced properties and functionalities.
+
+## Example: Creating a Named Table
+
+To create a named table, utilize the `AddNamedTable` method. This method necessitates specifying the table's name as a string, its range, and optionally, its style and whether to include a filter.
 
 ```cs
-using IronXL;
 using IronXL.Styles;
+using IronXL.Excel;
 
-// Initialize a new workbook and select the default worksheet
-WorkBook workBook = WorkBook.Create();
-WorkSheet workSheet = workBook.DefaultWorkSheet;
+namespace ironxl.NamedTable
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Create();
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
 
-// Populate data in the worksheet
-workSheet["A2:C5"].StringValue = "Data Entry";
+            // Populate data
+            workSheet["A2:C5"].StringValue = "Text";
 
-// Define range and parameters for the named table
-var tableRange = workSheet["A1:C5"];
-bool enableFilter = false;
-var styleOfTable = TableStyle.TableStyleDark1;
+            // Define the range for the table
+            var selectedRange = workSheet["A1:C5"];
+            bool showFilter = false;
+            var tableStyle = TableStyle.TableStyleDark1;
 
-// Create the named table in the worksheet
-workSheet.AddNamedTable("MyTable", tableRange, enableFilter, styleOfTable);
+            // Create the named table
+            workSheet.AddNamedTable("table1", selectedRange, showFilter, tableStyle);
 
-// Save the workbook to a file
-workBook.SaveAs("addNamedTable.xlsx");
+            // Save the workbook
+            workBook.SaveAs("addNamedTable.xlsx");
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://www.ironsoftware.com/static-assets/excel/how-to/named-table/named-table.webp" alt="Named Table" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/named-table/named-table.webp" alt="Named Table" class="img-responsive add-shadow">
     </div>
 </div>
 
 <hr>
 
-## Retrieving Named Tables Example
+## Example: Retrieving Named Tables
 
 ### Retrieve All Named Tables
 
-The `GetNamedTableNames` method fetches all the named tables within a provided worksheet and returns them as a list of string names.
+The `GetNamedTableNames` method retrieves all named tables in a worksheet, returning them as a list of strings.
 
 ```cs
 using IronXL;
+using IronXL.Excel;
 
-// Load the workbook and select the default worksheet
-WorkBook workBook = WorkBook.Load("addNamedTable.xlsx");
-WorkSheet workSheet = workBook.DefaultWorkSheet;
+namespace ironxl.NamedTable
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("addNamedTable.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
 
-// Retrieve a list of all named table names in the worksheet
-var tableNames = workSheet.GetNamedTableNames();
+            // Fetch all named tables
+            var namedTableList = workSheet.GetNamedTableNames();
+        }
+    }
+}
 ```
 
 ### Retrieve a Specific Named Table
 
-To access a particular named table directly, use the `GetNamedTable` method.
+Retrieve an individual named table using the `GetNamedTable` method.
 
 ```cs
 using IronXL;
+using IronXL.Excel;
 
-// Load the workbook and access the default worksheet
-WorkBook workBook = WorkBook.Load("addNamedTable.xlsx");
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-// Retrieve a specific named table by its name
-var specificTable = workSheet.GetNamedTable("MyTable");
+namespace ironxl.NamedTable
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("addNamedTable.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            // Access a specific named table
+            var namedRangeAddress = workSheet.GetNamedTable("table1");
+        }
+    }
+}
 ```
 
-IronXL also supports adding named ranges. For further details, please visit [How to Add Named Range](https://www.ironsoftware.com/csharp/excel/how-to/named-range/).
+IronXL also supports adding named ranges. Learn more at [How to Add Named Range](https://ironsoftware.com/csharp/excel/how-to/named-range/).

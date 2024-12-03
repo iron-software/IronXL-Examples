@@ -1,148 +1,164 @@
-# Creating, Reading, and Modifying Excel Files in .NET MAUI Applications
+# Working with Excel Documents in .NET MAUI
+
+***Based on <https://ironsoftware.com/how-to/read-create-excel-net-maui/>***
+
 
 ## Overview
 
-*In this tutorial, we'll explore how to effectively handle Excel files within .NET MAUI applications for Windows, utilizing the IronXL library. Let’s dive in!*
+*This step-by-step guide demonstrates how to craft and read Excel documents in .NET MAUI applications for Windows utilizing IronXL. Let’s dive in.*
 
-## IronXL: The C# Excel Solution
+## IronXL: Excel Handling in C#
 
-IronXL serves as a robust C# .NET class library engineered for the manipulation, generation, and reading of Excel files. This library allows developers to fabricate Excel documents from the ground up, controlling aspects from content to aesthetics, and includes metadata capabilities like setting a document's title and author. Moreover, IronXL delivers extensive customization options for the user interface, including adjustments to margins, orientation, page size, and incorporation of images, among others. Importantly, IronXL operates independently without dependence on additional frameworks, platform integrations, or third-party libraries.
+IronXL is a robust C# library for .NET that facilitates the reading, writing, and manipulation of Excel files. It enables the creation of Excel sheets from the ground up, inclusive of content and visual styling, along with metadata like document titles and author details. It presents options for tweaking user interface elements such as margins, page sizes, orientations, and image embedding, all without the need for external frameworks, platforms, or third-party libraries. This library functions independently, ensuring seamless Excel document manipulation.
 
-## Getting Started with IronXL
+## Setting Up IronXL
 
-### Installation
-
-To integrate IronXL into your project, utilize the NuGet Package Manager Console within Visual Studio. Simply execute the following command in the Console to install the IronXL library:
+Install the IronXL library through the NuGet Package Manager Console in Visual Studio. Simply open the Console and run the below command:
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
----
+<hr class="separator">
 
-<h4>Step-by-Step Guide</h4>
+<h4 class="tutorial-segment-title">Step-by-Step Tutorial</h4>
 
-## Building Excel Documents with IronXL in C#
+## Developing Excel Applications in C# using IronXL
 
-### Designing the Application User Interface
+### Configuring the Application's Frontend
 
-Start by opening the `MainPage.xaml` file. Replace the existing code with the following XAML code to design the user interface.
+Begin by opening the XAML page titled `**MainPage.xaml**`. Replace the current code with the following lines:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI_IronXL.MainPage">
+
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+
             <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Explore Multi-platform App UI"
+                SemanticProperties.Description="Welcome Multi-platform App UI"
                 FontSize="18"
                 HorizontalOptions="Center" />
+
             <Button
                 x:Name="createBtn"
                 Text="Create Excel File"
-                SemanticProperties.Hint="Tap to create an Excel file"
+                SemanticProperties.Hint="Click on the button to create Excel file"
                 Clicked="CreateExcel"
                 HorizontalOptions="Center" />
+
             <Button
                 x:Name="readExcel"
-                Text="Read and Modify Excel File"
-                SemanticProperties.Hint="Tap to read and modify an Excel file"
+                Text="Read and Modify Excel file"
+                SemanticProperties.Hint="Click on the button to read Excel file"
                 Clicked="ReadExcel"
                 HorizontalOptions="Center" />
+
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>
 ```
 
-This XAML script sets up a straightforward interface for our .NET MAUI application, featuring a welcoming label and two interactive buttons—each dedicated to either creating or reading and modifying Excel files. These components are organized vertically ensuring a coherent display across different devices.
+The above XML layout defines the user interface for a simple .NET MAUI app, where a single label and two buttons are integrated. These controls allow for the creation and modification of Excel files and are organized vertically due to their placement within a `VerticalStackLayout`.
 
-### Creating Excel Documents
+### Generating Excel Documents
 
-Now, let’s create an Excel file. Open `MainPage.xaml.cs` and add the following C# method:
+Next, let's generate an Excel document using IronXL. Open `MainPage.xaml.cs` and implement the following method:
 
 ```cs
 private void CreateExcel(object sender, EventArgs e)
 {
-    // Instantiate a new Workbook
-    var workbook = WorkBook.Create(ExcelFileFormat.XLSX);
+    // Initialize a new Workbook
+    WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 
     // Add a Worksheet
     var sheet = workbook.CreateWorkSheet("2022 Budget");
 
-    // Define Cell values for months
-    string[] months = { "January", "February", "March", "April", "May", "June", 
-                        "July", "August" };
-    for (int i = 0; i < months.Length; i++)
-    {
-        sheet["A" + (i + 1)].Value = months[i];
-    }
+    // Populate Cells
+    sheet ["A1"].Value = "January";
+    sheet ["B1"].Value = "February";
+    sheet ["C1"].Value = "March";
+    sheet ["D1"].Value = "April";
+    sheet ["E1"].Value = "May";
+    sheet ["F1"].Value = "June";
+    sheet ["G1"].Value = "July";
+    sheet ["H1"].Value = "August";
 
     // Dynamically set cell values
-    Random rng = new Random();
-    for (int row = 2; row <= 11; row++)
+    Random r = new Random();
+    for (int i = 2; i <= 11; i++)
     {
-        for (int col = 0; col < months.Length; col++)
-        {
-            sheet[$"{(char)('A' + col)}{row}"].Value = rng.Next(1, 8000);
-        }
+        sheet ["A" + i].Value = r.Next(1, 1000);
+        sheet ["B" + i].Value = r.Next(1000, 2000);
+        sheet ["C" + i].Value = r.Next(2000, 3000);
+        sheet ["D" + i].Value = r.Next(3000, 4000);
+        sheet ["E" + i].Value = r.Next(4000, 5000);
+        sheet ["F" + i].Value = r.Next(5000, 6000);
+        sheet ["G" + i].Value = r.Next(6000, 7000);
+        sheet ["H" + i].Value = r.Next(7000, 8000);
     }
 
-    // Formatting cells with styles and borders
-    var headerRange = sheet["A1:H1"];
-    headerRange.Style.SetBackgroundColor("#d3d3d3").TopBorder.SetColor("#000000").BottomBorder.SetColor("#000000");
-    var rowRange = sheet["H2:H11"];
-    rowRange.Style.RightBorder.SetColor("#000000").Type = IronXL.Styles.BorderType.Medium;
-    var bottomRange = sheet["A11:H11"];
-    bottomRange.Style.BottomBorder.SetColor("#000000").Type = IronXL.Styles.BorderType.Medium;
+    // Style cells
+    sheet ["A1:H1"].Style.SetBackgroundColor("#d3d3d3");
+    sheet ["A1:H1"].Style.TopBorder.SetColor("#000000");
+    sheet ["A1:H1"].Style.BottomBorder.SetColor("#000000");
+    sheet ["H2:H11"].Style.RightBorder.SetColor("#000000");
+    sheet ["H2:H11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
+    sheet ["A11:H11"].Style.BottomBorder.SetColor("#000000");
+    sheet ["A11:H11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
 
-    // Calculating and displaying results using formulas
-    var calculations = new
-    {
-        Sum = sheet["A2:A11"].Sum(),
-        Average = sheet["B2:B11"].Avg(),
-        Max = sheet["C2:C11"].Max(),
-        Min = sheet["D2:D11"].Min()
-    };
+    // Implement Formulas
+    decimal sum = sheet ["A2:A11"].Sum();
+    decimal avg = sheet ["B2:B11"].Avg();
+    decimal max = sheet ["C2:C11"].Max();
+    decimal min = sheet ["D2:D11"].Min();
 
-    sheet["A12"].Value = "Sum";
-    sheet["B12"].Value = calculations.Sum;
-    sheet["C12"].Value = "Avg";
-    sheet["D12"].Value = calculations.Average;
-    sheet["E12"].Value = "Max";
-    sheet["F12"].Value = calculations.Max;
-    sheet["G12"].Value = "Min";
-    sheet["H12"].Value = calculations.Min;
+    sheet ["A12"].Value = "Sum";
+    sheet ["B12"].Value = sum;
 
-    // Save and view the Excel file
+    sheet ["C12"].Value = "Avg";
+    sheet ["D12"].Value = avg;
+
+    sheet ["E12"].Value = "Max";
+    sheet ["F12"].Value = max;
+
+    sheet ["G12"].Value = "Min";
+    sheet ["H12"].Value = min;
+
+    // Save and Display Excel File
     SaveService saveService = new SaveService();
     saveService.SaveAndView("Budget.xlsx", "application/octet-stream", workbook.ToStream());
 }
 ```
 
-This method demonstrates how to create a workbook, add and format a worksheet, populate it with data, apply styles, execute formulas, and ultimately, save and open the Excel file using a custom `SaveService` class.
+This method initializes a workbook, fills it with initial data and random values, applies styles, integrates calculation formulas, and finally uses a `SaveService` to save and display the file.
 
 ## Introduction
 
-*In this How-To Guide, we'll cover the steps to generate and manage Excel files within .NET MAUI applications for Windows, utilizing the capabilities of IronXL. Let’s dive in.*
+*Welcome to this instructional tutorial where we will learn how to generate and access Excel files in Windows-based .NET MAUI applications using IronXL. Let's dive in.*
 
-## IronXL: The C# Library for Excel Operations
+## IronXL: The C# Excel Library for .NET
 
-IronXL is a robust C# .NET library designed to handle Excel file operations. With this library, users can effortlessly generate Excel documents from the ground up, personalizing not only the content and aesthetic aspects but also the metadata like title and author. It offers a range of customization options for the user interface, including the ability to adjust margins, page orientation, size, and embed images. Importantly, IronXL operates independently without the need for any external frameworks or third-party libraries. This makes it a fully self-contained solution ideal for managing Excel files within .NET environments.
+IronXL stands out as a comprehensive .NET library specifically designed for creating, reading, and editing Excel documents using C#. This library provides the flexibility to craft Excel files from the ground up, allowing full control over content, aesthetics, and document properties like titles and authors. Moreover, IronXL is equipped with extensive UI customization options, including the ability to adjust margins, orientation, and page size, and also to embed images. Remarkably, IronXL operates independently without the need for external frameworks, platform-specific integrations, or reliance on third-party libraries to produce Excel documents. Its standalone nature ensures simplicity and ease of integration into .NET applications.
 
-## Setting Up IronXL
+## Installing IronXL
 
-To incorporate IronXL into your project, utilize the NuGet Package Manager Console within Visual Studio. Simply launch the Console and execute the command below to add the IronXL library to your application.
+To integrate IronXL into your project, utilize the NuGet Package Manager Console within Visual Studio. Simply launch the console and execute the command below to add the IronXL library to your application.
 
 ```shell
 Install-Package IronXL.Excel
 ```
+
+Here's the paraphrased section with relative URL paths resolved:
 
 ```shell
 Install-Package IronXL.Excel
@@ -152,11 +168,11 @@ Install-Package IronXL.Excel
 
 <h4 class="tutorial-segment-title">How To Guide</h4>
 
-## Generating Excel Documents with C# Using IronXL
+## Generating Excel Documents with C# using IronXL
 
-### Establishing the Application's Frontend
+### Constructing the Interface
 
-Begin by opening the `MainPage.xaml` file within your project and swap out the existing XML with the snippet provided below.
+Begin by navigating to the XAML page named `**MainPage.xaml**` and update the markup with the following code:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -173,21 +189,21 @@ Begin by opening the `MainPage.xaml` file within your project and swap out the e
             <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="This is your starting point for a multi-platform app."
+                SemanticProperties.Description="Welcome Multi-platform App UI"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="createBtn"
                 Text="Create Excel File"
-                SemanticProperties.Hint="Tap here to start creating an Excel file"
+                SemanticProperties.Hint="Click on the button to create Excel file"
                 Clicked="CreateExcel"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="readExcel"
                 Text="Read and Modify Excel file"
-                SemanticProperties.Hint="Tap here to open and edit an Excel file"
+                SemanticProperties.Hint="Click on the button to read Excel file"
                 Clicked="ReadExcel"
                 HorizontalOptions="Center" />
 
@@ -197,22 +213,22 @@ Begin by opening the `MainPage.xaml` file within your project and swap out the e
 </ContentPage>
 ```
 
-This XML defines the interface for a simple .NET MAUI application. It includes a label greeting the user and two buttons—one for creating and another for reading and editing an Excel document, arranged in a vertical stack to maintain proper alignment across various devices.
+This markup configures the user interface of your .NET MAUI application, integrating a label for a greeting message and two buttons designed for generating and modifying Excel documents. These components are conveniently arranged vertically using a `VerticalStackLayout`.
 
-### Creating Excel Documents
+### Generating Excel Documents
 
-Now, let's construct an Excel document using IronXL. Navigate to your `MainPage.xaml.cs` file and implement the following code in it.
+Next, let's draft the Excel document using IronXL. Navigate to the `MainPage.xaml.cs` file and inject the following method:
 
 ```cs
 private void CreateExcel(object sender, EventArgs e)
 {
-    // Initialization of a new Workbook
+    // Initialize a new Workbook
     WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 
-    // Adding a new Worksheet
-    var sheet = workbook.CreateWorkSheet("Annual Budget");
+    // Generate a new Worksheet
+    var sheet = workbook.CreateWorkSheet("2022 Budget");
 
-    // Assigning values to cells
+    // Initialize cells with values
     sheet["A1"].Value = "January";
     sheet["B1"].Value = "February";
     sheet["C1"].Value = "March";
@@ -222,21 +238,21 @@ private void CreateExcel(object sender, EventArgs e)
     sheet["G1"].Value = "July";
     sheet["H1"].Value = "August";
 
-    // Dynamically setting cell values
-    Random random = new Random();
+    // Dynamically input values
+    Random randomGenerator = new Random();
     for (int i = 2; i <= 11; i++)
     {
-        sheet["A" + i].Value = random.Next(1, 1000);
-        sheet["B" + i].Value = random.Next(1000, 2000);
-        sheet["C" + i].Value = random.Next(2000, 3000);
-        sheet["D" + i].Value = random.Next(3000, 4000);
-        sheet["E" + i].Value = random.Next(4000, 5000);
-        sheet["F" + i].Value = random.Next(5000, 6000);
-        sheet["G" + i].Value = random.Next(6000, 7000);
-        sheet["H" + i].Value = random.Next(7000, 8000);
+        sheet["A" + i].Value = randomGenerator.Next(1, 1000);
+        sheet["B" + i].Value = randomGenerator.Next(1000, 2000);
+        sheet["C" + i].Value = randomGenerator.Next(2000, 3000);
+        sheet["D" + i].Value = randomGenerator.Next(3000, 4000);
+        sheet["E" + i].Value = randomGenerator.Next(4000, 5000);
+        sheet["F" + i].Value = randomGenerator.Next(5000, 6000);
+        sheet["G" + i].Value = randomGenerator.Next(6000, 7000);
+        sheet["H" + i].Value = randomGenerator.Next(7000, 8000);
     }
 
-    // Applying formatting options
+    // Styling cells
     sheet["A1:H1"].Style.SetBackgroundColor("#d3d3d3");
     sheet["A1:H1"].Style.TopBorder.SetColor("#000000");
     sheet["A1:H1"].Style.BottomBorder.SetColor("#000000");
@@ -245,34 +261,33 @@ private void CreateExcel(object sender, EventArgs e)
     sheet["A11:H11"].Style.BottomBorder.SetColor("#000000");
     sheet["A11:H11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
 
-    // Calculating and Displaying Results
-    decimal sum = sheet["A2:A11"].Sum();
-    decimal avg = sheet["B2:B11"].Avg();
-    decimal max = sheet["C2:C11"].Max();
-    decimal min = sheet["D2:A11"].Min();
+    // Applying formulas
+    decimal total = sheet["A2:A11"].Sum();
+    decimal average = sheet["B2:B11"].Avg();
+    decimal maximum = sheet["C2:C11"].Max();
+    decimal minimum = sheet["D2:D11"].Min();
 
+    // Displaying results in Excel
     sheet["A12"].Value = "Sum";
-    sheet["B12"].Value = sum;
+    sheet["B12"].Value = total;
     sheet["C12"].Value = "Avg";
-    sheet["D12"].Value = avg;
+    sheet["D12"].Value = average;
     sheet["E12"].Value = "Max";
-    sheet["F12"].Value = max;
+    sheet["F12"].Value = maximum;
     sheet["G12"].Value = "Min";
-    sheet["H12"].Value = min;
+    sheet["H12"].Value = minimum;
 
-    // Saving and Viewing the Excel File
+    // Save and Display the Excel File
     SaveService saveService = new SaveService();
-    saveService.SaveAndView("AnnualBudget.xlsx", "application/octet-stream", workbook.ToStream());
+    saveService.SaveAndView("Budget.xlsx", "application/octet-stream", workbook.ToStream());
 }
 ```
 
-The method above incrementally builds an Excel workbook. It sets cell values for each column header, fills subsequent cell rows with random financial data for illustrative purposes, applies specific styling to enhance readability, utilizes formulas to compute statistical values, and eventually saves and opens the Excel file through a predefined `SaveService` class.
+In this method, a new workbook and a worksheet titled "2022 Budget" are devised, populated with dynamic values and styled. IronXL is leveraged to apply formulas directly in the worksheet, simplifying operations like sum, average, maximum, and minimum. The result is visualized immediately in Excel through custom setup dialogs, enhancing both functionality and user interaction.
 
-### Constructing the Application User Interface
+### Configure the Application's Frontend Interface
 
-Begin by accessing the XAML page titled `**MainPage.xaml**`. Replace its existing content with the code provided below. This will structure the interface of your application.
-
-Here's the paraphrased section of your article, with relative URL paths resolved to `ironsoftware.com`:
+Start by launching the XAML file titled `**MainPage.xaml**`. Proceed by substituting its existing code with the snippet provided below.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -289,21 +304,21 @@ Here's the paraphrased section of your article, with relative URL paths resolved
             <Label
                 Text="Welcome to .NET Multi-platform App UI"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Greet .NET Multi-platform App UI"
+                SemanticProperties.Description="Introduction to Multi-platform Application Interface"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="createBtn"
                 Text="Create Excel File"
-                SemanticProperties.Hint="Press this button to initiate Excel file creation"
+                SemanticProperties.Hint="Activate this button to generate an Excel file"
                 Clicked="CreateExcel"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="readExcel"
-                Text="Read and Modify Excel file"
-                SemanticProperties.Hint="Press this button to access and alter an Excel file"
+                Text="Read and Modify Excel File"
+                SemanticProperties.Hint="Activate this button to access and modify an Excel file"
                 Clicked="ReadExcel"
                 HorizontalOptions="Center" />
 
@@ -313,91 +328,88 @@ Here's the paraphrased section of your article, with relative URL paths resolved
 </ContentPage>
 ```
 
-The provided code sets up the foundational user interface of our simple .NET MAUI application. It includes a label and two buttons within a `VerticalStackLayout` container. The first button is designed to initiate the creation of an Excel file, while the second button is intended for opening and modifying an existing Excel file. This arrangement ensures that the elements are vertically aligned and consistent across all devices that support .NET MAUI.
+The provided code snippet is used to design the interface of a basic .NET MAUI application. It arranges a label along with two buttons within the interface. The first button is designated for generating an Excel file, while the second button is tasked with reading and adjusting an existing Excel file. These interface components are neatly organized into a `VerticalStackLayout`, ensuring that they are displayed in a vertical order across all compatible devices.
 
-### Excel File Creation
+### Creating Excel Documents
 
-Now, let’s dive into generating an Excel file using IronXL. Navigate to the `MainPage.xaml.cs` file and implement the method displayed below.
+Let's now proceed to generate an Excel document leveraging IronXL. Start by navigating to the `MainPage.xaml.cs` file and implement the method outlined below.
 
-Here's a paraphrased version of the provided C# function for creating an Excel file using IronXL in .NET MAUI:
+Here's the paraphrased section:
 
 ```cs
-private void CreateExcelFile(object sender, EventArgs args)
+private void GenerateExcelFile(object sender, EventArgs e)
 {
-    // Initialize a new workbook
-    WorkBook newWorkbook = WorkBook.Create(ExcelFileFormat.XLSX);
+    // Initialize a new Workbook
+    WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 
-    // Add a worksheet named '2022 Budget'
-    var budgetSheet = newWorkbook.CreateWorkSheet("2022 Budget");
+    // Create a new Worksheet
+    var sheet = workbook.CreateWorkSheet("2022 Budget");
 
-    // Define initial cell values for months
-    budgetSheet["A1"].Value = "January";
-    budgetSheet["B1"].Value = "February";
-    budgetSheet["C1"].Value = "March";
-    budgetSheet["D1"].Value = "April";
-    budgetSheet["E1"].Value = "May";
-    budgetSheet["F1"].Value = "June";
-    budgetSheet["G1"].Value = "July";
-    budgetSheet["H1"].Value = "August";
+    // Initialize Cell values for the first row
+    sheet["A1"].Value = "January";
+    sheet["B1"].Value = "February";
+    sheet["C1"].Value = "March";
+    sheet["D1"].Value = "April";
+    sheet["E1"].Value = "May";
+    sheet["F1"].Value = "June";
+    sheet["G1"].Value = "July";
+    sheet["H1"].Value = "August";
 
-    // Populate cells dynamically with random financial data
-    Random randomGenerator = new Random();
+    // Dynamically generate values for cells using random numbers
+    Random random = new Random();
     for (int rowIndex = 2; rowIndex <= 11; rowIndex++)
     {
-        budgetSheet["A" + rowIndex].Value = randomGenerator.Next(1, 1000);
-        budgetSheet["B" + rowIndex].Value = randomGenerator.Next(1000, 2000);
-        budgetSheet["C" + rowIndex].Value = randomGenerator.Next(2000, 3000);
-        budgetSheet["D" + rowIndex].Value = randomGenerator.Next(3000, 4000);
-        budgetSheet["E" + rowIndex].Value = randomGenerator.Next(4000, 5000);
-        budgetSheet["F" + rowIndex].Value = randomGenerator.Next(5000, 6000);
-        budgetSheet["G" + rowIndex].Value = randomGenerator.Next(6000, 7000);
-        budgetSheet["H" + rowIndex].Value = randomGenerator.Next(7000, 8000);
+        sheet["A" + rowIndex].Value = random.Next(1, 1000);
+        sheet["B" + rowIndex].Value = random.Next(1000, 2000);
+        sheet["C" + rowIndex].Value = random.Next(2000, 3000);
+        sheet["D" + rowIndex].Value = random.Next(3000, 4000);
+        sheet["E" + rowIndex].Value = random.Next(4000, 5000);
+        sheet["F" + rowIndex].Value = random.Next(5000, 6000);
+        sheet["G" + rowIndex].Value = random.Next(6000, 7000);
+        sheet["H" + rowIndex].Value = random.Next(7000, 8000);
     }
 
-    // Formatting cells with styles and borders
-    budgetSheet["A1:H1"].Style.SetBackgroundColor("#d3d3d3");
-    budgetSheet["A1:H1"].Style.TopBorder.SetColor("#000000");
-    budgetSheet["A1:H1"].Style.BottomBorder.SetColor("#000000");
-    budgetSheet["H2:H11"].Style.RightBorder.SetColor("#000000");
-    budgetSheet["H2:H11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
-    budgetSheet["A11:H11"].Style.BottomBorder.SetColor("#000000");
-    budgetSheet["A11:H11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
+    // Format the cells with backgrounds and borders
+    sheet["A1:H1"].Style.SetBackgroundColor("#d3d3d3");
+    sheet["A1:H1"].Style.TopBorder.SetColor("#000000");
+    sheet["A1:H1"].Style.BottomBorder.SetColor("#000000");
+    sheet["H2:H11"].Style.RightBorder.SetColor("#000000");
+    sheet["H2:H11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
+    sheet["A11:H11"].Style.BottomBorder.SetColor("#000000");
+    sheet["A11:H11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
 
-    // Calculations and formulas
-    decimal totalSum = budgetSheet["A2:A11"].Sum();
-    decimal average = budgetSheet["B2:B11"].Avg();
-    decimal maximum = budgetSheet["C2:C11"].Max();
-    decimal minimum = budgetSheet["D2:D11"].Min();
+    // Calculate and apply Excel formulas for statistical results
+    decimal total = sheet["A2:A11"].Sum();
+    decimal average = sheet["B2:B11"].Avg();
+    decimal maximum = sheet["C2:C11"].Max();
+    decimal minimum = sheet["D2:D11"].Min();
 
-    // Set formula results in the worksheet
-    budgetSheet["A12"].Value = "Sum";
-    budgetSheet["B12"].Value = totalSum;
-    budgetSheet["C12"].Value = "Avg";
-    budgetSheet["D12"].Value = average;
-    budgetSheet["E12"].Value = "Max";
-    budgetSheet["F12"].Value = maximum;
-    budgetSheet["G12"].Value = "Min";
-    budgetSheet["H12"].Value = minimum;
+    sheet["A12"].Value = "Sum";
+    sheet["B12"].Value = total;
+    sheet["C12"].Value = "Avg";
+    sheet["D12"].Value = average;
+    sheet["E12"].Value = "Max";
+    sheet["F12"].Value = maximum;
+    sheet["G12"].Value = "Min";
+    sheet["H12"].Value = minimum;
 
-    // Save the Excel file and prompt for viewing
-    SaveService fileSaver = new SaveService();
-    fileSaver.SaveAndView("Budget.xlsx", "application/octet-stream", newWorkbook.ToStream());
+    // Save and Display the Excel File
+    SaveService savingService = new SaveService();
+    savingService.SaveAndView("Budget.xlsx", "application/octet-stream", workbook.ToStream());
 }
 ```
 
-This version retains the original function's logic while varying the structure and terminology to provide a fresh perspective on how to perform these operations with IronXL in a .NET MAUI application.
+The provided code snippet utilizes IronXL to generate a workbook that includes a single worksheet. It utilizes the property `Value` to set the values for individual cells. 
 
-The provided source code utilizes IronXL to initialize a workbook that contains a single worksheet. It assigns values to individual cells through the `Value` property.
+Styling and borders can effectively enhance the appearance of cells. The style attribute in the code facilitates the addition of such enhancements either to individual cells or to a collection of cells concurrently.
 
-Through the style property, you can enhance the appearance of the cells with various styling options and borders. These enhancements can be applied to individual cells or collectively to a range of cells.
+IronXL offers robust support for deploying Excel formulas. You can integrate custom formulas into one or several cells. Importantly, the outcomes of these formulas can be captured in variables for subsequent use.
 
-IronXL features support for Excel formulas, allowing the creation of customized formulas across one or several cells. The outcomes of these formulas can be captured in variables for subsequent use.
+To manage the storage and display of created Excel files, the `SaveService` class is employed. This class, mentioned earlier in the text, will be elaborately defined in subsequent sections of the document.
 
-To facilitate the saving and viewing of the Excel files created, the `SaveService` class is employed. This class is introduced in the preceding sections and is detailed more extensively later in the document.
+### Presenting Excel Files in the Browser
 
-### View Excel Files in the Browser
-
-To begin, access the `MainPage.xaml.cs` file and implement the code below.
+Navigate to the `MainPage.xaml.cs` file and insert the code provided below:
 
 ```cs
 private void ReadExcel(object sender, EventArgs e)
@@ -407,60 +419,77 @@ private void ReadExcel(object sender, EventArgs e)
     WorkBook workbook = WorkBook.Load(filepath);
     WorkSheet sheet = workbook.WorkSheets.First();
 
-    decimal sum = sheet ["B2:B10"].Sum();
+    // Execute formula
+    decimal sum = sheet["B2:B10"].Sum();
 
-    sheet ["B11"].Value = sum;
-    sheet ["B11"].Style.SetBackgroundColor("#808080");
-    sheet ["B11"].Style.Font.SetColor("#ffffff");
+    // Update cell value and style
+    sheet["B11"].Value = sum;
+    sheet["B11"].Style.SetBackgroundColor("#808080");
+    sheet["B11"].Style.Font.SetColor("#ffffff");
 
-    // Save and display the Excel file
+    // Save and view the Excel file
     SaveService saveService = new SaveService();
     saveService.SaveAndView("Modified Data.xlsx", "application/octet-stream", workbook.ToStream());
 
+    // Display a notification alert
     DisplayAlert("Notification", "Excel file has been modified!", "OK");
 }
 ```
 
-This snippet demonstrates how to load an Excel file from a specified path, calculate a sum from a specified range of cells, and then both format and display the modified Excel file. It also presents a notification indicating that the file modifications are complete.
+This code snippet loads an existing Excel file, calculates the sum of a range of cells using a formula, and styles the resulting cell. The styled Excel file is then saved and streamed to the user's browser. Additionally, a notification alert informs the user once the file has been opened and modified.
 
-Here's the paraphrased section:
+Below is the paraphrased section of the article with resolved relative URL paths:
 
 ```cs
-private void ModifyExcel(object sender, EventArgs e)
+private void ReadExcel(object sender, EventArgs e)
 {
-    // Define the file path
-    string path = @"C:\Files\Customer Data.xlsx";
-    WorkBook loadedWorkbook = WorkBook.Load(path);
-    WorkSheet firstSheet = loadedWorkbook.WorkSheets.First();
+    // Define the path where the file is located
+    string pathToFile = @"C:\Files\Customer Data.xlsx";
+    WorkBook workbook = WorkBook.Load(pathToFile);
+    WorkSheet sheet = workbook.WorkSheets.First();
 
-    // Calculate the sum of values in a specific range
-    decimal total = firstSheet["B2:B10"].Sum();
+    // Calculate the sum of values in a specified range
+    decimal total = sheet ["B2:B10"].Sum();
 
-    // Update cell with the computed sum and adjust style
-    firstSheet["B11"].Value = total;
-    firstSheet["B11"].Style.SetBackgroundColor("#808080"); // Set the background color of the cell
-    firstSheet["B11"].Style.Font.SetColor("#ffffff"); // Set the font color
+    // Update the cell with the calculated sum and apply styling
+    sheet ["B11"].Value = total;
+    sheet ["B11"].Style.SetBackgroundColor("#808080"); // Set a grey background
+    sheet ["B11"].Style.Font.SetColor("#ffffff"); // Set font color to white
 
-    // Initialize the service to save and display the Excel file
-    SaveService fileService = new SaveService();
-    fileService.SaveAndView("Modified Data.xlsx", "application/octet-stream", loadedWorkbook.ToStream());
+    // Initialize the service to manage file saving and viewing
+    SaveService saveService = new SaveService();
+    saveService.SaveAndView("Modified Data.xlsx", "application/octet-stream", workbook.ToStream());
 
-    // Show a notification indicating the modification
-    DisplayAlert("Notification", "The Excel file has been successfully updated.", "OK");
+    // Display a notification after modification
+    DisplayAlert("Alert", "The Excel file has been successfully updated!", "OK");
 }
 ```
 
-This paraphrased code segment maintains the original logic and functionality while using slightly different wording and structure to describe the steps and actions performed.
-
-The provided source code opens an Excel file and executes a formula across specific cells, additionally applying custom formatting to the background and text. Subsequently, it sends the Excel file as a byte stream to the user's browser. Moreover, it utilizes the `DisplayAlert` method to display a notification that confirms the file has been successfully opened and altered.
+The source code reads an Excel file, performs computations on a specified range of cells, and customizes their appearance with specified background and font colors. Subsequently, the modified Excel file is converted into a byte stream which is then sent to the user's browser for download. Moreover, the `DisplayAlert` method is utilized to show a notification that confirms the modifications have been applied to the file and it is ready to be viewed.
 
 ### Saving Excel Files
 
-This section outlines the implementation of the `SaveService` class, initially mentioned earlier, which is responsible for saving our Excel files locally.
+This segment outlines the setup of the `SaveService` class, which was mentioned previously and assists in saving Excel files locally.
 
-Begin by creating a new class file named `SaveService.cs` and populate it with the following code:
+Proceed by creating a class file named `SaveService.cs` and input the following code:
 
-Here is the paraphrased section of your article with resolved paths from `ironsoftware.com`:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MAUI_IronXL
+{
+    public partial class SaveService
+    {
+            public partial void SaveAndView(string fileName, string contentType, MemoryStream stream);
+    }
+}
+```
+
+Here's the paraphrased section, with updated markdown formatting and any relative URL paths resolved to `ironsoftware.com`:
 
 ```cs
 using System;
@@ -471,18 +500,16 @@ using System.Threading.Tasks;
 
 namespace MAUI_IronXL
 {
-    // Partial class definition for SaveService
     public partial class SaveService
     {
-        // Method to save and view documents with filename, content type and data stream parameters
-        public partial void SaveAndDisplay(string fileName, string contentType, MemoryStream stream);
+        public partial void SaveAndDisplay(string fileName, string mimeType, MemoryStream stream);
     }
 }
 ```
 
-Subsequently, you will need to establish a class named `SaveWindows.cs`, which should be located within the `Platforms > Windows` directory. Please insert the following code into this class.
+After that, proceed to establish a class titled `SaveWindows.cs` within the Platforms > Windows directory, and insert the following code as illustrated:
 
-Here's the paraphrased section with resolved URL paths from links and images to ironsoftware.com:
+Here is the paraphrased section of your article, with relative URL paths resolved to ironsoftware.com:
 
 ```cs
 using Windows.Storage;
@@ -496,58 +523,56 @@ namespace MAUI_IronXL
     {
         public async partial void SaveAndView(string fileName, string contentType, MemoryStream stream)
         {
-            StorageFile savedFile;
-            string fileExtension = Path.GetExtension(fileName);
-            // Obtains the handle of the current process to display the dialog.
+            StorageFile stFile;
+            string extension = Path.GetExtension(fileName);
+            // Retrieves the handle of the current process window for dialogue initialization.
             IntPtr windowHandle = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
             if (!Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons"))
             {
-                // Initialize a file save picker dialog.
-                FileSavePicker filePicker = new FileSavePicker();
-                filePicker.DefaultFileExtension = ".xlsx";
-                filePicker.SuggestedFileName = fileName;
-                // Set the file type to Excel for saving.
-                filePicker.FileTypeChoices.Add("XLSX", new List<string>() { ".xlsx" });
+                // Initiates a file saver dialogue to store files.
+                FileSavePicker savePicker = new FileSavePicker
+                {
+                    DefaultFileExtension = ".xlsx",
+                    SuggestedFileName = fileName,
+                    FileTypeChoices = { { "XLSX", new List<string> { ".xlsx" } } }
+                };
 
-                // Associate the file picker with the current app window.
-                WinRT.Interop.InitializeWithWindow.Initialize(filePicker, windowHandle);
-                savedFile = await filePicker.PickSaveFileAsync();
+                WinRT.Interop.InitializeWithWindow.Initialize(savePicker, windowHandle);
+                stFile = await savePicker.PickSaveFileAsync();
             }
             else
             {
-                StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-                savedFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+                StorageFolder local = ApplicationData.Current.LocalFolder;
+                stFile = await local.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
             }
-            if (savedFile != null)
+            if (stFile != null)
             {
-                using (IRandomAccessStream fileStream = await savedFile.OpenAsync(FileAccessMode.ReadWrite))
+                using (IRandomAccessStream zipStream = await stFile.OpenAsync(FileAccessMode.ReadWrite))
                 {
-                    // Write the data from memory to the file.
-                    using (Stream outputStream = fileStream.AsStreamForWrite())
+                    // Directly writes data from memory to file stream.
+                    using (Stream outstream = zipStream.AsStreamForWrite())
                     {
-                        outputStream.SetLength(0);
-                        // Copy the stream data to a buffer, then save it to the file.
-                        byte[] buffer = outputStream.ToArray();
-                        outputStream.Write(buffer, 0, buffer.Length);
-                        outputStream.Flush();
+                        outstream.SetLength(0);  // Clear existing contents.
+                        byte[] buffer = stream.ToArray(); // Temporarily holds data.
+                        outstream.Write(buffer, 0, buffer.Length);
+                        outstream.Flush(); // Ensure all data is written to the file.
                     }
                 }
-                // Construct the message dialog for viewing the document.
-                MessageDialog confirmationDialog = new("Do you want to view the document?", "File has been created successfully");
-                UICommand yesCommand = new("Yes");
-                confirmationDialog.Commands.Add(yesCommand);
-                UICommand noCommand = new("No");
-                confirmationDialog.Commands.Add(noCommand);
+                // Prompt to check if the user wants to view the newly created file.
+                MessageDialog msgDialog = new MessageDialog("Do you want to view the document?", "File has been created successfully");
+                UICommand yesCmd = new UICommand("Yes");
+                UICommand noCmd = new UICommand("No");
+                msgDialog.Commands.Add(yesCmd);
+                msgDialog.Commands.Add(noCmd);
 
-                // Attach the dialog to the main application window for proper UI interaction.
-                WinRT.Interop.InitializeWithWindow.Initialize(confirmationDialog, windowHandle);
+                WinRT.Interop.InitializeWithWindow.Initialize(msgDialog, windowHandle);
 
-                // Display the dialog to the user.
-                IUICommand selectedAction = await confirmationDialog.ShowAsync();
-                if (selectedAction.Label == yesCommand.Label)
+                // Display and handle the response from the dialog.
+                IUICommand cmd = await msgDialog.ShowAsync();
+                if (cmd == yesCmd)
                 {
-                    // If the user chooses 'Yes', open the saved file.
-                    await Windows.System.Launcher.LaunchFileAsync(savedFile);
+                    // Opens the saved file.
+                    await Windows.System.Launcher.LaunchFileAsync(stFile);
                 }
             }
         }
@@ -555,9 +580,9 @@ namespace MAUI_IronXL
 }
 ```
 
-### Output
+### Result Display
 
-Compile and execute the .NET MAUI project. Upon successful execution, you will see a window displaying the content shown in the image below.
+After compiling and executing the MAUI project, a window will appear showcasing the output as illustrated in the following image.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -566,7 +591,7 @@ Compile and execute the .NET MAUI project. Upon successful execution, you will s
     </div>
 </div>
 
-Pressing the "Create Excel File" button will trigger the display of a distinct dialog window, where users are asked to specify a location and a filename to save a newly created Excel file. Follow the prompts to enter the desired details and proceed by clicking OK. Subsequently, another dialog window will be presented.
+When you press the "Create Excel File" button, a new dialog window will appear. This dialog will prompt you to select a location and a filename for saving the newly created Excel file. Follow the instructions to choose the appropriate location and filename, then click OK. Subsequently, a second dialog window will be displayed.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -575,7 +600,7 @@ Pressing the "Create Excel File" button will trigger the display of a distinct d
     </div>
 </div>
 
-Opening the Excel file as instructed in the popup will display a document as depicted in the following screenshot.
+Following the instructions from the popup to open the Excel file will display the document as depicted in the screenshot below.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -584,7 +609,7 @@ Opening the Excel file as instructed in the popup will display a document as dep
     </div>
 </div>
 
-When you click the "Read and Modify Excel File" button, the application will open the Excel file created earlier and update it with the custom background and text colors specified previously.
+Upon selecting the "Read and Modify Excel File" button, the application will access the previously generated Excel document and update it with the predefined custom background and text coloring specified before.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -593,7 +618,7 @@ When you click the "Read and Modify Excel File" button, the application will ope
     </div>
 </div>
 
-Upon opening the modified Excel file, the output displayed will include a table of contents as illustrated below.
+Upon opening the adjusted file, the display will present the subsequent output, complete with a table of contents.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -604,9 +629,9 @@ Upon opening the modified Excel file, the output displayed will include a table 
 
 ## Conclusion
 
-This section has demonstrated how to use the IronXL library to create, read, and modify Excel files within a .NET MAUI application. IronXL excels in performing these tasks efficiently and accurately. It is a superior alternative to Microsoft Interop because it operates independently without needing Microsoft Office installed on the system. Furthermore, IronXL offers extensive functionality including the creation of workbooks and worksheets, managing cell ranges, applying formatting, and exporting to various file formats such as CSV and TSV.
+This section has illustrated how the IronXL library can be effectively used to create, read, and modify Excel files within .NET MAUI applications. Notably, IronXL is recognized for its rapid and precise execution of tasks. It is a superior choice for managing Excel data operations compared to Microsoft Interop, mainly because it does not necessitate the installation of Microsoft Office on your device. Moreover, IronXL facilitates a broad range of functionalities, including but not limited to, the creation of workbooks and worksheets, managing cell data and formats, and exporting contents to various file formats like CSV and TSV.
 
-IronXL is compatible with various project templates including Windows Forms, WPF, and ASP.NET Core. For more detailed guidance on utilizing IronXL, visit our tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
+Additionally, IronXL is compatible with diverse project formats including Windows Form, WPF, ASP.NET Core, among others. For further guidance on utilizing IronXL, explore our detailed tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
 
 <hr class="separator">
 

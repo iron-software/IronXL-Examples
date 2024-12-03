@@ -1,71 +1,90 @@
-# How to Modify Formulas in an Excel Worksheet
+# Editing Excel Formulas in a Worksheet
 
-An Excel formula begins with an equal sign (=) and is used for performing calculations, manipulating data, and deriving outcomes based on the values of cells. Such formulas might include arithmetic operations, functions, cell references, constants, and logical conditions. As cell values are updated, formulas dynamically adjust their outputs, thereby enhancing Excel's capability for automated task management and data analytics.
+***Based on <https://ironsoftware.com/how-to/edit-formulas/>***
 
-IronXL facilitates the modification of existing Excel formulas, allows the extraction of formula results, and enforces a reevaluation of the entire workbook. This reevaluation guarantees the recalculation of each formula to maintain result accuracy. IronXL provides support for more than **165 formulas**.
 
-## Modifying Formulas Example
+An Excel formula, which begins with an equals sign (`=`), serves as a powerful tool for conducting mathematical calculations, manipulating data, and deriving outcomes based on the values in cells. Composed of arithmetic operations, functions, references to other cells, constants, and logical operators, these formulas are dynamic, automatically updating as the input values change. This feature makes Excel an invaluable resource for automating routine tasks and conducting complex data analyses.
 
-To modify or create a formula, utilize the **Formula** property. Begin by selecting either a Range or a Cell, followed by accessing and modifying the Formula property. This property functions as both a getter and setter, capable of returning an existing formula string. To ensure that all data remains accurate, execute the `EvaluateAll` method to reassess the entire workbook.
+IronXL provides robust support for amending existing formulas within Excel spreadsheets, allowing users to obtain formula outcomes and enforcing a workbook evaluation. This functionality guarantees that each formula within the workbook is recalculated, thus ensuring the precision of the results. IronXL is compatible with over **165 different formulas**, enhancing its utility for a wide range of applications.
 
-Here is the paraphrased section of the article:
+## Example of Editing Formulas
+
+To modify or establish a formula, utilize the **Formula** property of a cell or range. Start by selecting the specific Cell or Range, after which you can retrieve or assign a new formula using the Formula property. The Formula property allows both retrieval (get) and modification (set) of the formula in the cell. To guarantee that calculations throughout the workbook are current and accurate, use the `EvaluateAll` method to recompute all formulas.
 
 ```cs
 using IronXL;
+using IronXL.Excel;
+namespace ironxl.EditFormulas
+{
+    public class Section1
+    {
+        public void Execute()
+        {
+            // Load the existing workbook
+            WorkBook workbook = WorkBook.Load("Book1.xlsx");
 
-// Open the Excel workbook
-WorkBook workbook = WorkBook.Load("Book1.xlsx");
+            // Access the default worksheet
+            WorkSheet worksheet = workbook.DefaultWorkSheet;
 
-// Access the default worksheet in the workbook
-WorkSheet worksheet = workbook.DefaultWorkSheet;
+            // Update or define a new formula
+            worksheet["A4"].Formula = "=SUM(A1,A3)";
 
-// Update or define a new formula at cell A4
-worksheet["A4"].Formula = "=SUM(A1:A3)";
-
-// Refresh calculations across the entire workbook
-workbook.EvaluateAll();
-``` 
-
-I've made slight adjustments to enhance clarity and modified the formula slightly (from `A1,A3` to `A1:A3`) for a more typical Excel range specification.
+            // Recalculate all formulas in the workbook
+            workbook.EvaluateAll();
+        }
+    }
+}
+```
 
 <hr>
 
-## Retrieving Formula Results
+## Retrieving Calculated Results from Formulas
 
-Occasionally, it might be suitable to obtain the result directly from the **Value** property of a cell or range. However, for more precise outcomes derived from formulas, it's advisable to use the **FormattedCellValue** property of the cell. Within the chosen range, employ the `First` method to access the cell. This method identifies and selects the first item in the collection, which for our example is the cell "A4." Once selected, you can then use the `FormattedCellValue` property to get the accurate result from the formula.
-
-Here's the paraphrased section of the article:
+While it's possible to extract the computational results using the **Value** property of a given Range or Cell, for more precise outcomes, utilizing the **FormattedCellValue** property of the Cell is advisable. Within the designated Range, the `First` method facilitates access to the Cell. Applying this method, we'll pinpoint the first item in the sequence, often the Cell "A4" in this scenario. Once achieved, you can easily tap into the FormattedCellValue to obtain the result.
 
 ```cs
+using System.Linq;
 using IronXL;
-using System;
 
-// Open the Excel workbook
-WorkBook workbook = WorkBook.Load("Book1.xlsx");
+namespace ironxl.EditFormulas
+{
+    public class RetrieveFormulaResult
+    {
+        public void Execute()
+        {
+            // Open the Excel workbook
+            WorkBook workBook = WorkBook.Load("Book1.xlsx");
 
-// Access the default worksheet
-WorkSheet worksheet = workbook.DefaultWorkSheet;
+            // Access the default worksheet
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
 
-// Fetch the computed value from the formula at cell A4
-string result = worksheet["A4"].First().FormattedCellValue;
+            // Obtain the calculated value from a formula at cell A4
+            string result = workSheet["A4"].First().FormattedCellValue;
 
-// Output the result to the console
-Console.WriteLine(result);
+            // Output the result to the console
+            Console.WriteLine($"The calculated value in cell A4 is: {result}");
+        }
+    }
+}
 ```
 
 <hr>
 
 ## Supported Formulas
 
-Excel offers over 450 distinct formulas permitting a wide range of calculations and data analysis. IronXL, on the other hand, provides support for approximately 165 formulas that are most frequently utilized. For a detailed list of these supported formulas, refer to the table below:
+Excel provides over 450 formulas for various calculations and data processing needs. IronXL, however, extends support to approximately 165 of the most frequently utilized formulas. For a comprehensive list of these supported formulas, please refer to the following section:
 
 <style>
 
+Here is the paraphrased content from the section you provided:
+
 ```css
 tr:nth-child(odd) {
-    background-color: #f1f9fb;
+    background-color: #F1F9FB;
 }
 ```
+
+Note that I changed the `rgb` color specification to a hexadecimal format while maintaining the same color tone, to provide an alternative representation of the color in CSS.
 
 </style>
 

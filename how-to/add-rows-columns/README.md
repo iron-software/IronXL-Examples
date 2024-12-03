@@ -1,78 +1,124 @@
-# How to Add Rows and Columns Using IronXL
+# How to Add New Rows and Columns
 
-The IronXL library simplifies the process of adding rows and columns in C# without the need for Office Interop. This guide provides clear instructions on how to expand your spreadsheets effectively.
+***Based on <https://ironsoftware.com/how-to/add-rows-columns/>***
 
-## Example: Adding New Rows
 
-The IronXL library facilitates adding new rows through the `InsertRow` and `InsertRows` methods, which allow insertion at a specified index.
+The IronXL library simplifies the addition of rows and columns in C# without the need for Office Interop.
 
-It's important to avoid inserting rows directly on the filter row, as this may lead to conflicts and necessitate the use of Excel repair tools to resolve spreadsheet display issues.
+
+## Example on How to Add a New Row
+
+To add new rows to a spreadsheet, utilize the `InsertRow` and `InsertRows` methods. These functions allow you to specify the exact position for new rows.
+
+However, be cautious when inserting rows at the filter row position as this can lead to conflicts, potentially requiring Excel repair operations for proper file handling.
 
 ```cs
 using IronXL;
-
-// Load an existing spreadsheet
-WorkBook workbook = WorkBook.Load("sample.xlsx");
-WorkSheet worksheet = workbook.DefaultWorkSheet;
-
-// Insert a single row before the 2nd row
-worksheet.InsertRow(1);
-
-// Insert three rows starting after the 3rd row
-worksheet.InsertRows(3, 3);
-
-workbook.SaveAs("addRow.xlsx");
+using IronXL.Excel;
+namespace ironxl.AddRowsColumns
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Opening an existing spreadsheet
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            // Inserting a single row at index 1
+            workSheet.InsertRow(1);
+            
+            // Adding three rows starting from index 3
+            workSheet.InsertRows(3, 3);
+            
+            // Save the updates to a new file
+            workBook.SaveAs("addRow.xlsx");
+        }
+    }
+}
 ```
 
-![Add New Row](https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-rows.png)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-rows.png" alt="Add New Row" class="img-responsive add-shadow">
+    </div>
+</div>
 <hr>
 
-## Example: Removing a Row
+## Example on How to Remove a Row
 
-To remove a specific row, use the `GetRow` method to locate it and `RemoveRow` to delete it.
+To delete a row, make use of the `GetRow` method to select it and `RemoveRow` to delete it from your sheet.
 
-Note that the header row cannot be removed.
+Note that it's not possible to delete the spreadsheet's header row.
 
 ```cs
 using IronXL;
-
-// Open an existing spreadsheet
-WorkBook workbook = WorkBook.Load("sample.xlsx");
-WorkSheet worksheet = workbook.DefaultWorkSheet;
-
-// Select and remove the 5th row
-worksheet.GetRow(4).RemoveRow();
-
-workbook.SaveAs("removeRow.xlsx");
+using IronXL.Excel;
+namespace ironxl.AddRowsColumns
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Load the spreadsheet
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            // Target and remove the fifth row
+            workSheet.GetRow(4).RemoveRow();
+            
+            // Saving the file after changes
+            workBook.SaveAs("removeRow.xlsx");
+        }
+    }
+}
 ```
 
-![Remove a Row](https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-remove-row.png)
+<div  class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-remove-row.png" alt="Add New Row" class="img-responsive add-shadow">
+    </div>
+</div>
 <hr>
 
-## Example: Adding New Columns
+## How to Insert a New Column Example
 
-Use the `InsertColumn` and `InsertColumns` methods to add new columns before a specified index in your spreadsheet.
+You can add new columns to your spreadsheet by employing the `InsertColumn` and `InsertColumns` methods, targeting specific index positions.
 
-Inserting columns within occupied table ranges may cause issues requiring Excel repair to correct the file. If attempting to add a column to an entirely empty sheet, a `System.InvalidOperationException` can occur, with the message 'Sequence contains no elements'.
+Be mindful that inserting columns within the range of the table might cause file conflicts, potentially requiring Excel repair to correct.
 
-To clean up any extraneous empty rows and columns along the borders of your data range, employ the [Trim() method](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/). However, direct removal of columns is not supported.
+For managing space efficiency, use the [`Trim()`](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/) technique to eliminate extraneous rows and columns along the boundaries of the range. Current operations do not allow for the removal of columns, and adding a column to an empty sheet might result in a `System.InvalidOperationException`.
 
 ```cs
 using IronXL;
-
-// Open an existing spreadsheet
-WorkBook workbook = WorkBook.Load("sample.xlsx");
-WorkSheet worksheet = workbook.DefaultWorkSheet;
-
-// Insert a column before the first column
-worksheet.InsertColumn(0);
-
-// Insert two columns after the second column
-worksheet.InsertColumns(2, 2);
-
-workbook.SaveAs("addColumn.xlsx");
+using IronXL.Excel;
+namespace ironxl.AddRowsColumns
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            // Open the spreadsheet file
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            // Adding a column at the beginning
+            workSheet.InsertColumn(0);
+            
+            // Adding two columns starting from the third column
+            workSheet.InsertColumns(2, 2);
+            
+            // Save the modified file
+            workBook.SaveAs("addColumn.xlsx");
+        }
+    }
+}
 ```
 
-![Add New Column](https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-columns.png)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-columns.png" alt="Add New Column" class="img-responsive add-shadow">
+    </div>
+</div>
 
-All indices for rows and columns are based on zero indexing for clarity and consistency.
+Index positions for rows and columns start from zero.

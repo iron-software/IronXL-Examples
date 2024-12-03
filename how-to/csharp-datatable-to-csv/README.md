@@ -1,99 +1,120 @@
-# Converting Datatable to CSV in C#
+# Converting DataTable to CSV with C# and IronXL
 
-Easily transform your datatables into CSV format using IronXL with a few simple steps. This guide demonstrates a straightforward approach to accomplish this.
+***Based on <https://ironsoftware.com/how-to/csharp-datatable-to-csv/>***
+
+
+This tutorial walks you through the steps for transforming a `DataTable` into a CSV file using IronXL. This is a straightforward process that we'll break down into easy-to-follow steps.
 
 ---
 
-### Step 1
+### Step 1: Install IronXL
 
-#### First, Install IronXL for Free
+To begin, you'll need to have IronXL installed in your project. IronXL offers multiple installation options to get started:
 
-To begin, you must have IronXL installed. IronXL offers multiple installation options tailored to your project needs.
+Visit the official site to download IronXL using this link: [IronXL Documentation](https://ironsoftware.com/csharp/excel/docs/)
 
-You can download it directly from their website through this link: [IronXL Installation Guide](https://ironsoftware.com/csharp/excel/docs/)
+Or, within Visual Studio:
 
-Alternatively, you can install it via NuGet in Visual Studio:
-
-- Navigate to the Project menu
-- Choose Manage NuGet Packages
-- Look for `IronXL.Excel`
-- Select Install
+- Navigate to the `Project` menu
+- Choose `Manage NuGet Packages`
+- Search for `IronXL.Excel`
+- Select `Install`
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-<center>
-
-![IronXL.Excel NuGet Package](https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png "IronXL.Excel NuGet Package")
-
-</center>
+<div align="center">
+  <a
+    href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png"
+    target="_blank"
+  >
+    <img
+      src="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png"
+      alt="IronXL.Excel NuGet Package"
+      style="width:auto; max-width:100%; height:auto;"
+    >
+  </a>
+  <div>
+    <strong>Figure 1</strong> - IronXL.Excel NuGet Package
+  </div>
+</div>
 
 ---
 
-### How-to Tutorial
+### Step 2: Create and Export DataTable to CSV
 
-#### Step 2: Create a Datatable and Export it as CSV
+Let's move on to coding.
 
-With IronXL installed, you're all set to proceed.
+Start by including the IronXL namespace in your project:
 
-Begin by importing the IronXL namespace:
-
-```cs
+```csharp
 using IronXL;
 ```
 
-Then, use this code to perform the conversion:
+Proceed by applying the below C# code:
 
-```cs
-// Creates a datatable and exports it to a CSV file
+```csharp
+// This method demonstrates how to save a DataTable to a CSV file.
 private void button6_Click(object sender, EventArgs e)
 {
     DataTable table = new DataTable();
     table.Columns.Add("Example_DataSet", typeof(string));
-    // Adding sample data to the datatable
-    table.Rows.Add("0");
-    table.Rows.Add("1");
-    table.Rows.Add("2");
-    table.Rows.Add("3");
-    table.Rows.Add("1");
-    table.Rows.Add("2");
-    table.Rows.Add("3");
-
-    WorkBook wb = WorkBook.Create(ExcelFileFormat.XLS);
-    wb.Metadata.Author = "OJ";
-    WorkSheet ws = wb.DefaultWorkSheet;
-
-    // Filling Excel worksheet with data from datatable
-    int rowCount = 1;
-    foreach (DataRow row in table.Rows)
+    
+    // Adding dummy data to the DataTable
+    for(int i = 0; i < 7; i++)
     {
-        ws["A" + rowCount].Value = row[0].ToString();
-        rowCount++;
+        table.Rows.Add(i % 4); // Cycle through 0, 1, 2, 3, 1, 2, 3
     }
 
-    wb.SaveAsCsv("Save_DataTable_CSV.csv", ";"); // Specify delimiter if needed
+    WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLS);
+    workbook.Metadata.Author = "OJ"; // Setting author metadata
+    WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+    int rowIndex = 1;
+    foreach (DataRow row in table.Rows)
+    {
+        worksheet[$"A{rowIndex}"].Value = row[0].ToString();
+        rowIndex++;
+    }
+
+    workbook.SaveAsCsv("Exported_DataTable_CSV.csv", ";"); // Specify delimiter
 }
 ```
 
-This script first initializes a new datatable and populates it. It then creates a workbook and binds the datatable content to an Excel worksheet. Finally, it exports this data to a CSV file using the `SaveAsCsv` method.
+In this script, a `DataTable` is populated and subsequently exported into a CSV file through IronXL. The `SaveAsCsv` method streamlines this process.
 
-#### Output CSV file:
+### Visual Output
 
-<center>
-
-![Datatable output to CSV](https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png "Datatable output to CSV")
-
-</center>
+<div align="center">
+  <a
+    href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png"
+    target="_blank"
+  >
+    <img
+      src="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png"
+      alt="Datatable output to CSV"
+      style="width:auto; max-width:100%; height:auto;"
+    >
+  </a>
+  <div>
+    <strong>Figure 2</strong> - Datatable output to CSV
+  </div>
+</div>
 
 ---
 
 ### Library Quick Access
 
-#### Learn More Through IronXL API Reference Documentation
+IronXL's API Reference Documentation provides extensive guides and samples for managing Excel interactions:
 
-Explore more functionalities like merging, unmerging, and manipulating Excel cells by visiting the [IronXL API Reference Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/).
+[Explore IronXL API Reference](https://ironsoftware.com/csharp/excel/object-reference/api/)
 
-![Documentation](https://ironsoftware.com/img/svgs/documentation.svg)
-
----
+<div style="display:flex; align-items:center;">
+  <img
+    src="https://ironsoftware.com/img/svgs/documentation.svg"
+    alt="Documentation"
+    style="max-width: 110px; width: 100px; height: 140px; margin-right:20px;"
+  >
+  <strong>IronXL API Reference Documentation</strong>
+</div>

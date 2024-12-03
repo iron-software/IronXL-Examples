@@ -1,24 +1,38 @@
-# How to Select Ranges in Excel with IronXL
+# How to Select Range
 
-IronXL simplifies the process of selecting and manipulating ranges in Excel spreadsheets without the need for Office Interop.
+***Based on <https://ironsoftware.com/how-to/select-range/>***
 
-## Example of Selecting a Range
 
-IronXL empowers you to carry out numerous functions with selected ranges such as [sorting](https://ironsoftware.com/csharp/excel/how-to/sort-cells/), computations, and summary operations. When you use methods that change or shuffle cell values, the specified range, row, or column adjusts its values automatically. IronXL also supports the merging of multiple `IronXL.Ranges.Range` objects using the `+` operator.
+IronXL provides a straightforward approach for selecting and manipulating ranges within an Excel Worksheet, without the need for Office Interop.
 
-### Selecting a Specific Range
+## Select Range Example
 
-For selecting a range from cell **A2** to **B8**, the code snippet below demonstrates how to perform this action:
+Utilizing IronXL, you're able to carry out various operations on selected ranges including, but not limited to, [sorting](https://ironsoftware.com/csharp/excel/how-to/sort-cells/), calculations, and aggregation tasks.
+
+When you execute methods that alter or reposition cell values, the targeted range, row, or column will refresh to show the updated values. IronXL enables the combination of multiple `IronXL.Ranges.Range` objects using the '+' operator.
+
+### Select a Range
+
+To target a range from cell **A2** to **B8**, utilize the following code:
 
 ```cs
-using IronXL;
+using IronXL.Excel;  
 using System.Linq;
 
-WorkBook workBook = WorkBook.Load("sample.xls");
-WorkSheet workSheet = workBook.WorkSheets.First();
-
-// Select a specific range from the worksheet
-var range = workSheet["A2:B8"];
+namespace ironxl.SelectRange
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xls");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+            
+            // Accessing range from worksheet
+            var range = workSheet["A2:B8"];
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -27,19 +41,28 @@ var range = workSheet["A2:B8"];
     </div>
 </div>
 
-### Selecting a Row
+### Select a Row
 
-To select the 4th row, utilize the `GetRow(3)` function with zero-based indexing. This includes all cells across the specified row, accounting for any cells that may be populated in the same column in other rows.
+To select the 4th row, utilize the `GetRow(3)` method, which employs zero-based indexing. The range will cover any empty cells that are filled in other rows within the same column, ensuring completeness of the selected row across the board.
 
 ```cs
-using IronXL;
+using IronXL.Excel;
 using System.Linq;
 
-WorkBook workBook = WorkBook.Load("sample.xls");
-WorkSheet workSheet = workBook.WorkSheets.First();
-
-// Obtain the fourth row from the worksheet
-var row = workSheet.GetRow(3);
+namespace ironxl.SelectRange
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xls");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+            
+            // Retrieve a specific row from the worksheet
+            var row = workSheet.GetRow(3);
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -48,19 +71,28 @@ var row = workSheet.GetRow(3);
     </div>
 </div>
 
-### Selecting a Column
+### Select a Column
 
-Selecting column C in your spreadsheet can be done using `GetColumn(2)` or by specifying the range as `workSheet["C:C"]`. This method also ensures all cells in the column are selected, irrespective of their populated state in other rows.
+To access column C, either utilize the `GetColumn(2)` method or directly refer to the column with `workSheet ["C:C"]`. Similar to the `GetRow` method, the selected column will include all related cells across rows.
 
 ```cs
-using IronXL;
+using IronXL.Excel;
 using System.Linq;
 
-WorkBook workBook = WorkBook.Load("sample.xls");
-WorkSheet workSheet = workBook.WorkSheets.First();
-
-// Access the third column from the worksheet
-var column = workSheet.GetColumn(2);
+namespace ironxl.SelectRange
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xls");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+            
+            // Access a specific column from the worksheet
+            var column = workSheet.GetColumn(2);
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -69,26 +101,33 @@ var column = workSheet.GetColumn(2);
     </div>
 </div>
 
-All indexing for rows and columns follow a zero-based notation.
+### Combine Ranges
 
-### Combining Ranges
+IronXL also allows for the merging of multiple `IronXL.Ranges.Range` objects. Using the '+' operator, you can seamlessly join ranges forming a new, consolidated range. However, direct combination of rows and columns with the '+' operator is unsupported.
 
-IronXL allows you to combine multiple `IronXL.Ranges.Range` objects using the `+` operator, facilitating easy concatenation or merging of ranges, resulting in a new, extended range.
-
-It's important to note that combining rows and columns directly via the `+` operator is unsupported.
-
-The code below modifies the `range` variable to encompass the combined ranges after merging them.
+Successfully combining ranges will update the original range object. For instance, in the following snippet, the `range` variable will reflect the newly combined ranges.
 
 ```cs
-using IronXL;
+using IronXL.Excel;
 using System.Linq;
 
-WorkBook workBook = WorkBook.Load("sample.xls");
-WorkSheet workSheet = workBook.WorkSheets.First();
-
-// Initialize range selection
-var range = workSheet["A2:B2"];
-
-// Combine with another range
-var combinedRange = range + workSheet["A5:B5"];
+namespace ironxl.SelectRange
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xls");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+            
+            // Initially accessing a specific range
+            var range = workSheet["A2:B2"];
+            
+            // Merging ranges
+            var combinedRange = range + workSheet["A5:B5"];
+        }
+    }
+}
 ```
+
+All row- and column-related index positions adhere to zero-based indexing.

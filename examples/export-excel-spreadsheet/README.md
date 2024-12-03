@@ -1,10 +1,12 @@
-The **IronXL** library offers the functionality to generate Excel documents in XLS and XLSX formats. With the intuitive APIs provided by IronXL, you can populate your workbook and utilize the `SaveAs` method to store it in formats such as **XLS, XLSX, XLSM, CSV, TSV, JSON, XML, or HTML**. Additionally, IronXL supports exporting data in multiple formats, including **HTML string, Binary, Byte array, Data set, and Memory stream**.
+***Based on <https://ironsoftware.com/examples/export-excel-spreadsheet/>***
 
-While the `SaveAs` method allows for exporting to CSV, JSON, XML, and HTML, it is advisable to use specific methods tailored for each format for optimal results:
+The **IronXL** library enables the creation of Excel documents in both XLS and XLSX formats. You can easily populate your workbook using IronXL's user-friendly APIs and then utilize the `SaveAs` method to save your workbook in various formats including **XLS, XLSX, XLSM, CSV, TSV, JSON, XML, or HTML**. Furthermore, IronXL supports exporting to numerous in-code data types such as **HTML string, Binary, Byte array, Data set, and Memory stream**.
+
+Although the `SaveAs` method can export to CSV, JSON, XML, and HTML, it is advisable to use specific methods designed for each of these formats for optimal results:
 
 - `SaveAsCsv`
 - `SaveAsJson`
 - `SaveAsXml`
 - `ExportToHtml`
 
-It is important to note that when dealing with CSV, TSV, JSON, and XML formats, a separate file will be generated for each worksheet. The files are named according to the pattern `fileName.sheetName.format`. For instance, for a CSV export, the file name would be formatted as `sample.new_sheet.csv`.
+It's important to recognize that for CSV, TSV, JSON, and XML formats, a separate file is generated for each sheet within the workbook, adhering to the naming pattern `fileName.sheetName.format`. For instance, in the scenario described, a CSV export would produce a file named `sample.new_sheet.csv`.

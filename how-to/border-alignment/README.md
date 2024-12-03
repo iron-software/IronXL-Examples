@@ -1,108 +1,142 @@
-# Configuring Cell Border and Text Alignment Using IronXL
+# Customizing Cell Borders and Text Alignment in Excel Spreadsheets
 
-In Excel, enhancing the appearance of cells with customized borders and fixed text alignment greatly improves the visual appeal and readability of your spreadsheets. With the IronXL library, setting border styles, thickness, and colors, as well as aligning text, can dramatically enhance data presentation and visibility.
+***Based on <https://ironsoftware.com/how-to/border-alignment/>***
 
-## Example of Setting Cell Borders and Alignment
 
-You can modify the visual layout of cells in your Excel document by adjusting properties such as **TopBorder**, **RightBorder**, **BottomBorder**, and **LeftBorder**. Utilize the styles available in the `IronXL.Styles.BorderType` enumeration to personalize cell borders. Further details on available border styles can be found by navigating to our [border styles list](https://ironsoftware.com/csharp/excel/how-to/select-range/).
+Excel spreadsheets provide cell borders, which are visual lines outlining individual or groups of cells, and text alignment capabilities which determine the positioning of the text within those cells both vertically and horizontally.
 
-For precise control over text placement, modify the **HorizontalAlignment** and **VerticalAlignment** settings using the respective properties in the `Style` class, choosing from the options provided in the `IronXL.Styles.HorizontalAlignment` and `IronXL.Styles.VerticalAlignment` enumerations. Explore the full range of alignment options to ensure your data is displayed perfectly.
+Utilizing IronXL, you can enhance your data presentation by customizing these aspects. Styling borders and adjusting text alignments can increase readability and give a polished, professional appearance to your spreadsheets.
+
+## Example: Setting Cell Borders and Text Alignment
+
+Enhance a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/) by applying borders and setting alignment through the **TopBorder**, **RightBorder**, **BottomBorder**, and **LeftBorder** properties. Choose from a variety of styles offered in the **IronXL.Styles.BorderType** enum. Check out [all available border styles](#anchor-available-border-type) to find one that suits your needs.
+
+For precise placement of your text, adjust **HorizontalAlignment** and **VerticalAlignment** in the Style properties. The **IronXL.Styles.HorizontalAlignment** and **IronXL.Styles.VerticalAlignment** enums allow you to position text exactly how you want it within your spreadsheet. Explore [all alignment options](#anchor-available-border-type) to perfectly showcase your data.
 
 ```cs
-using IronXL;
 using IronXL.Styles;
-
-WorkBook workBook = WorkBook.Create();
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-workSheet["B2"].Value = "Sample Text";
-
-// Setting borders
-workSheet["B2"].Style.LeftBorder.Type = BorderType.MediumDashed;
-workSheet["B2"].Style.RightBorder.Type = BorderType.MediumDashed;
-
-// Adjusting text alignment
-workSheet["B2"].Style.HorizontalAlignment = HorizontalAlignment.Center;
-
-workBook.SaveAs("EnhancedSpreadsheet.xlsx");
+using IronXL.Excel;
+namespace ironxl.BorderAlignment
+{
+    public class Section1
+    {
+        public void Execute()
+        {
+            WorkBook workBook = WorkBook.Create();
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            workSheet["B2"].Value = "Data Point";
+            
+            // Applying cell border
+            workSheet["B2"].Style.LeftBorder.Type = BorderType.MediumDashed;
+            workSheet["B2"].Style.RightBorder.Type = BorderType.MediumDashed;
+            
+            // Configuring text alignment
+            workSheet["B2"].Style.HorizontalAlignment = HorizontalAlignment.Center;
+            
+            workBook.SaveAs("FormattedExcel.xlsx");
+        }
+    }
+}
 ```
 
-<div class="content-img-align-center">
+<div  class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/set-border-alignment.webp" alt="Border And Alignment Example" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/set-border-alignment.webp" alt="Border And Alignment" class="img-responsive add-shadow">
     </div>
 </div>
 
 ## Advanced Customization: Border Color and Line Patterns
 
-### Customize Border Color
+### Customizing Border Color
 
-The default border color is typically black, but IronXL allows for customization to any desired color. You can apply specific colors using the `Color` class or Hex color codes with the `SetColor` method. Note that you must set a border type to see the color applied.
+While the default border color is black, IronXL allows customization to any desired color using either the **Color** class or Hex color codes. Before setting a color, ensure the border type is defined.
 
 ```cs
-using IronXL;
-using IronXL.Styles;
 using IronSoftware.Drawing;
-
-WorkBook workBook = WorkBook.Create();
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-workSheet["B2"].Style.LeftBorder.Type = BorderType.Thick;
-workSheet["B2"].Style.RightBorder.Type = BorderType.Thick;
-
-// Customizing border colors
-workSheet["B2"].Style.LeftBorder.SetColor(Color.Aquamarine);
-workSheet["B2"].Style.RightBorder.SetColor("#FF7F50");
-
-workBook.SaveAs("CustomBorderColors.xlsx");
+using IronXL.Excel;
+namespace ironxl.BorderAlignment
+{
+    public class Section2
+    {
+        public void Execute()
+        {
+            WorkBook workBook = WorkBook.Create();
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            workSheet["B2"].Style.LeftBorder.Type = BorderType.Thick;
+            workSheet["B2"].Style.RightBorder.Type = BorderType.Thick;
+            
+            // Customizing border color
+            workSheet["B2"].Style.LeftBorder.SetColor(Color.Aquamarine);
+            workSheet["B2"].Style.RightBorder.SetColor("#FF7F50");
+            
+            workBook.SaveAs("CustomBorderColor.xlsx");
+        }
+    }
+}
 ```
 
-<div class="content-img-align-center">
+<div  class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/set-border-color.webp" alt="Custom Border Colors" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/set-border-color.webp" alt="Border Color" class="img-responsive add-shadow">
     </div>
 </div>
 
-### Border Line Positions and Patterns
+### Border Lines and Patterns
 
-IronXL supports various border positions and line styles, including top, right, bottom, left, and diagonal borders. This versatility enables sophisticated formatting and custom designs.
+IronXL supports a range of border lines including top, right, bottom, left, and diagonal directions. Each of these can be set with various patterns or types as needed.
 
 ```cs
-using IronXL;
 using IronXL.Styles;
-
-WorkBook workBook = WorkBook.Create();
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-workSheet["B2"].StringValue = "Top Border Example";
-workSheet["B4"].StringValue = "Diagonal Border Example";
-
-// Applying top border line
-workSheet["B2"].Style.TopBorder.Type = BorderType.Thick;
-
-// Applying a diagonal border line and setting its direction
-workSheet["B4"].Style.DiagonalBorder.Type = BorderType.Thick;
-workSheet["B4"].Style.DiagonalBorderDirection = DiagonalBorderDirection.Forward;
-
-workBook.SaveAs("BorderStyles.xlsx");
+using IronXL.Excel;
+namespace ironxl.BorderAlignment
+{
+    public class Section3
+    {
+        public void Execute()
+        {
+            WorkBook workBook = WorkBook.Create();
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            workSheet["B2"].StringValue = "Peak";
+            workSheet["B4"].StringValue = "Diagonal";
+            
+            // Establishing top border line
+            workSheet["B2"].Style.TopBorder.Type = BorderType.Thick;
+            
+            // Designing a diagonal border
+            workSheet["B4"].Style.DiagonalBorder.Type = BorderType.Thick;
+            workSheet["B4"].Style.DiagonalBorderDirection = DiagonalBorderDirection.Forward;
+            
+            workBook.SaveAs("FormattedBorderPatterns.xlsx");
+        }
+    }
+}
 ```
 
-#### Visual Reference:
+#### Visualizing Border Lines
 
-<div class="content-img-align-center">
+<div  class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/border-types.webp" alt="Border Styles Reference" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/border-line.webp" alt="Available Border Lines" class="img-responsive add-shadow">
     </div>
 </div>
 
-### Alignment Types
+#### Visualizing Border Patterns
 
-IronXL offers a comprehensive set of horizontal and vertical alignment types to cater to various design needs. Whether it's centering text, justifying content, or distributing words evenly, these options ensure that your cell content is precisely positioned for optimal readability and aesthetic balance.
-
-<div class="content-img-align-center">
+<div  class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/alignment-types.webp" alt="Text Alignment Options" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/border-types.webp" alt="Available Border Types" class="img-responsive add-shadow">
     </div>
 </div>
 
-By utilizing these sophisticated functions, you can easily create professional, visually pleasing worksheets that clearly depict your data, making information both easy to read and eye-catching.
+### Comprehensive Guide to Alignment Types
+
+Explore IronXL's complete set of text alignment options through graphical representations below:
+
+<div  class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/border-alignment/alignment-types.webp" alt="Available Alignment Types" class="img-responsive add-shadow">
+    </div>
+</div>

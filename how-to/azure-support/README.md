@@ -1,65 +1,68 @@
-# Can I Deploy IronXL on Azure with .NET?
+# Can I Run IronXL with .NET on Azure?
 
-Certainly! IronXL is fully compatible with Azure, allowing for the creation and reading of QR codes and barcodes in C# & VB.NET applications using Azure services. It's rigorously validated across various Azure environments, including MVC websites, Azure Functions, and more.
+***Based on <https://ironsoftware.com/how-to/azure-support/>***
 
----
 
-## Installation of IronXL
+Indeed, IronXL is fully compatible for use on Azure, enabling the generation and reading of QR & Barcodes within .NET applications crafted in C# and VB.NET. It also supports the extraction of barcodes and QR codes from scanned documents.
 
-Begin by installing IronXL via NuGet:
+IronXL has undergone extensive testing across various Azure services, including MVC websites, Azure Functions, and beyond.
 
-[NuGet Package for IronXL.Excel](https://www.nuget.org/packages/IronXL.Excel)
+<hr class="separator">
+
+<p class="main-content__segment-title">Step 1</p>
+
+## 1. Getting Started with IronXL
+
+Begin by installing IronXL via NuGet: [https://www.nuget.org/packages/IronXL.Excel](https://www.nuget.org/packages/IronXL.Excel)
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
----
+<hr class="separator">
 
-## Using IronXL with Azure
+<p class="main-content__segment-title">How to Tutorial</p>
 
-### 2. Azure Hosting Recommendations
+## 2. Selecting Appropriate Azure Tiers
 
-For typical use-cases, the Azure **B1** tier is recommended. Those needing more robust performance should consider higher service tiers.
+For typical use, the Azure **B1** hosting tier is recommended. For systems with higher demands in terms of throughput, an upgrade might be necessary.
 
-### 3. Choosing the Right .NET Framework
+## 3. Selecting the Right Framework
 
-IronXL functions well on both Core and Framework variants in Azure environments. .NET Standard might offer slightly better performance but demands more memory.
+IronXL functions efficiently on both the Core and Framework editions on Azure, though .NET Standard applications slightly edge out with better speed and stability, albeit at a higher memory usage.
 
-#### Note on Azure's Free Tier
+### Considerations for Azure Free Tier
 
-The free and shared Azure plans, including the consumption plan, do not perform well for QR processing. We use and recommend at least the Azure B1 hosting or Premium plans for optimal performance.
+The Azure free, shared, and consumption plans are not ideal for QR processing. Instead, opt for the B1 hosting or Premium plans, which are proven in our own usage.
 
-### 4. Implementing Docker on Azure
+## 4. Leveraging Docker on Azure
 
-Using Docker containers is an effective way to enhance the performance of your IronXL applications on Azure. For detailed guidance, check out our in-depth tutorial:
+Utilizing Docker containers is an effective strategy to optimize performance for IronXL applications and Functions on Azure.
 
-[Comprehensive IronXL Azure Docker Tutorial](https://ironsoftware.com/csharp/excel/how-to/docker-support/)
+Follow our detailed [IronXL Azure Docker Guide](https://ironsoftware.com/csharp/excel/how-to/docker-support/) available for both Linux and Windows.
 
-### 5. Azure Functions Integration
+## 5. Azure Function Support by IronXL
 
-IronXL is compatible with Azure Functions V3. Currently, version V4 is under review but not yet endorsed.
+IronXL supports Azure Function Version 3. Although not yet tested with Version 4, it is on our development roadmap.
 
-#### Azure Function Example Code
+### Example Code for Azure Function
 
-This example is validated for Azure Functions v3.3.1.0 onward:
-
+This code has been tested on Azure Functions v3.3.1.0 and above:
 ```cs
-[FunctionName("barcode")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-    ILogger log)
-{
-    log.LogInformation("Processing request with C# HTTP trigger function.");
-    IronXL.License.LicenseKey = "Your-License-Key-Here";
-    var barCode = BarcodeWriter.CreateBarcode("IronXL Test", BarcodeEncoding.QRCode);
-    var result = new HttpResponseMessage(HttpStatusCode.OK);
-    result.Content = new ByteArrayContent(barCode.ToJpegBinaryData());
-    result.Content.Headers.ContentDisposition =
-            new ContentDispositionHeaderValue("attachment") { FileName = $"{DateTime.Now.ToString("yyyyMMddmm")}.jpg" };
-    result.Content.Headers.ContentType =
-            new MediaTypeHeaderValue("image/jpeg");
-    return result;
-}
+    [FunctionName("barcode")]
+    public static HttpResponseMessage Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+            ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+        IronXL.License.LicenseKey = "Key";
+        var MyBarCode = BarcodeWriter.CreateBarcode("IronXL Test", BarcodeEncoding.QRCode);
+        var result = new HttpResponseMessage(HttpStatusCode.OK);
+        result.Content = new ByteArrayContent(MyBarCode.ToJpegBinaryData());
+        result.Content.Headers.ContentDisposition =
+                new ContentDispositionHeaderValue("attachment") { FileName = $"{DateTime.Now.ToString("yyyyMMddmm")}.jpg" };
+        result.Content.Headers.ContentType =
+                new MediaTypeHeaderValue("image/jpeg");
+        return result;
+    }
 ```
-This example demonstrates setting up an HTTP-triggered Azure function for generating and returning a QR code as a JPEG image.

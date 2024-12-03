@@ -1,3 +1,5 @@
-You can employ the `FormatString` property to style the display value of any Excel `Cell` or `Range` in C# using IronXL.
+***Based on <https://ironsoftware.com/examples/excel-number-formats/>***
 
-Selecting a `Range` in a worksheet is straightforward as demonstrated by `workSheet["A2"]`. This selects the `Range` corresponding to the specified address. To interact specifically with a `Cell`, you would generally utilize the `First()` method. However, since the `FormatString` property can be modified for both `Cell` and `Range`, the use of the `First()` method is not necessary. This allows for more flexible application of Excel number formats using the demonstrated approach in the example code.
+To customize the display format of values in any Excel `Cell` or `Range` within C#, you can leverage the `FormatString` property when using IronXL.
+
+The statement `workSheet["A2"]` specifically targets a `Range` at the provided address. To access an individual `Cell`, you would typically use the `First()` method. However, the application of the `FormatString` property can be done for both `Cell` and `Range`, making use of `First()` unnecessary in this context. A variety of Excel number formats can be implemented using this approach, as demonstrated in the given code example.

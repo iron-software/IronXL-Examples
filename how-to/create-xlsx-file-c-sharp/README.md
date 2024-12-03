@@ -1,17 +1,20 @@
-# Generating XLSX Files in C#
+# Creating Excel Files in C&num; with IronXL
 
-In today's business environment where automation is pervasive, handling Excel Spreadsheets within .NET applications becomes crucial. This includes tasks like generating spreadsheets in various formats (`.xls`, `.xlsx`, `.csv`, `.tsv`), styling cells, and programmatically inserting data. We'll explore these functionalities using C#.
+***Based on <https://ironsoftware.com/how-to/create-xlsx-file-c-sharp/>***
 
-<div class="learn-how-section">
+
+In today's highly automated business environment, there's often a need to manipulate Excel spreadsheets throughout .NET applications. This guide demonstrates how to create and manipulate Excel spreadsheets in various formats such as `.xls`, `.xlsx`, `.csv`, and `.tsv` using C#. You'll learn how to initiate spreadsheets, adjust cell styles, and integrate data programmatically.
+
+<div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Excel File Creation with C#</h2>
+      <h2>Excel File Creation Using C#</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-download-ironxl-dll">Install IronXL</a></li>
-        <li><a href="#anchor-2-create-a-workbook">Generate a .XLSX File</a></li>
-        <li><a href="#anchor-4-insert-data-into-worksheets">Populate Data into Worksheets</a></li>
-        <li><a href="#anchor-6-set-excelmetadata-for-excel-files">Configure Excel File Metadata</a></li>
-        <li><a href="#anchor-7-set-cell-style">Apply Styles to Cells</a></li>
+        <li><a href="#anchor-1-download-ironxl-dll">Get Started with IronXL</a></li>
+        <li><a href="#anchor-2-create-a-workbook">Begin with .XLSX Files</a></li>
+        <li><a href="#anchor-4-insert-data-into-worksheets">Incorporate Data into Worksheets</a></li>
+        <li><a href="#anchor-6-set-excelmetadata-for-excel-files">Embed Metadata in Excel Files</a></li>
+        <li><a href="#anchor-7-set-cell-style">Customize Cell Styles</a></li>
       </ul>
     </div>
     <div class="col-sm-6">
@@ -24,42 +27,43 @@ In today's business environment where automation is pervasive, handling Excel Sp
 
 <hr class="separator">
 
-<h2>Steps to Create an XLSX File in C#</h2>
+<h2>Getting Started with an Excel XLSX File in C&num;</h2>
 
-1. Install the necessary Excel library to create XLSX files.
-2. Initiate the `Workbook` object to start your Excel file.
-3. Select a default `Worksheet`.
-4. Populate the default `Worksheet` with data.
-5. Persist your Excel file on the disk.
+1. Acquire the IronXL library for handling Excel documents.
+2. Create a new `Workbook`.
+3. Select or create a `Worksheet`.
+4. Populate the chosen `Worksheet` with data.
+5. Persist the file to storage.
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## 1. Download IronXL DLL
+## 1. Acquiring IronXL Library
 
-IronXL offers a straightforward method for creating Excel (`.xlsx`) files in your C# projects. You can [download the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.create.xlsx.zip) or use a [NuGet package installation](https://www.nuget.org/packages/IronXL.Excel). It's free for development use.
+IronXL simplifies the process of crafting Excel (`.xlsx`) files in C# environments. You can [download the DLL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.create.xlsx.zip) or add it via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
 <hr class="separator">
-<h4 class="tutorial-segment-title">Step-by-Step Guide</h4>
+<h4 class="tutorial-segment-title">How to Tutorial</h4>
 
-## 2. Create A Workbook
+## 2. Workbook Creation
 
-IronXL lets you not only insert data but also customize cell properties such as fonts and borders.
+Empower your applications with capabilities to modify data and set styling for cells such as fonts and borders.
 
-### 2.1 Create .XLSX File
+### 2.1 Create `.XLSX` File
 
-Initializing a `WorkBook` object like below will create a new Excel file with the `.xlsx` extension by default.
+Instantiate a `Workbook` for crafting a new `.xlsx` file:
 
 ```cs
-// Create XLSX File
+// Initialize XLSX file creation
 WorkBook wb = WorkBook.Create();
 ```
 
-### 2.2 Create .XLS File
-For files with an `.xls` extension, adjust your `WorkBook` creation as follows:
+### 2.2 Create `.XLS` File
+
+For creating a file with `.xls` extension:
 
 ```cs
 WorkBook wb = WorkBook.Create(ExcelFileFormat.XLS);
@@ -67,63 +71,60 @@ WorkBook wb = WorkBook.Create(ExcelFileFormat.XLS);
 
 <hr class="separator">
 
-## 3. Create Excel Worksheet
+## 3. Initiate Excel Worksheet
 
-Post `WorkBook` creation, you can start adding Worksheets. Here's how to make a new `WorkSheet` called `sheet1` in the `WorkBook` `wb`.
+Construct a `Worksheet` in your preferred file format after setting up a `Workbook`:
 
 ```cs
 WorkSheet ws1 = wb.CreateWorkSheet("sheet1");
 ```
 
-### 3.1 Create Multiple WorkSheets
+### 3.1 Manage Multiple Worksheets
 
-Creating multiple Worksheets is accomplished in the same manner:
+You can generate additional `Worksheet` instances similarly:
 
 ```cs
-//**
-Create Additional WorkSheets
-**/
+// Create additional worksheets
 WorkSheet ws2 = wb.CreateWorkSheet("sheet2");
 WorkSheet ws3 = wb.CreateWorkSheet("sheet3");
 ```
 <hr class="separator">
 
-## 4. Populate Data into Worksheets
+## 4. Data Entry in Worksheets
 
-Inserting data into Worksheet cells is straightforward.
+Simple and effective methods for data input into worksheet cells:
 ```cs
 worksheet["CellAddress"].Value = "MyValue";
 ```
 
-### 4.1 Populate Specific Worksheet
+### 4.1 Insert Data into Specific Worksheet
 
-To insert data into worksheet `ws1`, use the following code snippet. It writes `Hello World` into cell `A1`.
+Assign specific data to worksheet `ws1`, for instance:
+
 ```cs
-//**
-Insert Specific WorkSheet Data
-**/
+// Inserting data into a specific worksheet cell
 ws1["A1"].Value = "Hello World";
 ```
 
-### 4.2 Populate Multiple Cells
+### 4.2 Apply Data to Multiple Cells
 
-You can also populate multiple cells at once using the range functionality. The following code will populate cells from `A3` to `A8` with `NewValue`.
+Populate multiple cells within a range using:
+
 ```cs
+// Setting values in a cell range
 ws1["A3:A8"].Value = "NewValue";
 ```
 
 <hr class="separator">
 
-## 5. Example Project 
+## 5. Excel File Creation Example Project
 
-For our example project, we'll create an Excel file named `Sample.xlsx` and populate it with data.
+Create a fresh Excel file titled `Sample.xlsx` and input some initial data:
 
 ```cs
-//**
-Example Project
-**/
+// Quick project setup for Excel file creation
 using IronXL;
-static void Main(string[] args)
+static void Main(string [] args)
 {
     WorkBook wb = WorkBook.Create();  
     WorkSheet ws1 = wb.CreateWorkSheet("sheet1");                    
@@ -134,10 +135,9 @@ static void Main(string[] args)
 }
 ```
 
-Note: By default, the new Excel file is created in the `bin>Debug` folder of the project. For a custom path, use:
- ```wb.SaveAs(@"E:\IronXL\Sample.xlsx");```
+Note: The new file is by default created in the `bin>Debug` directory. To customize the path, modify to: `wb.SaveAs(@"E:\IronXL\Sample.xlsx");`
 
-Here's a screenshot of the Excel file `sample.xlsx` we created:
+Here's what our new `Sample.xlsx` looks like:
 
 <center>
 	<div class="center-image-wrapper">
@@ -145,18 +145,16 @@ Here's a screenshot of the Excel file `sample.xlsx` we created:
 	</div>
 </center>
 
-Creating Excel files using IronXL in your C# Application is quite simple and intuitive.
+This example illustrates the ease of generating Excel documents using the IronXL library in C# applications.
 
 <hr class="separator">
 
-## 6. Configure Excel Metadata
+## 6. Setting Excel Metadata
 
-IronXL also allows you to set metadata for Excel files:
+IronXL also enables you to embed metadata properties within your Excel documents:
 
 ```cs
-//**
-Set Metadata
-**/
+// Embedding author and title metadata in Excel documents
 WorkBook wb = WorkBook.Create();
 wb.Metadata.Author = "AuthorName";
 wb.Metadata.Title = "TitleValue";
@@ -164,16 +162,98 @@ wb.Metadata.Title = "TitleValue";
 
 <hr class="separator">
 
-## 7. Customize Cell Styles
+## 7. Appropriate Cell Styling
 
-Styling cells in your Excel Worksheets is effortless with IronXL. Here’s how to apply different cell styles:
+IronXL simplifies cell styling settings, offering a full spectrum of style properties for your worksheets.
 
-### 7.1. Apply Font Style
+### 7.1. Adjusting Font Style
 
-You can easily enhance a font style like so:
+Set the font properties:
+```cs
+// Configuring font style settings for a cell
+WorkSheet["CellAddress"].Style.Font.Bold = true;
+WorkSheet["CellAddress"].Style.Font.Italic = true;
+```
+
+### 7.2. Adding Strikeout
+
+Apply a strikeout to cell text:
 
 ```cs
-//**
-Apply Font Style
-**/
-!*\
+// Applying strikeout styling
+WorkSheet["CellAddress"].Style.Font.Strikeout = true;
+```
+
+### 7.3. Configuring Border Styles
+
+Define border styles using IronXL:
+
+```cs
+// Setting custom border styling
+WorkSheet["CellAddress"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Dotted;
+```
+
+<hr class="separator">
+
+## 8. Comprehensive Cell Styling Project Example
+
+Illustrate multiple cell styling integrations in a singular project:
+
+```cs
+// Complete example for setting multiple cell styles
+using IronXL;
+static void Main(string [] args)
+{
+    WorkBook wb = WorkBook.Create();                     
+    WorkSheet ws = wb.CreateWorkSheet("sheet1");
+
+    ws["A1"].Value = "MyVal";
+    ws["B2"].Value = "Hello World";
+
+    ws["A1"].Style.Font.Strikeout = true;
+
+    ws["B2"].Style.Font.Bold = true;
+    ws["B2"].Style.Font.Italic = true;
+
+    ws["C3"].Style.TopBorder.Type = IronXL.Styles.BorderType.Double;        
+    ws["C3"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Dotted;
+    ws["C3"].Style.LeftBorder.Type = IronXL.Styles.BorderType.Thick;
+    ws["C3"].Style.RightBorder.Type = IronXL.Styles.BorderType.SlantedDashDot;
+    ws["C3"].Style.BottomBorder.SetColor("#ff6600");
+    ws["C3"].Style.TopBorder.SetColor("#ff6600");
+    wb.SaveAs("Sample.xlsx");
+}
+```
+
+Here's a glimpse of the Excel file `sample.xlsx` crafted:
+
+<center>
+	<div class="center-image-wrapper">
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/create-xlsx-file-c-sharp/doc5-2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/create-xlsx-file-c-sharp/doc5-2.png" alt="" class="img-responsive add-shadow"></a>
+	</div>
+</center>
+
+<hr class="separator">
+
+## 9. Next Steps and Further Learning
+
+For a deeper exploration and detailed steps for creating Excel files using C#, consider reading through the [Create Excel Files Using C# tutorial](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/).
+
+<hr class="separator">
+
+<h4 class="tutorial-segment-title">Quick Tutorial Access</h4>
+
+<div class="tutorial-section">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="tutorial-image">
+        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <h3>Explore the API Reference</h3>
+      <p>Peruse the extensive Documentation for IronXL, which includes details on all namespaces, features, classes, methods, fields, and enums.</p>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Browse the API Reference <i class="fa fa-chevron-right"></i></a>
+      </div>
+  </div>
+</div>

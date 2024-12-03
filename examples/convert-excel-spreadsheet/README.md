@@ -1,25 +1,27 @@
-The **IronXL** library offers a seamless and secure method for converting popular spreadsheet file formats into formats required for further processing in your .Net projects. Here are the supported formats:
+***Based on <https://ironsoftware.com/examples/convert-excel-spreadsheet/>***
+
+The **IronXL** library offers a convenient and secure method for converting commonly utilized spreadsheet files into the necessary formats for your .NET project's subsequent processes. Here are the supported formats:
 
 ## Load
 
-- `XLS`
-- `XLSX`
-- `XLSM`
-- `XLTX`
-- `CSV`
-- `TSV`
+- XLS
+- XLSX
+- XLSM
+- XLTX
+- CSV
+- TSV
 
 ## Export
 
-- Formats such as `XLS`, `XLSX`, `XLSM`, `CSV`, and `TSV`
-- `JSON`
-- `XML`
-- `HTML`
-- In-code data types:
-  - `HTML` string
+- XLS, XLSX, XLSM, CSV, and TSV
+- JSON
+- XML
+- HTML
+- In code data types:
+  - HTML string
   - Binary
   - Byte array
   - Data set
   - Memory stream
 
-Exporting Excel files to `System.Data.DataSet` and `System.Data.DataTable` enables straightforward integration or interoperability with `DataGrids`, SQL databases, and Entity Framework (EF).
+Converting Excel files into `System.Data.DataSet` and `System.Data.DataTable` objects facilitates seamless integration with `DataGrids`, SQL, and EF. This enhances the interoperability within various components of your application.

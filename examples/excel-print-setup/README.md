@@ -1,15 +1,17 @@
-IronXL provides the capability to programmatically configure **Print Setup** for any Excel file. This feature offers detailed control over numerous settings that dictate how documents are printed, whether on physical paper or as a PDF.
+***Based on <https://ironsoftware.com/examples/excel-print-setup/>***
 
-Additionally, users can customize document headers and footers, incorporating dynamic "mail merge" variables such as:
+IronXL provides the capability to programmatically define the **Print Setup** parameters for any Excel document. This allows developers to adjust a wide array of printing options for both physical and PDF printers.
 
-- `&P`: indicates page numbers
-- `&N`: represents the total number of pages
-- `&D`: denotes the current date
-- `&T`: represents the current time
-- `&Z&F`: captures the file path
-- `&F`: refers to the file name
-- `&A`: denotes the sheet name
+Furthermore, you can customize document headers and footers, and even integrate dynamic "mail merge" variables:
 
-These variables can be seamlessly integrated into the `Footer` property. For example, to place the page number at the bottom center of every printed page, one could use the following configuration: `workSheet.Footer.Center = "Page &P of &N"`.
+- `&P`: page numbers
+- `&N`: total page count
+- `&D`: the current date
+- `&T`: the current time
+- `&Z&F`: full file path
+- `&F`: file name
+- `&A`: name of the worksheet
 
-This functionality positions IronXL as a comprehensive tool for managing how spreadsheets are printed.
+These variables are readily employable in the `Footer` property string. For example, to show the page number at the bottom of each printed page, use the following setup: `workSheet.Footer.Center = "Page &P of &N"`.
+
+This capability empowers IronXL to efficiently manage printing configurations for spreadsheets.

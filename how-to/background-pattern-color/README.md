@@ -1,40 +1,42 @@
-# How to Set Cell Background Pattern & Color
+# Setting Cell Background Patterns and Colors in Excel
 
-In Excel, defining a background cell pattern involves adding a specific fill design to the back of a cell. Additionally, setting a background cell color involves selecting a solid shade that covers the cell's background.
+***Based on <https://ironsoftware.com/how-to/background-pattern-color/>***
 
-By incorporating these functionalities, users have the ability to design enticing cell backgrounds using an array of patterns, hues, and textures. With IronXL, you gain the capability to customize these background aspects in your Excel sheets, which serves to enhance data presentation and draw attention to crucial data points.
 
-***
+In Excel, defining background patterns involves applying a decorative or textured fill to the background of a cell. Moreover, setting a background color refers to filling a cell's background with a uniform color. 
 
-***
+IronXL allows you to harness these attributes effectively to enhance the visual impact of your Excel spreadsheets. This feature is particularly useful for improving data visualization and emphasizing crucial data points.
 
-## Example: Setting Cell Background Pattern & Color
+## Example: Setting Cell Background Pattern and Color
 
-To configure a background pattern for a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/), you should utilize the **FillPattern** property available within the **IronXL.Styles.FillPattern** enumeration. Subsequently, either use the `SetBackgroundColor` method or alter the **BackgroundColor** property to apply your desired color. The **Color** class provides various options, or you can directly use a Hex color code, such as SeaGreen represented by "#FFF5EE".
+To apply a background pattern to a [selected cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/), utilize the `FillPattern` property from the `IronXL.Styles.FillPattern` enum. Subsequently, set the background color by using the `SetBackgroundColor` method or by assigning a value to the `BackgroundColor` property. Colors can be specified using the `Color` class or by entering a HEX color code, such as SeaGreen represented by "#FFF5EE".
 
-Currently, it is not possible to modify the color of the fill pattern itself.
+Currently, it is not possible to alter the color of the fill pattern itself.
 
 ```cs
-using IronXL;
-using IronXL.Styles;
 using IronSoftware.Drawing;
-
-// Create a new workbook
-WorkBook workbook = WorkBook.Create();
-
-// Access the default worksheet
-WorkSheet worksheet = workbook.DefaultWorkSheet;
-
-// Apply a background pattern
-worksheet["A1"].Style.FillPattern = FillPattern.AltBars;
-worksheet["A2"].Style.FillPattern = FillPattern.ThickVerticalBands;
-
-// Apply a background color
-worksheet["A1"].Style.SetBackgroundColor(Color.Aquamarine);
-worksheet["A2"].Style.BackgroundColor = "#ADFF2F";
-
-// Save the workbook
-workbook.SaveAs("CustomBackgroundExcel.xlsx");
+using IronXL.Excel;
+namespace ironxl.BackgroundPatternColor
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workbook = WorkBook.Create();
+            WorkSheet worksheet = workbook.DefaultWorkSheet;
+            
+            // Apply background pattern
+            worksheet["A1"].Style.FillPattern = FillPattern.AltBars;
+            worksheet["A2"].Style.FillPattern = FillPattern.ThickVerticalBands;
+            
+            // Apply background color
+            worksheet["A1"].Style.SetBackgroundColor(Color.Aquamarine);
+            worksheet["A2"].Style.BackgroundColor = "#ADFF2F";
+            
+            workbook.SaveAs("setBackgroundPattern.xlsx");
+        }
+    }
+}
 ```
 
 <div class="content-img-align-center">
@@ -45,7 +47,7 @@ workbook.SaveAs("CustomBackgroundExcel.xlsx");
 
 ## Available Fill Patterns
 
-Explore the diverse range of fill patterns provided by the **IronXL.Styles.FillPattern** enum to personalize the fill pattern in your Excel documents. Below is a display showcasing all the fill patterns available through IronXL:
+Explore the diverse range of fill patterns provided by the `IronXL.Styles.FillPattern` enum. These patterns can bring distinct visual styles to your Excel worksheets. Below is a visual guide to all the fill patterns available in IronXL:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">

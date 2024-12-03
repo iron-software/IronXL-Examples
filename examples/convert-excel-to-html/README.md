@@ -1,7 +1,9 @@
-The sample code provided illustrates the process of converting an Excel file to HTML format using C#. You can customize the HTML output by using the `HtmlExportOptions` class. Here are the configurable options:
+***Based on <https://ironsoftware.com/examples/convert-excel-to-html/>***
 
-- **`OutputRowNumbers`**: This property determines if row numbers should be included in the HTML output.
-- **`OutputColumnHeaders`**: This setting specifies whether to include column headers in the output file.
-- **`OutputHiddenRows`**: Use this option to decide if hidden rows should be visible in the resulting HTML.
-- **`OutputHiddenColumns`**: This property allows you to control whether hidden columns appear in the output.
-- **`OutputLeadingSpacesAsNonBreaking`**: This option ensures that leading spaces (extra spaces before the first character in a cell) are displayed as non-breaking spaces in the output file.
+The code snippet provided demonstrates the method for transforming Excel documents into HTML format using C#. To tailor the HTML output, employ the `HtmlExportOptions` class which comprises several customizable features:
+
+- The **`OutputRowNumbers`** property determines if row numbers should be displayed in the resulting file.
+- The **`OutputColumnHeaders`** property specifies whether column headers should be included in the output file.
+- The **`OutputHiddenRows`** property controls the visibility of hidden rows in the output.
+- The **`OutputHiddenColumns`** property decides whether hidden columns should be visible in the output.
+- Finally, the **`OutputLeadingSpacesAsNonBreaking`** property indicates if leading spaces (extra spaces before the first character in a cell) should appear as non-breaking spaces in the resulting file.

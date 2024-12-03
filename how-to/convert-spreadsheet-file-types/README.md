@@ -1,132 +1,121 @@
-# Spreadsheet File Conversion Guide
+# How to Convert Spreadsheet File Types
+
+***Based on <https://ironsoftware.com/how-to/convert-spreadsheet-file-types/>***
+
 
 ## Introduction
-IronXL provides functionalities to switch between various spreadsheet file formats such as XLS, XLSX, XLSM, XLTX, CSV, TSV, JSON, XML, and HTML. Additionally, it supports various in-line code data formats including HTML strings, Binary data, Byte arrays, Data sets, and Memory streams. You can load a spreadsheet using the `Load` method and convert it to the preferred format using the `SaveAs` method. Learn more about exporting your spreadsheets [here](https://ironsoftware.com/csharp/excel/how-to/c-sharp-export-to-excel/).
+IronXL facilitates the transformation of spreadsheet files across a variety of formats such as XLS, XLSX, XLSM, XLTX, CSV, TSV, JSON, XML, and HTML. It supports different inline code data types including HTML string, Binary, Byte array, Data set, and Memory stream. To open a spreadsheet file, utilize the `Load` method, and to save the spreadsheet in a specific format, employ the `SaveAs` method or follow this [export guide](https://ironsoftware.com/csharp/excel/how-to/c-sharp-export-to-excel/).
 
-## Conversion Example
+***
 
-To transform a spreadsheet file type, initiate by loading a compatible file format and then utilize the `SaveAs` method or other specialized methods from IronXL to achieve accurate data remodeling.
+## Convert Spreadsheet Type Example
 
-For optimal conversion to formats like CSV, JSON, XML, and HTML, it is suggested to use their respective dedicated methods:
+The conversion process of spreadsheet files using IronXL involves loading a file in any supported format and saving it in another through the intelligent data restructuring features of IronXL.
+
+Although the `SaveAs` method can be utilized for formats like CSV, JSON, XML, and HTML, it is advisable to use the format-specific methods:
 
 - `SaveAsCsv`
 - `SaveAsJson`
 - `SaveAsXml`
 - `ExportToHtml`
 
-Conversions will create a new file for each worksheet named using the pattern **fileName.sheetName.format**. For instance, the CSV output will appear as **sample.new_sheet.csv**.
+For file formats such as CSV, TSV, JSON, and XML, each worksheet is saved as a separate file, following the pattern **fileName.sheetName.format**. For example, the output for the CSV format would be **sample.new_sheet.csv**.
 
 ```cs
 using IronXL;
-
-// Load the workbook from a file
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-
-// Convert and save the workbook in various formats
-workBook.SaveAs("sample.xls");
-workBook.SaveAs("sample.tsv");
-workBook.SaveAsCsv("sample.csv");
-workBook.SaveAsJson("sample.json");
-workBook.SaveAsXml("sample.xml");
-
-// Additional export to HTML
-workBook.ExportToHtml("sample.html");
+using IronXL.Excel;
+namespace ironxl.ConvertSpreadsheetFileTypes
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Load spreadsheets in formats like XLSX, XLS, XLSM, XLTX, CSV, and TSV
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            
+            // Save the spreadsheet in formats like XLS, XLSX, XLSM, CSV, TSV, JSON, XML
+            workBook.SaveAs("sample.xls");
+            workBook.SaveAs("sample.tsv");
+            workBook.SaveAsCsv("sample.csv");
+            workBook.SaveAsJson("sample.json");
+            workBook.SaveAsXml("sample.xml");
+            
+            // Also save the spreadsheet as an HTML file
+            workBook.ExportToHtml("sample.html");
+        }
+    }
+}
 ```
+<hr>
 
-## Advanced Usage
+## Advanced
 
-Beyond basic file types, IronXL captures a myriad of formats for both ingestion and output.
+In the previous example, we covered common file formats for conversion. Yet, IronXL's ability to convert spreadsheets encompasses a broader range of formats. Check out all the options available for loading and exporting spreadsheets.
 
-**To load:**
-- XLS, XLSX, XLSM, XLTX
+### Load
+- XLS, XLSX, XLSM, and XLTX
 - CSV
 - TSV
 
-**To export:**
-- XLS, XLSX, XLSM
-- CSV, TSV
+### Export
+- XLS, XLSX, and XLSM
+- CSV and TSV
 - JSON
 - XML
 - HTML
 - Inline code data types:
-  - HTML string
-  - Binary and Byte array
-  - Data sets: Seamlessly integrate spreadsheets with `System.Data.DataSet` and `System.Data.DataTable` to link with DataGrids, SQL, and EF databases.
-  - Memory stream
+	- HTML string
+	- Binary and Byte array
+	- Data set: Converts Excel into `System.Data.DataSet` and `System.Data.DataTable` objects facilitating seamless integration with DataGrids, SQL, and EF.
+	- Memory stream
 
-These formats make it easy to use the data in a web service API or even convert them directly to PDF documents using IronPDF.
+These inline code data types can be transmitted as RESTful API responses or utilized with IronPDF to convert them to PDF documents.
 
 ```cs
-using IronXL;
 using System.IO;
-
-// Load workbook from the file
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-
-// Perform conversion and save in multiple formats
-workBook.SaveAs("sample.xls");
-workBook.SaveAs("sample.xlsx");
-workBook.SaveAs("sample.tsv");
-workBook.SaveAsCsv("sample.csv");
-workBook.SaveAsJson("sample.json");
-workBook.SaveAsXml("sample.xml");
-
-// Export to HTML and extract the HTML string
-workBook.ExportToHtml("sample.html");
-string htmlString = workBook.ExportToHtmlString();
-
-// Convert to Byte array, Binary data, and Data set, also create a Memory Stream
-byte[] binaryContent = workBook.ToBinary();
-byte[] byteArrayContent = workBook.ToByteArray();
-System.Data.DataSet dataSet = workBook.ToDataSet(); // Integration with DataGrids, SQL, and EF
-Stream memStream = workBook.ToStream();
+using IronXL.Excel;
+namespace ironxl.ConvertSpreadsheetFileTypes
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Load any format like XLSX, XLS, XLSM, XLTX, CSV, and TSV
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            
+            // Output the spreadsheet into formats such as XLS, XLSX, XLSM, CSV, TSV, JSON, XML
+            workBook.SaveAs("sample.xls");
+            workBook.SaveAs("sample.xlsx");
+            workBook.SaveAs("sample.tsv");
+            workBook.SaveAsCsv("sample.csv");
+            workBook.SaveAsJson("sample.json");
+            workBook.SaveAsXml("sample.xml");
+            
+            // Additionally, export the spreadsheet to HTML and HTML string
+            workBook.ExportToHtml("sample.html");
+            string htmlString = workBook.ExportToHtmlString();
+            
+            // Transform the spreadsheet to Binary, Byte array, Data set, and Stream formats
+            byte[] binary = workBook.ToBinary();
+            byte[] byteArray = workBook.ToByteArray();
+            System.Data.DataSet dataSet = workBook.ToDataSet();
+            Stream stream = workBook.ToStream();
+        }
+    }
+}
 ```
 
-### Converting a Specific Spreadsheet
+### The Spreadsheet We Will Convert
+![XLSX file](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-xlsx.png)
 
-#### Visual Representation of the Original Spreadsheet:
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-xlsx.png" alt="XLSX file" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        XLSX file illustration
-    </span>
-</div>
+The following images illustrate the different files exported:
 
-#### Outputs from Conversion:
+![TSV File Export](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-tsv.png)
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-tsv.png" alt="sample.Data.tsv" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        TSV File Export
-    </span>
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-csv.png" alt="sample.Data.csv" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        CSV File Export
-    </span>
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-json.png" alt="sample.Data.json" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        JSON File Export
-    </span>
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-xml.png" alt="sample.Data.xml" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        XML File Export
-    </span>
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-html.png" alt="sample.html" class="img-responsive add-shadow">
-    </div>
-	<span class="image-description-text_italic">
-        HTML File Export
-    </span>
-</div>
+![CSV File Export](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-csv.png)
 
-This comprehensive guide details the process of converting different spreadsheet formats using IronXL, ensuring you harness the full potential of spreadsheet management and transformation.
+![JSON File Export](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-json.png)
+
+![XML File Export](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-xml.png)
+
+![HTML File Export](https://ironsoftware.com/static-assets/excel/how-to/convert-spreadsheet-file-types/convert-spreadsheet-file-types-html.png)

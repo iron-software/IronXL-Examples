@@ -1,19 +1,21 @@
-The above snippet demonstrates how to compute aggregate metrics like sum, average, minimum, and maximum from a specified range of cells in an Excel Spreadsheet. It is important to note that these calculations will automatically exclude any cells that contain non-numeric data.
+***Based on <https://ironsoftware.com/examples/aggregate-excel-functions/>***
+
+In the above example, fetching aggregate values from specific cell ranges in an Excel spreadsheet is demonstrated. It's important to note that cells containing non-numeric data are not considered in these calculations.
 
 ## Sum
 
-The function `Sum()` calculates the total sum of values within the chosen range of cells.
+Utilize the `Sum()` function to compute the total of all numeric values within a designated range.
 
 ## Average
 
-Using the function `Avg()`, you can determine the average value from the cells within the specified range.
+To calculate the mean value, the `Avg()` function processes the numeric data from a provided cell range.
 
 ## Minimum
 
-The `Min()` function identifies the smallest numerical value in the selected range of cells.
+To find the smallest number in a set, employ the `Min()` function on your selected range of cells.
 
 ## Maximum
 
-Conversely, the `Max()` function finds the highest numerical value within the designated range of cells.
+Conversely, the `Max()` function determines the largest number from the designated group of cells.
 
-These functions offer versatility as they can be applied not only to a range but also across specific rows or columns for more targeted data analysis. For additional insights on how to select rows and columns, visit [row and column selection](https://ironsoftware.com/csharp/excel/examples/select-excel-range/).
+These operations are not limited to entire ranges; they can be specifically applied to individual or multiple rows and columns for enhanced control. Discover how to select rows and columns in detail by visiting [row and column](https://ironsoftware.com/csharp/excel/examples/select-excel-range/).

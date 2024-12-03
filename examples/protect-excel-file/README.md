@@ -1,15 +1,17 @@
-Delivering information securely to the intended recipient is crucial for maintaining proper authorization. IronXL facilitates the creation of password-protected spreadsheets, including individual `WorkSheet` protection.
+***Based on <https://ironsoftware.com/examples/protect-excel-file/>***
 
-## Opening a Protected Spreadsheet
+Ensuring the right individuals have access to specific information or data is pivotal in maintaining proper authorization. IronXL enables users to create spreadsheets with password protection and also secure individual `WorkSheet` objects with passwords.
 
-To open a password-protected spreadsheet, pass the password as the second argument to the `Load` method. For instance, use `WorkBook.Load("sample.xlsx", "IronSoftware")` to access the file.
+## Accessing
 
-## Securing a Spreadsheet
+To open a password-protected spreadsheet, pass the password as the second argument of the `Load` method. For instance, `WorkBook.Load("sample.xlsx", "IronSoftware")` demonstrates how to access a locked file.
 
-To apply password protection to a spreadsheet, utilize the `Encrypt` method. For example, secure your spreadsheet by invoking `workBook.Encrypt("IronSoftware")`.
+## Applying
 
-## Removing Password Protection
+To safeguard a spreadsheet with a password, utilize the `Encrypt` method. A typical usage is: `workBook.Encrypt("IronSoftware")`.
 
-To remove a password from a spreadsheet, simply reset the `Password` property to `null` as shown: `workBook.Password = null`. This operation can only be performed after successfully accessing the workbook, which requires knowledge of the original password.
+## Removing
 
-IronXL offers an efficient way to both protect and unprotect any Excel `WorkBook` and `WorkSheet` using just a single line of C# code.
+To remove a password from a spreadsheet, simply set the `Password` property to `null`, as shown here: `workBook.Password = null`. This operation should be performed only after you've successfully opened the workbook, meaning you must know the original password.
+
+IronXL provides a straightforward mechanism to protect and unprotect both Excel `WorkBook` and `WorkSheet` objects with a mere line of C# code.

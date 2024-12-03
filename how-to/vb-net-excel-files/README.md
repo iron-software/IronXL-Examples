@@ -1,92 +1,92 @@
-# VB.NET Guide on Reading & Creating Excel Files
+# VB .NET: Read & Create Excel Files with IronXL (Detailed Code Guide)
 
-For developers seeking a streamlined and straightforward method to handle Excel files in VB.NET, we offer an informative guide using IronXL. This tutorial covers the basics of reading Excel files with VB.NET, creating spreadsheets across various formats (`.xls`, `.xlsx`, `.csv`, and `.tsv`), and enhancing cell styles and content in VB.NET applications.
+***Based on <https://ironsoftware.com/how-to/vb-net-excel-files/>***
 
 
-<hr class="separator">
+Software developers often seek efficient methods to work with Excel files using VB .NET. This guide demonstrates how to employ IronXL to manage and manipulate Excel data effectively for your applications. You'll learn how to craft and modify spreadsheets in several formats such as `.xls`, `.xlsx`, `.csv`, and `.tsv`. Moreover, we’ll explore how to enhance spreadsheet aesthetics by setting cell properties and adding content via VB.NET coding techniques.
 
-<h4 class="tutorial-segment-title">Step 1</h4>
+---
 
-## 1. Excel Library for VB.NET
+### Step 1: Introduce IronXL to Your VB.NET Project
 
-Initiate your journey by integrating the IronXL Excel Library into your VB.NET project. You can download the required DLLs from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.vb.net.excel.files.zip) or fetch it via NuGet at [NuGet](https://www.nuget.org/packages/IronXL.Excel). This library is essential for efficiently managing Excel data in your VB.NET applications and is free for development purposes.
-
+#### Get the IronXL Excel Library for VB.NET
+Begin by integrating the IronXL library into your VB.NET project either through the [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.vb.net.excel.files.zip) or via [NuGet](https://www.nuget.org/packages/IronXL.Excel):
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-<hr class="separator">
+This first step is your gateway to efficiently accessing Excel data within VB.NET projects, using IronXL for comprehensive Excel manipulation.
 
-<h4 class="tutorial-segment-title">How To Tutorial</h4>
+---
 
-## 2. Generate Excel Files in VB.NET
+### How To Create Excel Files in VB.NET with IronXL
 
-IronXL simplifies the process of generating Excel files in a VB.NET environment. With this library, not only can you create files, but also modify cell properties such as fonts and borders.
+#### 2. Constructing Excel Files
 
-### 2.1. Initialize a Workbook
+IronXL enables effortless creation of Excel files in your projects. Here’s how you can create and manage Excel spreadsheets:
 
-To begin, create a new Workbook object:
+##### 2.1 Create an Excel File
+
+Simply start by creating a new `WorkBook`:
 
 ```vb
 Dim wb As New WorkBook
 ```
-This code instantiates a new Excel file with the `.xlsx` extension as the default.
+This snippet initializes a new Excel file primarily in `.xlsx` format.
 
-### 2.2. Specify XLS Format
+##### 2.2 Generate an XLS File
 
-If you need a file with an `.xls` format, you can specify it as follows:
+If you need a file in the `.xls` format, adjust the code like so:
 
 ```vb
 Dim wb As New WorkBook(ExcelFileFormat.XLS)
 ```
 
-### 2.3. Add a Worksheet
+##### 2.3 Establish a Worksheet
 
-Next, add a worksheet to your workbook:
+Here’s how a new worksheet is created in the workbook:
 
 ```vb
 Dim ws1 As WorkSheet = wb.CreateWorkSheet("Sheet1")
 ```
-This line of code creates a new worksheet named `Sheet1` within the workbook `wb`.
+This code snippet crafts a new worksheet named `Sheet1`.
 
-### 2.4. Add Multiple Worksheets
+##### 2.4 Add Multiple Worksheets
 
-You can add multiple worksheets similarly:
+Creating additional sheets follows a similar pattern:
 
 ```vb
 Dim ws2 As WorkSheet = wb.CreateWorkSheet("Sheet2")
 Dim ws3 As WorkSheet = wb.CreateWorkSheet("Sheet3")
 ```
 
-<hr class="separator">
+#### 3. Populate Data into Worksheets
 
-## 3. Populate Data into a Worksheet
+##### 3.1 Fill Individual Cells
 
-### 3.1. Enter Data into Specific Cells
-
-Data can be entered into worksheet cells with ease:
+You can directly insert data into specific cells:
 
 ```vb
 ws1("A1").Value = "Hello World"
 ```
-The above line inputs "Hello World" into cell `A1` of the worksheet `ws1`.
+This will populate `Hello World` in the `A1` cell of the `ws1` worksheet.
 
-### 3.2. Populate a Range of Cells
+##### 3.2 Input Range of Data
 
-Data can also be populated across a range:
+To fill a range of cells effortlessly:
 
 ```vb
 ws1("A3:A8").Value = "NewValue"
 ```
-This will fill cells `A3` to `A8` in worksheet `ws1` with "NewValue".
+This records `NewValue` from cell `A3` to `A8` in `ws1`.
 
-### 3.3. Example of Creating and Editing a Workbook
+##### 3.3 Example: Create & Modify a Workbook
 
-To demonstrate, let’s create a new Excel file named `Sample.xlsx` and populate it with data:
+Here’s how you can create a new Excel file called `Sample.xlsx` and input some data:
 
 ```vb
-' Example: Create and Edit Excel
+' Create and Edit Excel Sample
 Imports IronXL
 Sub Main()
     Dim wb As New WorkBook(ExcelFileFormat.XLSX)
@@ -97,126 +97,91 @@ Sub Main()
     wb.SaveAs("Sample.xlsx")
 End Sub
 ```
-**Note:** By default, the new Excel file will be created in the `bin>Debug` folder of your project. To specify another path, use:
-``` vb
-wb.SaveAs(@"E:\IronXL\Sample.xlsx")
-```
+**Note:** By default, new Excel files are saved in the `bin>Debug` folder of your project. Use `wb.SaveAs(@"E:\IronXL\Sample.xlsx")` to specify a custom path.
 
-Here is a screenshot of the newly created Excel file `sample.xlsx`:
+Refer to the screenshot of our newly created Excel file `sample.xlsx`:
+	![](https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png)
 
-<center>
-	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png" alt="" class="img-responsive add-shadow"></a>
-	</div>
-</center>
+IronXL simplifies the process of crafting Excel files in a VB.NET Application.
 
-This outline demonstrates the ease of creating and managing Excel files with `IronXL` in VB.NET applications.
+---
 
-<hr class="separator">
+#### 4. Reading Excel Files in VB.NET
 
-## 4. Reading an Excel File in VB.NET
+IronXL also streamlines the process of reading Excel (`.xlsx`) files within your VB.NET projects. Here’s how you can load, access, and manipulate the data:
 
-IronXL also facilitates the reading of Excel (`xlsx`) files. Here’s how you can load and access data from an Excel document in your project.
-
-### 4.1. Load an Excel File
-
-To access a file, instantiate a `WorkBook` with the path to your Excel file:
+##### 4.1 Retrieve the Excel File
 
 ```vb
-WorkBook wb = WorkBook.Load("sample.xlsx") ' Load the Excel file into `wb`
+Dim wb As WorkBook = WorkBook.Load("sample.xlsx")
 ```
 
-### 4.2. Access a Specific Worksheet
+##### 4.2 Handle Specific Worksheets
 
-There are several methods to select a particular worksheet from a workbook:
-
-#### 4.2.1. By Sheet Name
+###### 4.2.1 By Sheet Name
 
 ```vb
-Dim ws As WorkSheet = wb.GetWorkSheet("Sheet1") ' Select by sheet name
+Dim ws As WorkSheet = wb.GetWorkSheet("sheet1")
 ```
 
-#### 4.2.2. By Sheet Index
+###### 4.2.2 By Sheet Index
 
 ```vb
-Dim ws As WorkSheet = wb.WorkSheets(0) ' Select the first sheet by index
+Dim ws As WorkSheet = wb.WorkSheets(0)
 ```
 
-#### 4.2.3. Using Default or First Sheet
+###### 4.2.3 First Sheet as Default
 
 ```vb
-Dim ws As WorkSheet = wb.DefaultWorkSheet() ' Select the default sheet
-```
-```vb
-Dim ws As WorkSheet = wb.WorkSheets.FirstOrDefault() ' Select the first available sheet
+Dim ws As WorkSheet = wb.DefaultWorkSheet()
 ```
 
-Once the desired worksheet (`ws`) is obtained, you can fetch and manipulate data from it as needed.
+##### Continued Data Access and Manipulations
 
-<hr class="separator">
+After acquiring the worksheet, you can fetch data and apply various manipulations to it.
 
-## 5. Retrieving Data from a Worksheet
+---
 
-Data retrieval is straightforward:
+#### 5. Retrieve Data from Worksheets
 
 ```vb
-Dim intValue As Integer = sheet("A2").IntValue ' Retrieve an integer value
-Dim strValue As String = sheet("A2").ToString() ' Retrieve a string value
+Dim intValue As Integer = ws("A2").IntValue
+Dim strValue As String = ws("A2").ToString()
 ```
 
-### 5.1. Extract Data from a Specific Column
+##### 5.1 Fetch Data from Specific Column Range
 
-You can also loop through cells in a specific column to extract data:
+Retrieve and display data for a specific column:
 
 ```vb
-For Each cell In sheet("A2:A10")
-    Console.WriteLine("Value is: {0}", cell.Text)
-Next
+For Each cell In ws("A2:A10")
+    Console.WriteLine("value is: {0}", cell.Text)
+Next cell
 ```
 
-This loop displays values from cell `A2` to `A10`. Here’s a complete example of this process:
+This command loops through the range from `A2` to `A10`, printing each cell’s text.
+
+---
+
+#### 6. Apply Functions to Data
+
+Execute aggregate functions such as Sum, Min, and Max:
 
 ```vb
-' Load and Retrieve Values
-Imports IronXL
-Sub Main()
-    Dim wb As WorkBook = WorkBook.Load("sample.xlsx")
-    Dim ws As WorkSheet = wb.WorkSheets.FirstOrDefault()
-    For Each cell In ws("A2:A10")
-        Console.WriteLine("Value is: {0}", cell.Text)
-    Next
-    Console.ReadKey()
-End Sub
+Dim sum As Decimal = ws("G2:G10").Sum()
+Dim min As Decimal = ws("G2:G10").Min()
+Dim max As Decimal = ws("G2:G10").Max()
 ```
-This will output data from the specified cell range.
 
-Here’s a screenshot showing the output in the console and the related Excel file `Sample.xlsx`:
+Learn more about manipulating data with [Excel Aggregate Functions](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#sample-function-sum).
 
-<center>
-	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc3-output2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc3-output2.png" alt="" class="img-responsive add-shadow"></a>
-	</div>
-</center>
+---
 
-Further, you can explore advanced functionalities like aggregate functions (Sum, Min, or Max) on Excel data, which are well explained in the [tutorial on using Excel functions](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#sample-function-sum).
+### Documentation & API Reference Quick Access
 
-<hr class="separator">
+Explore comprehensive documentation on IronXL, which offers various features and functions to efficiently work with Excel in VB.NET:
 
-<h4 class="tutorial-segment-title">Tutorial Quick Access</h4>
+[![](https://ironsoftware.com/img/svgs/documentation.svg)](https://ironsoftware.com/csharp/excel/object-reference/api/)
+Access the full [Documentation API Reference](https://ironsoftware.com/csharp/excel/object-reference/api/).
 
-<div class="tutorial-section">
-  <div class="row">
-    <div class="col-sm-8">
-      <h3>API Documentation</h3>
-      <p>Access detailed API documentation for IronXL, which offers numerous functionalities to enhance Excel processing in your VB.NET projects. Explore features, functions, classes, and more through the comprehensive API guide. </p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">API Documentation <i class="fa fa-chevron-right"></i></a>
-    </div>
-    <div class="col-sm-4">
-      <div class="tutorial-image">
-        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
-      </div>
-    </div>
-  </div>
-</div>
-
-This comprehensive guide provides a thorough overview of handling Excel files effectively using IronXL in a VB.NET environment, ensuring that developers can integrate, manipulate, and utilize Excel data seamlessly within their applications.
+This guide provides a practical approach to creating and reading Excel files using IronXL in VB.NET, showcasing the simplicity and power of IronXL for software developers.

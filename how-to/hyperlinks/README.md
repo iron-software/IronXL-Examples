@@ -1,107 +1,136 @@
-# How to Implement Hyperlinks in Excel
+# How to Create Hyperlinks in Excel
 
-Excel hyperlinks enable users to create accessible links to specific locations within the workbook, different documents, websites, or email addresses. They improve the navigational experience by offering shortcuts to relevant information and external sites, enhancing the interactivity and efficiency of spreadsheets by providing quick links to additional references or external websites.
+***Based on <https://ironsoftware.com/how-to/hyperlinks/>***
 
-IronXL facilitates the addition of hyperlinks in various forms, including URLs, the access to external files via local and FTP (File Transfer Protocol), email addresses, and addresses within a spreadsheet cell or named ranges, all without needing Interop in .NET C# applications.
+
+Excel hyperlinks allow for clickable links to various destinations like other workbook locations, different files, web pages, or email addresses. This functionality improves usability by offering instant access to relevant data and external sites, making spreadsheets more interactive and friendly for users.
+
+With IronXL, you can easily embed hyperlinks for URLs, external files from local or FTP systems, email addresses, cell references, and named cells directly in your .NET C# projects without requiring Interop.
 
 ## Example: Creating a URL Hyperlink
 
-In IronXL, the **Hyperlink** attribute is accessible within the **Cell** class. Using the code `workSheet["A1"]`, you obtain a **Range** object. The `First` method allows you to interact with the first cell in that range.
+The `Hyperlink` attribute can be found within the `Cell` class. To obtain a `Range` object, you could use `workSheet["A1"]` and access the first cell using the `First` method.
 
-Alternatively, the `GetCellAt` method lets you directly address the cell, which facilitates a straightforward access to the **Hyperlink** property.
+Alternatively, the `GetCellAt` method lets you target a cell directly if you wish to manage its `Hyperlink` attribute.
 
-In the following example, we demonstrate how to implement a hyperlink using both HTTP and HTTPS protocols. Note that trying to access a cell that hasn't been initialized will result in a *System.NullReferenceException* indicating no object reference set.
+Here, we delve into an example that illustrates how to set up hyperlinks using both the HTTP and HTTPS protocols.
+
+It's worth noting that utilizing the `GetCellAt` method on a cell that has not been initialized could potentially result in a *System.NullReferenceException: 'Object reference not set to an instance of an object.'*
 
 ```cs
 using IronXL;
-
-WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-// Assign the cell a value
-workSheet["A1"].Value = "Visit IronPDF";
-
-// Set the A1 hyperlink to point to IronPDF's website
-workSheet.GetCellAt(0, 0).Hyperlink = "https://ironpdf.com/";
-
-workBook.SaveAs("setURLHyperlink.xlsx");
+using IronXL.Excel;
+namespace ironxl.Hyperlinks
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.New(ExcelFileFormat.XLSX);
+            WorkSheet workSheet = workBook.FirstSheet;
+            
+            // Assign a value to the cell
+            workSheet["A1"].Value = "Visit IronPDF";
+            
+            // Apply a hyperlink to https://ironpdf.com/ at cell A1
+            workSheet.GetCellAt(0, 0).Hyperlink = "https://ironpdf.com/";
+            
+            workBook.ExportAs("createURLHyperlink.xlsx");
+        }
+    }
+}
 ```
 
-### Demonstration
+### Visualization
 
 ![Link Hyperlink](https://ironsoftware.com/static-assets/excel/how-to/hyperlinks/hyperlinks-set-link-hyperlink.gif)
 
-## Example: Creating a Cross-Worksheet Hyperlink
+## Example: Creating Hyperlinks Across Different Worksheets
 
-Creating a hyperlink to navigate within the same worksheet involves simply mentioning the cell reference. For different worksheets, use the format "worksheetName!cellAddress". For instance, linking to cell A1 in "Sheet2" would be formatted as "Sheet2!A1".
+To link to a cell within the same worksheet, you simply use the cell's address like Z20. For inter-worksheet links, employ the format "worksheetName!address". For instance, to link to cell A1 on "Sheet2", you'd write "Sheet2!A1".
 
-Defined name scopes can be limited to either a specific worksheet or the entire workbook. To link to a named range within the same worksheet or the entire workbook, directly use the defined name. To link a named range in a different worksheet, specify it as seen in the example below.
+Named cells can be scoped either globally (workbook-wide) or locally (worksheet-only). To link a globally scoped name within the same worksheet or a locally scoped name on a different sheet, you'd specify the worksheet name first followed by the name.
 
 ```cs
-using IronXL;
 using System.Linq;
-
-WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-WorkSheet workSheet1 = workBook.CreateWorkSheet("Sheet1");
-WorkSheet workSheet2 = workBook.CreateWorkSheet("Sheet2");
-
-// Define a name with workbook scope
-workSheet1["D5"].SaveAsNamedRange("GlobalName", true);
-
-// Define a name with worksheet scope
-workSheet2["D10"].SaveAsNamedRange("LocalName", false);
-
-// Creating hyperlinks within the same worksheet
-workSheet1["A1"].Value = "Z20";
-workSheet1["A1"].First().Hyperlink = "Z20";
-workSheet1["A2"].Value = "GlobalName";
-workSheet1["A2"].First().Hyperlink = "GlobalName";
-
-// Creating hyperlinks across worksheets
-workSheet1["A3"].Value = "A1 on Sheet2";
-workSheet1["A3"].First().Hyperlink = "Sheet2!A1";
-workSheet1["A4"].Value = "LocalName on Sheet2";
-workSheet1["A4"].First().Hyperlink = "Sheet2!LocalName";
-
-workBook.SaveAs("setCrossWorksheetHyperlink.xlsx");
+using IronXL.Excel;
+namespace ironxl.Hyperlinks
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.New(ExcelFileFormat.XLSX);
+            WorkSheet sheetOne = workBook.AddNewSheet("Sheet1");
+            WorkSheet sheetTwo = workBook.AddNewSheet("Sheet2");
+            
+            // Define a global named cell
+            sheetOne["D5"].SaveAsNamedRange("Iron", workbookLevel: true);
+            
+            // Define a local named cell
+            sheetTwo["D10"].SaveAsNamedRange("Hello", workbookLevel: false);
+            
+            // Same worksheet hyperlink to cell Z20
+            sheetOne["A1"].Value = "Go to Z20";
+            sheetOne["A1"].First().Hyperlink = "Z20";
+            
+            // Same worksheet hyperlink to named range "Iron"
+            sheetOne["A2"].Value = "Go to Iron";
+            sheetOne["A2"].First().Hyperlink = "Iron";
+            
+            // Different worksheet hyperlinks
+            sheetOne["A3"].Value = "Go to A1 on Sheet2";
+            sheetOne["A3"].First().Hyperlink = "Sheet2!A1";
+            
+            sheetOne["A4"].Value = "Go to Hello on Sheet2";
+            sheetOne["A4"].First().Hyperlink = "Sheet2!Hello";
+            
+            workBook.ExportAs("createWorksheetHyperlink.xlsx");
+        }
+    }
+}
 ```
 
-### Demonstration
+### Visualization
 
 ![Hyperlink Across Worksheet](https://ironsoftware.com/static-assets/excel/how-to/hyperlinks/hyperlinks-set-hyperlink-across-worksheet.gif)
 
-## Example: Creating Various Other Types of Hyperlinks
+## Example: Creating FTP, File, and Email Hyperlinks
 
-IronXL supports hyperlinks for different protocols including FTP, file paths, and email addresses:
+In addition to standard URL hyperlinks, IronXL supports creating hyperlinks for FTP paths, file locations, and email addresses.
 
-- **FTP**: Use the prefix `ftp://`
-- **File**: Begin with the protocol `file:///`
-- **Email**: Start with `mailto:`
-
-Here’s how you can implement these various hyperlink types:
+Note that FTP and File hyperlinks should use absolute paths.
 
 ```cs
-using IronXL;
 using System.Linq;
-
-WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-// Link to open a file via FTP
-workSheet["A1"].Value = "Link to a file via FTP";
-workSheet["A1"].First().Hyperlink = "ftp://C:/Users/sample.xlsx";
-
-// Link to open a local file
-workSheet["A2"].Value = "Open local file";
-workSheet["A2"].First().Hyperlink = "file:///C:/Users/sample.xlsx";
-
-// Send an email
-workSheet["A3"].Value = "Send email to example@gmail.com";
-workSheet["A3"].First().Hyperlink = "mailto:example@gmail.com";
-
-workBook.SaveAs("setMiscHyperlinks.xlsx");
+using IronXL.Excel;
+namespace ironxl.Hyperlinks
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.New(ExcelFileFormat.XLSX);
+            WorkSheet workSheet = workBook.FirstSheet;
+            
+            // Creating an FTP hyperlink
+            workSheet["A1"].Value = "Access FTP sample.xlsx";
+            workSheet["A1"].First().Hyperlink = "ftp://C:/Users/sample.xlsx";
+            
+            // Creating a file hyperlink
+            workSheet["A2"].Value = "Open file sample.xlsx";
+            workSheet["A2"].First().Hyperlink = "file:///C:/Users/sample.xlsx";
+            
+            // Creating an email hyperlink
+            workSheet["A3"].Value = "Send email to example@gmail.com";
+            workSheet["A3"].First().Hyperlink = "mailto:example@gmail.com";
+            
+            workBook.ExportAs("createMiscHyperlinks.xlsx");
+        }
+    }
+}
 ```
 
-### Demonstration
+### Visualization
 
 ![Other Types of Hyperlinks](https://ironsoftware.com/static-assets/excel/how-to/hyperlinks/hyperlinks-set-other-hyperlink.gif)

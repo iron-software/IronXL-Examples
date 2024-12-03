@@ -1,14 +1,16 @@
-## Example of Adding Images
+***Based on <https://ironsoftware.com/examples/add-extract-remove-worksheet-images/>***
 
-To place an image inside a spreadsheet, utilize the method `InsertImage`. This function is compatible with several image formats including JPG/JPEG, BMP, PNG, GIF, and TIFF. You must define the coordinates for the top-left and bottom-right corners to set the size of the image, which is determined by the difference in column and row numbers.
+## Inserting Images into Spreadsheets
 
-- For an image with dimensions of 1x1: `worksheet.InsertImage("image.gif", 5, 1, 6, 2);`
-- For an image with dimensions of 2x2: `worksheet.InsertImage("image.gif", 5, 1, 7, 3);`
+To add an image to your spreadsheet, utilize the `InsertImage` function. This method is compatible with multiple image formats including JPG/JPEG, BMP, PNG, GIF, and TIFF. To define the placement and size of the image, specify the coordinates for the top-left and bottom-right corners, which are determined by the differences in their column and row indices.
 
-## Example of Extracting Images
+- For placing an image that spans 1x1 cells: `worksheet.InsertImage("image.gif", 5, 1, 6, 2);`
+- For placing an image that spans 2x2 cells: `worksheet.InsertImage("image.gif", 5, 1, 7, 3);`
 
-To retrieve images from a particular worksheet, use the `Images` property. This attribute provides access to a collection of all images in that worksheet. You can then manage these images by exporting them, changing their size, learning their coordinates, and accessing their byte data. It is important to note that the images are identified by odd numbers, following a sequence like 1, 3, 5, 7, etc.
+## Retrieving Images from a Worksheet
 
-## Example of Removing Images
+To retrieve images from a worksheet, use the `Images` attribute which lists all the images embedded in the sheet. This feature allows for several functionalities including exporting images, adjusting their sizes, determining their positions, and accessing the images' byte data. It is important to note that the image IDs increase in an odd sequence such as 1, 3, 5, 7, etc.
 
-Continuing from the example of extracting images, you can delete any specific image with ease. Just provide the unique ID of the image to the `RemoveImage` method, and it will be deleted from the worksheet. This process simplifies the management of images within your spreadsheets by allowing their removal through their respective IDs.
+## Deleting Images from Worksheets
+
+Building off the previous example of image extraction, deleting an image is straightforward. Simply provide the unique ID of the image to the `RemoveImage` method for deletion from your worksheet.

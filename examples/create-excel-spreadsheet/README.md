@@ -1,6 +1,8 @@
-The IronXL library enables the creation of Excel documents in both XLS and XLSX formats through its straightforward API, which allows you to modify and populate your workbook efficiently. You can access the content of a cell using the `Value` property, and you can also alter the cell's style using various settings in IronXL.
+***Based on <https://ironsoftware.com/examples/create-excel-spreadsheet/>***
 
-The styling options available with IronXL include the following properties:
+The IronXL library provides the functionality to develop Excel files using both XLS and XLSX formats. This is facilitated through the user-friendly APIs offered by IronXL, which allow you to modify and populate your workbook effectively. You can manage the value of a cell using the `Value` property and modify a cell's style with IronXL's capabilities.
+
+The `Style` properties that can be customized include:
 
 - `DiagonalBorder`
 - `Indention`
@@ -18,4 +20,4 @@ The styling options available with IronXL include the following properties:
 - `BottomBorder`
 - `SetBackgroundColor`
 
-It's important to note that for formats like CSV, TSV, JSON, and XML, each sheet in the workbook will be saved as a separate file. The naming scheme for these files follows the pattern `fileName.sheetName.format`. For example, a CSV file created would be named `sample.new_sheet.csv`.
+For file formats such as CSV, TSV, JSON, and XML, IronXL will generate a separate file for each sheet within the workbook. The format for the file names is `fileName.sheetName.format`. As an example, for a CSV file, the resultant file name would be `sample.new_sheet.csv`.

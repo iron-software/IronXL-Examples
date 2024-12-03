@@ -1,6 +1,9 @@
-# C# Create Excel File Tutorial
+# C# Excel File Creation Guide
 
-This guide provides a detailed, step-by-step approach to creating an Excel Workbook file across all platforms supporting .NET Framework 4.5 or .NET Core. Simplify your C# Excel file creation without relying on the older **Microsoft.Office.Interop.Excel** library by leveraging IronXL. This allows you to configure worksheet options such as freeze panes and protection, manage print settings, and much more.
+***Based on <https://ironsoftware.com/tutorials/create-excel-file-net_old_changed may 2021/>***
+
+
+This guide provides detailed instructions on how to generate an Excel Workbook on any system compatible with .NET Framework 4.5 or .NET Core. Craft Excel documents easily in C# without needing the outdated **Microsoft.Office.Interop.Excel** library. With IronXL, you can configure worksheet features such as freeze panes and sheet protection, adjust printing settings, and much more.
 
 <div class="learnn-how-section">
   <div class="row">
@@ -30,135 +33,151 @@ This guide provides a detailed, step-by-step approach to creating an Excel Workb
 
 <h2>IronXL Creates C# Excel Files in .NET</h2>
 
-[IronXL offers a streamlined C# and VB Excel API](https://ironsoftware.com/csharp/excel/) that facilitates the reading, editing, and creation of Excel spreadsheets within .NET, ensuring quick performance. It operates independently, with no requirement for MS Office or Excel Interop installations.
+[IronXL is an efficient C# & VB Excel API](https://ironsoftware.com/csharp/excel/) that enables reading, editing, and creation of Excel spreadsheet files in .NET, delivering top-notch performance. It entirely eliminates the need for installing MS Office or Excel Interop.
 
-Furthermore, IronXL provides comprehensive support across multiple platforms and technologies including .NET Core, .NET Framework, Xamarin, Mobile devices, Linux, macOS, and Azure environments.
+IronXL offers comprehensive support for .NET Core, .NET Framework, Xamarin, Mobile platforms, Linux, macOS, and Azure.
 
 <h3>IronXL Features:</h3>
 
-- Personalized human support directly from our .NET development experts
+- Direct assistance from our dedicated .NET development team.
 
-- Quick and easy setup using Microsoft Visual Studio
+- Swift setup through Microsoft Visual Studio.
 
-- Complimentary for development purposes. Pricing for licenses starts at `$liteLicense`.
+- Complimentary for development phases. Pricing starts from `$liteLicense`.
 
 <h4>Create and Save an Excel File: Quick Code</h4>
 
 <a class="js-modal-open" href="https://www.nuget.org/packages/IronXL.Excel/" target="_blank" data-modal-id="trial-license-after-download">https://www.nuget.org/packages/IronXL.Excel/</a>
 
-Alternatively, the `IronXL.Dll` library can be obtained and incorporated into your project via the following [download link](https://ironsoftware.com/csharp/excel/packages/IronXL.zip).
+Alternatively, you can directly download the `IronXL.dll` from [this link](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and include it in your project.
 
-Here's the paraphrased section of the article:
+Below is the paraphrased section from the provided article:
 
 ```cs
-/**
-Initialization & Persisting Excel File
-anchor-initialization-and-persisting-excel-file
-**/
+// Creating and Saving an Excel File Example
+// Reference ID: anchor-create-and-save-an-excel-file
 using IronXL;
 
-// By default, the workbook will use the XLSX format, but you can specify a different format with the CreatingOptions if needed
+// Create a new workbook with the default format XLSX, adjustable via options
 WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 var sheet = workbook.CreateWorkSheet("sample_sheet");
 
 // Assigning a simple value to a cell
-sheet["A1"].Value = "Example";
-
-// Assign values to a range of cells simultaneously
-sheet["A2:A4"].Value = 5;
-
-// Apply background color to a cell
-sheet["A5"].Style.SetBackgroundColor("#f0f0f0");
-
-// Apply bold styling to text in a range of cells
+sheet["A1"].Value = "Sample Data";
+// Assign the same value to a range of cells
+sheet["A2:A4"].Value = 10;
+// Apply a background color to a cell
+sheet["A5"].Style.SetBackgroundColor("#e0e0e0");
+// Make text bold for a range of cells
 sheet["A5:A6"].Style.Font.Bold = true;
-
-// Use a formula to compute values
+// Using a formula to calculate the sum
 sheet["A6"].Value = "=SUM(A2:A4)";
 
-// A simple assertion to check if the formula computes as expected
+// Simple condition to check calculation results
 if (sheet["A6"].IntValue == sheet["A2:A4"].IntValue)
 {
-    Console.WriteLine("Validation succeeded");
+    Console.WriteLine("Sum calculation is correct");
 }
 
 // Save the workbook to a file
 workbook.SaveAs("sample_workbook.xlsx");
 ```
 
+This rewritten code includes changes to variable names, comments, and text outputs to provide a natural, alternate expression of the original script while maintaining the logic and structure.
+
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## Install IronXL C# Library for Free
+##  1. Acquire the No-Cost IronXL C# Library
 
-Getting started with the IronXL C# library is straightforward and offers multiple installation methods. Here’s how you can incorporate this powerful tool into your projects.
+### Installing via NuGet
 
-### Installing via Visual Studio
+There are several methods to integrate the IronXL NuGet package into your projects:
 
-IronXL can be seamlessly integrated with your .NET projects using Visual Studio. To begin, you can add the package directly through the NuGet Package Manager:
+1. **Visual Studio Integration**: 
+   - Access the NuGet Package Manager by navigating through the Project Menu or by directly right-clicking on your project in the Solution Explorer. These are depicted in Figures 3 and 4 below.
 
-1. Open the NuGet Package Manager by either navigating through the **Project Menu** or by right-clicking your project in the **Solution Explorer**.
-   ![Project Menu](https://ironsoftware.com/img/tutorials/create-excel-file-net/project-menu.png)
-   *Figure 3 – The Project Menu*
+    <center>
+      <div style="display: inline-block; text-align: left; margin-bottom: 20px;">
+        <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/project-menu.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/project-menu.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+        <p><strong>Figure 3</strong> – <em>Menu of the Project</em></p>
+      </div>
+    </center>
 
-   ![Right Click Solution Explorer](https://ironsoftware.com/img/tutorials/create-excel-file-net/right-click-solution-explorer.png)
-   *Figure 4 – Right Click in Solution Explorer*
+    <center>
+      <div style="display: inline-block; text-align: left;">
+        <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/right-click-solution-explorer.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/right-click-solution-explorer.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+        <p><strong>Figure 4</strong> – <em>Solution Explorer Context Menu</em></p>
+      </div>
+    </center>
 
-2. After accessing the NuGet Package Manager, search for `IronXL.Excel` and proceed to install it as demonstrated below:
-   ![Install IronXL.Excel NuGet Package](https://ironsoftware.com/img/tutorials/create-excel-file-net/install-iron-excel-nuget-package.png)
-   *Figure 5 – Installing the IronXL.Excel NuGet Package*
+    From either location, choose 'Manage NuGet Packages', search for IronXL.Excel, and proceed to install it, as shown in Figure 5.
 
-### Using the Developer Command Prompt
+    <center>
+      <div style="display: inline-block; text-align: left;">
+        <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/install-iron-excel-nuget-package.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/install-iron-excel-nuget-package.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+        <p><strong>Figure 5</strong> – <em>Installing IronXL.Excel NuGet Package</em></p>
+      </div>
+    </center>
 
-For those who prefer using the command line, the Developer Command Prompt is an excellent alternative:
+2. **Using Developer Command Prompt**:
+   - Locate the Developer Command Prompt which might be found in the Visual Studio directory. 
+     Type the command:
+     ```
+     PM> Install-Package IronXL.Excel
+     ```
+     Hit the Enter key to execute it. After installation, make sure to reload your project in Visual Studio.
 
-1. Find the Developer Command Prompt in your Visual Studio installation directory.
-2. Execute the following command:
-   ```
-   PM> Install-Package IronXL.Excel
-   ```
-3. Hit Enter to install the package and then reload your Visual Studio project.
-
-### Direct Download
-
-Alternatively, you can directly download the NuGet package:
-
-1. Visit [IronXL on NuGet](https://www.nuget.org/packages/ironxl.excel/) and click the **Download Package**.
-2. Once downloaded, open the package and refresh your Visual Studio project setup.
+3. **Direct NuGet Package Download**:
+   - Visit the [IronXL NuGet page](https://www.nuget.org/packages/ironxl.excel) and click on the 'Download Package' button. Once downloaded, execute the package file and reload your project in Visual Studio.
 
 ### Direct Library Download
 
-If you prefer downloading the library files directly, IronXL is also available for direct download:
+Alternatively, download the IronXL library directly from [Iron Software's official site](https://ironsoftware.com/csharp/excel/).
 
-1. Go to the IronXL download page: [Download IronXL Library](https://ironsoftware.com/csharp/excel/)
-   ![Download IronXL Library](https://ironsoftware.com/img/tutorials/create-excel-file-net/download-ironxl-library.png)
-   *Figure 6 – Downloading IronXL directly*
+<center>
+  <div style="display: inline-block; text-align: left;">
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/download-ironxl-library.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/download-ironxl-library.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <p><strong>Figure 6</strong> – <em>Direct Download of IronXL Library</em></p>
+  </div>
+</center>
 
-2. Once downloaded, add the `IronXL.dll` to your project’s references by right-clicking the solution in the Solution Explorer, selecting **References**, then **Browse**, and navigating to the downloaded library.
+Adding the library to your project is simple:
+1. Right-click the Solution icon in Solution Explorer.
+2. Click on References.
+3. Click on 'Add Reference', browse to locate the downloaded `IronXL.dll` file, and select it.
+4. Confirm by clicking 'OK'.
 
-With IronXL installed, you’re equipped to leverage its full capabilities in your C# projects to manipulate Excel data with ease. Let’s get started!
+### Ready to Start!
+
+With IronXL set up, you're ready to dive into its powerful features and enhance your applications!
 
 <h3>Install by Using NuGet</h3>
 
-Here are three distinct methods to integrate the IronXL NuGet package into your development environment:
+You can install the IronXL NuGet package using one of the following three methods:
 
-1. **Visual Studio Integration**  
-   Utilize the NuGet Package Manager available within Visual Studio for straightforward installation. You can find this option under the Project Menu or by right-clicking on your project in the Solution Explorer.
+### 1. Using Visual Studio
 
-2. **Using Developer Command Prompt**  
-   Launch the Developer Command Prompt, which is typically found in your Visual Studio installation directory. Enter the following command to install the package:
-   ```
-   PM> Install-Package IronXL.Excel
-   ```
-   Simply hit Enter, and the package will automatically be incorporated into your project.
+Visual Studio makes it simple to add NuGet packages to your projects. You can find the NuGet Package Manager under the Project menu or by right-clicking on your project in the Solution Explorer. This tool allows you to conveniently manage and install new packages.
 
-3. **Direct NuGet Package Download**  
-   If you prefer direct downloads, you can obtain the NuGet package manually. Navigate to [https://www.nuget.org/packages/IronXL.Excel](https://www.nuget.org/packages/IronXL.Excel), click 'Download Package', and once downloaded, execute the file to bring it into your project.
+### 2. Through the Developer Command Prompt
+
+To install via the Developer Command Prompt, locate it typically under your Visual Studio directory, and open it. Simply type:
+
+```
+PM > Install-Package IronXL.Excel
+```
+
+Hit Enter, and the package will be automatically installed. Remember to reload your Visual Studio project after installation.
+
+### 3. Direct NuGet Package Download
+
+Alternatively, download the NuGet package directly. Visit the [IronXL NuGet page](https://www.nuget.org/packages/ironxl.excel/) and select "Download Package". Once downloaded, execute the package file and ensure your Visual Studio project is refreshed to apply the changes.
 
 <h3>Visual Studio</h3>
 
-Visual Studio includes the NuGet Package Manager, enabling you to add NuGet packages to your projects conveniently. Access it through the Project Menu or by right-clicking your project in the Solution Explorer. These methods are illustrated in Figures 3 and 4 below.
+Visual Studio comes equipped with a NuGet Package Manager, enabling you to easily add NuGet packages to your projects. You can find it in the Project Menu or by right-clicking on your project within the Solution Explorer. The step-by-step process is demonstrated in Figures 3 and 4 below.
 
 <center>
   <div style="display: inline-block; text-align: left; margin-bottom: 20px;">
@@ -175,7 +194,7 @@ Visual Studio includes the NuGet Package Manager, enabling you to add NuGet pack
 </center>
 <br></br>
 
-Once you've accessed the Manage NuGet Packages via either method described, search for and select the `IronXL.Excel` package. Proceed to install it as depicted in Figure 5.
+Once you've selected "Manage NuGet Packages" using either method, search for and select the IronXL.Excel package to install it, as depicted in Figure 5.
 
 <br></br>
 <center>
@@ -187,35 +206,36 @@ Once you've accessed the Manage NuGet Packages via either method described, sear
 
 <h3>Developer Command Prompt</h3>
 
-Access the Developer Command Prompt and proceed with the following instructions to integrate the IronXL.Excel NuGet package into your project:
+To install the IronXL.Excel NuGet package via the Developer Command Prompt, please adhere to the subsequent instructions:
 
-1. Locate the Developer Command Prompt, typically found within your Visual Studio installation directory.
+1. Locate your Developer Command Prompt, which is typically found within your Visual Studio installation directory.
 
-2. Enter this command:
-   
-   ```
-   PM > Install-Package IronXL.Excel
-   ```
+2. Execute this specific command: 
 
-3. Hit the Enter key to execute the command.
+3. Enter `PM > Install-Package IronXL.Excel`
 
-4. The package will automatically be downloaded and installed.
+4. Hit the Enter key to commence the installation.
 
-5. Once the installation is complete, refresh your Visual Studio project to apply the changes.
+5. After the command completes, the IronXL.Excel package will be successfully installed.
+
+6. Finally, ensure to refresh your Visual Studio project to reflect the changes.
 
 <h3>Download the NuGet Package directly</h3>
 
-Follow these simple steps to download the NuGet package:
+To download the NuGet package, follow these instructions:
 
-1. Go to the URL: [https://www.nuget.org/packages/ironxl.excel/](https://www.nuget.org/packages/ironxl.excel/)
-2. Select the 'Download Package' option.
+1. Go to [https://www.nuget.org/packages/ironxl.excel/](https://www.nuget.org/packages/ironxl.excel/)
+2. Choose the "Download Package" option.
 3. Once the download is complete, double-click on the downloaded file.
-4. Restart your Visual Studio project to apply changes.
+4. Restart your Visual Studio project to apply the changes.
 
 </br>
 <h3>Install IronXL by Direct Download of the Library</h3>
 
-The alternative method for installing IronXL involves directly downloading it from the website at [ironsoftware.com/csharp/excel](https://ironsoftware.com/csharp/excel/).
+Here's a rephrased version of the specified section with resolved URL paths:
+
+---
+Alternatively, you can directly download IronXL from its official page here: [IronXL Download](https://ironsoftware.com/csharp/excel/)
 
 </br>
 <center>
@@ -225,51 +245,54 @@ The alternative method for installing IronXL involves directly downloading it fr
   </div>
 </center>
 
-Here's the paraphrased section with the relative URL paths resolved:
+Here is the paraphrased section of the article with all relative paths resolved:
 
 -----
-To add the library to your project, simply follow these steps:
+Include the library in your project using the following instructions:
 
-1. In Solution Explorer, perform a right-click on the Solution.
-2. Click on 'References' from the context menu.
-3. Navigate through your files to locate the IronXL.dll library.
-4. Confirm by clicking 'OK'.
+1. Right-click on the Solution within the Solution Explorer.
+2. Choose 'References' from the context menu.
+3. Search for and select the `IronXL.dll` in the file dialog.
+4. Confirm your selection by clicking 'OK'.
 
 <h3>Let's Go!</h3>
 
-Now that your setup is complete, let’s dive into exploring the powerful capabilities of the IronXL library!
+Let's dive into utilizing the powerful capabilities of the IronXL library now that you're all set up!
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">How to Tutorials</h4>
 
-## 2. Start an ASP.NET Project ##
+## 2. Initiating an ASP.NET Project ##
 
-Initiate your ASP.NET project by following these straightforward steps:
+Next, I'll guide you through the process of starting a new ASP.NET project with IronXL. Follow these simple steps to get your project up and running quickly:
 
-1. Open Visual Studio on your computer.
-2. From the top menu, choose File > New Project.
-3. In the Project type list, select Web under the Visual C# section.
-4. Then, pick ASP.NET Web Application as displayed below.
-   
-    <center>
-      <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" target="_blank">
-        <p><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></p>
-      </a>
-    </center>
-    <strong style="margin-left: 40px;">Figure 1</strong> – *New Project Setup*
+1. Firstly, visit the official NuGet page for IronXL at [this link](https://www.nuget.org/packages/ironxl.excel/).
+2. Download the package by clicking on 'Download Package.'
+3. Once downloaded, open the package to integrate it seamlessly into your development environment.
+4. Refresh or reload your Visual Studio project to sync the new integration.
 
-5. Confirm your selection by clicking OK.
-6. On the subsequent screen, select Web Forms as explained in the next step:
+### Setting Up Your ASP.NET Website
 
-    <center>
-      <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png" target="_blank"><p><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></p></a>
-    </center>
-    <strong style="margin-left: 40px;">Figure 2</strong> – *Selecting Web Forms Option*
+Once IronXL is incorporated into your project, creating the ASP.NET Website is straightforward:
+
+1. Launch Visual Studio and select File > New Project from the top menu.
+2. In the Project type listbox, under Visual C#, select 'Web.'
+3. Choose 'ASP.NET Web Application' for your project type, as illustrated in the image below:
+
+    ![Creating a New ASP.NET Web Application](https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png)
     
-7. Click OK to finalize the setup.
+    *Figure 1 – New Project Setup*
 
-You are now ready to integrate IronXL and explore its functionalities as you develop your project.
+4. After clicking OK, you'll reach a new screen. Here, select 'Web Forms' as depicted in the subsequent image:
+
+    ![Selecting Web Forms for Project](https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png)
+    
+    *Figure 2 – Setting Up Web Forms*
+
+5. Confirm your settings by clicking OK.
+
+Now, with your ASP.NET environment prepared, you're ready to incorporate IronXL and start leveraging its powerful features for managing Excel data.
 
 <ul>
   <li>Navigate to the following URL:</li>
@@ -279,29 +302,29 @@ You are now ready to integrate IronXL and explore its functionalities as you dev
   <li>Reload your Visual Studio project</li>
 </ul>
 
-Follow these steps to create an ASP.NET Website:
+Here's the paraphrased section with the updated URL paths resolved to `ironsoftware.com`:
 
-1. Start by launching Visual Studio.
+---
+To begin developing an ASP.NET website, you can follow these steps:
 
-2. Navigate to `File` > `New Project`.
-
-3. In the Project type listbox, choose `Web` located under `Visual C#`.
-
-4. Opt for `ASP.NET Web Application`, depicted in the following image.
+1. Launch Visual Studio.
+2. From the top menu, select File, then choose New Project.
+3. Under the 'Visual C#' category, pick 'Web' from the project type options.
+4. Choose the 'ASP.NET Web Application' option, as illustrated in the accompanied image.
 
 <br></br>
 <center>
 <a rel="nofollow" href="/img/tutorials/create-excel-file-net/new-project-asp-net.png" target="_blank"><p><img src="/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></p></a>
 </center>
 
-**Figure 1** – _New Project_
+<strong style="margin-left: 40px;">Figure 1</strong> – *New Project*
 ```
 
 <a href="https://ironsoftware.com/csharp/excel/" target="_blank">ironsoftware.com/csharp/excel/</a>
 
-5. Once you have made your selection, click "OK."
+5. Confirm your choice by clicking OK.
 
-6. On the following interface, choose "Web Forms" as depicted in Figure 2 below.
+6. Subsequently, on the following interface, choose the Web Forms option. Refer to Figure 2 below for visual guidance.
 
 <br></br>
 
@@ -314,165 +337,90 @@ Follow these steps to create an ASP.NET Website:
 
 <br></br>
 
-Once you click OK, you'll have the basic structure required. The next step is to install IronXL, which will enable you to begin customizing your Excel file to meet your specific needs.
+Once you click OK, you're ready to dive in. Begin by installing IronXL to start tailoring your Excel file to your needs.
 
 <hr class="separator">
 
 ```cs
-// Create a new Excel Workbook
 WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 ```
 
-Both the XLS (an earlier version of Excel file format) and the newer XLSX file formats are supported by IronXL.
+Both XLS (older Excel file version) and XLSX (current and newer file version) file formats can be created with IronXL.
 
 ### 3.1. Set a Default Worksheet ###
 
-Creating a default worksheet is just as straightforward:
+And, it’s even simpler to create a default Worksheet:
 
 ```cs
-// Create a default worksheet named '2020 Budget'
 var sheet = workbook.CreateWorkSheet("2020 Budget");
 ```
 
-Here, "sheet" refers to the newly created worksheet, which you can now use to manage cell values and perform nearly any Excel-related operation.
+"Sheet" in the above code snippet represents the worksheet and you can use it to set cell values and almost everything Excel can do.
 
-If you're unsure about the distinction between a Workbook and a Worksheet, here's a quick clarification:
+In case you are confused about the difference between a Workbook and a Worksheet, let me explain:
 
-A Workbook is a collection of one or more Worksheets. You can add multiple Worksheets to a single Workbook. A Worksheet is composed of Rows and Columns, where the intersection of a Row and a Column forms a Cell. These cells are what you will manipulate when working with IronXL to manage Excel data.
+A Workbook contains Worksheets. This means that you can add as many Worksheets as you like into one Workbook. In a later article, I will explain how to do this. A Worksheet contains Rows and Columns. The intersection of a Row and a Column is called a Cell, and this is what you will manipulate whilst working with Excel.
 
-The code snippet is rephrased as follows:
+ -----
+ 
+## 3. Generating an Excel Workbook ##
+
+Creating a brand new Excel Workbook with IronXL is surprisingly straightforward and can be achieved in just one line of code. Here's how:
 
 ```cs
-// Initialize a new WorkBook for the XLSX format
 WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
 ```
 
-IronXL supports both the traditional XLS format and the modern XLSX file format for Excel documents.
+IronXL allows you to produce both older XLS and the contemporary XLSX file formats.
 
-### 3.1. Establish a Default Worksheet ###
+### 3.1. Initialize a Default Worksheet ###
 
-Creating a default Worksheet is even more straightforward:
+Crafting a default worksheet is equally effortless:
 
 ```cs
-var sheet = workbook.AddSheet("2020 Budget");
+var sheet = workbook.CreateWorkSheet("2020 Budget");
 ```
 
-In the provided code example, "Sheet" refers to a worksheet where you can modify cell values and perform almost all the functions that Excel offers.
+Here, `sheet` refers to the newly created worksheet, which can be manipulated to set cell values and facilitate nearly all Excel functionalities.
 
-If you're wondering about the distinction between a Workbook and a Worksheet, here's a quick primer:
+For those new to Excel programming, here’s a quick primer on terms:
+- A **Workbook** is a collection of Worksheets. You can insert multiple worksheets into a single workbook.
+- A **Worksheet** comprises Rows and Columns, where the meeting point of a row and a column is called a Cell. You can change or use cells as needed when you’re handling Excel data.
 
-A Workbook is essentially a container for Worksheets, allowing you to incorporate multiple Worksheets within a single Workbook. Details on how to add more Worksheets will be covered in a forthcoming article. Each Worksheet is composed of Rows and Columns, with a Cell located at the intersection of a Row and a Column. These Cells are the primary elements you interact with when handling data in Excel.
+This simple distinction helps you better understand and utilize the capabilities of Excel through IronXL.
+
+```cs
+// Instantiate a new Workbook using IronXL with the XLSX file format
+WorkBook newWorkbook = WorkBook.Create(ExcelFileFormat.XLSX);
+```
+
+IronXL supports the creation of both XLS (the traditional Excel file format) and XLSX (the modern and current Excel file format).
+
+### 3.1. Establishing a Default Worksheet ###
+
+Creating a default worksheet is even more straightforward:
+```
+
+```cs
+var sheet = workbook.AddWorkSheet("2020 Budget");
+```
+
+In the provided code snippet, "Sheet" refers to the worksheet where you can customize cell values and perform various Excel operations seamlessly.
+
+If you're unsure about the distinction between a Workbook and a Worksheet, here's a brief clarification:
+
+A Workbook is a collection of Worksheets, allowing you to integrate multiple Worksheets within a single Workbook. This topic will be elaborated in a forthcoming article. On the other hand, a Worksheet is made up of Rows and Columns, forming Cells at their intersections. These Cells are the primary elements you will interact with when using Excel functionalities.
 
 <hr class="separator">
 
-## Modify Cell Values ##
+## 4. Setting Cell Values ##
 
-### Manually Alter Cell Data ###
-
-To manually assign values to specific cells in an Excel worksheet, you can directly specify the cell and its new content. Below is an illustration:
-
-```cs
-// Set individual cell values
-sheet["A1"].Value = "January";
-sheet["B1"].Value = "February";
-sheet["C1"].Value = "March";
-sheet["D1"].Value = "April";
-sheet["E1"].Value = "May";
-sheet["F1"].Value = "June";
-sheet["G1"].Value = "July";
-sheet["H1"].Value = "August";
-sheet["I1"].Value = "September";
-sheet["J1"].Value = "October";
-sheet["K1"].Value = "November";
-sheet["L1"].Value = "December";
-```
-The example fills the first row, columns A to L, setting each to a different month name.
-
-### Dynamic Cell Value Assignment ###
-
-For dynamic cell value assignment, you can create varied data entries without hard-coding each cell's value. The code below demonstrates this concept using a loop:
-
-```cs
-// Dynamically assigning random values to cells
-Random randomGenerator = new Random();
-for (int rowIndex = 2; rowIndex <= 11; rowIndex++)
-{
-    sheet["A" + rowIndex].Value = randomGenerator.Next(1, 1000);
-    sheet["B" + rowIndex].Value = randomGenerator.Next(1000, 2000);
-    sheet["C" + rowIndex].Value = randomGenerator.Next(2000, 3000);
-    sheet["D" + rowIndex].Value = randomGenerator.Next(3000, 4000);
-    sheet["E" + rowIndex].Value = randomGenerator.Next(4000, 5000);
-    sheet["F" + rowIndex].Value = randomGenerator.Next(5000, 6000);
-    sheet["G" + rowIndex].Value = randomGenerator.Next(6000, 7000);
-    sheet["H" + rowIndex].Value = randomGenerator.Next(7000, 8000);
-    sheet["I" + rowIndex].Value = randomGenerator.Next(8000, 9000);
-    sheet["J" + rowIndex].Value = randomGenerator.Next(9000, 10000);
-    sheet["K" + rowIndex].Value = randomGenerator.Next(10000, 11000);
-    sheet["L" + rowIndex].Value = randomGenerator.Next(11000, 12000);
-}
-```
-This fills cells from A2 to L11 with unique, randomly generated numbers.
-
-### Loading Data from a Database ###
-
-To insert data from a database directly, the following snippet outlines the procedure assuming database connection setup is correct:
-
-```cs
-// Populate cells from a database
-string connectionString;
-string sqlQuery;
-DataSet dataSet = new DataSet("DataSetName");
-SqlConnection sqlConnection;
-SqlDataAdapter sqlDataAdapter;
-
-// Setting Database Connection
-connectionString = @"Data Source=Server_Name;Initial Catalog=Database_Name;User ID=User_ID;Password=Password";
-
-// SQL command for data retrieval
-sqlQuery = "SELECT Fields FROM Table_Name";
-
-// Initializing connection
-sqlConnection = new SqlConnection(connectionString);
-sqlDataAdapter = new SqlDataAdapter(sqlQuery, sqlConnection);
-
-// Opening connection and filling the dataset
-sqlConnection.Open();
-sqlDataAdapter.Fill(dataSet);
-
-// Loop through dataset to fill cells
-foreach (DataTable table in dataSet.Tables)
-{
-    int rowCounter = table.Rows.Count - 1;
-    for (int cellCounter = 12; cellCounter <= 21; cellCounter++)
-    {
-       sheet["A" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_1"].ToString();
-       sheet["B" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_2"].ToString();
-       sheet["C" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_3"].ToString();
-       sheet["D" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_4"].ToString();
-       sheet["E" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_5"].ToString();
-       sheet["F" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_6"].ToString();
-       sheet["G" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_7"].ToString();
-       sheet["H" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_8"].ToString();
-       sheet["I" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_9"].ToString();
-       sheet["J" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_10"].ToString();
-       sheet["K" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_11"].ToString();
-       sheet["L" + cellCounter].Value = table.Rows[rowCounter]["Field_Name_12"].ToString();
-    }
-    rowCounter++;
-}
-```
-This snippet loads data from a database and inputs it into selected rows and columns dynamically.
-
-### 4.1. Manually Input Cell Values ###
-
-For manually entering data into cells, you only need to specify which cell to work with and assign its value, as demonstrated in the example below:
-
-Here's a paraphrased version of the given code snippet from the section "Set Cell Value Manually":
+Setting cell values is a straightforward operation. You designate the specific cell and assign its value. Below is a practical demonstration:
 
 ```cs
 /**
-Setting values in cells explicitly
-marker-set-cell-values
+Assign Cell Values Individually
+anchor-set-cell-values
 **/
 sheet["A1"].Value = "January";
 sheet["B1"].Value = "February";
@@ -488,358 +436,452 @@ sheet["K1"].Value = "November";
 sheet["L1"].Value = "December";
 ```
 
-In this revised version, the comment at the beginning was slightly altered to maintain relevance while providing a fresh perspective on the action being performed, which is explicitly setting values in cells.
+In the example above, I've filled out the cells in the first row, from columns A through L, each with the name of a month.
 
-In this example, I have filled Columns A through L, assigning each of the first row cells a unique month name.
+### 4.2. Assign Cell Values Dynamically ###
 
-### 4.2. Dynamically Setting Cell Values ###
+Assigning values dynamically offers flexibility. You aren't required to manually specify each cell's location. In the following example, you'll see how random values are assigned using a loop:
 
-Setting cell values dynamically offers an advantage over the previous method by eliminating the need to set cell locations explicitly. In the forthcoming code snippet, you will see how to instantiate a new `Random` object to generate random numbers. You will then employ a `for` loop to traverse through a specified range of cells that you intend to fill with these values.
+```cs
+/**
+Dynamically Set Cell Values
+anchor-set-cell-values-dynamically
+**/
+Random rand = new Random();
+for (int i = 2; i <= 11; i++)
+{
+    sheet["A" + i].Value = rand.Next(1, 1000);
+    sheet["B" + i].Value = rand.Next(1000, 2000);
+    sheet["C" + i].Value = rand.Next(2000, 3000);
+    sheet["D" + i].Value = rand.Next(3000, 4000);
+    sheet["E" + i].Value = rand.Next(4000, 5000);
+    sheet["F" + i].Value = rand.Next(5000, 6000);
+    sheet["G" + i].Value = rand.Next(6000, 7000);
+    sheet["H" + i].Value = rand.Next(7000, 8000);
+    sheet["I" + i].Value = rand.Next(8000, 9000);
+    sheet["J" + i].Value = rand.Next(9000, 10000);
+    sheet["K" + i].Value = rand.Next(10000, 11000);
+    sheet["L" + i].Value = rand.Next(11000, 12000);
+}
+```
 
-Here is the paraphrased section of the article:
+Each cell from A2 to L11 is assigned a unique, randomly generated number.
+
+### 4.3. Direct Addition from Databases ###
+
+For adding data directly from a database, set up the connection, execute a select query, and dynamically allocate the results to specific cells as shown below:
+
+```cs
+/**
+Populate Cells Directly from a Database
+anchor-add-directly-from-a-database
+**/
+// Setup database connection and obtain data
+string connectionString;
+SqlConnection connection;
+SqlDataAdapter dataAdapter;
+DataSet dataSet = new DataSet("ExampleDataSet");
+
+// Database connection string
+connectionString = @"Data Source=Server_Name;Initial Catalog=Database_Name;User ID=User_ID;Password=Password";
+
+// SQL query to retrieve data
+string sql = "SELECT Column_Names FROM Table_Name";
+
+// Establish connection and fill dataset
+connection = new SqlConnection(connectionString);
+dataAdapter = new SqlDataAdapter(sql, connection);
+
+connection.Open();
+dataAdapter.Fill(dataSet);
+
+// Iterate through dataset and populate cells
+foreach (DataTable table in dataSet.Tables)
+{
+    for (int j = 12; j <= 21; j++)
+    {
+        int rowCount = table.Rows.Count - 1;
+        sheet["A" + j].Value = table.Rows[rowCount]["Column1"].ToString();
+        sheet["B" + j].Value = table.Rows[rowCount]["Column2"].ToString();
+        sheet["C" + j].Value = table.Rows[rowCount]["Column3"].ToString();
+        sheet["D" + j].Value = table.Rows[rowCount]["Column4"].ToString();
+        sheet["E" + j].Value = table.Rows[rowCount]["Column5"].ToString();
+        sheet["F" + j"].Value = table.Rows[rowCount]["Column6"].ToString();
+        sheet["G" + j].Value = table.Rows[rowCount]["Column7"].ToString();
+        sheet["H" + j].Value = table.Rows[rowCount]["Column8"].ToString();
+        sheet["I" + j].Value = table.Rows[rowCount]["Column9"].ToString();
+        sheet["J" + j].Value = table.Rows[rowCount]["Column10"].ToString();
+        sheet["K" + j].Value = table.Rows[rowCount]["Column11"].ToString();
+        sheet["L" + j].Value = table.Rows[rowCount]["Column12"].ToString();
+        rowCount++;
+    }
+}
+```
+
+### 4.1. Manual Cell Value Setting ###
+
+Manually setting the values in cells is straightforward. Simply specify the target cell and assign it a value. Here’s how you do it:
+
+```cs
+/**
+Manually Assign Values to Cells
+anchor-manually-set-values
+**/
+sheet["A1"].Value = "January";
+sheet["B1"].Value = "February";
+sheet["C1"].Value = "March";
+sheet["D1"].Value = "April";
+sheet["E1"].Value = "May";
+sheet["F1"].Value = "June";
+sheet["G1"].Value = "July";
+sheet["H1"].Value = "August";
+sheet["I1"].Value = "September";
+sheet["J1"].Value = "October";
+sheet["K1"].Value = "November";
+sheet["L1"].Value = "December";
+```
+
+In this example, we have filled the first row with the names of the months from January to December, assigning each month to the corresponding cell from `A1` to `L1`.
+
+The paraphrased content for setting cell values manually in an Excel sheet using IronXL is as follows:
+
+```cs
+/**
+Assign Cell Values Individually
+anchor-assign-cell-values
+**/
+sheet["A1"].Value = "January";
+sheet["B1"].Value = "February";
+sheet["C1"].Value = "March";
+sheet["D1"].Value = "April";
+sheet["E1"].Value = "May";
+sheet["F1"].Value = "June";
+sheet["G1"].Value = "July";
+sheet["H1"].Value = "August";
+sheet["I1"].Value = "September";
+sheet["J1"].Value = "October";
+sheet["K1"].Value = "November";
+sheet["L1"].Value = "December";
+```
+
+In this reformatted section, I have updated the code comment to provide clarity on the action being performed, which is "Assign Cell Values Individually". Each line sets the `Value` for a different cell corresponding to the months of the year in a sequential manner.
+
+In this example, I've filled Columns A through L with names corresponding to each month, assigning them to the first row of each column.
+
+### 4.2. Dynamically Modify Cell Values ###
+
+Dynamically modifying cell values follows a similar method as before but adds flexibility by avoiding fixed cell references. In the following example, you'll see how to instantiate a `Random` object to generate random numbers. You will also use a `for` loop to cycle through a designated range of cells, filling them with these randomly generated values.
 
 ```cs
 /**
 Dynamically Assign Cell Values
 anchor-dynamically-assign-cell-values
 **/
-Random randomGenerator = new Random();
+Random randomizer = new Random();
 for (int index = 2; index <= 11; index++)
 {
-    sheet["A" + index].Value = randomGenerator.Next(1, 1000);
-    sheet["B" + index].Value = randomGenerator.Next(1000, 2000);
-    sheet["C" + index].Value = randomGenerator.Next(2000, 3000);
-    sheet["D" + index].Value = randomGenerator.Next(3000, 4000);
-    sheet["E" + index].Value = randomGenerator.Next(4000, 5000);
-    sheet["F" + index].Value = randomGenerator.Next(5000, 6000);
-    sheet["G" + index].Value = randomGenerator.Next(6000, 7000);
-    sheet["H" + index].Value = randomGenerator.Next(7000, 8000);
-    sheet["I" + index].Value = randomGenerator.Next(8000, 9000);
-    sheet["J" + index].Value = randomGenerator.Next(9000, 10000);
-    sheet["K" + index].Value = randomGenerator.Next(10000, 11000);
-    sheet["L" + index].Value = randomGenerator.Next(11000, 12000);
+	sheet[$"A{index}"].Value = randomizer.Next(1, 1000);
+	sheet[$"B{index}"].Value = randomizer.Next(1000, 2000);
+	sheet[$"C{index}"].Value = randomizer.Next(2000, 3000);
+	sheet[$"D{index}"].Value = randomizer.Next(3000, 4000);
+	sheet[$"E{index}"].Value = randomizer.Next(4000, 5000);
+	sheet[$"F{index}"].Value = randomizer.Next(5000, 6000);
+	sheet[$"G{index}"].Value = randomizer.Next(6000, 7000);
+	sheet[$"H{index}"].Value = randomizer.Next(7000, 8000);
+	sheet[$"I{index}"].Value = randomizer.Next(8000, 9000);
+	sheet[$"J{index}"].Value = randomizer.Next(9000, 10000);
+	sheet[$"K{index}"].Value = randomizer.Next(10000, 11000);
+	sheet[$"L{index}"].Value = randomizer.Next(11000, 12000);
 }
 ```
 
-This code snippet shows how you can dynamically populate cells in a spreadsheet using a looping structure along with a pseudo-random number generator. The generator produces a series of numbers that fill values in specified cell locations from columns A through L between rows 2 and 11.
+Each cell between A2 and L11 displays a unique, randomly added value.
 
-Each cell, starting from A2 up to L11, has been assigned a distinct value generated randomly.
+Discussing dynamic inputs further, would learning to automatically populate cells with data from a database be of interest? The following code segment demonstrates this process, provided your database connections are appropriately established.
 
-Shifting our focus to dynamic data entry, let's explore adding data straight from a database into cells. The forthcoming code example demonstrates this process, provided that your database connections are configured properly.
+### 4.3. Integrating Data from a Database ###
 
-### 4.3. Import Data from a Database ###
-
-In this segment, we demonstrate how to seamlessly pull data from a database into your Excel sheet using IronXL. This method is invaluable when dealing with dynamic datasets that need to be represented in an Excel format directly from your database.
+To populate your Excel cells directly from a database, you'll follow a straightforward process. Here's a step-by-step method to input data seamlessly into your spreadsheet:
 
 ```cs
 /**
-Populate Excel from a Database
-anchor-populate-excel-from-database
+Database to Excel Integration
+anchor-integrating-data-from-database
 **/
-// Setting up the database connection and command objects
+// Initialize database connection objects
 string connectionString;
 string query;
 DataSet dataSet = new DataSet("ExampleDataSet");
-SqlConnection connection;
-SqlDataAdapter dataAdapter;
+SqlConnection sqlConnection;
+SqlDataAdapter sqlDataAdapter;
 
-// Configuration for the database connection
-connectionString = @"Data Source=Your_Server_Name;Initial Catalog=Your_Database_Name;User ID=Your_User_ID;Password=Your_Password";
+// Define your database connection string
+connectionString = @"Data Source=Your_Server;Initial Catalog=Your_Database;User ID=Your_Username;Password=Your_Password";
 
 // SQL query to fetch data
-query = "SELECT ColumnNames FROM YourTable";
+query = "SELECT Columns FROM Your_Table";
 
-// Initiating connection and fetching data into DataSet
-connection = new SqlConnection(connectionString);
-dataAdapter = new SqlDataAdapter(query, connection);
+// Manage database connection and fetch data
+sqlConnection = new SqlConnection(connectionString);
+sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
 
-connection.Open();
-dataAdapter.Fill(dataSet);
+sqlConnection.Open();
+sqlDataAdapter.Fill(dataSet);
 
-// Iterating through the DataSet to populate the Excel sheet
+// Iterate through dataset to transfer data to Excel cells
 foreach (DataTable table in dataSet.Tables)
 {
-    int rowCounter = table.Rows.Count - 1;
+    int rowIndex = table.Rows.Count - 1;
 
-    for (int j = 12; j <= 21; j++)
+    for (int i = 12; i <= 21; i++)
     {
-        sheet["A" + j].Value = table.Rows[rowCounter]["ColumnName1"].ToString();
-        sheet["B" + j].Value = table.Rows[rowCounter]["ColumnName2"].ToString();
-        sheet["C" + j].Value = table.Rows[rowCounter]["ColumnName3"].ToString();
-        sheet["D" + j].Value = table.Rows[rowCounter]["ColumnName4"].ToString();
-        sheet["E" + j].Value = table.Rows[rowCounter]["ColumnName5"].ToString();
-        sheet["F" + j].Value = table.Rows[rowCounter]["ColumnName6"].ToString();
-        sheet["G" + j].Value = table.Rows[rowCounter]["ColumnName7"].ToString();
-        sheet["H" + j].Value = table.Rows[rowCounter]["ColumnName8"].ToString();
-        sheet["I" + j].Value = table.Rows[rowCounter]["ColumnName9"].ToString();
-        sheet["J" + j].Value = table.Rows[rowCounter]["ColumnName10"].ToString();
-        sheet["K" + j].Value = table.Rows[rowCounter]["ColumnName11"].ToString();
-        sheet["L" + j].Value = table.Rows[rowCounter]["ColumnName12"].ToString();
+        sheet["A" + i].Value = table.Rows[rowIndex]["Column1"].ToString();
+        sheet["B" + i].Value = table.Rows[rowIndex]["Column2"].ToString();
+        sheet["C" + i].Value = table.Rows[rowIndex]["Column3"].ToString();
+        sheet["D" + i].Value = table.Rows[rowIndex]["Column4"].ToString();
+        sheet["E" + i].Value = table.Rows[rowIndex]["Column5"].ToString();
+        sheet["F" + i].Value = table.Rows[rowIndex]["Column6"].ToString();
+        sheet["G" + i].Value = table.Rows[rowIndex]["Column7"].ToString();
+        sheet["H" + i].Value = table.Rows[rowIndex]["Column8"].ToString();
+        sheet["I" + i].Value = table.Rows[rowIndex]["Column9"].ToString();
+        sheet["J" + i].Value = table.Rows[rowIndex]["Column10"].ToString();
+        sheet["K" + i].Value = table.Rows[rowIndex]["Column11"].ToString();
+        sheet["L" + i].Value = table.Rows[rowIndex]["Column12"].ToString();
     }
-    rowCounter++;
+    rowIndex++;
 }
 ```
 
-In this code example, you're directly setting the `Value` property of each cell to the appropriate field data retrieved from your database, thus dynamically populating your Excel sheet based on the actual data stored in the database.
+This method facilitates transferring structured data from your database directly into the designated Excel cells, all done programmatically with IronXL.
 
 ```cs
 /**
-Populate Excel from Database
+Populate Cells from Database
 anchor-populate-cells-from-database
 **/
-// Initializing database variables to retrieve data
+// Initialize database objects for data retrieval
 string connectionString;
 string query;
 DataSet dataSet = new DataSet("ExampleDataSet");
 SqlConnection connection;
 SqlDataAdapter adapter;
 
-// Configure the database connectivity string
-connectionString = @"Data Source=ServerName;Initial Catalog=DataBaseName;User ID=Username;Password=YourPassword";
+// Configure the database connection string
+connectionString = @"Data Source=Your_Server_Name;Initial Catalog=Your_Database;User ID=Your_User_ID;Password=Your_Password";
 
-// SQL command to fetch data
-query = "SELECT Columns FROM TableName";
+// SQL statement to fetch data
+query = "SELECT Columns FROM Your_Table";
 
-// Establish connection and populate DataSet
+// Establish connection and fill dataset
 connection = new SqlConnection(connectionString);
 adapter = new SqlDataAdapter(query, connection);
 
 connection.Open();
 adapter.Fill(dataSet);
 
-// Iterate through dataset contents
-foreach (DataTable dt in dataSet.Tables)
+// Iterate through the dataset table content
+foreach (DataTable dataTable in dataSet.Tables)
 {
-    int lastRowIndex = dt.Rows.Count - 1;
+    int rowCount = dataTable.Rows.Count - 1;
 
-    // Populate Excel worksheet cells with the dataset data
-    for (int rowIndex = 12; rowIndex <= 21; rowIndex++)
+    for (int i = 12; i <= 21; i++)
     {
-        sheet["A" + rowIndex].Value = dt.Rows[lastRowIndex]["Column1"].ToString();
-        sheet["B" + rowIndex].Value = dt.Rows[lastRowIndex]["Column2"].ToString();
-        sheet["C" + rowIndex].Value = dt.Rows[lastRowIndex]["Column3"].ToString();
-        sheet["D" + rowIndex].Value = dt.Rows[lastRowIndex]["Column4"].ToString();
-        sheet["E" + rowIndex].Value = dt.Rows[lastRowIndex]["Column5"].ToString();
-        sheet["F" + rowIndex].Value = dt.Rows[lastRowIndex]["Column6"].ToString();
-        sheet["G" + rowIndex].Value = dt.Rows[lastRowIndex]["Column7"].ToString();
-        sheet["H" + rowIndex].Value = dt.Rows[lastRowIndex]["Column8"].ToString();
-        sheet["I" + rowIndex].Value = dt.Rows[lastRowIndex]["Column9"].ToString();
-        sheet["J" + rowIndex].Value = dt.Rows[lastRowIndex]["Column10"].ToString();
-        sheet["K" + rowIndex].Value = dt.Rows[lastRowIndex]["Column11"].ToString();
-        sheet["L" + rowIndex].Value = dt.Rows[lastRowIndex]["Column12"].ToString();
+        sheet ["A" + i].Value = dataTable.Rows[rowCount]["Column1"].ToString();
+        sheet ["B" + i].Value = dataTable.Rows[rowCount]["Column2"].ToString();
+        sheet ["C" + i].Value = dataTable.Rows[rowCount]["Column3"].ToString();
+        sheet ["D" + i].Value = dataTable.Rows[rowCount]["Column4"].ToString();
+        sheet ["E" + i].Value = dataTable.Rows[rowCount]["Column5"].ToString();
+        sheet ["F" + i].Value = dataTable.Rows[rowCount]["Column6"].ToString();
+        sheet ["G" + i].Value = dataTable.Rows[rowCount]["Column7"].ToString();
+        sheet ["H" + i].Value = dataTable.Rows[rowCount]["Column8"].ToString();
+        sheet ["I" + i].Value = dataTable.Rows[rowCount]["Column9"].ToString();
+        sheet ["J" + i].Value = dataTable.Rows[rowCount]["Column10"].ToString();
+        sheet ["K" + i].Value = dataTable.Rows[rowCount]["Column11"].ToString();
+        sheet ["L" + i].Value = dataTable.Rows[rowCount]["Column12"].ToString();
     }
-    lastRowIndex++;
+    rowCount++;
 }
 ```
 
-You only need to assign the desired field name to the `Value` property of the specified cell.
+Simply assign the desired field name to the `Value` property of the specified cell.
 
 <hr class="separator">
 
-## 5. Apply Formatting ##
+## 5. Implement Formatting Techniques ##
 
-### 5.1. Setting Cell Background Colors ###
+### 5.1. Adjust Cell Background Colors ###
 
-You can easily change the background color of a single cell or a range of cells using just one line of code, as shown in the example below:
-
-```cs
-/**
-Set Background Color for Cells
-anchor-set-background-colors-of-cells
-**/
-sheet ["A1:L1"].Style.SetBackgroundColor("#d3d3d3");
-```
-
-This command changes the background color of cells from A1 to L1 to a gray shade. In this format, the RGB color code is used, where each pair of hex digits represents the red, green, and blue components of the color.
-
-### 5.2. Creating Borders Around Cells ###
-
-With IronXL, adding borders to cells is straightforward. Here’s how you can add various borders to your spreadsheet cells:
+To modify the background color of a single cell or a group of cells, it only takes a simple line of code:
 
 ```cs
-/**
-Define Cell Borders
-anchor-create-borders
-**/
-// Setting top and bottom borders for A1 to L1
-sheet ["A1:L1"].Style.TopBorder.SetColor("#000000");
-sheet ["A1:L1"].Style.BottomBorder.SetColor("#000000");
-
-// Defining a right border for cells from L2 to L11 with a medium thickness
-sheet ["L2:L11"].Style.RightBorder.SetColor("#000000");
-sheet ["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
-
-// Adding a medium bottom border spanning A11 to L11
-sheet ["A11:L11"].Style.BottomBorder.SetColor("#000000");
-sheet ["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
-```
-
-In the above example, black borders are added to specific cell ranges. The top and bottom borders for the first row and a right and bottom border with medium thickness for designated sections give a distinct look to your worksheet.
-
-### 5.1. Setting Cell Background Colors ###
-
-Changing the background color of a cell or multiple cells is straightforward. You can achieve this by using a single line of code, as demonstrated below:
-
-```cs
-// Set background color of a cell range
+// Set the background color of a range of cells to gray
 sheet["A1:L1"].Style.SetBackgroundColor("#d3d3d3");
 ```
 
-Here, the background color is set to a gray shade for the cells from `A1` to `L1`. The color code `#d3d3d3` is an RGB hex code, where RGB stands for Red, Green, and Blue. The color values range from `00` to `FF` in hexadecimal notation, representing the intensity of each color component.
+This command alters the background color of the selected cells to gray. In this example, the color code is represented in hex format, where "#d3d3d3" specifies the gray color.
+
+### 5.2. Add Borders to Cells ###
+
+Creating borders in IronXL is straightforward and can be done with minimal code. Here’s how you can do it:
 
 ```cs
 /**
-Set Background Color for Cells
-anchor-background-color-setting
-**/
-sheet["A1:L1"].Style.SetBackgroundColor("#d3d3d3");
-```
-
-This configures the background hue of a cell range to gray, based on the RGB (Red, Green, Blue) system. In this system, the color format uses hexadecimal values where the initial two characters detail the intensity of red, followed by two for green, and the last two for blue, with possible values ranging from '0' to '9' and 'A' to 'F'.
-
-```cs
-/**
-Define Cell Borders
-anchor-define-cell-borders
-**/
-// Set top and bottom borders for cells A1 to L1
+ * This section adds borders to specific cell ranges
+ * anchor-add-borders-to-cells
+ **/
+// Set black border on the top and bottom of cells A1 to L1
 sheet["A1:L1"].Style.TopBorder.SetColor("#000000");
 sheet["A1:L1"].Style.BottomBorder.SetColor("#000000");
 
-// Define a medium right border for cells L2 to L11
+// Set a medium style right border from L2 to L11
 sheet["L2:L11"].Style.RightBorder.SetColor("#000000");
 sheet["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
 
-// Apply a medium bottom border to cells A11 to L11
+// Define a medium bottom border for the range A11 to L11
 sheet["A11:L11"].Style.BottomBorder.SetColor("#000000");
 sheet["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
 ```
 
-In the code above, I have demonstrated how straightforward it is to establish borders using IronXL. Black top and bottom borders are applied to the span of cells from `A1` to `L1`, meanwhile, the cells from `L2` to `L11` are outfitted with a medium-strength right-side border. Lastly, a medium thickness bottom border is affixed to the cells ranging from `A11` to `L11`. 
+In the commands above, we add top and bottom borders to cells from A1 to L1 and right borders to cells from L2 to L11. These borders are set to black with a right border styled as medium. Then, a medium bottom border is similarly applied to cells from A11 to L11.
 
-Setting borders in this way ensures that your Excel worksheets not only have data organization but also an accentuated visual structure, enhancing both readability and design.
+### 5.1. Configure Cell Background Colors ###
 
-Here is your paraphrased section with enhanced comments and explanations:
+Setting the background color for a single cell or a group of cells is straightforward. Use the code example below to accomplish this:
+```
 
 ```cs
 /**
- * Adding Borders to Cells Example
- * anchor-create-borders
- **/
-
-// Applying a black border to the top and bottom of the first row (A1 to L1)
-sheet["A1:L1"].Style.TopBorder.SetColor("#000000");  // Set top border to black
-sheet["A1:L1"].Style.BottomBorder.SetColor("#000000");  // Set bottom border to black
-
-// Applying a black right border to the cells from L2 to L11, with a medium thickness
-sheet["L2:L11"].Style.RightBorder.SetColor("#000000");  // Color the right border black
-sheet["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;  // Set the border type to Medium
-
-// Setting a medium thickness bottom border to the range from A11 to L11
-sheet["A11:L11"].Style.BottomBorder.SetColor("#000000");  // Color the bottom border black
-sheet["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;  // Define the border as Medium for thickness
+Set Background Color for Cell Range
+anchor-setting-cell-background-colors
+**/
+sheet["A1:L1"].Style.SetBackgroundColor("#d3d3d3");  // Update the background color of cells from A1 to L1 to a light gray shade
 ```
 
-This paraphrased code maintains the same functionality, emphasizing clarity and descriptive commentary, enhancing understanding for readers and maintainers of the code.
+The background color for a selected range of cells is assigned a gray shade. The color specification uses the RGB (Red, Green, Blue) format. In this format, the first two hexadecimal characters indicate the red component, the following two denote green, and the last two represent blue. The hexadecimal values can vary from 0 to 9 and from A to F.
 
-In the provided code snippet, black top and bottom borders have been applied to the cells ranging from A1 to L1. Additionally, a right border with a medium thickness has been established for the cells from L2 to L11. Finally, a medium bottom border is specified for the cells from A11 to L11.
+### 5.2. Establish Cell Borders ###
+
+Easily create borders in your spreadsheet with IronXL using the following straightforward method:
+
+```cs
+/**
+Designate Border Styles
+anchor-designate-border-styles
+**/
+// Setting top and bottom borders for the first row with black color
+sheet ["A1:L1"].Style.TopBorder.SetColor("#000000");
+sheet ["A1:L1"].Style.BottomBorder.SetColor("#000000");
+
+// Applying medium thickness to the right border from row 2 to row 11
+sheet ["L2:L11"].Style.RightBorder.SetColor("#000000");
+sheet ["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
+
+// Applying medium thickness to the bottom border for the 11th row
+sheet ["A11:L11"].Style.BottomBorder.SetColor("#000000");
+sheet ["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
+```
+
+In the explained code segment, black borders were applied to the top and bottom of cells from `A1` to `L1`. Additionally, a medium-strength right border was established for cells spanning from `L2` to `L11`. Finally, a medium bottom border was also applied to the range from `A11` to `L11`. This configuration effectively outlines specified sections of the worksheet for emphasis or organizational purposes.
 
 <hr class="separator">
 
-## 6. Utilizing Formulas in Spreadsheet Cells ##
+## 6. Implementing Formulas in Cells ##
 
-IronXL simplifies spreadsheet manipulation to a great extent, and I can't stress this fact enough! Below is how you can effortlessly incorporate formulas into cells:
+IronXL simplifies using formulas significantly, a feature I always emphasize due to its ease of use. Observe how seamlessly you can integrate formulas into your spreadsheet operations using the code example below:
+```
 
 ```cs
 /**
-Utilize Formulas in Cells
-anchor-utilize-formulas-in-cells
+Applying Formulas in Spreadsheet Cells
+anchor-applying-formulas-in-cells
 **/
-// Calculating sum, average, maximum, and minimum values within specified cell ranges
 decimal total = sheet["A2:A11"].Sum();
 decimal average = sheet["B2:B11"].Avg();
 decimal maximum = sheet["C2:C11"].Max();
 decimal minimum = sheet["D2:D11"].Min();
 
-// Assigning the computed values to specific cells for display 
 sheet["A12"].Value = total;
 sheet["B12"].Value = average;
 sheet["C12"].Value = maximum;
 sheet["D12"].Value = minimum;
 ```
 
-One of the appealing aspects of this functionality is the ability to specify the data type of a cell, impacting the result of the applied formula. The provided code demonstrates the utilization of various formulas including SUM (to calculate the total), AVG (to compute the average), MAX (to find the maximum value), and MIN (to determine the minimum value).
+The flexibility of setting the cell's data type to match the formula result is a significant advantage. The example provided demonstrates utilizing various formulas in IronXL: `SUM` to total values, `AVG` to compute the average, `MAX` to find the maximum value, and `MIN` to determine the minimum value.
 
 <hr class="separator">
 
-## 7. Configure Worksheet and Printing Specifications ##
+## 7. Configuring Worksheet and Printing Settings ##
 
-### 7.1. Adjust Worksheet Settings ###
+### 7.1. Adjusting Worksheet Attributes ###
 
-Capabilities for configuring a worksheet are powerful yet user-friendly. They include options to protect the worksheet with a secure password and the ability to freeze specific rows and columns to keep them visible during scrolling. Below are the steps to apply these settings:
+You can easily manage the behavior of your worksheet by applying protection and setting freeze panes. Here's how:
 
 ```cs
 /**
-Configure Worksheet Settings
-anchor-configure-worksheet-settings
+Adjust Worksheet Attributes
+anchor-setting-worksheet-properties
 **/
-sheet.ProtectSheet("YourSecurePassword");
+sheet.ProtectSheet("YourPasswordHere");
 sheet.CreateFreezePane(0, 1);
 ```
 
-With the code above, the top row will remain static on the screen while the rest can be scrolled, and the worksheet will be secured against unauthorized modifications using the specified password.
+In this example, the first row remains static while you scroll, thanks to the `CreateFreezePane` method, and changes are restricted with a password using `ProtectSheet`.
 
-<center>
-	<div style="display: inline-block; text-align: left;">
-		<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
-		<p><strong>Figure 7</strong> – <em>Freezing Panes</em></p>
-	</div>
-</center>
+Here is a glimpse of applied settings:
 
-<center>
-	<div style="display: inline-block; text-align: left;">
-		<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
-		<p><strong>Figure 8</strong> – <em>Securing the Worksheet</em></p>
-	</div>
-</center>
+<div style="display: inline-block; text-align: left;">
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="Freeze Panes Example" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <p><strong>Figure 7</strong> – <em>Freeze Panes Example</em></p>
+</div>
 
-### 7.2. Define Page Layout and Print Settings ###
+<div style="display: inline-block; text-align: left;">
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="Protected Worksheet Example" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <p><strong>Figure 8</strong> – <em>Protected Worksheet Example</em></p>
+</div>
 
-Setting the page layout and preparing it for printing is straightforward with these simple commands:
+### 7.2. Tailoring Page and Print Layouts ###
+
+Customize how your worksheets appear when printed with these settings:
 
 ```cs
 /**
-Page Layout and Print Settings
-anchor-page-layout-and-print-settings
+Adjust Print Layout
+anchor-configuring-print-properties
 **/
 sheet.SetPrintArea("A1:L12");
 sheet.PrintSetup.PrintOrientation = IronXL.Printing.PrintOrientation.Landscape;
 sheet.PrintSetup.PaperSize = IronXL.Printing.PaperSize.A4;
 ```
 
-Through these settings, the printable area is confined to A1 to L12, the orientation is set to landscape, and the paper size determined is A4.
+The code snippet above defines the print area as cells from A1 to L12, sets the page orientation to landscape and selects A4 as the paper size.
 
-(center>
-	<div style="display: inline-block; text-align: left;">
-		<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
-		<p><strong>Figure 9</strong> – <em>Configuring Print Setup</em></p>
-	</div>
-</center
+Visualize the print setup:
 
-### 7.1 Configuring Worksheet Properties ###
+<div style="display: inline-block; text-align: left;">
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" alt="Print Setup Example" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <p><strong>Figure 9</strong> – <em>Print Setup Example</em></p>
+</div>
 
-The capability to configure worksheet properties, such as freezing rows and columns and securing the worksheet with a password, is effortlessly presented here:
+These features not only enhance the functionality and security of your worksheets but also ensure that your documents print correctly, appearing just as you intend.
 
+### 7.1. Configure Worksheet Settings ###
+
+Adjusting the worksheet properties enables the freezing of specific rows and columns while also allowing you to secure the worksheet by setting a password. Here are the steps:
+
+Below is the paraphrased section of the article, with relative URL paths resolved to ironsoftware.com.
+
+-----
 ```cs
 /**
 Configure Worksheet Settings
-anchor-configuring-worksheet-settings
+anchor-configure-worksheet-settings
 **/
-sheet.SetProtection("Password");
-sheet.DefineFreezePane(0, 1);
+sheet.ProtectSheet("SecurePassword");
+sheet.CreateFreezePane(0, 1);
 ```
+In this code snippet, the `sheet.ProtectSheet("SecurePassword");` enforces a password protection on the worksheet ensuring it remains secure. The `sheet.CreateFreezePane(0, 1);` command freezes the top row of the worksheet to facilitate easy navigation by keeping headers visible as you scroll through the document.
 
-The worksheet locks the first row to remain visible when you scroll, and it secures the entire sheet with a password to prevent unauthorized modifications. See this demonstrated in Figures 7 and 8.
+The initial row remains static and won't move when you scroll through the worksheet, providing a consistent view of the row headers. Additionally, the worksheet is safeguarded against unauthorized modifications with the use of a password. Observe these features demonstrated in Figures 7 and 8.
 
 <center>
 	<div style="display: inline-block; text-align: left;">
@@ -855,26 +897,25 @@ The worksheet locks the first row to remain visible when you scroll, and it secu
 	</div>
 </center>
 
-### 7.2. Configure Page Layout and Printing Settings ###
+### 7.2. Configure Page and Printing Settings ###
 
-Adjust various page and print settings such as orientation, page size, and the designated print area within your document.
+Modify various page settings including the page orientation, page size, and the print area, among others.
 
-Here's the paraphrased section of the article, with all relative URL paths resolved to ironsoftware.com:
+Below is the paraphrased section adjusted with absolute URL paths based on your request to "resolve any relative URL paths to ironsoftware.com":
 
 ```cs
 /**
-Configure Page & Printing Settings
-anchor-configure-page-and-printing-settings
+Configure Print and Page Settings
+link-to-details-set-page-and-print-properties
 **/
 sheet.SetPrintArea("A1:L12");
-sheet.PrintSetup.PrintOrientation = IronXL.Printing.PrintOrientation.Landscape;
-sheet.PrintSetup.PaperSize = IronXL.Printing.PaperSize.A4;
-```
+sheet.PrintSetup.PrintOrientation = IronXL.Printing.PrintOrientation.Landscape;  // Configures the worksheet to print in landscape layout
+sheet.PrintSetup.PaperSize = IronXL.Printing.PaperSize.A4;  // Sets the paper size to A4
+``` 
 
-- The comments were revised to provide a slightly different description.
-- The script itself maintains the same commands as changing these may affect functionality, which needs to remain consistent for the user's intended outcome.
+The modified code snippet includes brief comments to explain what each line of code is doing, enhancing understandability.
 
-The print area is defined from A1 to L12. Additionally, the orientation is configured to landscape, and the paper size is specified as A4.
+The print settings configure the printable area from cell `A1` to `L12`. The document is oriented in a landscape format, and `A4` is designated as the paper size.
 
 <center>
 	<div style="display: inline-block; text-align: left;">
@@ -885,19 +926,23 @@ The print area is defined from A1 to L12. Additionally, the orientation is confi
 
 <hr class="separator">
 
+## 8. Save Your Workbook ##
+
+To persist the Workbook on disk, execute the following code snippet:
 ```cs
 /**
-Save the Excel Workbook
-anchor-save-the-workbook
+Save Workbook
+anchor-save-workbook
 **/
 workbook.SaveAs("Budget.xlsx");
 ```
+```
 
-This code snippet demonstrates how to persist your Excel workbook to a file named `Budget.xlsx`. Using the `SaveAs` method of the `workbook` object, you can specify the name of the file to which the workbook will be saved. This makes it easy to create and save your data in a format that is accessible and ready for future use.
+Here's the paraphrased code snippet section:
 
 ```cs
 // Save the Excel Workbook
-workbook.SaveAs("Budget.xlsx"); // Using the SaveAs method to store the file as "Budget.xlsx"
+workbook.SaveAs("Budget.xlsx");
 ```
 
 <hr class="separator">

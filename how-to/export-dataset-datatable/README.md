@@ -1,49 +1,70 @@
-# Importing and Exporting Data with DataSet
+# Importing and Exporting Data as DataSet
 
-A `DataSet` serves as an in-memory data storage structure that accommodates multiple related tables, along with their relationships and constraints. It is very useful in handling data from diverse sources such as databases, XML files, and others.
+***Based on <https://ironsoftware.com/how-to/export-dataset-datatable/>***
 
-A `DataTable` is an integral component of a `DataSet`, representing a single database table in terms of rows and columns. It provides a systematic way to handle and manipulate table-like data.
 
-Using IronXL, you can seamlessly import a `DataSet` into a spreadsheet object and re-export it to a `DataSet` format.
+A DataSet in .NET provides an in-memory data store that can hold multiple related tables, along with relationships and constraints—making it versatile for handling data from various sources such as databases, XML files, and more.
 
-## Importing Data into a Spreadsheet
+Each DataSet comprises one or more DataTables, which are essential components serving as individual tables with rows and columns, similar to database tables. DataTables are used for organizing and handling data in a structured format.
 
-To import a `DataSet` into a workbook, utilize the `WorkBook.LoadWorkSheetsFromDataSet` static method, which requires both `DataSet` and `WorkBook` instances. Therefore, ensure you properly initialize your workbook, preferably using the `WorkBook.Create` method before importing the `DataSet`. Here’s how to do it in the provided C# example:
+IronXL provides functionalities to import data from a DataSet into a spreadsheet and vice versa, streamlining the transition between in-memory data and spreadsheet formats.
+
+## Loading Data into a Spreadsheet
+
+Begin by using the `WorkBook.LoadWorkSheetsFromDataSet` static method to load a DataSet into a workbook. Ensure that a `WorkBook` instance is already created using the `WorkBook.Create` method. The following code snippet illustrates this process, where a new DataSet and WorkBook are initiated and the DataSet is then loaded into the workbook.
 
 ```cs
-using IronXL;
 using System.Data;
+using IronXL.Excel;
 
-// Initialize a new DataSet
-DataSet dataSet = new DataSet();
-
-// Create a new workbook
-WorkBook workBook = WorkBook.Create();
-
-// Import the DataSet into the workbook
-WorkBook.LoadWorkSheetsFromDataSet(dataSet, workBook);
+namespace ExportDatasetDatatable
+{
+    public class ImportSection
+    {
+        public void Execute()
+        {
+            // Initialize a new DataSet
+            DataSet dataSet = new DataSet();
+            
+            // Create a new workbook
+            WorkBook workBook = WorkBook.Create();
+            
+            // Import DataSet into the workbook
+            WorkBook.LoadWorkSheetsFromDataSet(dataSet, workBook);
+        }
+    }
+}
 ```
 
-For more detailed instructions on importing spreadsheets from various file formats, refer to the [How to Load Existing Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/) tutorial.
+To deepen your understanding of loading spreadsheets from different sources, explore the [How to Load Existing Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/) article.
 
 <hr>
 
-## Exporting Data to DataSet
+## Converting Workbook to DataSet
 
-The `ToDataSet` method of the `WorkBook` class allows converting a workbook back to a `DataSet`. Each worksheet in the workbook becomes a `DataTable` in the `DataSet`. The `useFirstRowAsColumnNames` argument of this method lets you decide whether to treat the first row as column names.
+The `ToDataSet` method from IronXL permits the conversion of a workbook back to a DataSet. During this conversion, each worksheet in the workbook is transformed into a DataTable in the resulting DataSet. You can decide whether the first row should serve as the column names using the `useFirstRowAsColumnNames` parameter. Here’s a code example:
 
 ```cs
-using IronXL;
 using System.Data;
+using IronXL.Excel;
 
-// Creating a new workbook
-WorkBook workBook = WorkBook.Create();
-
-// Adding a new worksheet
-WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
-
-// Converting the workbook to DataSet
-DataSet dataSet = workBook.ToDataSet();
+namespace ExportDatasetDatatable
+{
+    public class ExportSection
+    {
+        public void Execute()
+        {
+            // Instantiate a new Excel workbook
+            WorkBook workBook = WorkBook.Create();
+            
+            // Add a new worksheet
+            WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
+            
+            // Convert the workbook to a DataSet
+            DataSet dataSet = workBook.ToDataSet();
+        }
+    }
+}
 ```
 
-Discover more about exporting spreadsheets to various file formats in the [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/export-spreadsheet/) guide.
+For further insight into exporting data to various file formats, refer to the [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/export-spreadsheet/) article.

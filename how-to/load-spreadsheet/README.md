@@ -1,49 +1,80 @@
-# How to Import Spreadsheet Data
+# Guide to Importing Spreadsheets into IronXL
 
-Comma-Separated Values (CSV) files are widely used for their simplicity in storing tabular data where each value is separated by a comma. Conversely, Tab-Separated Values (TSV) files use tabs as delimiters, which are especially useful when the data itself contains commas.
-
-The `DataSet` class, part of Microsoft .NET's ADO.NET framework, provides the functionality to manage data from various sources, including databases and XML. This makes it invaluable for applications that interact with different kinds of data storage.
-
-Excel file formats such as XLSX, XLS, XLSM, XLTX, and the previously mentioned CSV and TSV, along with `DataSet` objects, can all be imported into an Excel spreadsheet using IronXL.
+***Based on <https://ironsoftware.com/how-to/load-spreadsheet/>***
 
 
-## Example: Loading Spreadsheets
+The CSV (Comma-Separated Values) file format is predominantly used for tabular data in which values are segregated by commas. This format is extensively utilized for data interchange. Conversely, the TSV (Tab-Separated Values) format, which employs tabs as delimiters, is preferable when the data includes commas.
 
-You can import an existing Excel workbook using IronXL's `WorkBook.Load` method. This method supports multiple file formats including XLSX, XLS, XLSM, XLTX, CSV, and TSV. If your workbook is encrypted with a password, you can supply this password as an additional parameter. Moreover, for working directly with raw data, IronXL provides `FromByteArray` and `FromStream` methods to handle byte arrays and streams respectively.
+Microsoft's .NET incorporates the `DataSet` class as part of its ADO.NET (ActiveX Data Objects for .NET) framework, frequently deployed in database-driven applications. This class facilitates operations with data from various sources, including databases, XML files, and more.
+
+Excel file formats such as XLSX, XLS, XLSM, XLTX, along with CSV and TSV, can be seamlessly integrated into an Excel spreadsheet utilizing IronXL.
+
+## Loading Excel Spreadsheets
+
+To open an existing Excel workbook, leverage the `Load` method provided by IronXL. This method caters to multiple file formats like XLSX, XLS, XLSM, XLTX, CSV, and TSV. Should the workbook be secured with a password, it can be accessed by supplying the password as a secondary argument to the method. Additionally, workbook data can be supplied using a byte array or a stream, facilitated by the `FromByteArray` and `FromStream` methods respectively.
 
 ```cs
 using IronXL;
-
-// Load Excel file formats and CSV, TSV
-WorkBook workBook = WorkBook.Load("sample.xlsx");
+using IronXL.Excel;
+namespace ironxl.LoadSpreadsheet
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Accepts formats: XLSX, XLS, XLSM, XLTX, CSV, and TSV
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+        }
+    }
+}
 ```
 
-## Working with CSV Files
+<hr>
 
-Although the `Load` method is capable of handling various formats, using the `LoadCSV` method is preferable for loading CSV files due to its specific optimizations for handling comma-separated data.
+## Importation of CSV Files
+
+While the `Load` method is equipped to handle all supported file formats, it is advisable to employ the `LoadCSV` method specifically for CSV files.
 
 ```cs
 using IronXL;
-
-// Directly loading a CSV file
-WorkBook workBook = WorkBook.LoadCSV("sample.csv");
+using IronXL.Excel;
+namespace ironxl.LoadSpreadsheet
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Primary method for loading CSV files
+            WorkBook workBook = WorkBook.LoadCSV("sample.csv");
+        }
+    }
+}
 ```
 
-## Importing DataSets
+<hr>
 
-The `DataSet` class in Microsoft .NET can be used as a robust solution for handling in-memory data storage without continuous database connection. You can also integrate a `DataSet` into an Excel workbook using IronXL's `LoadWorkSheetsFromDataSet` method. Below is an example where we first create an empty `DataSet` and then incorporate it into an Excel workbook.
+## Integrating DataSets
+
+Utilizing the `DataSet` class from Microsoft .NET allows for the management of data in a disconnected, memory-resident layout. These DataSets can also be integrated into an IronXL workbook using the `LoadWorkSheetsFromDataSet` method. Here, an empty DataSet is created for demonstration, although commonly, DataSets are populated from database queries.
 
 ```cs
-using IronXL;
 using System.Data;
-
-// Initialize an empty DataSet
-DataSet dataSet = new DataSet();
-
-// Create a new workbook
-WorkBook workBook = WorkBook.Create();
-
-// Import DataSet into the workbook
-WorkBook.LoadWorkSheetsFromDataSet(dataSet, workBook);
+using IronXL.Excel;
+namespace ironxl.LoadSpreadsheet
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            // Initialize an empty DataSet
+            DataSet dataSet = new DataSet();
+            
+            // Generate a new workbook
+            WorkBook workBook = WorkBook.Create();
+            
+            // Embed DataSet into the workbook
+            WorkBook.LoadWorkSheetsFromDataSet(dataSet, workBook);
+        }
+    }
+}
 ```
-In this approach, `DataSet` can also be populated with data retrieved from a database query, providing a flexible tool for data manipulation and storage within .NET applications.

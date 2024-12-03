@@ -1,7 +1,9 @@
-The IronXL library offers **Conditional Formatting** for cells and ranges, enabling dynamic styling changes based on predefined logical or programmatic conditions. Styles that can be altered include background color and text style.
+***Based on <https://ironsoftware.com/examples/excel-conditional-formatting/>***
 
-To establish a conditional formatting rule, utilize the `CreateConditionalFormattingRule(string formula)` method, which operates based on a Boolean formula. When the result of this formula is true, the respective cell gets highlighted. It’s crucial to ensure that the formula is a valid Boolean function.
+The IronXL library offers the feature of **Conditional Formatting** for cells and ranges. This functionality enables users to dynamically alter cell styles, including background colors and text styles, based on specific logical or programmatic conditions.
 
-Moreover, the `CreateConditionalFormattingRule` function can also be invoked with three parameters. However, it accepts only `ComparisonOperator.Between` and `ComparisonOperator.NotBetween` as valid options for its first parameter.
+You can establish a conditional formatting rule by using the method `CreateConditionalFormattingRule(string formula)`. This rule is triggered when the specified Boolean formula evaluates to true, leading to the highlighting of the cell. It's crucial to ensure that the formula provided is a Boolean function.
 
-Employing conditional formatting, it's possible to visually distinguish cells and ranges through specific color and format setups that hinge on the Boolean true/false evaluation of rules set by the user. This feature greatly enhances data analysis capabilities, allows for quick detection of discrepancies, and aids in recognizing patterns and trends.
+The version of the `CreateConditionalFormattingRule` method that accepts three parameters is restricted to using `ComparisonOperator.Between` and `ComparisonOperator.NotBetween` for the first parameter.
+
+Conditional formatting is a powerful tool used to visually enhance cells and ranges based on specified color and format schemes, contingent on the true/false outcomes of defined rules. This feature is particularly useful for data analysis, problem detection, and the identification of patterns and trends in data.

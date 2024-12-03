@@ -1,6 +1,9 @@
-# C# Excel Reading with Practical Examples
+# C# Excel File Reading Examples
 
-This guide provides instructions on extracting data from Excel files using C# and demonstrates how to utilize the IronXL library for common functionalities such as data validation, database conversions, saving information from Web APIs, and altering formulas within your Excel documents. This document is associated with IronXL example codes, developed as a .NET Core Console application.
+***Based on <https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp_old_changed may 2021/>***
+
+
+This guide demonstrates how to extract data from Excel files using C#, and how to deploy the IronXL library for common operations such as data validation, transferring data to databases, storing results from Web APIs, and altering formulas inside Excel files. The examples illustrated in this document are implemented using IronXL within a .NET Core Console application.
 
 <div class="learnn-how-section">
   <div class="row">
@@ -33,26 +36,26 @@ This guide provides instructions on extracting data from Excel files using C# an
 
 <iframe class="lazy" width="100%" height="450" data-src="https://www.youtube.com/embed/sXkcdZWUcWI?rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope picture-in-picture" allowfullscreen></iframe>
 
-IronXL is a comprehensive .NET library designed for manipulating and managing Microsoft Excel files using C#. This guide provides detailed instructions on how to utilize C# to efficiently handle Excel documents.
+IronXL is a comprehensive .NET library designed for managing and manipulating Microsoft Excel files using C#. In this tutorial, you'll learn how to harness C# to read Excel documents efficiently.
 
-- **Step one**: Begin by installing the IronXL Excel Library. You have the option to integrate it via our [NuGet package](https://www.nuget.org/packages/IronXL.Excel/), accessible directly or by downloading our [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip).
+1. Begin by installing the IronXL Excel Library, which can be achieved either through our [NuGet package](https://www.nuget.org/packages/IronXL.Excel/) or by directly downloading the [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip).
 
-- **Step two**: Utilize the `WorkBook.Load` method, which enables you to open and read various spreadsheet formats including XLS, XLSX, and CSV.
+2. Utilize the `WorkBook.Load` method to open any XLS, XLSX, or CSV file.
 
-- **Step three**: Retrieve and manipulate cell data using a clear and concise syntax such as `sheet["A11"].DecimalValue` to fetch the decimal value of a specific cell.
-
-This tutorial will guide you through reading Excel files using a series of easy-to-follow steps, facilitated by helpful links and examples.
+3. Retrieve cell values effortlessly with user-friendly syntax, for example: `sheet["A11"].DecimalValue`.
 
 <h3>IronXL Includes:</h3>
 
-- Access to committed product assistance from our team of .NET experts
+Here's a paraphrased version of the selected section:
 
-- Straightforward setup through Microsoft Visual Studio
+-----
+- Receive dedicated support from our team of .NET engineering experts.
 
-- No cost for development environments. Licensing starts from `$liteLicense`.
+- Hassle-free setup through Microsoft Visual Studio.
 
+- Complimentary for development purposes. Pricing starts from `$liteLicense`.
 
-Discover the simplicity of reading **Excel** files using C# or VB.NET with the IronXL library. Included are samples featuring three different Excel spreadsheets.
+Experience the simplicity of processing **Excel** files using C# or VB.NET with the IronXL library, which includes three example spreadsheets.
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" target="_blank">
   <img src="/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
@@ -60,48 +63,51 @@ Discover the simplicity of reading **Excel** files using C# or VB.NET with the I
 
 <h4>Read XLS or XLSX Files: Quick Code</h4>
 
-In this illustration, it's evident that *Excel* documents can be efficiently parsed without relying on Interop in C#. The subsequent Advanced Operations demonstrate compatibility with **Linq** and the ability to perform aggregate calculations over ranges.
+In this illustration, it's evident that *Excel* files can be effectively accessed without using Interop in C#. Additionally, the Advanced Operations demonstrate compatibility with **Linq** and the capability to perform aggregate calculations across a range.
+
+Here's the paraphrased section of the article with updated code snippets:
 
 ```cs
 /**
-Load and Process Excel Spreadsheet
-anchor-load-and-process-excel-spreadsheet
+Loading and Reading XLS or XLSX Files
+anchor-loading-and-reading-xls-xlsx-files
 **/
 using IronXL;
 using System.Linq;
 
-// The library supports reading from various formats like XLSX, XLS, CSV, and TSV
-WorkBook workbook = WorkBook.Load("test.xlsx");
-WorkSheet sheet = workbook.DefaultWorkSheet; // Get the first worksheet
-// Easily access cells using Excel-style notations and retrieve values
-int valueInCellA2 = sheet["A2"].IntValue;
-// Elegant reading from a cell range
+// The following formats are supported for reading: XLSX, XLS, CSV, and TSV
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet sheet = workbook.WorkSheets.First();
+// Directly access cell values using Excel cell references
+int specificCellValue = sheet["A2"].IntValue;
+// Iterate over a range of cells and print their values
 foreach (var cell in sheet["A2:A10"])
 {
-    Console.WriteLine("Cell {0} contains: '{1}'", cell.AddressString, cell.Text);
+    Console.WriteLine("Cell at {0} contains: '{1}'", cell.AddressString, cell.Text);
 }
 
-///Additional Operations
 
-// Perform calculations on range values such as Minimum, Maximum, and Sum
+///Complex Operations
+
+// Compute summary statistics for a range
 decimal totalSum = sheet["A2:A10"].Sum();
-// Utilize LINQ to perform calculations on cell range
-decimal maxValue = sheet["A2:A10"].Max(cell => cell.DecimalValue);
+// Utilizing LINQ to find maximum value within a range
+decimal maximumValue = sheet["A2:A10"].Max(c => c.DecimalValue);
 ```
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## 1. Free IronXL C# Library Download
+## Get Started with IronXL: Free C# Library Download
 
-To begin, it's essential to install the IronXL.Excel library, which incorporates Excel capabilities into the .NET framework. This integration allows for enhanced data management and analysis within .NET applications.
+The initial step to integrate Excel capabilities into your .NET application is to download and install the IronXL.Excel library. This provides the essential tools for handling Excel files in your projects.
 
 <h3>Installing the IronXL NuGet Package</h3>
 
-1. Within Visual Studio, perform a right-click on your project and choose the "Manage NuGet Packages ..." option.
+1. Open Visual Studio, and in the context menu of your project, choose "Manage NuGet Packages..."
 
-2. Look up the IronXL.Excel package in the search bar and proceed with the installation.
+2. Look up the `IronXL.Excel` package in the search bar and proceed with the installation.
 ```
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/ef-nuget.png" target="_blank">
@@ -110,16 +116,15 @@ To begin, it's essential to install the IronXL.Excel library, which incorporates
 
 <br>
 
-Here's a paraphrased version of the selected section:
+Here's the paraphrased section with all relative URL paths resolved to `ironsoftware.com`:
 
 -----
 
-An alternative installation method involves:
+Alternatively, you can begin installation via the following steps:
 
-1. Opening the Package Manager Console
-2. Executing the command: `Install-Package IronXL.Excel`
+1. Open the Package Manager Console
 
-Here's the paraphrased section with links and images resolved to `ironsoftware.com`:
+2. Input the command: `Install-Package IronXL.Excel`
 
 ```shell
 Install-Package IronXL.Excel
@@ -127,133 +132,258 @@ Install-Package IronXL.Excel
 
 <br>
 
-Furthermore, you have the option to [explore the package on NuGet](https://www.nuget.org/packages/IronXL.Excel/) by following this link.
+Moreover, you may also [inspect the package on the NuGet website](https://www.nuget.org/packages/IronXL.Excel/) to explore additional details.
 
 <h3>Direct Download Installation</h3>
 
-Alternatively, you can begin by obtaining the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually integrating it into Visual Studio.
+Alternatively, you can also initiate by downloading the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually integrating it into Visual Studio.
 
 <hr class="separator">
 <h4 class="tutorial-segment-title">How To Tutorials</h4>
 
-## 2. Opening a Spreadsheet ##
+## 2. Opening an Excel File ##
 
-The [`WorkBook`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html) class embodies an Excel file in IronXL. For opening a WorkBook, employ the `WorkBook.Load` method and provide the file path for the Excel document (.xlsx).
-
-Here's the paraphrased section of the code with the relative URL path resolved:
+The [`WorkBook`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html) class encapsulates an Excel file. To access an Excel document, utilize the `WorkBook.Load` method and provide the file path of the Excel document (.xlsx).
+```
 
 ```cs
-/**
-Load an Excel File
-anchor-load-excel-file
-**/
+// Loading the Excel WorkBook
+// Anchor for reference: load-workbook-example
 var workbook = WorkBook.Load(@"Spreadsheets\\GDP.xlsx");
 ```
 
-Sample: *ExcelToDBProcessor*
-
-Every `WorkBook` instance can support numerous <a href="https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkSheet.html" target="_blank">`WorkSheet`</a> instances, each signifying a distinct sheet within an Excel file. To access any specific worksheet within the document, you can utilize the method <a href="https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html" target="_blank">`WorkBook.GetWorkSheet`</a> by specifying the sheet's name.
+Every `WorkBook` can hold several <a href="https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkSheet.html" target="_blank">`WorkSheet`</a> instances, each corresponding to a worksheet within an Excel file. If the workbook includes multiple worksheets, you can fetch them individually by their names using <a href="https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html" target="_blank">`WorkBook.GetWorkSheet`</a>.
 
 ```cs
-var sheet = workbook.GetWorkSheet("GDPByCountry");
+var worksheet = workbook.GetSheet("GDPByCountry");
 ```
 
-```cs
-/**
-Export Data using Entity Framework
-anchor-export-data-using-entity-framework
-**/
+Here's the paraphrased section of the article with resolved relative URL paths:
+
+## Export Data Using Entity Framework
+
+IronXL supports integrating Excel data with a database through various methods, including usage with Entity Framework. Below is an example that demonstrates how you can extract and export data from an Excel sheet and import it directly into an SQLite database using Entity Framework.
+
+Ensure the necessary SQLite Entity Framework NuGet packages are integrated with your project.
+
+![IronXL NuGet](https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/ironxl-nuget.png)
+
+Entity Framework facilitates the creation of data model classes that mirror database structures. Below is an example of a model class:
+
+```csharp
+public class Country
+{
+    [Key]
+    public Guid Key { get; set; }
+    public string Name { get; set; }
+    public decimal GDP { get; set; }
+}
+```
+
+Next, configure the database context. If you're using a different database system, adapt the connection string and provider:
+
+```csharp
 public class CountryContext : DbContext
 {
     public DbSet<Country> Countries { get; set; }
 
     public CountryContext()
     {
-        //Ensure the database is created if it does not exist
-        Database.EnsureCreated();
+        Database.EnsureCreated(); // Ensure the database is created
     }
 
-    /// Configure the context to utilize SQLite
-    /// <param name="optionsBuilder">The options builder for DbContext configuration</param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // Establish the connection string and open the connection
-        var connection = new SqliteConnection("Data Source=Country.db");
-        connection.Open();
+        var connection = new SqliteConnection($"Data Source=Country.db");
+        connection.Open(); // Open the connection
 
-        // Ensure foreign keys are activated in SQLite
         var command = connection.CreateCommand();
-        command.CommandText = "PRAGMA foreign_keys = ON;";
-        command.ExecuteNonQuery();
+        command.CommandText = $"PRAGMA foreign_keys = ON;";
+        command.ExecuteNonQuery(); // Activate foreign keys
 
-        // Configure to use SQLite
-        optionsBuilder.UseSqlite(connection);
+        optionsBuilder.UseSqlite(connection); // Use SQLite
 
         base.OnConfiguring(optionsBuilder);
     }
 }
+```
 
-/// <summary>
-/// Process and save each country into the database asynchronously
-/// </summary>
+Configure an instance of `CountryContext`, parse each Excel row, and asynchronously save the data into the database.
+
+```csharp
 public async Task ProcessAsync()
 {
-    // Load the workbook and select the specific sheet
     var workbook = WorkBook.Load(@"Spreadsheets\\GDP.xlsx");
     var worksheet = workbook.GetWorkSheet("GDPByCountry");
 
-    // Establish a new database context
     using (var countryContext = new CountryContext())
     {
-        // Go through each relevant cell in the worksheet
         for (var i = 2; i <= 213; i++)
         {
-            // Fetch columns A and B that contain name and GDP
             var range = worksheet[$"A{i}:B{i}"].ToList();
 
-            // Populate the Country object with values
             var country = new Country
             {
-                Name = range[0].StringValue,
-                GDP = range[1].DecimalValue
+                Name = (string)range[0].Value,
+                GDP = (decimal)(double)range[1].Value
             };
 
-            // Add the country object to the database
-            await countryContext.Countries.AddAsync(country);
+            await countryContext.Countries.AddAsync(country); // Add country to the context
         }
 
-        // Commit the transactions to save changes to the database
-        await countryContext.SaveChangesAsync();
+        await countryContext.SaveChangesAsync(); // Save changes asynchronously
     }
 }
 ```
-This revised code snippet, part of the *ExcelToDB* example, demonstrates how to export data using Entity Framework, with enhanced comments for clarify and improved scripting standards.
+
+This example demonstrates how data from an Excel file can be exported to a database via IronXL's functionality and Entity Framework's data manipulation capacities.
 
 <hr class="separator">
 
-## 3. Constructing a New WorkBook ##
+## 3. Generate a New WorkBook ##
 
-Start by initializing a new WorkBook in memory by specifying the desired spreadsheet format.
+To instantiate a new WorkBook in memory, you need to initialize a new `WorkBook` object specifying the type of spreadsheet you intend to work with.
 
-Here's the paraphrased section of the article with resolved URLs:
-
------
 ```cs
-// Initialize a new WorkBook instance specifying the Excel file format
+/**
+Initialize a New WorkBook
+anchor-initialize-a-new-workbook
+**/
 var workbook = new WorkBook(ExcelFileFormat.XLSX);
 ```
------
+
+# C# Read Excel Files with Examples
+
+***Based on <https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp_old_changed may 2021/>***
+
+
+This tutorial clarifies how to interface with Excel data in C# and delves into daily tasks using the IronXL library, such as data validation, converting to database formats, preserving data from Web APIs, and amending formulas in spreadsheets. We're utilizing IronXL through sample code provided in a .NET Core Console App.
+
+<div class="learnn-how-section">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Steps to Read Excel Files in C# .NET:</h2>
+      <ul class="list-unstyled">
+        <li><a href="#anchor-1-download-the-ironxl-c-library-for-free">Acquire the IronXL Library for C#</a></li>
+        <li><a href="#anchor-3-create-a-workbook">Initiate a Workbook</a></li>
+        <li><a href="#anchor-4-edit-cell-values-within-a-range">Modify Cell Values Within a Range</a></li>
+        <li><a href="#anchor-8-export-data-using-entity-framework">Export Data using Entity Framework</a></li>
+        <li><a href="#anchor-9-add-formulae-to-a-spreadsheet">Incorporate Formulas into Spreadsheets and beyond</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <div class="download-card">
+        <a href="https://ironsoftware.com/downloads/assets/excel/tutorials/how-to-read-excel-file-csharp/tutorial-read-excel.pdf" target="_blank">
+          <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/how-to-read.svg" data-hover-src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/how-to-read-hover.svg" class="img-responsive learn-how-to-img replaceable-img">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="separator">
+
+<a name ="video"></a><h4 class="tutorial-segment-title">Overview</h4>
+<h2>Utilize IronXL to Read Data from Excel in .NET</h2>
+
+
+<iframe class="lazy" width="100%" height="450" data-src="https://www.youtube.com/embed/sXkcdZWUcWI?rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope picture-in-picture" allowfullscreen></iframe>
+
+IronXL serves as a robust .NET library supporting C# for reading and manipulating Microsoft Excel files. Follow along this tutorial to learn how to employ C# code to <a href="https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/">read Excel databooks</a>.
+
+1. Setup IronXL by installing it via <a class="js-modal-open" href="https://www.nuget.org/packages/IronXL.Excel/" target="_blank" data-modal-id="trial-license-after-download">NuGet package</a> or downloading the <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">.NET Excel DLL</a>.
+2. Open any XLS, XLSX, or CSV document using the `.Load` method on a `WorkBook`.
+3. Access individual cells using easy-to-understand syntax: <code>sheet["A11"].DecimalValue</code>
+
+<h3>Key Features of IronXL:</h3>
+
+- Full support provided by our dedicated .NET engineers
+- Smooth integration within Microsoft Visual Studio
+- Development use is FREE, with various licensing tiers starting from `$liteLicense`.
+
+Experience how straightforward it is to read **Excel** files using C# or VB.NET with IronXL. Included are samples with three different Excel spreadsheets.
+
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" target="_blank">
+  <img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
+</a>
+
+<h4>Quick Example: Read XLS or XLSX Files</h4>
+
+Discover how to process *Excel* files efficiently in C# without the need for Interop. The following advances demonstrate compatibility with **Linq** and how to perform aggregate math across ranges.
 
 ```cs
-// Note for legacy Excel versions (Excel 95 or earlier), you should use the XLS file format.
-var workbook = new WorkBook(ExcelFileFormat.XLS);
+/**
+Read XLS or XLSX File Example
+anchor-read-an-xls-or-xlsx-file
+**/
+using IronXL;
+using System.Linq;
+    
+// Supported formats include: XLSX, XLS, CSV, and TSV
+WorkBook workbook = WorkBook.Load("example.xlsx");
+WorkSheet sheet = workbook.WorkSheets.First();
+
+// Easily select cells in Excel notation to get the computed value
+int cellValue = sheet["A2"].IntValue;
+
+// Elegantly read from a range of cells
+foreach (var cell in sheet["A2:A10"])
+{
+    Console.WriteLine("Cell {0} holds value '{1}'", cell.AddressString, cell.Text);
+}
+
+///Advanced Operations
+
+// Compute aggregate values like Min, Max, and Sum
+decimal sum = sheet["A2:A10"].Sum();
+// Compatible with Linq
+decimal max = sheet["A2:A10"].Max(c => c.DecimalValue);
 ```
 
 <hr class="separator">
 
-## 4. Constructing a WorkSheet ##
+<h4 class="tutorial-segment-title">Step 1</h4>
 
-Every `WorkBook` may incorporate multiple `WorkSheets`. Essentially, `WorkSheets` serve as individual sheets containing your data, whereas a `WorkBook` encompasses a compilation of these `WorkSheets`. Here's an illustration of a workbook with two distinct worksheets as viewed in Excel:
+##  1. Get the IronXL C# Library for FREE
+
+Start by installing the IronXL.Excel library to empower your .NET projects with Excel capabilities.
+
+<h3>Installation via NuGet Package</h3>
+
+1. Right-click on your project in Visual Studio, and select "Manage NuGet Packages..."
+2. Type `IronXL.Excel` into the search box and install it.
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/ef-nuget.png" target="_blank">
+  <p><img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/ef-nuget.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
+</a>
+
+<br>
+Alternatively, you can:
+
+1. Go to the Package Manager Console
+2. Execute > `Install-Package IronXL.Excel`
+
+```shell
+Install-Package IronXL.Excel
+```
+
+<br>
+Feel free to <a class="js-modal-open" href="https://www.nuget.org/packages/IronXL.Excel/" target="_blank" data-modal-id="trial-license-after-download">view the package on the NuGet website.</a>
+
+<h3>Manual Installation via Direct Download</h3>
+
+Alternatively, begin by downloading the IronXL <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">.NET Excel DLL</a> and manually integrate it into your Visual Studio setup.
+
+<hr class="separator">
+
+## 4. Creating a Worksheet
+
+A "WorkBook" in Excel can contain several "WorkSheets," which serve as individual data sheets. A WorkBook essentially serves as a binder that keeps multiple WorkSheets together. This is demonstrated below through an example of a workbook comprising two distinct worksheets:
+
+<center>
+  ![Example Workbook with Two Worksheets](https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/work-book.png)
+</center>
+
+Each WorkBook organizes its data across these multiple WorkSheets, allowing for better segmentation and data management within Excel.
 
 <center>
   <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/work-book.png" target="_blank">
@@ -261,311 +391,345 @@ Every `WorkBook` may incorporate multiple `WorkSheets`. Essentially, `WorkSheets
   </a>
 </center>
 
-To set up a new WorkSheet, utilize the `WorkBook.CreateWorkSheet` method and provide the worksheet's name as the argument.
+To generate a new `WorkSheet`, invoke the `WorkBook.CreateWorkSheet` method and provide the desired name of the worksheet.
 
-Here's the paraphrased section:
+Here is the paraphrased section of the article, with the relative URL paths resolved to `ironsoftware.com`:
 
 ```cs
-var worksheet = workbook.AddWorkSheet("Countries");
+var sheet = workbook.NewSheet("Countries");
 ```
 
 <hr class="separator">
 
-## 5. Retrieve a Range of Cells ##
+## 5. Accessing a Range of Cells
 
-The `Range` class encapsulates a two-dimensional array of `Cell` objects, effectively covering a specific area of cells within an Excel spreadsheet. You can acquire ranges by applying the string indexer to a `WorkSheet` instance. The indexer accepts either a singular cell coordinate (for instance, "A1") or a range that spans from one corner to an opposite corner of cells (such as "B2:E5"). Additionally, the `GetRange` method can be employed on a `WorkSheet` to achieve similar outcomes.
+The `Range` class encapsulates a two-dimensional array of `Cell` instances, effectively covering a specified range within an Excel worksheet. To retrieve a specific range, you can utilize the string indexer provided by a `WorkSheet` object. For example, you might specify a single cell like "A1" or a broader range of cells like "B2:E5". Additionally, the method `GetRange` can be directly invoked on a `WorkSheet` to achieve the same result.
 
 ```cs
-// Selecting a cell range in an Excel worksheet spanning from D2 to D101
-var selectedRange = worksheet["D2:D101"];
+// Obtaining a range of cells from D2 to D101 in the worksheet
+var range = worksheet["D2:D101"];
 ```
+
+```cs
+/**
+Validate Spreadsheet Data Example
+anchor-validate-spreadsheet-data
+**/
+// Loop through each row starting from row 2
+for (var rowIndex = 2; rowIndex <= 101; rowIndex++)
+{
+    var validationResults = new PersonValidationResult { Row = rowIndex };
+    results.Add(validationResults);
+
+    // Fetch all cell data for each person
+    var personCells = worksheet [$"A{rowIndex}:E{rowIndex}"].ToList();
+
+    // Validate phone number data located in column B (index 1)
+    var phone = personCells[1].Value;
+    validationResults.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, (string)phone);
+
+    // Validate email data found in column D (index 3)
+    validationResults.EmailErrorMessage = ValidateEmailAddress((string)personCells[3].Value);
+
+    // Extract and validate date in text form from column E (index 4)
+    var dateText = (string)personCells[4].Value;
+    validationResults.DateErrorMessage = ValidateDate(dateText);
+}
+
+// This segment generates a new worksheet called "Results"
+var resultsSheet = workbook.CreateWorkSheet("Results");
+
+// Setting up the headers in the "Results" sheet
+resultsSheet ["A1"].Value = "Row";
+resultsSheet ["B1"].Value = "Valid";
+resultsSheet ["C1"].Value = "Phone Error";
+resultsSheet ["D1"].Value = "Email Error";
+resultsSheet ["E1"].Value = "Date Error";
+
+// Populate the "Results" sheet with errors found in validation
+for (var index = 0; index < results.Count; index++)
+{
+    var validationResult = results[index];
+    resultsSheet [$"A{index + 2}"].Value = validationResult.Row;
+    resultsSheet [$"B{index + 2}"].Value = validationResult.IsValid ? "Yes" : "No";
+    resultsSheet [$"C{index + 2}"].Value = validationResult.PhoneNumberErrorMessage;
+    resultsSheet [$"D{index + 2}"].Value = validationResult.EmailErrorMessage;
+    resultsSheet [$"E{index + 2}"].Value = validationResult.DateErrorMessage;
+}
+
+// Saves the workbook with the new "Results" sheet containing validation output
+workbook.SaveAs(@"Spreadsheets\\PeopleValidated.xlsx");
+```
+
+<hr class="separator">
+
+## 6. Modify Cell Content Within a Specified Range ##
+
+You have numerous options to manipulate or view the content of cells in a specified range. When the number of cells is predetermined, employing a `For` loop is effective.
+
+```cs
+/**
+Edit Values Within a Cell Range
+anchor-edit-values-within-cell-range
+**/
+// Loop through the specified rows
+for (int rowIndex = 2; rowIndex <= 101; rowIndex++)
+{
+    var validationResult = new PersonValidationResult { Row = rowIndex };
+    results.Add(validationResult);
+
+    // Retrieve all cells for a specific person
+    var personCells = worksheet[$"A{rowIndex}:E{rowIndex}"].ToList();
+
+    // Validating the phone number (Column B)
+    var phone = personCells[1].Value;
+    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, (string)phone);
+
+    // Validating the email address (Column D)
+    validationResult.EmailErrorMessage = ValidateEmailAddress((string)personCells[3].Value);
+
+    // Parsing the raw date format of "Month Day [suffix], Year" (Column E)
+    var dateField = (string)personCells[4].Value;
+    validationResult.DateErrorMessage = ValidateDate(dateField);
+}
+```
+
+Here is the paraphrased section from the article, with relative URL paths resolved:
+
+
+## Data Validation Example
+
+Utilize IronXL to assure the accuracy of data within a spreadsheet. The `DataValidation` sample employs the `libphonenumber-csharp` library for phone number validation and standard C# methods for email and date verification.
 
 ```cs
 /**
 Data Validation Example
-anchor-validate-data
+anchor-data-validation
 **/
-//Loop through each row
-for (var i = 2; i <= 101; i++)
-{
-    var validationResult = new PersonValidationResult { Row = i };
-    results.Add(validationResult);
-
-    //Retrieve all cells for this individual
-    var cells = worksheet [$"A{i}:E{i}"].ToList();
-
-    //Check the validity of the phone number (column B = 1)
-    var phoneNumber = cells [1].Value;
-    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, (string)phoneNumber);
-
-    //Verify the email address (column D = 3)
-    validationResult.EmailErrorMessage = ValidateEmailAddress((string)cells [3].Value);
-
-    //Extract the raw date in 'Month Day [suffix], Year' format (column E = 4)
-    var rawDate = (string)cells [4].Value;
-    validationResult.DateErrorMessage = ValidateDate(rawDate);
-}
-
-//This script reviews each row in an Excel spreadsheet and evaluates the information in specific cells. Validation methods return error messages if the data doesn’t conform to expected formats.
-
-```cs
-var errorLogSheet = workbook.CreateWorkSheet("Error Log");
-
-errorLogSheet ["A1"].Value = "Row";
-errorLogSheet ["B1"].Value = "Validation Status";
-errorLogSheet ["C1"].Value = "Phone Number Errors";
-errorLogSheet ["D1"].Value = "Email Errors";
-errorLogSheet ["E1"].Value = "Date Errors";
-
-for (var index = 0; index < results.Count; index++)
-{
-    var result = results [index];
-    errorLogSheet [$"A{index + 2}"].Value = result.Row;
-    errorLogSheet [$"B{index + 2}"].Value = result.IsValid ? "Yes" : "No";
-    errorLogSheet [$"C{index + 2}"].Value = result.PhoneNumberErrorMessage;
-    errorLogSheet [$"D{index + 2}"].Value = result.EmailErrorMessage;
-    errorLogSheet [$"E{index + 2}"].Value = result.DateErrorMessage;
-}
-
-//Saving the workbook to a file
-workbook.SaveAs("Spreadsheets\\ValidatedData.xlsx");
-```
-
-<hr class="separator">
-
-## 6. Modify Values Within a Cell Range ##
-
-To access or modify cell values in a specified range, multiple approaches can be utilized. If you know the total number of cells you want to modify, implementing a 'For' loop is an effective method.
-
-```cs
-/**
-Modify Cell Values Across a Range
-anchor-modify-cell-values-in-range
-**/
-// Loop through each row
-for (int y = 2; y <= 101; y++)
-{
-    // Create a validation result for each row
-    var validationResult = new PersonValidationResult { Row = y };
-    results.Add(validationResult);
-
-    // Retrieve all cell values for a single row
-    var cellGroup = worksheet [$"A{y}:E{y}"].ToList();
-
-    // Validate the phone number located in column B
-    var phone = cellGroup [1].Value;
-    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, phone.ToString());
-
-    // Validate the email address found in column D
-    var email = cellGroup [3].Value;
-    validationResult.EmailErrorMessage = ValidateEmailAddress(email.ToString());
-
-    // Extract the date from column E in the specified format: Month Day [suffix], Year
-    var dateInfo = cellGroup [4].Value;
-    validationResult.DateErrorMessage = ValidateDate(dateInfo.ToString());
-}
-```
-
-Here's the updated section that applies your requested modifications:
-
------
-```cs
-/**
-Validate Spreadsheet Data
-anchor-validate-spreadsheet-data
-**/
-//Loop through spreadsheet rows starting from the second one
-for (var i = 2; i <= 101; i++)
-{
-    //Create a result object for the current row
-    var result = new PersonValidationResult { Row = i };
-    results.Add(result);
-
-    //Retrieve all the cells for this particular row
-    var cells = worksheet [$"A{i}:E{i}"].ToList();
-
-    //Examine and authenticate the phone number in column B
-    var phoneNumber = cells [1].Value;
-    result.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, (string)phoneNumber);
-
-    //Confirm the email address in column D
-    result.EmailErrorMessage = ValidateEmailAddress((string)cells[3].Value);
-
-    //Fetch and verify date from column E
-    var rawDate = (string)cells[4].Value;
-    result.DateErrorMessage = ValidateDate(rawDate);
-}
-```
-
-This segment iteratively processes each row within a specified range on an Excel worksheet, executing several validation checks. It fetches the entire row of cells, ensuring both phone numbers and email addresses adhere to appropriate formats, and verifies date validity as per specific requirements. Each check either passes and moves to the next or flags an error for further action.
-
-<hr class="separator">
-
-## 7. Validate Spreadsheet Data ##
-
-Leverage IronXL to authenticate the information contained within a spreadsheet. The 'DataValidation' sample incorporates `libphonenumber-csharp` for phone number verification and employs common C# APIs to confirm the integrity of email addresses and date entries.
-
-```cs
-/**
- * We validate data in an Excel spreadsheet, focusing on phone numbers, email addresses, and dates.
- * Reference: anchor-validate-spreadsheet-data
-**/
-
-// Looping through the designated rows for data validation
+//Loop through each row starting from the second
 for (int i = 2; i <= 101; i++)
 {
     var validationResult = new PersonValidationResult { Row = i };
     results.Add(validationResult);
 
-    // Retrieve all cell data for a given row
-    var cellData = worksheet[$"A{i}:E{i}"].ToList();
+    //Retrieve all cells for an individual entry
+    var cells = worksheet [$"A{i}:E{i}"].ToList();
 
-    // Phone number validation is carried out with the second cell (index 1 which is column B)
-    var phoneNumber = cellData[1].Value;
-    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, phoneNumber.ToString());
+    //Validate phone number in column B
+    var phone = cells[1].Value;
+    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, phone.ToString());
 
-    // Email validation happens with the fourth cell (index 3 which is column D)
-    validationResult.EmailErrorMessage = ValidateEmailAddress(cellData[3].Value.ToString());
+    //Check email validity in column D
+    validationResult.EmailErrorMessage = ValidateEmailAddress(cells[3].Value.ToString());
 
-    // Date validation uses the fifth cell (index 4 which is column E) interpreted as a date string
-    var dateEntry = cellData[4].Value.ToString();
-    validationResult.DateErrorMessage = ValidateDate(dateEntry);
+    //Verify date format in column E
+    var date = cells[4].Value.ToString();
+    validationResult.DateErrorMessage = ValidateDate(date);
 }
 ```
 
-The provided code iterates over each row in the Excel sheet, collecting the cells into a list. It employs various validation methods to inspect the content of each cell, issuing an error message when an invalid value is discovered.
-
-Moreover, this script initializes a new spreadsheet, defines the headers, and records any error messages, thereby creating a comprehensive record of any discrepancies found in the data.
-
-Below is the paraphrased section of the article with resolved URL paths for images and links to ironsoftware.com:
+This script iterates over each row to collect and validate the fields from the spreadsheet. For each row, it constructs a validation result which includes phone number, email, and date validations, logging any errors encountered.
 
 ```cs
-// Initialize a new worksheet to hold validation results
-var validationSheet = workbook.CreateWorkSheet("ValidationResults");
+var resultsSheet = workbook.CreateWorkSheet("Validation Results");
 
-// Define column headers for the validation sheet
-validationSheet ["A1"].Value = "Row Number";
-validationSheet ["B1"].Value = "Validation Status";
-validationSheet ["C1"].Value = "Phone Number Errors";
-validationSheet ["D1"].Value = "Email Errors";
-validationSheet ["E1"].Value = "Date of Birth Errors";
+// Set the headers
+resultsSheet ["A1"].Value = "Row";
+resultsSheet ["B1"].Value = "Valid";
+resultsSheet ["C1"].Value = "Phone Errors";
+resultsSheet ["D1"].Value = "Email Errors";
+resultsSheet ["E1"].Value = "Date Errors";
 
-// Loop through each result and populate the worksheet
-for (int index = 0; index < results.Count; index++)
+// Populate the sheet with validation results
+for (int j = 0; j < results.Count; j++)
 {
-    var currentResult = results[index];
-    validationSheet [$"A{index + 2}"].Value = currentResult.Row;
-    validationSheet [$"B{index + 2}"].Value = currentResult.IsValid ? "Yes" : "No";
-    validationSheet [$"C{index + 2}"].Value = currentResult.PhoneNumberErrorMessage;
-    validationSheet [$"D{index + 2}"].Value = currentResult.EmailErrorMessage;
-    validationSheet [$"E{index + 2}"].Value = currentResult.DateErrorMessage;
+    var result = results[j];
+    resultsSheet[$"A{j+2}"].Value = result.Row;
+    resultsSheet[$"B{j+2}"].Value = result.IsValid ? "Yes" : "No";
+    resultsSheet[$"C{j+2}"].Value = result.PhoneNumberErrorMessage;
+    resultsSheet[$"D{j+2}"].Value = result.EmailErrorMessage;
+    resultsSheet[$"E{j+2}"].Value = result.DateErrorMessage;
 }
 
-// Save the workbook with validated data to a specific location
-workbook.SaveAs(@"Spreadsheets\\ValidatedResults.xlsx");
+// Save the documented errors in a new file
+workbook.SaveAs(@"Spreadsheets\\ValidatedData.xlsx");
+```
+
+The completion of this process yields a detailed log of validation outcomes for each data entry, making it easy to identify and resolve any issues found within the dataset.
+```
+
+This section involves reading through rows of spreadsheet data, performing validations on specific fields, and logging the results in a new worksheet.
+
+<hr class="separator">
+
+## 7. Validate Spreadsheet Data ##
+
+IronXL can be used to validate the contents of a spreadsheet effectively. In the example provided, `libphonenumber-csharp` is utilized to check the validity of phone numbers, while standard C# APIs are employed to authenticate email addresses and date formats.
+
+Here's the paraphrased section with URL and image paths resolved:
+
+```cs
+/**
+Data Validation within Spreadsheets
+anchor-data-validation-in-spreadsheets
+**/
+// Loop through each row starting from row 2 to row 101
+for (var i = 2; i <= 101; i++)
+{
+    // Initialize validation result for the current row
+    var validationResult = new PersonValidationResult { Row = i };
+    results.Add(validationResult);
+
+    // Retrieve all cell values for an individual's record
+    var individualCells = worksheet [$"A{i}:E{i}"].ToList();
+
+    // Extract the phone number from column B and validate
+    var phoneNumber = individualCells [1].Value;
+    validationResult.PhoneNumberErrorMessage = ValidatePhoneNumber(phoneNumberUtil, (string)phoneNumber);
+
+    // Extract the email address from column D and validate
+    validationResult.EmailErrorMessage = ValidateEmailAddress((string)individualCells [3].Value);
+
+    // Extract the date from column E, formatted as Month Day [suffix], Year, and validate
+    var dateOfBirth = (string)individualCells [4].Value;
+    validationResult.DateErrorMessage = ValidateDate(dateOfBirth);
+}
+```
+
+The code iterates through each row in the spreadsheet, collecting the cells into a list for processing. Each validation function evaluates the contents of a cell and generates an error message if the content does not meet the specified criteria.
+
+Furthermore, the script establishes a new spreadsheet, designates headers, and records the error messages. This process ensures that there is a detailed record of any data inconsistencies identified during the validation process.
+
+```cs
+// Create a new worksheet named "Results" in the workbook
+var resultsWorksheet = workbook.CreateWorkSheet("Results");
+
+// Define column headers for the Results worksheet
+resultsWorksheet ["A1"].Value = "Row";
+resultsWorksheet ["B1"].Value = "Validity";
+resultsWorksheet ["C1"].Value = "Phone Number Error";
+resultsWorksheet ["D1"].Value = "Email Error";
+resultsWorksheet ["E1"].Value = "Date Error";
+
+// Loop through each entry in the results list
+for (int index = 0; index < results.Count; index++)
+{
+    var validationResult = results[index];
+    // Assign row number to column A
+    resultsWorksheet [$"A{index + 2}"].Value = validationResult.Row;
+    // Indicate validity in column B
+    resultsWorksheet [$"B{index + 2}"].Value = validationResult.IsValid ? "Yes" : "No";
+    // Record any phone number errors in column C
+    resultsWorksheet [$"C{index + 2}"].Value = validationResult.PhoneNumberErrorMessage;
+    // Record any email errors in column D
+    resultsWorksheet [$"D{index + 2}"].Value = validationResult.EmailErrorMessage;
+    // Record any date errors in column E
+    resultsWorksheet [$"E{index + 2}"].Value = validationResult.DateErrorMessage;
+}
+
+// Save the workbook with the validated data to a file
+workbook.SaveAs(@"Spreadsheets\\PeopleValidated.xlsx");
 ```
 
 <hr class="separator">
 
-## 8. Data Export with Entity Framework ##
+## 8. Database Export with Entity Framework ##
 
-Leverage IronXL to transfer data from an Excel file to a database, or transform an Excel document into a database format. The example provided, `ExcelToDB`, demonstrates this by interpreting a spreadsheet containing GDP information by country and transferring it into an SQLite database. The process uses EntityFramework for database construction and processes the data for export on a row-by-row basis.
+Leverage IronXL for exporting spreadsheet content into a database, or for converting entire Excel files into structured databases. The `ExcelToDB` example demonstrates how this is achieved by processing a spreadsheet containing GDP information for various countries, subsequently sending this data to an SQLite database. This process is facilitated using Entity Framework to construct the database and systematically export the data.
 
-Integrate SQLite Entity Framework by installing the necessary NuGet packages.
+Furthermore, initiate the integration by adding SQLite Entity Framework NuGet packages.
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/ironxl-nuget.png" target="_blank">
   <img src="/img/tutorials/how-to-read-excel-file-csharp/ironxl-nuget.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 </a>
 
-EntityFramework enables the creation of a model object for data export to a database.
-
-Here's the paraphrased content for the given C# code section:
+EntityFramework enables the creation of a model object for exporting data into a database.
 
 ```cs
+// Country class definition
 public class Nation
 {
-    [Key]
-    public Guid ID { get; set; }  // Unique identifier for each nation
+    [Key]  // Designates 'ID' as the primary key
+    public Guid ID { get; set; }  // Unique identifier for each Nation instance
     public string CountryName { get; set; }  // Name of the country
-    public decimal EconomicOutput { get; set; }  // GDP value in decimal format
+    public decimal EconomicOutput { get; set; }  // Gross Domestic Product value
 }
 ```
 
-This segment sets up the database context configuration. To integrate a different database system, you should first install the appropriate NuGet package and then locate the function corresponding to `UseSqLite()`.
-
-Here is the paraphrased section:
+This block of code sets up the database context. If you need to work with another database type, you should install the relevant NuGet package and look for the method that corresponds to `UseSqLite()`.
 
 ```cs
 /**
-Entity Framework Data Export
+Exporting Data with Entity Framework Integration
 anchor-export-data-using-entity-framework
 **/
 public class CountryContext : DbContext
 {
+    // Set for countries table
     public DbSet<Country> Countries { get; set; }
 
+    // Constructor ensures database creation
     public CountryContext()
     {
-        //TODO: Update to asynchronous approach
-        Database.EnsureCreated(); // Ensure the database exists
+        // Reminder: Convert to asynchronous operation
+        Database.EnsureCreated();
     }
 
     /// <summary>
-    /// Setup the DbContext to utilize a SQLite database
+    /// Sets up the database context to utilize Sqlite
     /// </summary>
-    /// <param name="optionsBuilder">Configuration options</param>
+    /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var dbConnection = new SqliteConnection("Data Source=Country.db");
-        dbConnection.Open(); // Open connection to the database file
+        // Establish a connection to the Sqlite database
+        var connection = new SqliteConnection("Data Source=Country.db");
+        connection.Open();
 
-        var dbCommand = dbConnection.CreateCommand();
+        // Command to check and create the database
+        var command = connection.CreateCommand();
+        command.CommandText = "PRAGMA foreign_keys = ON;";
+        command.ExecuteNonQuery();
 
-        // Enable foreign keys in SQLite database
-        dbCommand.CommandText = "PRAGMA foreign_keys = ON;";
-        dbCommand.ExecuteNonQuery();
+        // Configure DbContext to use the Sqlite database
+        optionsBuilder.UseSqlite(connection);
 
-        optionsBuilder.UseSqlite(dbConnection); // Use SQLite with the current connection
-
+        // Call base configuration
         base.OnConfiguring(optionsBuilder);
     }
 }
 ```
 
----
-Instantiate a `CountryContext` and cycle through the specified range to build each record. Then call `SaveAsync` to save the changes to the database.
-
-Here is the paraphrased section with relative URL paths resolved to ironsoftware.com:
+To manage your data effectively for an Entity Framework operation, begin by establishing a `CountryContext`. Proceed to loop through the necessary data range in order to populate each record accurately. Complete the process by invoking `SaveAsync` to ensure all changes are securely saved to your database.
 
 ```cs
-public async Task ExecuteDataExportAsync()
+public async Task ExecuteAsync()
 {
     // Load the initial worksheet
-    var workbook = WorkBook.Load(@"Spreadsheets\\GDP.xlsx");
+    var workbook = WorkBook.Load(@"Spreadsheets\GDP.xlsx");
     var worksheet = workbook.GetWorkSheet("GDPByCountry");
 
     // Establish a database connection
-    using (var countryContext = new CountryContext())
+    using (var dbContext = new CountryContext())
     {
-        // Process each cell in the worksheet
-        for (var index = 2; index <= 213; index++)
+        // Traverse through each row
+        for (int index = 2; index <= 213; index++)
         {
-            // Access the range from columns A to B
-            var range = worksheet [$"A{index}:B{index}"].ToList();
+            // Retrieve the range for columns A and B
+            var range = worksheet[$"A{index}:B{index}"].ToList();
 
-            // Instantiate a Country object for database insertion
+            // Construct a Country object to persist in the database
             var country = new Country
             {
-                Name = (string)range[0].Value,
-                GDP = (decimal)(double)range[1].Value
+                Name = range[0].StringValue,
+                GDP = Convert.ToDecimal(range[1].DoubleValue)
             };
 
-            // Enqueue the new Country object for database insertion
-            await countryContext.Countries.AddAsync(country);
+            // Insert the new Country object into the database
+            await dbContext.Countries.AddAsync(country);
         }
 
-        // Finalize and commit all additions to the database
-        await countryContext.SaveChangesAsync();
+        // Finalize and commit the data entries to the database
+        await dbContext.SaveChangesAsync();
     }
 }
 ```
@@ -581,23 +745,23 @@ public class CountryContext : DbContext
 
     public CountryContext()
     {
-        //TODO: Consider converting to async
+        //Ensure database is created on initialization
         Database.EnsureCreated();
     }
 
     /// <summary>
-    /// Sets up the context to utilize a Sqlite database
+    /// Set up the DbContext to utilize Sqlite
     /// </summary>
     /// <param name="optionsBuilder"></param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connection = new SqliteConnection("Data Source=Country.db");
+        var connection = new SqliteConnection($"Data Source=Country.db");
         connection.Open();
 
         var command = connection.CreateCommand();
 
-        //Ensure the database is set to utilize foreign keys
-        command.CommandText = "PRAGMA foreign_keys = ON;";
+        //Activate foreign keys in SQLite if not already enabled
+        command.CommandText = $"PRAGMA foreign_keys = ON;";
         command.ExecuteNonQuery();
 
         optionsBuilder.UseSqlite(connection);
@@ -607,134 +771,148 @@ public class CountryContext : DbContext
 
 }
 
-// Function to process and save data asynchronously
-public async Task ProcessDataAsync()
+//Async function to process and save Country data to the database
+public async Task ProcessAsync()
 {
-    //Loading the workbook
-    var workbook = WorkBook.Load("Spreadsheets/GDP.xlsx");
+    //Load WorkBook and get the GDPByCountry worksheet
+    var workbook = WorkBook.Load(@"Spreadsheets\\GDP.xlsx");
     var worksheet = workbook.GetWorkSheet("GDPByCountry");
 
-    //Establishing the database connection
+    //Create a new instance of the database context
     using (var countryContext = new CountryContext())
     {
-        //Looping through the worksheet rows
-        for (var row = 2; row <= 213; row++)
+        //Iterate through the worksheet data
+        for (var i = 2; i <= 213; i++)
         {
-            //Selecting the range from column A to B
-            var range = worksheet[$"A{row}:B{row}"].ToList();
+            //Extract range from columns A to B
+            var range = worksheet [$"A{i}:B{i}"].ToList();
 
-            //Creating a new Country record
+            //Create a new Country object with Name and GDP values
             var country = new Country
             {
-                Name = (string)range[0].Value,
-                GDP = (decimal)(double)range[1].Value
+                Name = (string)range [0].Value,
+                GDP = (decimal)(double)range [1].Value
             };
 
-            //Adding the new Country to the DbContext
+            //Add the new Country object to the DbSet
             await countryContext.Countries.AddAsync(country);
         }
 
-        //Saving the changes to the database
+        //Save the changes asynchronously to the database
         await countryContext.SaveChangesAsync();
     }
 }
 ```
-In this revised segment, the script facilitates the exportation of data using Entity Framework to manage entries in a SQLite database. It initializes a database connection, configures it to enforce foreign key constraints, and asynchronously adds data from an Excel file to the database.
 
 <hr class="separator">
 
-## 9. Incorporate Formulas into a Spreadsheet ##
+## 9. Inserting Formulas into a Spreadsheet ##
 
-Apply formulas in Excel using the [`Cell`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.Cell.html) object, utilizing its [`Formula`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.Cell.html) attribute.
+Incorporate formulas into spreadsheet cells using the `Formula` property of a [`Cell`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.Cell.html). This feature allows for dynamic calculations within your spreadsheet.
 
-Below, you'll find an example that cycles through each state, calculating a percentage total for each and assigning it to column C.
+The following code demonstrates a practical use case by cycling through all applicable states and calculating the total percentage in column C:
 
 ```cs
-/**
-Set Spreadsheet Formulas
-anchor-set-formulas-in-a-spreadsheet
-**/
-// Loop over all populated rows
-for (var row = 2; row < i; row++)
+// Loop through each state to calculate the percentage total
+for (var y = 2; y < i; y++)
 {
-    // Access cell in column C
-    var currentCell = sheet [$"C{row}"].First();
+    // Access the cell in column C for the current row
+    var cell = sheet[$"C{y}"].First();
 
-    // Assign formula to calculate the percentage of total
-    currentCell.Formula = $"=B{row}/B{i}";
+    // Set the formula to calculate the percentage of the total
+    cell.Formula = $"=B{y}/B{i}";
 }
 ```
+This script executes a loop where each cell in column C receives a formula denoting its proportional relationship to a baseline value found in the spreadsheet, effectively enabling quick and automated financial or statistical assessments.
 
 ```cs
 /**
-Insert Spreadsheet Formulae
-anchor-insert-formulae-into-spreadsheet
+Insert Spreadsheet Calculations
+anchor-insert-formulae-in-spreadsheets
 **/
-//Loop through each row containing data
+// Loop through every row that contains data
 for (var rowIndex = 2; rowIndex < i; rowIndex++)
 {
-    //Access the cell in column C
-    var cell = sheet [$"C{rowIndex}"].First();
+    // Retrieve the cell in column C
+    var targetCell = sheet[$"C{rowIndex}"].First();
 
-    //Assign a formula to calculate the Percentage of Total in column C
-    cell.Formula = $"=B{rowIndex}/B{i}";
+    // Assign a formula to calculate the percentage of total
+    targetCell.Formula = $"=B{rowIndex}/B{i}";
+}
+```
+
+```cs
+/**
+Add Formulas to a Spreadsheet
+anchor-add-formulae-to-a-spreadsheet
+**/
+// Loop through all rows containing data
+for (int y = 2; y < i; y++)
+{
+    // Access the cell in column C
+    var cell = sheet[$"C{y}"].First();
+
+    // Assign a formula to calculate the Percentage of Total for the column
+    cell.Formula = $"=B{y}/B{i}";
 }
 ```
 
 <hr class="separator">
 
-## 10. Importing Data from an API into a Spreadsheet ##
+## 10. Download Data from an API to Spreadsheet ##
 
-The code snippet below demonstrates how to perform a REST call using [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net). This function retrieves JSON data and transforms it into a `List` of `RestCountry`. Afterward, the process involves iterating over each country to record the API data directly into an Excel spreadsheet.
+The code snippet below demonstrates how to perform a REST API call using [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net). This REST call retrieves JSON data, which is then parsed into a list of `RestCountry` objects. Following this, the data is seamlessly transferred and saved into an Excel file for each country listed from the API response.
 
 ```cs
-/**
-REST API to Excel Conversion
-anchor-retrieve-data-from-api-for-spreadsheet
-**/
-var restClient = new Client(new Uri("https://restcountries.eu/rest/v2/"));
-List<RestCountry> countryList = await restClient.GetAsync<List<RestCountry>>();
+// Download data from an external API into a spreadsheet
+// Section ID: download-data-from-api-to-spreadsheet
+var apiClient = new Client(new Uri("https://restcountries.eu/rest/v2/"));
+List<RestCountry> countryList = await apiClient.GetAsync<List<RestCountry>>();
 ```
 
-Example: *ApiToExcel*
+Here's your paraphrased section with resolved URL paths:
 
-Below is a visual representation of the JSON data from the API.
-```
+-----
+Sample: *ApiToExcel*
+
+Below is a representation of the data structure returned by the API in JSON format.
+
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" target="_blank">
+  <img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" alt="API JSON Data Example" class="img-responsive add-shadow img-margin" style="max-width:100%;">
+</a>
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/country-data.png" target="_blank">
   <img src="/img/tutorials/how-to-read-excel-file-csharp/country-data.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 </a>
 
-The code snippet below processes a list of countries and populates the spreadsheet with details such as the Name, Population, Region, Numeric Code, and the top three languages for each country.
+The code snippet provided demonstrates iterating over a list of country data and populating an Excel spreadsheet with specific attributes for each country, such as Name, Population, Region, NumericCode, and the top three languages spoken.
 
-Here's a paraphrased version of the provided C# code snippet:
+Here's the paraphrased section of the code:
 
 ```cs
-// Loop through countries starting from the second element
 for (int index = 2; index < countries.Count; index++)
 {
     var currentCountry = countries[index];
 
-    // Assign basic country information to the corresponding cells
+    // Assigning basic country details
     worksheet[$"A{index}"].Value = currentCountry.name;
     worksheet[$"B{index}"].Value = currentCountry.population;
     worksheet[$"G{index}"].Value = currentCountry.region;
     worksheet[$"H{index}"].Value = currentCountry.numericCode;
 
-    // Loop through up to three languages and set them in subsequent columns
+    // Processing languages for each country
     for (int langIndex = 0; langIndex < 3; langIndex++)
     {
-        // If the number of languages is less than the loop index, break out of the loop
-        if (langIndex >= currentCountry.languages.Count) break;
+        // Ensure there are enough languages in the list
+        if (langIndex > (currentCountry.languages.Count - 1)) break;
 
-        // Fetch language information
-        var languageDetails = currentCountry.languages[langIndex];
+        var language = currentCountry.languages[langIndex];
 
-        // Calculate the column letter based on the language index
-        var columnLetter = GetColumnLetter(4 + langIndex);
+        // Calculate the column letter dynamically depending on the language index
+        var column = GetColumnLetter(4 + langIndex);
 
-        // Set the language name in the calculated column
-        worksheet[$"{columnLetter}{index}"].Value = languageDetails.name;
+        // Store the language in the corresponding cell
+        worksheet[$"{column}{index}"].Value = language.name;
     }
 }
 ```
@@ -743,9 +921,9 @@ for (int index = 2; index < countries.Count; index++)
 
 <h2>API Reference and Resources</h2>
 
-You might also find immense value in the [IronXL class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/) available in the API Reference section.
+You might find the [IronXL class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/) within the API Reference extremely useful.
 
-Furthermore, there are additional tutorials available that provide insights into various functionalities of IronXL.Excel, such as [Creating](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/), [Opening, Writing, Editing, Saving and Exporting](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/) XLS, XLSX, and CSV files without relying on Excel Interop.
+Furthermore, additional tutorials are available that explore various functionalities of IronXL.Excel, such as [Creating](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/), [Opening, Writing, Editing, Saving, and Exporting](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/) XLS, XLSX, and CSV files without the need for Excel Interop.
 
 <hr class="separator">
 

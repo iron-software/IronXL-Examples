@@ -1,28 +1,31 @@
 # Parsing Excel Files in ASP.NET MVC with IronXL
 
-This tutorial explains how to parse Excel files within an ASP.NET MVC application by utilizing the IronXL library.
+***Based on <https://ironsoftware.com/how-to/asp-net-mvc-read-excel-file/>***
 
-## Setting Up an ASP.NET Project
 
-Begin by creating a new ASP.NET project in Visual Studio 2022 or a compatible version. Integrate any necessary NuGet packages and additional source code required for your specific project.
+This guide describes how to incorporate Excel file reading capabilities into an ASP.NET MVC application using the IronXL library.
 
-## Installing the IronXL Library
+## Initiate an ASP.NET MVC Project
 
-Once your project is set up, the next step is to install the IronXL library. Open the NuGet Package Manager Console and execute the following command:
+Start by creating a new ASP.NET MVC project in Visual Studio 2022, or a comparable version. Ensure you include all necessary NuGet packages and additional source code required.
+
+## Integration of IronXL Library
+
+Once the project is set up, proceed to integrate the IronXL library. Utilize NuGet Package Manager Console to execute the following command:
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-## Implementing Excel File Reading
+## Implement Excel File Reading
 
-Navigate to the default controller in your ASP.NET project, typically the `HomeController`. Modify the `Index` method with the following code snippet:
+Navigate to the default controller in your project, typically `HomeController`, and modify the `Index` method by adding the following code:
 
 ```cs
 public ActionResult Index()
 {
     WorkBook workbook = WorkBook.Load(@"C:\Files\Customer Data.xlsx");
-    WorkSheet sheet = workbook.GetFirstSheet();
+    WorkSheet sheet = workbook.WorkSheets.First();
 
     var dataTable = sheet.ToDataTable();
 
@@ -30,13 +33,11 @@ public ActionResult Index()
 }
 ```
 
-In this updated `Index` action method, the application begins by loading an Excel file using `WorkBook.Load`, specifying the full path to the file. It then accesses the first worksheet and converts its contents into a `DataTable` object which is then passed to the view.
+In this updated `Index` action, we use `WorkBook.Load` from IronXL to open the specified Excel file. The first worksheet in the workbook is accessed and transformed into a `DataTable` which is then passed to the view.
 
-## Displaying Excel Data in a Web Page
+## Display Excel Data in a Web Browser
 
-To display the `DataTable` in a web browser, use the following example:
-
-The image below shows the Excel file used in this tutorial:
+To show how the data can be displayed, the Excel file referenced is illustrated as follows:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -45,9 +46,9 @@ The image below shows the Excel file used in this tutorial:
     </div>
 </div>
 
-Replace the content in `index.cshtml` (the index view) with the HTML code provided below:
+Adjust the `index.cshtml` (index view) file by replacing its content with the following HTML code:
 
-```cs
+```cshtml
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -73,9 +74,9 @@ Replace the content in `index.cshtml` (the index view) with the HTML code provid
 </table>
 ```
 
-This HTML code snippet utilizes the `DataTable` from the `Index` method as a model, iterating over each row and printing the content into a web page which benefits from Bootstrap styling.
+This updated script uses the `DataTable` received from the `Index` method as its model. It formats the data in a Bootstrap-themed table, iterating through each row and displaying each cell.
 
-Executing this project will display data as demonstrated in the following image:
+Upon executing the project, the output will appear as follows:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -83,4 +84,3 @@ Executing this project will display data as demonstrated in the following image:
         <p><em>Bootstrap Table</em></p>
     </div>
 </div>
-This structured approach allows for efficient processing and visualization of Excel data within an ASP.NET MVC application using IronXL.

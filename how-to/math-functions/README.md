@@ -1,43 +1,53 @@
-# Utilizing Mathematical Functions in Excel with IronXL
+# Utilizing Mathematical Functions in IronXL
 
-IronXL is an effective Excel library that integrates crucial mathematical aggregation functions like Average, Sum, Min, and Max. These functions play a vital role in computations and data analysis. Leveraging IronXL allows you to utilize these math functions for deriving insights, making data-driven decisions, and effectively interpreting numerical data in Excel documents without resorting to Interop.
+***Based on <https://ironsoftware.com/how-to/math-functions/>***
 
-## Utilization of Aggregate Functions
 
-For analyzing ranges of cells in an Excel file, IronXL offers a suite of aggregate functions that facilitate various calculations. Below are some key methods you can use:
+IronXL offers robust mathematical aggregation functions like Average, Sum, Min, and Max, vital for data calculations and analysis within Excel. These functions allow you to pull useful insights, support decision-making processes, and perform intricate numerical analyses directly in Excel spreadsheets, all without depending on Interop.
 
-- The `Sum()` function computes the aggregate sum of values across a specified range of cells.
-- The `Avg()` function calculates the mean value of a defined range of cells.
-- The `Min()` function determines the smallest number in a specified cell range.
-- The `Max()` function identifies the highest number in the given cell range.
+## Example of Using Aggregate Functions
 
-These operations are instrumental in scrutinizing data and extracting actionable insights from your Excel files.
+While handling cell ranges in Excel files, IronXL empowers you to implement various aggregate functions to execute vital calculations. Below is an outline of important methods provided by IronXL:
 
-Cells with non-numerical contents are excluded from these calculations.
+- The `Sum()` method computes the total sum of the selected cell range.
+- The `Avg()` method calculates the average value across the selected cell range.
+- The `Min()` method finds the smallest number within the selected cell range.
+- The `Max()` method determines the highest number within the selected cell range.
+
+These methods are crucial for analyzing information and extracting significant insights from Excel data. Calculations exclude any non-numeric values.
 
 ```cs
-using IronXL;
 using System.Linq;
+using IronXL.Excel;
 
-// Load an Excel workbook
-WorkBook workbook = WorkBook.Load("sample.xls");
-// Grab the first sheet in the workbook
-WorkSheet worksheet = workbook.WorkSheets.First();
+namespace ironxl.MathFunctions
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            // Load an Excel workbook
+            WorkBook workBook = WorkBook.Load("sample.xls");
+            // Access the first worksheet
+            WorkSheet workSheet = workBook.WorkSheets.First();
 
-// Select a specific range in the worksheet
-var selectedRange = worksheet["A1:A8"];
-
-// Summing up the numbers within the selected range
-decimal totalSum = selectedRange.Sum();
-
-// Calculating the average of the values in the range
-decimal average = selectedRange.Avg();
-
-// Finding the maximum value in the range
-decimal maximum = selectedRange.Max();
-
-// Determining the minimum value in the range
-decimal minimum = selectedRange.Min();
+            // Define a range within the worksheet
+            var range = workSheet["A1:A8"];
+            
+            // Compute the sum of numbers within the defined range
+            decimal sum = range.Sum();
+            
+            // Compute the average of numbers in the range
+            decimal avg = range.Avg();
+            
+            // Find the maximum number in the range
+            decimal max = range.Max();
+            
+            // Determine the minimum number in the range
+            decimal min = range.Min();
+        }
+    }
+}
 ```
 
-These mathematical functions can also be applied to specific rows or columns, enhancing versatility. Expand your understanding by visiting [selecting rows and columns](https://ironsoftware.com/csharp/excel/how-to/select-range/).
+For enhanced adaptability, these functions are not limited to ranges; they can flexibly be applied across single or multiple rows and columns. Brush up on how to effectively [select rows and columns](https://ironsoftware.com/csharp/excel/how-to/select-range/).

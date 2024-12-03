@@ -1,38 +1,61 @@
-# How to Add Password Protection to a Worksheet
+# Setting a Password for a Worksheet
 
-Adding a **Read-Only** mode to a worksheet is frequently necessary for data files. IronXL simplifies the process of enforcing **Read-Only** protection on worksheets within .NET applications.
+***Based on <https://ironsoftware.com/how-to/set-password-worksheet/>***
+
+
+Applying a **Read-Only** protection is frequently required to ensure data security in files. IronXL simplifies the process of imposing **Read-Only** protection on worksheets within .NET applications.
 
 ## Accessing a Password-Protected Worksheet
 
-IronXL provides the capability to access and edit any password-protected worksheet without needing the actual password. Once you open the spreadsheet using IronXL, you can change any cell within any of the worksheets.
+IronXL provides the capability to access and alter a protected worksheet without needing the original password. Upon opening the spreadsheet through IronXL, all the cells within any worksheet become editable.
 
-## Implementing Password Protection on a Worksheet
+## Enforcing Password Protection on a Worksheet
 
-To prevent changes to a worksheet while still permitting users to view its contents in Excel, utilize the `ProtectSheet` method and include a password as an argument. For instance, using the code `workSheet.ProtectSheet("IronXL")` establishes a password-protected **ReadOnly** mode for the chosen worksheet.
+To prevent alterations to a worksheet while still permitting view access in Excel, the `ProtectSheet` method can be employed with a password argument. For instance, calling `workSheet.ProtectSheet("IronXL")` activates a password-based **ReadOnly** protection on the specified worksheet.
 
 ```cs
 using IronXL;
-
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-WorkSheet workSheet = workBook.DefaultWorkSheet;
-
-// Applying protection to the worksheet
-workSheet.ProtectSheet("IronXL");
-
-workBook.Save();
+using IronXL.Excel;
+namespace ironxl.SetPasswordWorksheet
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            WorkSheet workSheet = workBook.DefaultWorkSheet;
+            
+            // Applying password protection to the worksheet
+            workSheet.ProtectSheet("IronXL");
+            
+            // Save changes to the workbook
+            workBook.Save();
+        }
+    }
+}
 ```
 
-### Opening a Worksheet with Password Protection
+### Accessing a Worksheet That is Password-Protected
 
-<img src="https://ironsoftware.com/static-assets/excel/how-to/set-password-worksheet/set-password-worksheet-access.gif" alt="Access Protected Worksheet" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
+![Access Protected Worksheet](https://ironsoftware.com/static-assets/excel/how-to/set-password-worksheet/set-password-worksheet-access.gif)
 
-## Disabling Password Protection from a Worksheet
+## Removing a Password from a Worksheet
 
-To eliminate the password protection from a particular worksheet, utilize the `UnprotectSheet` method. By simply invoking `workSheet.UnprotectSheet()`, you can lift the password restriction from that worksheet.
+Utilizing the `UnprotectSheet` method allows you to strip away the password from a worksheet. By invoking `workSheet.UnprotectSheet()`, password protection can be lifted without requiring the original password.
 
 ```cs
-// Disabling worksheet protection. Password is not required!
-workSheet.UnprotectSheet();
+using IronXL.Excel;
+namespace ironxl.SetPasswordWorksheet
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Clear password protection from the worksheet
+            workSheet.UnprotectSheet();
+        }
+    }
+}
 ```
 
-IronXL facilitates both the protection and unprotection of any Excel <a href="https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/">workbook</a> and **worksheet** effortlessly using just a line of C# code.
+IronXL enables straightforward protection and removal of security features on both Excel <a href="https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/">workbooks</a> and **worksheets** via simple C# commands.

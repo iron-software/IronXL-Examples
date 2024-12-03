@@ -1,11 +1,13 @@
-Adjusting the dimensions of rows and columns in a spreadsheet can enhance clarity and conserve space. The `IronXL` C# library offers effective tools to automate the resizing of rows and columns using C#. This automation is built into the code, enabling the resizing functionalities to be applied to all existing rows and columns, making manual adjustment unnecessary.
+***Based on <https://ironsoftware.com/examples/auto-resize-rows-and-columns/>***
 
-## Automatically Adjust Row Sizes
+Adjusting the size of rows and columns in spreadsheets can greatly enhance space efficiency and legibility. `IronXL`, a robust C# library, offers capabilities to automatically adjust the sizes of rows and columns. With this functionality implemented in C#, it enables programmatically resizing operations across all existing rows and columns, thereby streamlining what would otherwise be a manual process in spreadsheet management.
 
-The `AutoSizeRow` method dynamically alters the height of a specified row depending on the length of its content. An alternative version of `AutoSizeRow` accepts a _Boolean_ parameter; if set to true, it adjusts the height to accommodate the dimensions of merged cells within the row.
+## Automatically Adjusting Row Sizes
 
-## Automatically Adjust Column Sizes
+The `AutoSizeRow` method dynamically alters the height of a specified row to fit its content length. There's an overloaded version of `AutoSizeRow` which accepts a _Boolean_ as a second argument. When set to true, it adjusts the height to accommodate the content of merged cells.
 
-The `AutoSizeColumn` method modifies the width of one or more columns based on the content length. Similar to `AutoSizeRow`, this method can be set to consider the width of merged cells during the resizing process.
+## Automatically Adjusting Column Widths
 
-It's important to remember that all references to positions of rows and columns start from zero, meaning they use zero-based indexing.
+Employ the `AutoSizeColumn` method to modify the width of a column based on the length of its content. Just like `AutoSizeRow`, it can also adjust for the content within merged cells if required.
+
+It's important to remember that all the positions mentioned for rows and columns use zero-based indexing.

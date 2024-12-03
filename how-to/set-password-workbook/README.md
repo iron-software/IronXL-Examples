@@ -1,6 +1,9 @@
-# Setting a Password on a Workbook
+# How to Secure a Workbook with a Password
 
-It's essential to ensure that sensitive information or data is shared only with authorized individuals. By using IronXL, you have the ability to secure entire spreadsheets or individual [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/) with password protection.
+***Based on <https://ironsoftware.com/how-to/set-password-workbook/>***
+
+
+It is vital to ensure that sensitive data in spreadsheets is accessible only by the intended recipients. IronXL facilitates this by allowing you to secure entire workbooks and specific <a href="https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/">worksheets</a> with password protection.
 
 ***
 
@@ -8,38 +11,58 @@ It's essential to ensure that sensitive information or data is shared only with 
 
 ## Opening a Password-Protected Workbook
 
-To open a spreadsheet that is safeguarded with a password, you should supply the password as an argument in the `Load` function. For instance, `WorkBook.Load("sample.xlsx", "IronSoftware")`.
+To access a workbook that is secured with a password, you need to provide the password as an argument in the `Load` method. For instance: `WorkBook.Load("sample.xlsx", "IronSoftware")`.
 
-Opening a protected spreadsheet is not feasible without the correct password.
+Accessing a secure workbook without the correct password is not feasible.
 
 ## Securing a Workbook with a Password
 
-To implement password protection on a spreadsheet, the `Encrypt` method is used.
+To add a password protection to a workbook, employ the `Encrypt` method as shown below:
 
 ```cs
-WorkBook workBook = WorkBook.Load("sample.xlsx");
+using IronXL.Excel;
+namespace ironxl.SetPasswordWorkbook
+{
+    public class Section1
+    {
+        public void Run()
+        {
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
 
-// Load protected spreadsheet file
-WorkBook protectedWorkBook = WorkBook.Load("sample.xlsx", "IronSoftware");
-
-// Apply password protection to the spreadsheet file
-workBook.Encrypt("IronSoftware");
-
-// Save changes to the file
-workBook.Save();
+            // Accessing the secure workbook
+            WorkBook protectedWorkBook = WorkBook.Load("sample.xlsx", "IronSoftware");
+            
+            // Applying password protection
+            workBook.Encrypt("IronSoftware");
+            
+            // Save the changes to the workbook
+            workBook.Save();
+        }
+    }
+}
 ```
 
 ### Accessing a Workbook with Password Protection
 
-![Open Protected Spreadsheet](https://ironsoftware.com/static-assets/excel/how-to/set-password-workbook/set-password-workbook-access.gif)
+<img src="https://ironsoftware.com/static-assets/excel/how-to/set-password-workbook/set-password-workbook-access.gif" alt="Accessing a Protected Workbook" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
 
 ## Removing a Password from a Workbook
 
-To eliminate the password from a spreadsheet, assign `null` to the **Password** field. This operation can only be executed if the original password is known.
+You can easily remove a password from a workbook by setting the **Password** property to null. This requires knowing the original password and can only be done after accessing the workbook:
 
 ```cs
-// Deactivate password protection for an opened workbook. Original password is required.
-workBook.Password = null;
+using IronXL.Excel;
+namespace ironxl.SetPasswordWorkbook
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Removes password protection. The original password must be known.
+            workBook.Password = null;
+        }
+    }
+}
 ```
 
-IronXL facilitates the straightforward protection and unprotection of Excel **workbooks** and [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/) with just a single line of C# code.
+IronXL provides a streamlined approach to both safeguard and remove protections from Excel **workbooks** and <a href="https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/">worksheets</a> using concise C# code.

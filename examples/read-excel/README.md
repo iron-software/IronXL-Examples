@@ -1,15 +1,16 @@
-IronXL is a library tailored for C# and .NET environments, designed to facilitate the loading and reading of Excel data from various file formats such as **XLSX, XLS, XLSM, XLTX, CSV, and TSV** without the need for _Microsoft.Office.Interop.Excel_. While the `Load` method can read files in any of the supported formats, using the `LoadCSV` method is specifically advisable for handling CSV files.
+***Based on <https://ironsoftware.com/examples/read-excel/>***
+
+IronXL is a robust Excel Library tailored for C# and .NET, enabling developers to read Excel content from formats such as **XLSX, XLS, XLSM, XLTX, CSV, and TSV** _without relying on Microsoft.Office.Interop.Excel_. While the `Load` method supports all these formats, it is advised to utilize the `LoadCSV` method specifically for CSV files.
 
 ## Worksheet Selection
 
-In the context of IronXL, a **WorkSheet** is akin to a sheet within an **Excel Book**, and it can also be accessed or manipulated in various ways:
+A **WorkSheet** denotes a single sheet or tab within a **WorkBook**. There are several methods to select a WorkSheet for reading and editing purposes:
 
-- Access a worksheet by its index within the collection: `workBook.WorkSheets[0]`
-- Retrieve a worksheet by name using the `GetWorkSheet` method: `workBook.GetWorkSheet("workSheet")`
-- Utilize the **DefaultWorkSheet** property of the workbook: `workBook.DefaultWorkSheet`
+- Select by the worksheet's index in the collection: `workBook.WorkSheets[0]`
+- Select by the worksheet's name using `GetWorkSheet`: `workBook.GetWorkSheet("workSheet")`
+- Use the **DefaultWorkSheet** property to access the first worksheet: `workBook.DefaultWorkSheet`
+- If no worksheets exist, it will generate and return a new one named "Sheet1."
 
-Note that using the **DefaultWorkSheet** property will automatically provide the first worksheet in the workbook or create a new one named "Sheet1" if none exist.
+In addition, you can access and modify individual **Ranges**, **Rows**, and **Columns** within a **WorkSheet** to manage cell data or implement formulas.
 
-Additionally, you can target specific **Ranges**, **Rows**, and **Columns** within a **WorkSheet** for data access, modification, or formula application.
-
-Explore further details on targeting specifics within a worksheet by visiting [Select Excel Range](https://ironsoftware.com/csharp/excel/examples/select-excel-range/) for more on selecting **Ranges**, **Rows**, and **Columns**.
+Discover more about how to select **Range**, **Row**, and **Column** by visiting [Select Excel Range](https://ironsoftware.com/csharp/excel/examples/select-excel-range/).

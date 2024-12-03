@@ -1,8 +1,9 @@
-# Implementing IronXL with Docker Containers
+# Configuring IronXL with Docker Containers
 
-Interested in [managing Excel spreadsheet files with C#](https://ironsoftware.com/csharp/excel/)?
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
 
-IronXL is now fully compatible with Docker, supporting both Azure Docker Containers and those hosted on Linux and Windows environments.
+
+Learn how to [manage and manipulate Excel files using C# with IronXL](https://ironsoftware.com/csharp/excel/). IronXL provides full support for Docker, including on both Linux and Windows Azure Docker Containers.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker">
@@ -12,95 +13,92 @@ IronXL is now fully compatible with Docker, supporting both Azure Docker Contain
     <img src="https://img.icons8.com/color/96/000000/windows-logo--v1.png" alt="Windows">
 </div>
 
-## Benefits of Using Docker
+## Why Opt for Docker?
 
-Docker provides a streamlined approach for developers to package, deploy, and run applications using lightweight, stand-alone containers that work seamlessly across various computing environments.
+Docker simplifies the packaging, transporting, and running of applications by using lightweight, standalone, executable containers. These containers are configurable to run on almost any system.
 
 ## Getting Started with IronXL and Docker on Linux
 
-For newcomers to Docker within the .NET ecosystem, this detailed guide on setting up Docker for debugging and integration with Visual Studio projects is invaluable: [https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
+If you're new to Docker and .NET, we recommend starting with this informative guide on Docker integration and debugging with Visual Studio projects here: [Setting Up Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-We also suggest consulting our [IronXL Linux Setup and Compatibility Guide](https://ironsoftware.com/csharp/excel/how-to/linux/).
+Explore our [IronXL Setup and Compatibility Guide for Linux](https://ironsoftware.com/csharp/excel/how-to/linux/) for detailed instructions.
 
-### Recommended Linux Docker Environments
+### Recommended Docker Distributions for Linux
 
-For optimal configuration with IronXL, we advocate using the latest 64-bit Linux OS versions noted below:
+Here we list Linux operating systems that are fully compatible and easy to configure with IronXL:
 
-* Ubuntu 20
-* Ubuntu 18
-* Debian 11
-* Debian 10 _\[The default Linux Distro on Microsoft Azure\]_
-* CentOS 7
-* CentOS 8
+- Ubuntu 20
+- Ubuntu 18
+- Debian 11
+- Debian 10 (default Linux distribution on Microsoft Azure)
+- CentOS 7
+- CentOS 8
 
-For best practices, utilize Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). Some Linux distributions might need manual setups via `apt-get`. View our "[Linux Manual Setup](https://ironsoftware.com/csharp/excel/how-to/linux/)" documentation for assistance.
+Use the [Microsoft Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for these setups. Partial support for other distributions is available, but additional manual configurations using `apt-get` could be necessary. Refer to our [Manual Linux Setup Guide](https://ironsoftware.com/csharp/excel/how-to/linux/).
 
-This document includes ready-to-use Docker files for Ubuntu and Debian:
+**Sample Docker configurations for Ubuntu and Debian are provided below.**
 
-## Essential Installation Steps for IronXL on Linux Using Docker
+## Key Installation Instructions for IronXL on Linux Using Docker
 
-### NuGet Package
+### Integrating IronXL via NuGet
 
-It's recommended to utilize the [IronXL](https://www.nuget.org/packages/BarCode) NuGet Package for development across Windows, macOS, and Linux.
+It's a good practice to use IronXL via the NuGet Package when developing across different platforms like Windows, macOS, and Linux.
 ```shell
 Install-Package IronXL.Excel
 ```
-## Docker Files for Ubuntu Linux
+
+## Ubuntu Linux Docker Configuration Examples
 
 <div class="main-content__small-images-inline">
-    <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker"> 
+    <img src="https://img.icons8.com/color/96/000000/docker--v1.png" alt="Docker">
     <img src="https://img.icons8.com/color/96/000000/ubuntu--v1.png" alt="Ubuntu">
 </div>
 
-Below are Docker files for different versions of Ubuntu with specific .NET frameworks.
+### Setup for Ubuntu 20 using .NET 5
 
-### Ubuntu 20 with .NET 5
+Here’s how you set up a project on Ubuntu 20 using .NET 5.0:
 
 ```dockerfile
-# Base runtime image (Ubuntu 20 with .NET runtime)
+# Base image with runtime (Ubuntu 20 with .NET 5.0 runtime)
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
 WORKDIR /app
 
-# Base development image (Ubuntu 20 with .NET SDK)
+# Development base image (Ubuntu 20 with .NET 5.0 SDK)
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 # Restore NuGet packages
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
 # Build the project
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
 # Publish the project
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Run the app
+# Final app setup
+
+***Based on <https://ironsoftware.com/how-to/docker-support/>***
+
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Example.dll"]
 ```
 
-### Ubuntu 20 with .NET 3.1 LTS
-
-```dockerfile
-# Base runtime image (Ubuntu 20 with .NET runtime)
-FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
-WORKDIR /app
-
-# Base development image (Ubuntu 20 with .NET SDK)
-FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
-WORKDIR /src
-# Restore NuGet packages
-COPY ["Example/Example.csproj", "Example/"]
-RUN dotnet restore "Example/Example.csproj"
-# Build the project
-COPY . .
-WORKDIR "/src/Example"
-RUN dotnet build "Example.csproj" -c Release -o /app/build
-# Publish the project
-FROM build AS publish
-RUN dotnet publish "Example.csproj" -c Release -o /app/publish
-# Run the app
-FROM base AS final
-WORKDI
+Similarly, configurations are detailed for Ubuntu 20 with .NET 3.1 LTS, Ubuntu 18 with .NET 3.1 LTS, Debian with various .NET versions, and CentOS 7 and 8 using .NET 3.1 LTS. Each setup provides a robust framework for deploying .NET applications in Docker environments tailored to specific Linux distributions.

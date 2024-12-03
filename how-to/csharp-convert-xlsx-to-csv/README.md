@@ -1,25 +1,25 @@
-# Transforming XLSX to CSV, JSON, XML, and More Using C&num;
+# Converting Excel File Formats with IronXL in C&num;
 
-IronXL enables the conversion of Excel files into various file formats.
+***Based on <https://ironsoftware.com/how-to/csharp-convert-xlsx-to-csv/>***
 
-These formats encompass JSON, CSV, XML, and even the older Excel file type XLS.
 
-The following guide illustrates how you can leverage IronXL to convert files into XML, CSV, JSON; additionally, it includes a demonstration of exporting an Excel worksheet as a dataset.
+IronXL is versatile in converting Excel files into several popular formats including JSON, CSV, XML, and older formats like XLS. This article walks you through the conversion process using IronXL, offering examples in XML, CSV, JSON, and also demonstrates how to export an Excel worksheet as a dataset.
+
 
 ---
 
-### Step 1: IronXL Library Installation
+### Step 1: Setting Up IronXL
 
-To utilize IronXL in your projects, you must first install it. You can install IronXL via two methods:
+Before you can begin converting Excel files, you need to install the IronXL library into your project. IronXL can be installed in two primary ways:
 
-Download from: [IronXL Documentation](https://ironsoftware.com/csharp/excel/docs/)
+You can directly download it from [Iron Software's official Excel documentation](https://ironsoftware.com/csharp/excel/docs/).
 
-Or through Nuget Package Manager:
+Alternatively, you can install it using the NuGet Package Manager:
 
-- Right-click the Solution name in Solution Explorer.
-- Select Manage NuGet Packages.
+- Right-click on the solution name in Solution Explorer.
+- Select 'Manage NuGet Packages'.
 - Search for `IronXL.Excel`.
-- Click Install.
+- Click 'Install'.
 
 ```shell
 Install-Package IronXL.Excel
@@ -27,41 +27,38 @@ Install-Package IronXL.Excel
 
 ---
 
-### Tutorial on Converting File Formats
+### How to Tutorial: Convert XLSX to Different Formats
 
-With IronXL installed, you're set to begin converting your files.
+With IronXL installed, you’re ready to transform Excel files into multiple formats.
 
-Incorporate the following code snippet:
+Here’s how you can do it:
 
 ```cs
-/**
-Convert various formats
-anchor-convert-to-xml-json-csv-xls
-**/
+// Convert Excel document into multiple formats
 using IronXL;
 
-private void ConvertButton_Click(object sender, EventArgs e)
+private void ExportExcelFile(object sender, EventArgs e)
 {
-    WorkBook workbook = WorkBook.Load("Standard_Excel_File.xlsx");
+    WorkBook workbook = WorkBook.Load("Sample_Excel_File.xlsx");
+    workbook.Metadata.Title = "Sample_Excel_File";
 
-    workbook.Metadata.Title = "Standard_Excel_File.xlsx";
+    // Save in different formats
+    workbook.SaveAs("Old_Excel_Format.xls");
+    workbook.SaveAs("New_Excel_Format.xlsx");
+    workbook.SaveAsCsv("Exported_File.csv");
+    workbook.SaveAsJson("Exported_File.json");
+    workbook.SaveAsXml("Exported_File.xml");
 
-    workbook.SaveAs("Converted_XLS.xls");
-    workbook.SaveAs("Converted_XLSX.xlsx");
-    workbook.SaveAsCsv("Converted_CSV.csv");
-    workbook.SaveAsJson("Converted_JSON.json");
-    workbook.SaveAsXml("Converted_XML.xml");
-
-    System.Data.DataSet dataSet = workbook.ToDataSet();
-
-    dataGridView.DataSource = dataSet;
-    dataGridView.DataMember = "Sheet1";
+    // Export to DataSet for use in a DataGridView
+    var dataSet = workbook.ToDataSet();
+    dataGridView1.DataSource = dataSet;
+    dataGridView1.DataMember = "Sheet1";
 }
 ```
 
-This script loads a standard XLSX file, assigns a Title, converts it to multiple formats, and finally exports the worksheet as a DataSet used by a DataGridView component.
+This sample code loads an ordinary XLSX file, sets its title, exports it in various formats, and finally populates a `DataGridView` from the resulting dataset.
 
-Below are the exported files rendered in various formats.
+### Visual Demonstrations of Exports
 
 <div class="content-img-align-center">
 	<div class="center-image-wrapper">
@@ -69,8 +66,7 @@ Below are the exported files rendered in various formats.
       <img class="img-responsive" src="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/csv-file-export.png" alt="CSV File Export">
     </a>
     <div class="image-description">
-      <span class="image-description-text_strong">Figure 1 - </span>
-      <span class="image-description-text_italic">CSV File Export</span>
+      <span class="image-description-text_strong">Figure 1</span> - <span class="image-description-text_italic">CSV File Export</span>
     </div>
   </div>
 </div>
@@ -81,20 +77,18 @@ Below are the exported files rendered in various formats.
       <img class="img-responsive" src="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/xml-export.png" alt="XML Export">
     </a>
     <div class="image-description">
-      <span class="image-description-text_strong">Figure 2 - </span>
-      <span class="image-description-text_italic">XML Export</span>
+      <span class="image-description-text_strong">Figure 2</span> - <span class="image-description-text_italic">XML Export</span>
     </div>
   </div>
 </div>
 
 <div class="content-img-align-center">
-	<div the="center-image-wrapper">
+	<div class="center-image-wrapper">
     <a href="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/json-export.png" target="_blank">
       <img class="img-responsive" src="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/json-export.png" alt="JSON Export">
     </a>
     <div class="image-description">
-      <span class="image-description-text_strong">Figure 3 - </span>
-      <span class="image-description-text_italic">JSON Export</span>
+      <span class="image-description-text_strong">Figure 3</span> - <span class="image-description-text_italic">JSON Export</span>
     </div>
   </div>
 </div>
@@ -105,8 +99,7 @@ Below are the exported files rendered in various formats.
       <img class="img-responsive" src="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/xls-export.png" alt="XLS Export">
     </a>
     <div class="image-description">
-      <span class="image-description-text_strong">Figure 4 - </span>
-      <span class="image-description-text_italic">XLS Export</span>
+      <span class="image-description-text_strong">Figure 4</span> - <span class="image-description-text_italic">XLS Export</span>
     </div>
   </div>
 </div>
@@ -117,8 +110,7 @@ Below are the exported files rendered in various formats.
       <img class="img-responsive" src="https://ironsoftware.com/img/faq/excel/csharp-convert-xlsx-to-csv/excel-input-for-all-exports.png" alt="Excel Input for all exports">
     </a>
     <div class="image-description">
-      <span class="image-description-text_strong">Figure 5 - </span>
-      <span class="image-description-text_italic">Excel Input for all exports</span>
+      <span class="image-description-text_strong">Figure 5</span> - <span class="image-description-text_italic">Excel Input for all exports</span>
     </div>
   </div>
 </div>
@@ -127,15 +119,14 @@ Below are the exported files rendered in various formats.
 
 ### Library Quick Access
 
-Explore more and share your insights on manipulating and interacting with Excel spreadsheets at the IronXL API Reference Documentation.
+Explore more about merging, unmerging, and managing cells in Excel spreadsheets through the comprehensive IronXL API Reference Documentation. Navigate through the resource-rich documentation and expand your development skills!
 
-[Learn More at IronXL API Reference Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/)
 <div class="tutorial-section">
   <div class="row">
     <div class="col-sm-8">
       <h3>IronXL API Reference Documentation</h3>
-      <p>Dive deep into merging, unmerging, and working with cells in Excel sheets using the comprehensive IronXL API Reference.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
+      <p>Gain insights and extend your capabilities in handling Excel files with IronXL.</p>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Explore IronXL API Docs <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

@@ -1,20 +1,23 @@
-# Create Excel Functions with .NET
+# Developing Excel .NET Functions with IronXL
 
-Creating and updating Excel Spreadsheets programmatically is a common requirement in many C# applications. Leveraging the IronXL library simplifies these tasks dramatically. With IronXL, you can efficiently work with Excel files in numerous formats without the need for extensive coding—simply manipulate the cells directly with the values you wish to use.
+***Based on <https://ironsoftware.com/how-to/write-excel-net/>***
+
+
+Creating and modifying Excel files programmatically within C# applications can be complex using native .NET capabilities. However, with the IronXL library, these tasks become straightforward, enabling developers to handle Excel Spreadsheets effortlessly without extensive coding. Simply update the data directly into the desired cells.
 
 <div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Excel .NET Manipulation Instructions</h2>
+      <h2>Steps to Work with Excel .NET</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-download-the-library">Download the Library for Excel .NET</a></li>
-        <li><a href="#anchor-3-write-value-in-specific-cell">Assign values to specific cells</a></li>
-        <li><a href="#anchor-4-write-static-values-in-a-range">Insert static values across multiple cells</a></li>
-        <li><a href="#anchor-5-write-dynamic-values-in-a-range">Insert dynamic values across a cell range</a></li>
-        <li><a href="#anchor-6-replace-excel-cell-value">Modify existing values in cells, rows, columns, or ranges</a></li>
+        <li><a href="#anchor-1-download-the-library">Install the Excel .NET Library</a></li>
+        <li><a href="#anchor-3-write-value-in-specific-cell">Input values into designated cells</a></li>
+        <li><a href="#anchor-4-write-static-values-in-a-range">Input static entries across multiple cells</a></li>
+        <li><a href="#anchor-5-write-dynamic-values-in-a-range">Input dynamic entries across a cell range</a></li>
+        <li><a href="#anchor-6-replace-excel-cell-value">Modify existing entries in Excel</a></li>
       </ul>
     </div>
-     <div class="col-sm-6">
+    <div class="col-sm-6">
       <div class="download-card">
         <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironsoftware.com/img/faq/excel/how-to-work.svg" class="img-responsive learn-how-to-img replaceable-img">
       </div>
@@ -22,192 +25,145 @@ Creating and updating Excel Spreadsheets programmatically is a common requiremen
   </div>
 </div>
 
-## Access and Manipulate Excel Files
+## Accessing Excel Files
 
-First, load the Excel file within your project and access the desired Worksheet as shown in the example below:
-
-```cs
-// Initialize and load an existing Excel file
-WorkBook workBook = WorkBook.Load("path-to-your-excel-file");
-```
-
-After loading the file, select the specific Worksheet:
+First, access the Excel file you wish to edit by loading it into your project and selecting its specific worksheet by utilizing the code snippet below:
 
 ```cs
-// Access a specific Worksheet by name
-WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
-```
-
-This setup prepares the `workSheet` object for data manipulation. You can learn more about loading different file types and accessing Worksheets [here](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/).
-
-**Note:** Ensure `IronXL` is included in your project references and the namespace is imported via `using IronXL`.
-
-<hr class="separator">
-
-## Writing to Specific Cells
-
-Employing IronXL, you can modify a specific cell with ease:
-
-```cs
-// Assign a new value to a specific cell
-workSheet["Cell Identifier"].Value = "Your Assigned Value";
-```
-
-Below is an example demonstrating this operation:
-
-```cs
-using IronXL;
-
-// Instantiating the WorkBook
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-
-// Accessing the Worksheet
-WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
-
-// Updating the value of cell A1
-workSheet["A1"].Value = "Updated Content";
-
-// Ensuring changes are saved
-workBook.SaveAs("updated-sample.xlsx");
-```
-
-This code snippet modifies the `A1` cell of `Sheet1` in the `sample.xlsx` file to `Updated Content`.
-
-**Note:** Always remember to save your file to keep the changes.
-
-### Direct Assignment of String Values
-
-To precisely assign string data without conversion:
-
-```cs
-// Assigning a direct textual value to a cell
-workSheet["A1"].StringValue = "Exact Text";
-```
-
-<hr class="separator">
-
-## Inserting Values Across a Range
-
-Assign values efficiently across a range of cells:
-
-```cs
-// Define a range and assign a uniform value
-workSheet["Start Cell:End Cell"].Value = "Uniform Value";
-```
-
-This method fills every cell within the specified range with `Uniform Value`. Here's how this can be executed:
-
-```cs
-using IronXL;
-
-// Preparing the workbook and worksheet
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
-
-// Assigning a value over a range of rows
-workSheet["B2:B9"].Value = "Spread Value";
-
-// Assigning a value over a range of columns
-workSheet["C3:C7"].Value = "Spread Value";
-
-// Save your workbook to apply changes
-workBook.SaveAs("updated-sample.xlsx");
-```
-
-This example demonstrates filling specified ranges in a Worksheet with a consistent value.
-
-<hr class="separator">
-
-## Dynamically Writing to a Range
-
-Dynamic data insertion into various cells can be executed as follows:
-
-```cs
-using IronXL;
-
-// Load and set up the Excel file and sheet
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
-
-// Loop to insert dynamic data across specified cells
-for (int i = 2; i <= 7; i++)
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
 {
-    workSheet["B" + i].Value = "Dynamic Value " + i;
-    workSheet["D" + i].Value = "Dynamic Value " + i;
+    public class Section1
+    {
+        public void Run()
+        {
+            // Load an Excel workbook
+            WorkBook workBook = WorkBook.Load("path");
+        }
+    }
 }
-
-// Commit the changes to the file
-workBook.SaveAs("dynamic-sample.xlsx");
 ```
 
-This example inserts unique dynamic values into specific rows and columns within the Excel file.
+Following loading the workbook, open the desired worksheet:
 
-<center>
-	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png" alt="" class="img-responsive add-shadow"></a>
-	</div>
-</center>
+```cs
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section2
+    {
+        public void Run()
+        {
+            // Open a worksheet
+            WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
+        }
+    }
+}
+```
+
+Once the worksheet is loaded, you can manipulate it as needed. Discover more about opening and utilizing different spreadsheet types via the detailed guide at [loading Excel files](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/).
+
+**Note:** Ensure `IronXL` is referenced and imported into your project.
 
 <hr class="separator">
 
-## Cell Value Replacement
+## Writing Values to Specific Cells
 
-IronXL allows replacing existing values easily within the entire Worksheet or specific sections:
-
-```cs
-// Replace old values throughout the Worksheet
-workSheet.Replace("Old Value", "New Value");
-```
-
-Further detailed replacements are provided through methods targeting specific rows, columns, or cell ranges:
+The simplest method to write data into an Excel file is by directly accessing an `Excel Cell`. Here's how to do it:
 
 ```cs
-// Replace value in a specific row
-workSheet.Rows[rowIndex].Replace("Old Value", "New Value");
-
-// Replace value in a specific column
-workSheet.Columns[columnIndex].Replace("Old Value", "New Value");
-
-// Replace values within a specified cell range
-workSheet["Start Cell:End Cell"].Replace("Old Value", "New Value");
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section3
+    {
+        public void Run()
+        {
+            // Assign a value to a specific cell
+            workSheet["Cell Address"].Value = "Assign the Value";
+        }
+    }
+}
 ```
 
-For a comprehensive example:
+To implement this, follow this practical example:
 
 ```cs
 using IronXL;
-
-// Initialization and setup
-WorkBook workBook = WorkBook.Load("sample.xlsx");
-WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
-
-// Replacement operations for various worksheet sections
-workSheet.Replace("old", "new");
-workSheet.Rows[5].Replace("old", "new");
-workSheet.Columns[4].Replace("old", "new");
-workSheet["A5:H5"].Replace("old", "new");
-
-// Completing changes by saving
-workBook.SaveAs("fully-revised-sample.xlsx");
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section4
+    {
+        public void Run()
+        {
+            // Initialize the Excel file
+            WorkBook workBook = WorkBook.Load("sample.xlsx");
+            
+            // Select the worksheet
+            WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
+            
+            // Update the value of cell A1
+            workSheet["A1"].Value = "new value";
+            
+            // Save the modified workbook
+            workBook.SaveAs("sample.xlsx");
+        }
+    }
+}
 ```
 
-Explore further details on Excel .NET application creation in our comprehensive [tutorial](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/).
+This snippet will update the `A1` cell in the `Sheet1` worksheet of `sample.xlsx`. Repeat this process to modify any cell.
+
+**Note:** Always save the file after modifications.
+
+### Assigning String Values Explicitly
+
+If you need to prevent automatic data type conversions by IronXL, assign the value as a string. Here's how:
+
+```cs
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section5
+    {
+        public void Run()
+        {
+            // Set a cell's value explicitly as a string
+            workSheet["A1"].StringValue = "4402-12";
+        }
+    }
+}
+```
 
 <hr class="separator">
 
-<h4 class="tutorial-segment-title">Quick Access to Tutorial Resources</h4>
+## Writing Static Values Across a Range
 
-<div class="tutorial-section">
-  <div class="row">
-    <div class="col-sm-8">
-      <h3>Explore the API Documentation</h3>
-      <p>Dive into the IronXL documentation for a complete breakdown of functions, features, namespaces, classes, and enums available.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Read API Documentation <i class="fa fa-chevron-right"></i></a>
-    </div>
-    <div class="col-sm-4">
-      <div class="tutorial-image">
-        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
-      </div>
-    </div>
-  </div>
-</div>
+To update multiple cells simultaneously within a specified range:
+
+```cs
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section6
+    {
+        public void Run()
+        {
+            // Define the cell range and assign a new value
+            workSheet["From Cell Address:To Cell Address"].Value = "New Value";
+        }
+    }
+}
+```
+
+For an operational example of setting a range:
+
+```cs
+using IronXL;
+using IronXL.Excel;
+namespace ironxl.WriteExcelNet
+{
+    public class Section7
+    {
+        public Assistant
