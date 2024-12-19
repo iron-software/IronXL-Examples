@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.WriteExcelNet
+namespace IronXL.Examples.HowTo.WriteExcelNet
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Load Excel file in the project
             WorkBook workBook = WorkBook.Load("path");

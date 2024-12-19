@@ -1,26 +1,26 @@
 ***Based on <https://ironsoftware.com/examples/repeating-rows-and-columns-in-excel/>***
 
-When handling multi-page Excel spreadsheets, it becomes significantly easier and faster to comprehend the data when column or row titles are printed on the top or right of each page. These titles are referred to as _Repeating Rows and Columns_ or _Header Rows and Columns_. IronXL simplifies the implementation of this effective feature with a minimalist amount of code.
+When dealing with multi-page Excel spreadsheets, readability improves significantly when the column or row headings are printed on each page. These headings are often referred to as _Repeating Rows and Columns_ or _Header Rows and Columns_ in Excel. Using IronXL, you can easily implement this feature with just a few lines of code.
 
 ## `SetRepeatingRows(startRow, endRow)`
 
-Utilize this function to designate rows that should repeat across pages. For instance, `workSheet.SetRepeatingRows(3, 4)` configures repetition for `row(4-5)`.
+This method configures rows to repeat on multiple pages. For instance, `workSheet.SetRepeatingRows(3, 4)` ensures that rows 4 and 5 (under zero-based indexing) are repeated across pages.
 
 ## `SetRepeatingColumns(startColumn, endColumn)`
 
-Similarly, this function marks columns for repetition. For example, calling `workSheet.SetRepeatingColumns(0, 2)` will repeat the contents of `column(A-C)`.
+Similarly, this function is designed to define repeating columns. For example, the command `workSheet.SetRepeatingColumns(0, 2)` will cause columns A to C to repeat across pages.
 
-Both functions employ zero-based indexing for parameter values, where column(0) corresponds to "A" and row(1) to 2. It's important to note the behavior when combining these methods as shown above.
+Please remember, these methods accept zero-based indices, meaning column(0) corresponds to "A" and row(1) corresponds to 2\. Also, note that using these methods in tandem, like the examples provided, will have specific interactions.
 
-Content spanning multiple pages and aligned along the right of the first page will only adhere to the repeating column rules. Refer to Figure 1 for an illustration:
+Content that extends multiple pages horizontally from the right side of the first page will obey the repeating column rules exclusively. The illustration below demonstrates this:
 
 ## Figure 1
 
 ![Figure 1](https://ironsoftware.com/static-assets/excel/examples/repeating-rows-and-columns-in-excel/repeating-rows-and-columns-in-excel-2.webp)
 
-For content that spans along the bottom side of the first page, the repeating row settings will be in effect.
+Content that spans vertically from the bottom side of the first page will follow the repeating row rules.
 
-Pages on the inner side will see both repeating columns and rows. Figure 2 provides a visual depiction of these scenarios:
+Finally, pages situated within the inside part will adhere to both repeating column and row rules. Figure 2 captures these last two scenarios:
 
 ## Figure 2
 

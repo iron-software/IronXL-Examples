@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.WriteExcelNet
+namespace IronXL.Examples.HowTo.WriteExcelNet
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             // Load Excel file
             WorkBook workBook = WorkBook.Load("sample.xlsx");

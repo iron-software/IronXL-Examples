@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.HowToReadExcelFileCsharp
+namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp
 {
-    public class Section9
+    public static class Section9
     {
-        public void Run()
+        public static void Run()
         {
             // Iterate through the rows
             for (var y = 2; y <= 101; y++)

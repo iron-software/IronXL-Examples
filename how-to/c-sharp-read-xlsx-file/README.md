@@ -3,19 +3,18 @@
 ***Based on <https://ironsoftware.com/how-to/c-sharp-read-xlsx-file/>***
 
 
-Handling multiple Excel document formats often necessitates the reading and manipulation of data through programming. This guide demonstrates how to read data from an Excel spreadsheet using C# with the help of the IronXL library.
+Dealing with different Excel file formats typically involves reading and manipulating the data with C# programming. In this tutorial, we'll explore how to read information from an Excel spreadsheet using the IronXL library.
 
-```html
-<div class="learn-how-section">
+<div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Read .XLSX Files in C#</h2>
+      <h2>Handling .XLSX Files in C#</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-get-ironxl-for-your-project">Add IronXL to your project</a></li>
-        <li><a href="#anchor-2-load-workbook">Open a WorkBook</a></li>
-        <li><a href="#anchor-4-access-data-from-worksheet">Retrieve data from a WorkSheet</a></li>
-        <li><a href="#anchor-5-perform-functions-on-data">Implement functions like Sum, Min, and Max</a></li>
-        <li><a href="#anchor-6-read-excel-worksheet-as-datatable">Convert a WorkSheet to a DataTable, DataSet, and beyond</a></li>
+        <li><a href="#anchor-1-get-ironxl-for-your-project">Integrate IronXL into your project</a></li>
+        <li><a href="#anchor-2-load-workbook">Open a workbook</a></li>
+        <li><a href="#anchor-4-access-data-from-worksheet">Retrieve data from a worksheet</a></li>
+        <li><a href="#anchor-5-perform-functions-on-data">Perform calculations like Sum, Min, & Max</a></li>
+        <li><a href="#anchor-6-read-excel-worksheet-as-datatable">Convert a worksheet into a DataTable, DataSet, and more</a></li>
       </ul>
     </div>
     <div class="col-sm-6">
@@ -25,293 +24,292 @@ Handling multiple Excel document formats often necessitates the reading and mani
     </div>
   </div>
 </div>
-```
 
 <hr class="separator">
 
-### Step 1
+<h4 class="tutorial-segment-title">Step 1</h4>
 
-## Get IronXL for Your Project
+## 1. Incorporate IronXL into Your Project
 
-Integrate IronXL into your application to easily handle Excel file formats in C#. Install IronXL by [downloading it directly](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.xlsx.zip) or through [NuGet in Visual Studio](https://www.nuget.org/packages/IronXL.Excel). This tool is free to use during development.
+For easy manipulation of Excel files in C#, include IronXL in your project. You can [download IronXL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.xlsx.zip) or use [NuGet to install it via Visual Studio](https://www.nuget.org/packages/IronXL.Excel). IronXL is free for development purposes.
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
 <hr class="separator">
-### Tutorial Instructions
+<h4 class="tutorial-segment-title">How to Tutorial</h4>
 
-## Load a WorkBook
+## 2. Open a Workbook
 
-`WorkBook` is the core class in IronXL which allows full manipulation of the Excel workbook. To open an Excel document, you can use:
+The `WorkBook` class in IronXL allows full control over the Excel files. For instance, to open a workbook, you would utilize:
 
-```csharp
-// Example Code to Load an Excel workbook
-WorkBook wb = WorkBook.Load("sample.xlsx");
+```cs
+// Load Workbook
+WorkBook wb = WorkBook.Load("sample.xlsx");  // Path to your Excel file
 ```
-
-Here, the `WorkBook.Load()` method is used to open `sample.xlsx` and assign it to `wb`, which can then be utilized to perform various operations on the workbook.
+In the snippet above, the `WorkBook.Load()` method opens `sample.xlsx` and assigns it to `wb`. You can then operate on `wb` using any of its worksheets.
 
 <hr class="separator">
 
-## Access a Specific WorkSheet
+## 3. Access a Specific Worksheet
 
-IronXL's `WorkSheet` class enables access to individual sheets. It provides multiple ways to retrieve a sheet:
+The `WorkSheet` class in IronXL facilitates worksheet handling in various ways:
 
-```csharp
-// Access the worksheet by sheet name
-WorkSheet ws = wb.GetWorkSheet("Sheet1");
+```cs
+// Access Sheet by Name
+WorkSheet ws = wb.GetWorkSheet("Sheet1");  // Access using sheet name
 ```
+`wb` is a previously declared WorkBook instance.
 
-```csharp
-// Access the worksheet by index
-WorkSheet ws = wb.WorkSheets[0];
+OR
+```cs
+// Access Sheet by Index
+WorkSheet ws = wb.WorkSheets[0];  // Access by sheet index
 ```
+OR
 
-```csharp
-// Access the default worksheet
-WorkSheet ws = wb.DefaultWorkSheet;
+```cs
+// Access Default WorkSheet
+WorkSheet ws = wb.DefaultWorkSheet;  // Access the default sheet
 ```
+OR
 
-```csharp
-// Access the first available worksheet
-WorkSheet ws = wb.WorkSheets.First();
+```cs
+// Access First WorkSheet
+WorkSheet ws = wb.WorkSheets.First();  // Access the first sheet
 ```
+OR
 
-```csharp
-// Access the first or default worksheet
-WorkSheet ws = wb.WorkSheets.FirstOrDefault();
+```cs
+// Access First or Default WorkSheet
+WorkSheet ws = wb.WorkSheets.FirstOrDefault();  // Access the first or default sheet
 ```
-
-Once `ws` (a `WorkSheet` instance) is obtained, it offers functionalities to access and manipulate each cell's data.
+Once you access a worksheet `ws`, you can retrieve data from it and perform any Excel operations you need.
 
 <hr class="separator">
 
-## Retrieve Data from a WorkSheet
+## 4. Retrieve Data from a Worksheet
 
-To extract data from a worksheet, IronXL provides straightforward methods to access cell values:
+Retrieving data from a `WorkSheet` can be accomplished as follows:
 
-```csharp
-string stringValue = ws["cell address"].ToString(); // Retrieving string data
-int integerValue = ws["cell address"].Int32Value; // Retrieving integer data
+```cs
+string cellData = ws["cell address"].ToString();  // Retrieve string data
+int intValue = ws["cell address"].Int32Value;  // Retrieve integer data
+```
 
-// Iterate over a range of cells
+It's also possible to extract values from multiple cells within a specific column:
+
+```cs
 foreach (var cell in ws["A2:A10"])
 {
-    Console.WriteLine($"Value is: {cell.Text}");
+    Console.WriteLine("value is: {0}", cell.Text);
 }
 ```
+This will print the values from cells `A2` to `A10`.
 
-Here is a complete example that demonstrates accessing data from a worksheet:
+Here's a complete example demonstrating the steps above:
 
-```csharp
-// Code Snippet: Accessing WorkSheet Data
+```cs
+// Access WorkSheet Data
 using IronXL;
-
 static void Main(string[] args)
 {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
-
-    foreach (var cell in ws["A2:A10"])
+    WorkBook wb = WorkBook.Load("sample.xlsx");  // Load the Excel file
+    WorkSheet ws = wb.GetWorkSheet("Sheet1");  // Access the specific worksheet
+    foreach (var cell in ws["A2:A10"])  // Iterate through cells from A2 to A10
     {
-        Console.WriteLine($"Value is: {cell.Text}");
+        Console.WriteLine("value is: {0}", cell.Text);  // Print out each cell's text
     }
-
     Console.ReadKey();
 }
 ```
 
-Below are some snapshots of the process in action using `Sample.xlsx`:
+The output will appear as follows:
 
 <center>
-  <div class="center-image-wrapper">
+<div class="center-image-wrapper">
     <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png" alt="" class="img-responsive add-shadow"></a>
-  </div>
+</div>
 </center>
+
+With the Excel file `Sample.xlsx` showcased:
+
+<center>
+<div class="center-image-wrapper">
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png" alt="" class="img-responsive add-shadow"></a>
+</div>
+</center>
+
+This method clearly demonstrates the simplicity and power of managing Excel data within your projects using these techniques.
 
 <hr class="separator">
 
-## Apply Functions on Data
+## 5. Apply Functions to Data
 
-Extracting specific data with functions like Sum, Min, and Max is quite straightforward:
+Accessing and applying aggregate functions like Sum, Min, or Max on data from an Excel `WorkSheet` is straightforward:
 
-```csharp
-// Aggregate functions implementation
-decimal sumValue = ws["From:To"].Sum();
-decimal minValue = ws["From:To"].Min();
-decimal maxValue = ws["From:To"].Max();
+```cs
+decimal sumValue = ws["From:To"].Sum();  // Calculate sum
+decimal minValue = ws["From:To"].Min();  // Find minimum
+decimal maxValue = ws["From:To"].Max();  // Find maximum
 ```
 
-For more detailed techniques on performing operations on Excel data, reference our comprehensive tutorial on [Writing and Reading Excel Files with C#](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc).
+For more advanced usage, refer to our comprehensive guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
 
-```csharp
-// Code Snippet: Sum, Min, Max Functions
+```cs
+// Sum, Min, Max Functions
 using IronXL;
-
 static void Main(string[] args)
 {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
+    WorkBook wb = WorkBook.Load("sample.xlsx");  // Load our sample Excel file
+    WorkSheet ws = wb.GetWorkSheet("Sheet1");  // Access the first worksheet
 
-    decimal sumResult = ws["G2:G10"].Sum();
-    decimal minResult = ws["G2:G10"].Min();
-    decimal maxResult = ws["G2:G10"].Max();
+    decimal sum = ws["G2:G10"].Sum();  // Calculate sum for cells G2 through G10
+    decimal min = ws["G2:G10"].Min();  // Find minimum in range G2 through G10
+    decimal max = ws["G2:G10"].Max();  // Find maximum in range G2 through G10
 
-    Console.WriteLine($"Sum is: {sumResult}");
-    Console.WriteLine($"Min is: {minResult}");
-    Console.WriteLine($"Max is: {maxResult}");
-
+    Console.WriteLine("Sum is: {0}", sum);  // Display the sum
+    Console.WriteLine("Min is: {0}", min);  // Display the minimum
+    Console.WriteLine("Max is: {0}", max);  // Display the maximum
     Console.ReadKey();
 }
-``` 
-
-This output and Excel file visualizes the processed results:
+```
+This code will produce the following display:
 
 <center>
-  <div class="center-image-wrapper">
+<div class="center-image-wrapper">
     <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png" alt="" class="img-responsive add-shadow"></a>
-  </div>
+</div>
 </center>
 
-And the original `Sample.xlsx` file looks like this:
+And this represents the data from the Excel file `Sample.xlsx`:
 
 <center>
-  <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" target="_blank"><img[src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" alt="" class="img-responsive add-shadow"></a>
-  </div>
+<div class="center-image-wrapper">
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" alt="" class="img-responsive add-shadow"></a>
+</div>
 </center>
 
 <hr class="separator">
 
-## Convert Excel WorkSheet to DataTable
+## 6. Convert Excel Worksheet to DataTable
 
-Converting a WorkSheet to a DataTable with IronXL is a straightforward task:
+Utilizing IronXL to handle an Excel `WorkSheet` as a `DataTable` is straightforward:
 
-```csharp
-// Convert a worksheet to a DataTable
-DataTable dataTable = WorkSheet.ToDataTable();
+```cs
+DataTable dt = WorkSheet.ToDataTable();  // Convert to DataTable
 ```
 
-If the first row should serve as column names:
+To use the first row of the Excel sheet as the column names for the `DataTable`:
 
-```csharp
-// Include the first row as column names in the DataTable conversion
-DataTable dataTable = WorkSheet.ToDataTable(True);
+```cs
+DataTable dt = WorkSheet.ToDataTable(true);  // Use first row as column names
 ```
+By setting the Boolean parameter of the `ToDataTable()` method, you determine if the first row should act as the column names, with the default being `False`.
 
-The Boolean parameter in `ToDataTable()` determines whether the first row is used as column names, defaulting to `False`.
-
-```csharp
-// Example: WorkSheet as DataTable
+```cs
+// WorkSheet as DataTable
 using IronXL;
 using System.Data;
-
 static void Main(string[] args)
-{
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
-    DataTable dt = ws.ToDataTable(true);
+{          
+    WorkBook wb = WorkBook.Load("sample.xlsx");  // Load the workbook
+    WorkSheet ws = wb.GetWorkSheet("Sheet1");  // Get the first worksheet
+    DataTable dt = ws.ToDataTable(true);  // Convert the worksheet into a DataTable, using the first row as column names
 
-    foreach (DataRow row in dt.Rows)
+    foreach (DataRow row in dt.Rows)  // Iterate through each row
     {
-        for (int i = 0; i < dt.Columns.Count; i++)
+        for (int i = 0; i < dt.Columns.Count; i++)  // Iterate through each column in the row
         {
-            Console.Write(row[i]);
+            Console.Write(row[i]);  // Print out each cell value
         }
+
     }
 }
 ```
-
-Using the code above, every cell value in the WorkSheet can be accessed and utilized as needed.
+This code allows direct access to every cell value in the worksheet, using it as needed.
 
 <hr class="separator">
 
-## Convert Excel WorkBook to DataSet
+## 7. Convert Excel File to DataSet
 
-IronXL also simplifies the process of using a complete Excel WorkBook as a DataSet:
+IronXL also facilitates the conversion of an entire Excel file (`WorkBook`) into a `DataSet`, allowing further manipulation:
 
-```csharp
-// Convert a WorkBook to a DataSet
-DataSet dataSet = WorkBook.ToDataSet();
+```cs
+DataSet ds = WorkBook.ToDataSet();  // Convert the entire workbook to a DataSet
 ```
+Explained through the following example:
 
-In the following example, we see how to use an Excel file as a DataSet:
-
-```csharp
-// Example: Excel File as DataSet
+```cs
+// Excel File as DataSet
 using IronXL;
 using System.Data;
-
 static void Main(string[] args)
-{           
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    DataSet ds = wb.ToDataSet(); // Parse the WorkBook into a DataSet
+{          
+    WorkBook wb = WorkBook.Load("sample.xlsx");  // Load the Excel file into a WorkBook
+    DataSet ds = wb.ToDataSet();  // Convert the entire WorkBook to a DataSet
 
-    foreach (DataTable dt in ds.Tables)
+    foreach (DataTable dt in ds.Tables)  // Iterate through each DataTable in the DataSet
     {
-        Console.WriteLine(dt.TableName);
+        Console.WriteLine(dt.TableName);  // Print the name of each DataTable
     }
 }
 ```
-
-The output and visualization of the Excel file `Sample.xlsx`:
+The output will appear like this:
 
 <center>
-  <div class="center-image-wrapper">
+<div class="center-image-wrapper">
     <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png" alt="" class="img-responsive add-shadow"></a>
-  </div>
+</div>
 </center>
+
+And this will show how the Excel file `Sample.xlsx` looks:
 
 <center>
-  <div class="center-image-wrapper">
+<div class="center-image-wrapper">
     <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png" alt="" class="img-responsive add-shadow"></a>
-  </div>
+</div>
 </center>
 
-The example demonstrates easy parsing of an Excel file into a DataSet, allowing manipulation of each WorkSheet as a DataTable. For more insights and code examples on parsing Excel as a DataSet, explore our [dedicated guide](https://ironsoftware.com/csharp/excel/#excel-sql-dataset).
+In this example, we've demonstrated the simple, yet flexible ways to handle an Excel file as a DataSet, utilizing each worksheet as a DataTable and manipulating the data accordingly. For more details on parsing Excel as a DataSet, dive into our resources [here](https://ironsoftware.com/csharp/excel/#excel-sql-dataset) which include broader code examples.
 
-Let's examine another snippet showing how to access each cell value across all ExcelSheets:
+Let's explore another example on how to access cell values in all Excel sheets. You can easily retrieve values from every worksheet in the Excel file:
 
-```csharp
-// Example: WorkSheet Cell Values
+```cs
+// WorkSheet Cell Values
 using IronXL;
 using System.Data;
-
 static void Main(string[] args)
 { 
-WorkBook wb = WorkBook.Load("sample.xlsx");
-DataSet ds = wb.ToDataSet(); // Treat the entire Excel file as a DataSet
-
-foreach (DataTable dt in ds.Tables) // Treat each Excel WorkSheet as a DataTable
+WorkBook wb = WorkBook.Load("sample.xlsx");  // Load the entire Excel file as a DataSet
+DataSet ds = wb.ToDataSet();  // Treat the complete Excel file as a DataSet
+foreach (DataTable dt in ds.Tables)  // Treat each Excel Worksheet as a DataTable
 {
-    foreach (DataRow row in dt.Rows) // Iterate through each sheet's rows
+    foreach (DataRow row in dt.Rows)  // Iterate through each row in the DataTable
     {
-        for (int i = 0; i < dt.Columns.Count; i++) // Iterate through each row's columns
+        for (int i = 0; i < dt.Columns.Count; i++)  // Iterate through each column in the row
         {
-            Console.Write(row[i]);
+            Console.Write(row[i]);  // Print out each cell value
         }
     }
 }
 }
 ```
+This example showcases the convenience of accessing individual cell values from every sheet in the Excel file.
 
-This example effectively illustrates how simple it is to access each cell value across every worksheet within an Excel file.
-
-For further details on how to [Read Excel Files Without Interop](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/), you can find additional code examples here.
+For comprehensive guides on [Reading Excel Files Without Interop](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/) and further examples, check out our resources on this topic.
 
 <hr class="separator">
 
-### Tutorial Quick Access
+<h4 class="tutorial-segment-title">Tutorial Quick Access</h4>
 
-```html
 <div class="tutorial-section">
   <div class="row">
     <div class="col-sm-8">
       <h3>API Reference for IronXL</h3>
-      <p>Explore detailed information about IronXL's features, classes, method fields, namespaces, and enums in our documentation.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> API Reference for IronXL <i class="fa fa-chevron-right"></i></a>
+      <p>Explore more about IronXL's features, classes, methods, fields, namespaces, and enums through our documentation.</p>
+      <a class="doc-link" href="/csharp/excel/object-reference/api/" target="_blank"> API Reference for IronXL <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">
@@ -320,4 +318,5 @@ For further details on how to [Read Excel Files Without Interop](https://ironsof
     </div>
   </div>
 </div>
-```
+
+This comprehensive tutorial provides a deep dive into working with Excel files using C# and IronXL, from basic reading to advanced data manipulation techniques, all demonstrated with clear examples and supportive documentation.

@@ -1,15 +1,15 @@
 ***Based on <https://ironsoftware.com/examples/freeze-panes-in-excel/>***
 
-The example provided illustrates the technique of creating a freeze pane in spreadsheets, which secures rows and columns so they remain visible when scrolling through the document. This is an essential feature for maintaining visibility of headers while you navigate and compare large sets of data efficiently.
+The above code snippet illustrates the method of creating a freeze pane in spreadsheets—this technique secures rows and columns, ensuring their visibility as the user scrolls. It is particularly beneficial for maintaining the visual presence of headers while quickly comparing data across different sections.
 
 ## `CreateFreezePane(column, row)`
 
-The basic usage of the `CreateFreezePane` method involves specifying the column and row to establish the freeze pane based on these. For instance, invoking `workSheet.CreateFreezePane(1, 4)` effectively creates a freeze pane starting from **column (A)** to **row (1-4)**.
+The basic version of the `CreateFreezePane` function requires just the column and row indices to set up the freeze pane. For instance, by calling `workSheet.CreateFreezePane(1, 4)`, the freeze pane will encompass **column(A)** and **rows 1 to 4**.
 
 ## `CreateFreezePane(column, row, subsequentColumn, subsequentRow)`
 
-A more advanced overload of `CreateFreezePane` allows not only fixing columns and rows but also setting parameters for scrolling in the worksheet. By calling `workSheet.CreateFreezePane(5, 2, 6, 7)`, the freeze pane includes **columns (A-E)** and **rows (1-2)** and allows scrolling from column **6** and row **7**. Initially, when the worksheet is opened, it displays columns A-E, G-... and rows 1-2, 8-...
+An extended variation of this function allows for more complex behavior by also factoring in additional rows and columns for scrolling purposes. Using `workSheet.CreateFreezePane(5, 2, 6, 7)`, the freeze pane will include **columns A to E** and **rows 1 and 2** while enabling a scroll over **one subsequent column** and **five additional rows**. Initially, when the worksheet opens, it will display columns A-E plus G onwards and rows 1-2 plus 8 onwards.
 
-Freezing panes is particularly beneficial when dealing with extensive data tables in Excel, enabling you to keep critical rows or columns in view as you scroll through the rest of your data.
+Implementing freeze panes can significantly enhance the readability and usability of large Excel tables by keeping certain rows or columns constantly visible, irrespective of the scrolling done across the rest of the worksheet.
 
-For further guidance and examples, please visit the ["Freeze Panes" How-To](https://ironsoftware.com/csharp/excel/how-to/add-freeze-panes/) article.
+For additional details and practical examples on implementing freeze panes, visit [the "Freeze Panes" How-To](https://ironsoftware.com/csharp/excel/how-to/add-freeze-panes/) article.

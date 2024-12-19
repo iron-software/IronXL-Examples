@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.ConvertSpreadsheetFileTypes
+namespace IronXL.Examples.HowTo.ConvertSpreadsheetFileTypes
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Import any XLSX, XLS, XLSM, XLTX, CSV and TSV
             WorkBook workBook = WorkBook.Load("sample.xlsx");

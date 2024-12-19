@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.SetCellDataFormat
+namespace IronXL.Examples.HowTo.SetCellDataFormat
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create a new workbook
             WorkBook workBook = WorkBook.Create();

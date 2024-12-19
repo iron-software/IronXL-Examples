@@ -1,128 +1,127 @@
-# Adjusting Cell Font and Size with IronXL
+# Customizing Cell Font and Size in Excel
 
 ***Based on <https://ironsoftware.com/how-to/cell-font-size/>***
 
 
-Enhancing document aesthetics and readability through font adjustments is vital in professional document preparation. IronXL provides a straightforward solution for modifying font styles, sizes, colors, and decorations such as underline, bold, italic, super/subscript, and strikeout in C# .NET applications. This capability facilitates the production of polished and professional-looking documents conveniently without the need for interop services.
+Customizing the font attributes such as the font type, size, color, underline, bolding, italicizing, subscripting, and strike-through enhances the readability, emphasizes key details, and augments the visual aesthetics of your documents. IronXL allows you to modify these font properties easily in your C# .NET applications, streamlining the process to help you produce professional and polished outputs.
 
-## Example: Setting Cell Font and Size
+### Start Using IronXL
 
-Adjusting the font of a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/) is made simple by modifying the **Font** properties within the **Style**. To choose a font family, modify the **Name** property. For changing the font size, adjust the **Height** property, and to make text bold, use the **Bold** property. Additionally, the **Underline** property can be set to underline text, adding further emphasis.
+---
 
-```cs
-using IronXL.Styles;
-using IronXL.Excel;
-namespace ironxl.CellFontSize
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create();
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Text content for the cell
-            workSheet["B2"].StringValue = "Font and Size";
-            
-            // Choosing font family
-            workSheet["B2"].Style.Font.Name = "Times New Roman";
-            
-            // Adjusting font size
-            workSheet["B2"].Style.Font.Height = 15;
-            
-            // Making font bold
-            workSheet["B2"].Style.Font.Bold = true;
-            
-            // Applying underline
-            workSheet["B2"].Style.Font.Underline = FontUnderlineType.Single;
-            
-            // Saving the workbook with changes
-            workBook.SaveAs("fontAndSize.xlsx");
-        }
-    }
-}
-```
+## Example: Adjusting Font and Size
 
-![Set Font And Size](https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/set-font-and-size.webp)
-
-## Advanced Example: Extensive Font Customization
-
-Building on the basics, further customization can be achieved by setting italic and strikeout styles, choosing specific colors, and applying font scripts for super or subscript text styling.
-
-When specifying the **Name** property, ensure the font name matches the exact format, like "Times New Roman" with spaces and capitalization.
+To tailor the font characteristics of a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/), you need to alter the **Font** attributes found in the **Style** of the cell. You can change the **Name** to pick the desired font family, adjust the **Height** for changing font size, and set **Bold** to highlight the text. Moreover, the **Underline** property is useful for adding an underline to make certain details stand out more.
 
 ```cs
+using IronXL;
 using IronXL.Styles;
-using IronXL.Excel;
-namespace ironxl.CellFontSize
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create();
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            workSheet["B2"].StringValue = "Advanced";
-            
-            // Setting font and its properties
-            workSheet["B2"].Style.Font.Name = "Lucida Handwriting";
-            workSheet["B2"].Style.Font.FontScript = FontScript.None;
-            workSheet["B2"].Style.Font.Underline = FontUnderlineType.Double;
-            workSheet["B2"].Style.Font.Bold = true;
-            workSheet["B2"].Style.Font.Italic = false;
-            workSheet["B2"].Style.Font.Strikeout = false;
-            workSheet["B2"].Style.Font.Color = "#00FFFF";
-            
-            // Save advanced styled workbook
-            workBook.SaveAs("fontAndSizeAdvanced.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+workSheet["B2"].StringValue = "Font and Size";
+
+// Change font family
+workSheet["B2"].Style.Font.Name = "Arial";  // Updated to Arial
+
+// Adjust font size
+workSheet["B2"].Style.Font.Height = 18;  // Increased size for better readability
+
+// Highlight text using bold
+workSheet["B2"].Style.Font.Bold = true;
+
+// Add single underline
+workSheet["B2"].Style.Font.Underline = FontUnderlineType.Single;
+
+workBook.SaveAs("CustomizedFontAndSize.xlsx");
 ```
 
-![Set Font And Size Advanced](https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/set-font-and-size-advanced.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/set-font-and-size.webp" alt="Customize Font And Size" class="img-responsive add-shadow">
+    </div>
+</div>
+
+## Advanced Font Customization Example
+
+Beyond the basic settings, IronXL allows extensive customization of the text appearance in Excel. Here, you can apply **Italic**, utilize **Strikeout**, set **FontScript** for superscript or subscript, and choose a particular **color**. The following example showcases how these advanced options can personalize the styles of your cells.
+
+Ensure that the **Name** property includes the exact formatting and spacing of the desired font, as shown below.
+
+```cs
+using IronXL;
+using IronXL.Styles;
+
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+workSheet["B2"].StringValue = "Enhanced Styles";
+
+// Using a different font family
+workSheet["B2"].Style.Font.Name = "Courier New";  // Changed to Courier New
+
+// Applying subscript
+workSheet["B2"].Style.Font.FontScript = FontScript.Sub;
+
+// Double underline for emphasis
+workSheet["B2"].Style.Font.Underline = FontUnderlineType.Double;
+
+// Retain bold effect
+workSheet["B2"].Style.Font.Bold = true;
+
+// Applying italicization
+workSheet["B2"].Style.Font.Italic = true;
+
+// Using strikeout
+workSheet["B2"].Style.Font.Strikeout = true;
+
+// Choosing font color
+workSheet["B2"].Style.Font.Color = "#FF6347";  // Tomato red for a vibrant effect
+
+workBook.SaveAs("EnhancedFontStyles.xlsx");
+```
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/set-font-and-size-advanced.webp" alt="Advanced Font Customization" class="img-responsive add-shadow">
+    </div>
+</div>
 
 ### Exploring Underline Options
 
-Different underline styles are available in Excel, including Accounting, which adds extra space around the underline, suitable for different types of cell content, particularly for cells containing numbers.
+Excel provides different styles of underlining, such as the Accounting underline which offers extra space around the text and confines underlines to numerical values, making numbers stand out in your documents.
 
-![Available Underline Options](https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/underline.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/underline.webp" alt="Excel Underline Options" class="img-responsive add-shadow">
+    </div>
+</div>
 
-### Utilizing Font Script
+### Understanding Font Script
 
-Font scripts in IronXL enable text placement customization:
-- **none**: Default setting, aligns text on the baseline.
-- **super**: Raises text above the baseline.
-- **sub**: Lowers text below the baseline for nuanced mathematical and chemical notation.
+IronXL supports modifying font script to adjust text placement relative to the baseline: normal, superscript, and subscript, enabling precise formatting for diverse purposes like annotations or formulas.
 
-![Available Font Script Options](https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/font-script.webp)
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/cell-font-size/font-script.webp" alt="Font Script Options" class="img-responsive add-shadow">
+    </div>
+</div>
 
 ### Setting Font Color
 
-Font colors can be set via the **Color** property or through the `SetColor` method using either an **IronSoftware.Drawing.Color** object or Hex color codes.
+You can define font colors directly through the **Color** property or the `SetColor` method, accepting either a Hex code or values from the **IronSoftware.Drawing.Color** class.
 
 ```cs
+using IronXL;
 using IronSoftware.Drawing;
-using IronXL.Excel;
-namespace ironxl.CellFontSize
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create();
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Set font color directly
-            workSheet["B2"].Style.Font.Color = "#00FFFF";
-            
-            // Apply Hex color code for font
-            workSheet["B2"].Style.Font.SetColor("#00FFFF");
-            
-            // Apply color using IronSoftware.Drawing
-            workSheet["B2"].Style.Font.SetColor(Color.Red);
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Direct assignment using Hex code
+workSheet["B2"].Style.Font.Color = "#32CD32"; // Lime Green for freshness
+
+// Set color using IronSoftware Drawing library
+workSheet["B2"].Style.Font.SetColor(Color.Blue); // Blue for serenity
 ```

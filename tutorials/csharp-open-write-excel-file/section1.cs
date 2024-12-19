@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("test.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

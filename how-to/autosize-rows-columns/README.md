@@ -3,115 +3,161 @@
 ***Based on <https://ironsoftware.com/how-to/autosize-rows-columns/>***
 
 
-Adjusting the sizes of rows and columns in a spreadsheet can enhance its readability and overall compactness. The **IronXL** C# library offers a straightforward functionality for automatically resizing rows and columns within your spreadsheets. Implemented in C#, these methods facilitate the automation of what is typically a manual adjustment process in spreadsheets.
+Adjusting row and column sizes efficiently in a spreadsheet contributes to improved readability and space optimization. **IronXL**, a robust C# library, simplifies the process by enabling automatic resizing of rows and columns in .NET environments. This automation replaces the tedious manual adjustments typically required in spreadsheets.
 
-## Example: Automatically Resizing Rows
+## Initialize IronXL for Use
 
-The `AutoSizeRow` method dynamically adjusts the height of specified row(s) to fit their contents.
+### Automatically Adjusting Row Heights
+
+The `AutoSizeRow` method dynamically adjusts the height of the designated row based on its content, enhancing readability.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AutosizeRowsColumns
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Load the spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Auto resize the second row
-            workSheet.AutoSizeRow(1);
-            
-            // Save the modified spreadsheet
-            workBook.SaveAs("autoResize.xlsx");
-        }
-    }
-}
+
+// Opening an existing spreadsheet
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Automatically resizing the second row
+worksheet.AutoSizeRow(1);
+
+workbook.SaveAs("autoResize.xlsx");
 ```
 
-### Visual demonstration
+#### Visualization
+
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://www.ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-rows.png" alt="Auto Resize Row" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-rows.png" alt="Auto Resize Row Example" class="img-responsive add-shadow">
     </div>
 </div>
 
-## Example: Automatically Resizing Columns
+### Automatically Adjusting Column Widths
 
-Leverage the `AutoSizeColumn` method to automatically adjust the width of column(s) according to the length of their content.
-
-```cs
-using IronXL;
-using IronXL.Excel;
-namespace ironxl.AutosizeRowsColumns
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Load the spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Auto resize the first column
-            workSheet.AutoSizeColumn(0);
-            
-            // Save the updated spreadsheet
-            workBook.SaveAs("autoResizeColumn.xlsx");
-        }
-    }
-}
-```
-
-### Visual demonstration
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://www.ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-columns.png" alt="Auto Resize Column" class="img-responsive add-shadow">
-    }
-</div>
-
-## Advanced Auto-Resizing of Rows with Merged Cells
-
-The `AutoSizeRow` method also supports an overload that includes a boolean parameter. This parameter, when set to `true`, includes merged cells by dividing the total height of the merged cell by the number of rows in the merge region.
+Implement the `AutoSizeColumn` method to dynamically modify the width of a column based on the length of its content.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AutosizeRowsColumns
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Load the spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Apply auto resize individually to rows considering merged cells
-            workSheet.AutoSizeRow(0, true);
-            workSheet.AutoSizeRow(1, true);
-            workSheet.AutoSizeRow(2, true);
-            
-            // Save the advanced resized spreadsheet
-            workBook.SaveAs("advanceAutoResizeRow.xlsx");
-        }
-    }
-}
+
+// Opening an existing spreadsheet
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Automatically resizing column A
+worksheet.AutoSizeColumn(0);
+
+workbook.SaveAs("autoResizeColumn.xlsx");
 ```
 
-### Example Explanation
-
-Consider a merged region with a content height of **192 pixels** spanning **3 rows**. When resizing using the autosize feature, each row will have an adjusted height of **64 pixels**.
+#### Visualization
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://www.ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-advance-rows-true.png" alt="Advance Auto Resize Row" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-columns.png" alt="Auto Resize Column Example" class="img-responsive add-shadow">
     </div>
 </div>
 
-### What happens when the `useMergedCells` parameter is false?
+All rows and columns are zero-indexed.
 
-With `useMergedCells` set as `false`, `AutoSizeRow` will adjust the row height based pure
+<hr>
+
+## Enhanced Automatic Row Resizing
+
+The enhanced `AutoSizeRow` method also accepts a **Boolean** parameter enabling the adjustment of row heights in merged cell scenarios based on the content's dominant height.
+
+```cs
+using IronXL;
+
+// Opening an existing spreadsheet
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Applying enhanced auto resizing to specific rows
+worksheet.AutoSizeRow(0, true);
+worksheet.AutoSizeRow(1, true);
+worksheet.AutoSizeRow(2, true);
+
+workbook.SaveAs("advanceAutoResizeRow.xlsx");
+```
+
+### Demonstrative Example
+
+Consider a case where the content's height is **192 pixels** spread across **3 rows** in a merged region. Using the enhanced autosize feature, each row adjusts to **64 pixels** in height.
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-advance-rows-true.png" alt="Enhanced Auto Resize Row" class="img-responsive add-shadow">
+    </div>
+</div>
+
+### Without Merged Cell Consideration
+
+If `false` is specified, the `AutoSizeRow` method adjusts heights based solely on the tallest cell's content within unmerged cells.
+
+```cs
+using IronXL;
+
+worksheet.Merge("A1:A3");
+
+worksheet.AutoSizeRow(0, false);
+worksheet.AutoSizeRow(1, false);
+worksheet.AutoSizeRow(2, false);
+```
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-advance-rows-false.png" alt="Auto Resize Row without Merged Cell Consideration" class="img-responsive add-shadow">
+    </div>
+</div>
+
+## Enhanced Column Width Adjustment
+
+Similarly, the `AutoSizeColumn` method can be tailored to account for multiple merged columns' content, distributing the width adjustment accordingly.
+
+```cs
+using IronXL;
+
+// Loading an existing file
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Adjusting width per column in merged areas
+worksheet.AutoSizeColumn(0, true);
+worksheet.AutoSizeColumn(1, true);
+worksheet.AutoSizeColumn(2, true);
+
+workbook.SaveAs("advanceAutoResizeColumn.xlsx");
+```
+
+### Demonstrative Example
+
+For a scenario where the content width is **117 pixels** across **2 columns**, each column is resized to **59 pixels**.
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-advance-columns-true.png" alt="Enhanced Auto Resize Column" class="img-responsive add-shadow">
+    </div>
+</div>
+
+### Ignoring Merged Cell Width
+
+Setting `false` for the merged cell parameter results in column widths set solely based on the content width of unmerged cells.
+
+```cs
+worksheet.Merge("A1:B1");
+
+worksheet.AutoSizeColumn(0, false);
+worksheet.AutoSizeColumn(1, false);
+```
+
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/autosize-rows-columns/autosize-rows-columns-advance-columns-false.png" alt="Auto Resize Column without Merged Cell Width Adjustment" class="img-responsive add-shadow">
+    </div>
+</div>
+
+Comparisons between **IronXL** and Excel show distinct padding differences, with Excel applying more noticeable padding around cell contents.
+
+Furthermore, manual adjustments of row and column sizes cater to specialized requirements: simply set the `Height` and `Width` properties on `RangeRow` and `RangeColumn` respectively.
+
+The unit of measurement for row heights is 1/20 of a point and for column widths, it is determined by the number of zeros that can fit horizontally in a cell using the normal font. IronXL aligns well with Excel's measurement standards, though with slight differences due to its unique calculation method, ensuring that users can flexibly adjust dimensions in spreadsheet documents as needed.

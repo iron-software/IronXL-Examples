@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.LoadSpreadsheet
+namespace IronXL.Examples.HowTo.LoadSpreadsheet
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Load CSV file
             WorkBook workBook = WorkBook.LoadCSV("sample.csv");

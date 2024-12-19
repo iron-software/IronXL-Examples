@@ -1,99 +1,81 @@
-# Implementing Freeze Panes in Excel
+# How to Implement Freeze Pane in Excel
 
 ***Based on <https://ironsoftware.com/how-to/add-freeze-panes/>***
 
 
-## Overview
+## Introduction
 
-Navigating through extensive spreadsheets with over **50 rows** or spanning beyond column **'Z'** while maintaining header visibility can be challenging. Utilizing the **Freeze Pane** feature addresses this issue effectively.
+In extensive spreadsheets with over **50 rows** or beyond the **'Z' column**, maintaining a view of the relevant headers while scrolling through data can be problematic. The **Freeze Pane** feature elegantly addresses this by keeping rows or columns stationary.
 
-## Implementing Freeze Panes in Spreadsheets
+<h3>Begin with IronXL</h3>
 
-The freeze panes feature allows users to lock specific rows and columns, keeping them visible as you navigate through the spreadsheet. This functionality is particularly useful for maintaining the visibility of headers while comparing data across various parts.
+---
 
-### FreezePane(int column, int row)
+## Implementing Freeze Pane
 
-The `FreezePane` method facilitates freezing panes by specifying the starting column and row. The selected column and row will not be included in the frozen section. For instance, invoking `workSheet.FreezePane(1, 4)` will freeze the panes up to **column A** and **rows 1 to 3**.
+The freeze pane feature allows for certain rows and columns to be fixed, making them perpetually visible while navigating through the spreadsheet. This is especially beneficial for keeping the header row or column static as you assess other detailed data.
 
-Here’s how to implement a freeze pane covering columns A to B and rows 1 to 3:
+### CreateFreezePane(int column, int row)
+
+The `CreateFreezePane` method is used to establish a freeze pane, with inputs defining the beginning column and row. The initial column and row are excluded from being frozen. For example, `workSheet.CreateFreezePane(1, 4)` sets up a freeze pane commencing at **column A** and **rows 1-4**.
+
+Below is the code snippet that illustrates initiating a freeze pane covering columns A to B and rows 1 to 3:
 
 ```cs
+using IronXL;
 using System.Linq;
-using IronXL.Excel;
-namespace ironxl.AddFreezePanes
-{
-    public class FreezePanesExample
-    {
-        public void Execute()
-        {
-            WorkBook workbook = WorkBook.Load("sample.xlsx");
-            WorkSheet worksheet = workbook.WorkSheets.First();
-            
-            // Locking the rows and columns: A-B and 1-3
-            worksheet.FreezePane(2, 3);
-            
-            workbook.SaveAs("enhancedFreezePanes.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.WorkSheets.First();
+
+// Establishing freeze pane at columns A-B and rows 1-3
+workSheet.CreateFreezePane(2, 3);
+
+workBook.SaveAs("createFreezePanes.xlsx");
 ```
 
 ### Visualization
 
-![Freeze Panes in Action](https://www.ironsoftware.com/static-assets/excel/how-to/add-freeze-panes/add-freeze-panes-add.gif)
+<img src="https://ironsoftware.com/static-assets/excel/how-to/add-freeze-panes/add-freeze-panes-add.gif" alt="Freeze Pane in Action" class="img-responsive add-shadow" style="margin-bottom: 30px;"/>
 
-## Removing Freeze Panes
+## Removing Freeze Pane
 
-The `RemovePane` function is used to effortlessly clear all freeze panes configurations.
+To undo the freeze pane, utilize the `RemovePane` method that eliminates any existing freeze panes in the worksheet.
 
 ```cs
-using IronXL.Excel;
-namespace ironxl.AddFreezePanes
-{
-    public class RemovalOfPanes
-    {
-        public void Execute()
-        {
-            // Clearing any freeze or split panes
-            worksheet.RemovePane();
-        }
-    }
-}
+// Eliminating any freeze or split pane
+workSheet.RemovePane();
 ```
 
-## Advanced Freeze Pane Implementation
+## Advanced Freeze Pane Setup
 
-The `FreezePane` offers enhanced functionality, including pre-scrolling settings.
+`CreateFreezePane` can also be employed for more sophisticated freezing that includes scrolling capabilities.
 
-### FreezePane(int column, int row, int subsequentColumn, int subsequentRow)
+### CreateFreezePane(int column, int row, int subsequentColumn, int subsequentRow)
+The method not only allows for freezing specific rows and columns but also adds.scroll functionality within the sheet.
 
-This method allows freezing specific areas, as well as setting up a predefined scroll within the rows and columns, enhancing initial visibility upon opening the document. For example, `workSheet.FreezePane(5, 2, 6, 7)` will initially display **columns A-E, columns from G onwards**, and **rows 1-2, rows from 8 onwards**.
+For instance, utilizing `workSheet.CreateFreezePane(5, 2, 6, 7)` establishes a freeze pane over **columns A-E** and **rows 1-2**, and includes a scroll feature that will display **columns A-E, G-...** and **rows 1-2, 8-...** upon opening.
 
-Freeze pane setups will replace any existing configurations, and are not compatible with the older .xls format used in MS Excel versions 97-2003.
+A single freeze pane setting is used at a time; any new settings will overwrite existing ones.
+
+Note: Freeze panes are not compatible with Microsoft Excel versions 97-2003 (.xls).
 
 ```cs
+using IronXL;
 using System.Linq;
-using IronXL.Excel;
-namespace ironxl.AddFreezePanes
-{
-    public class AdvancedFreezePanes
-    {
-        public void Execute()
-        {
-            WorkBook workbook = WorkBook.Load("sample.xlsx");
-            WorkSheet worksheet = workbook.WorkSheets.First();
-            
-            // Setting up an advanced freeze pane with pre-scroll
-            worksheet.FreezePane(5, 5, 6, 7);
-            
-            workbook.SaveAs("advancedFreezePanes.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.WorkSheets.First();
+
+// Applying advanced freeze pane at column A-E and row 1-5; prescroll to columns E, G,... and rows 5, 8,...
+workSheet.CreateFreezePane(5, 5, 6, 7);
+
+workBook.SaveAs("createAdvancedFreezePanes.xlsx");
 ```
 
-### Showcase
-
-<div style="text-align:center">
-    <img src="https://www.ironsoftware.com/static-assets/excel/how-to/add-freeze-panes/add-freeze-panes-advance.png" alt="Advanced Freeze Panes Demonstration" style="margin:auto; display:block; max-width:100%; height:auto;"/>
+### Advanced Demonstration
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-freeze-panes/add-freeze-panes-advance.png" alt="Advanced Freeze Panes Demonstration" class="img-responsive add-shadow">
+    </div>
 </div>

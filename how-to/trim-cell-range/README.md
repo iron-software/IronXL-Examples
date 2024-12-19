@@ -3,48 +3,44 @@
 ***Based on <https://ironsoftware.com/how-to/trim-cell-range/>***
 
 
-The IronXL library facilitates the removal of all blank rows and columns surrounding the designated area in C# without requiring Office Interop. This capability greatly enhances data handling and manipulation by eliminating the need to interface with the Office suite directly.
+The IronXL library simplifies removal of all empty rows and columns at the borders of a range in C# without the need for Office Interop. This capability significantly enhances the efficiency of data handling and manipulation, sidestepping the need to interact with the Office suite directly.
 
-## Trim Cell Range Example
+### Getting Started with IronXL
 
-To trim a cell range, first select the <a href="https://ironsoftware.com/csharp/excel/how-to/select-range/">desired range</a> and use the `Trim` method on it. This function clears away the leading and trailing empty cells from your chosen range.
+---
 
-Keep in mind, the `Trim` method will not eliminate any empty cells that might exist between rows or columns inside the range. To tackle this, consider <a href="https://ironsoftware.com/csharp/excel/how-to/sort-cells/">sorting</a> the range which will shift the empty cells to the top or bottom of the range.
+## Example: Trimming a Cell Range
+
+Identify the specific <a href="https://ironsoftware.com/csharp/excel/how-to/select-range/">Range</a> of cells you want to modify and use the `Trim` method on it. This function cuts away the empty cells at the beginning and end of the selected range.
+
+Note that the `Trim` method does not eliminate empty cells that are situated in the middle of the range across rows and columns. To organize these, you might consider <a href="https://ironsoftware.com/csharp/excel/how-to/sort-cells/">sorting</a> the cells, thereby moving the empty ones to either the top or bottom of the range.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.TrimCellRange
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Setting values
-            workSheet["A2"].Value = "A2";
-            workSheet["A3"].Value = "A3";
-            
-            workSheet["B1"].Value = "B1";
-            workSheet["B2"].Value = "B2";
-            workSheet["B3"].Value = "B3";
-            workSheet["B4"].Value = "B4";
-            
-            // Retrieve the first column
-            RangeColumn column = workSheet.GetColumn(0);
-            
-            // Trim the column and store in a new range variable
-            Range trimmedColumn = column.Trim();
-        }
-    }
-}
+
+// Initializing workbook and worksheet
+WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLSX);
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Setting values in cells
+worksheet["A2"].Value = "A2";
+worksheet["A3"].Value = "A3";
+
+worksheet["B1"].Value = "B1";
+worksheet["B2"].Value = "B2";
+worksheet["B3"].Value = "B3";
+worksheet["B4"].Value = "B4";
+
+// Fetch the first column
+RangeColumn column = worksheet.GetColumn(0);
+
+// Execute trimming on the column
+Range trimmedRange = column.Trim();
 ```
 
-<div  class="content-img-align-center">
+<div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/trim-cell-range/trim-cell-range-column.png" alt="Trim Column" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/trim-cell-range/trim-cell-range-column.png" alt="Trimmed Column" class="img-responsive add-shadow">
     </div>
 </div>
 <hr>

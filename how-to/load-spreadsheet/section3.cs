@@ -1,10 +1,10 @@
 using System.Data;
 using IronXL.Excel;
-namespace ironxl.LoadSpreadsheet
+namespace IronXL.Examples.HowTo.LoadSpreadsheet
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Create dataset
             DataSet dataSet = new DataSet();

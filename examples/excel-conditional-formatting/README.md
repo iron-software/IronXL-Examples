@@ -1,9 +1,9 @@
 ***Based on <https://ironsoftware.com/examples/excel-conditional-formatting/>***
 
-The IronXL library offers the feature of **Conditional Formatting** for cells and ranges. This functionality enables users to dynamically alter cell styles, including background colors and text styles, based on specific logical or programmatic conditions.
+The IronXL library enables **Conditional Formatting** for cells and ranges, allowing dynamic changes to cell styles like background color or text style based on specified logical or programmatic rules.
 
-You can establish a conditional formatting rule by using the method `CreateConditionalFormattingRule(string formula)`. This rule is triggered when the specified Boolean formula evaluates to true, leading to the highlighting of the cell. It's crucial to ensure that the formula provided is a Boolean function.
+You can initiate a conditional formatting rule using the `CreateConditionalFormattingRule(string formula)` method, wherein a rule is applied based on a Boolean formula. When the formula evaluates to true, the respective cell is visually accentuated. It is crucial to ensure that the formula provided is a Boolean function.
 
-The version of the `CreateConditionalFormattingRule` method that accepts three parameters is restricted to using `ComparisonOperator.Between` and `ComparisonOperator.NotBetween` for the first parameter.
+For the `CreateConditionalFormattingRule` method that accepts three parameters, only `ComparisonOperator.Between` and `ComparisonOperator.NotBetween` can be used as the first parameter.
 
-Conditional formatting is a powerful tool used to visually enhance cells and ranges based on specified color and format schemes, contingent on the true/false outcomes of defined rules. This feature is particularly useful for data analysis, problem detection, and the identification of patterns and trends in data.
+Conditional formatting is a powerful tool to enhance visual analysis by highlighting cells and ranges with specific color and format combinations. These highlights are based on the truth value of the cell, determined by predefined rules, enabling easier data analysis and helping in the detection of issues, recognition of patterns, and identification of trends.

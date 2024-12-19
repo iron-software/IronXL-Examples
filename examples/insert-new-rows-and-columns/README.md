@@ -1,13 +1,13 @@
 ***Based on <https://ironsoftware.com/examples/insert-new-rows-and-columns/>***
 
-**IronXL** library facilitates the insertion of single and multiple rows and columns directly through C# code, circumventing the need for Office Interop.
+**IronXL Library** provides functionality for adding both individual and several rows or columns within C# code, eliminating the need for Office Interop.
 
-### Insert Row
+### Adding a Row
 
-The methods `InsertRow` and `InsertRows` make it feasible to insert new rows. These functions add row(s) at the position prior to the given index.
+Utilizing the `InsertRow` and `InsertRows` methods, you can seamlessly introduce new rows. These methods insert the row(s) preceding the designated index.
 
-### Insert Column
+### Adding a Column
 
-To introduce new column(s), you can use the `InsertColumn` and `InsertColumns` methods, which place the column(s) before the designated index.
+To insert columns, the `InsertColumn` and `InsertColumns` methods are used. They facilitate the addition of columns before the given index position.
 
-It's important to note that all index positions referred to above are zero-based indexes.
+Kindly note that all mentioned index positions are based on zero-based indexing.

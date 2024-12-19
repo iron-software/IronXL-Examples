@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.HowToReadExcelFileCsharp
+namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             WorkSheet workSheet = workBook.GetWorkSheet("GDPByCountry");
         }

@@ -1,107 +1,80 @@
-# Clearing Cell Content with IronXL
+# How to Clear Cells in Excel with IronXL
 
 ***Based on <https://ironsoftware.com/how-to/clear-cells/>***
 
 
-When you need to remove unwanted or obsolete data, reset values, tidy up spreadsheets, prepare templates, or correct data entry errors, clearing cell content is essential.
+Clearing cells in Excel files using C# is a common task, often needed to remove old or irrelevant data, initialize templates, repair mistakes, or tidy up spreadsheet appearances. IronXL provides a straightforward way of executing these tasks without relying on Interop services. Here's how you can achieve these results using IronXL.
 
-IronXL streamlines this task in C# by enabling content clearing without requiring Interop.
+### Initial Setup with IronXL
 
+---
 
-## Clear a Single Cell Example
+## Example: Clearing a Single Cell
 
-To remove the contents of a specific cell, utilize the `ClearContents` method.
+To remove the data from a specific cell, you can utilize the `ClearContents` method. Observe the following code example:
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ClearCells
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.GetWorkSheet("Data");
-            
-            // Apply clear content method to cell A1
-            workSheet["A1"].ClearContents();
-            
-            workBook.SaveAs("clearSingleCell.xlsx");
-        }
-    }
-}
+
+// Load the workbook and select a worksheet
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.GetWorkSheet("Data");
+
+// Clear the contents of cell A1
+workSheet["A1"].ClearContents();
+
+// Save the changes to a new file
+workBook.SaveAs("clearSingleCell.xlsx");
 ```
 
-## Clear Multiple Cells Example
+## Example: Clearing a Range of Cells
 
-The `ClearContents` method in the **Range** class can be applied to a variety of cell ranges:
-- To clear a specific cell:
-  - **workSheet["A1"].ClearContents()**
-- To clear an entire column:
-  - **workSheet.GetColumn("B").ClearContents()**
-- To clear an entire row:
-  - **workSheet.GetRow(3).ClearContents()**
-- To clear a specified range:
-  - **workSheet["D6:F9"].ClearContents()**
+IronXL's `Range` class enables you to clear cells across various dimensions, whether it's a single cell, a row, a column, or a multi-cell range. Below are the implementations for these scenarios:
+
+- To clear a single cell: `workSheet["A1"].ClearContents()`
+- To clear an entire column: `workSheet.GetColumn("B").ClearContents()`
+- To clear an entire row: `workSheet.GetRow(3).ClearContents()`
+- To clear a specified range: `workSheet["D6:F9"].ClearContents()`
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ClearCells
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.GetWorkSheet("Data");
-            
-            // Execute various clear content methods
-            workSheet["A1"].ClearContents();  // Single cell
-            workSheet.GetColumn("B").ClearContents();  // Entire column
-            workSheet.GetRow(3).ClearContents();  // Entire row
-            workSheet["D6:F9"].ClearContents();  // Specified range
-            
-            workBook.SaveAs("clearCellRange.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.GetWorkSheet("Data");
+
+// Execute various clearing functions
+workSheet["A1"].ClearContents();
+workSheet.GetColumn("B").ClearContents();
+workSheet.GetRow(3).ClearContents();
+workSheet["D6:F9"].ClearContents();
+
+// Save the updated workbook
+workBook.SaveAs("clearCellRange.xlsx");
 ```
 
-### Visualized Spreadsheet Changes
+### Visual Comparison: Before and After Clearing Cells
 
-<div class="competitors-section__wrapper-even-1">
-    <div class="competitors__card" style="width: 48%;">
-        <img src="https://ironsoftware.com/static-assets/excel/how-to/clear-cells/clear-cells-sample.png" alt="Sample" class="img-responsive add-shadow" >
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">Before</p>
-    </div>
-    <div class="competitors__card" style="width: 50%;">
-        <img src="https://ironsoftware.com/static-assets/excel/how-to/clear-cells/clear-cells-clear-cell-range.png" alt="Clear Cell Range" class="img-responsive add-shadow">
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">After</p>
-    </div>
-</div> 
+![Before Clearing Cells](https://ironsoftware.com/static-assets/excel/how-to/clear-cells/clear-cells-sample.png)
 
-## Clear Entire Worksheet Collection Example
+_Above Image: Spreadsheet before clearing cells_
 
-You can not only clear individual cells but also remove entire worksheet collections from a workbook. This is done using the `Clear` method, which facilitates resetting the workbook to its original empty state.
+![After Clearing Cells](https://ironsoftware.com/static-assets/excel/how-to/clear-cells/clear-cells-clear-cell-range.png)
+
+_Above Image: Spreadsheet after cells within specified range have been cleared_
+
+## Example: Clearing All Worksheets in a Workbook
+
+Beyond clearing cell data, IronXL also allows you to completely remove all worksheets from a workbook, which is useful for resetting or repurposing your Excel file.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ClearCells
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            
-            // Remove all worksheets from the workbook
-            workBook.WorkSheets.Clear();
-            
-            workBook.SaveAs("useClear.xlsx");
-        }
-    }
-}
+
+// Load the workbook
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+
+// Remove all worksheets
+workBook.WorkSheets.Clear();
+
+// Save the workbook as a new file
+workBook.SaveAs("useClear.xlsx");
 ```

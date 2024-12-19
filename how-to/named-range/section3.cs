@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.NamedRange
+namespace IronXL.Examples.HowTo.NamedRange
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

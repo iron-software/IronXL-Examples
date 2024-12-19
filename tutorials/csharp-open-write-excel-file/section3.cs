@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\HelloWorld.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();

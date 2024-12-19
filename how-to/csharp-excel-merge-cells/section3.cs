@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.CsharpExcelMergeCells
+namespace IronXL.Examples.HowTo.CsharpExcelMergeCells
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("mergedCell.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

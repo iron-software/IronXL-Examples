@@ -1,118 +1,106 @@
-# How to Apply Data Formats to Cells in Excel
+# How to Apply Cell Data Formats
 
 ***Based on <https://ironsoftware.com/how-to/set-cell-data-format/>***
 
 
-Data formatting in Excel provides the means to control the appearance of numbers, dates, times, and other contents within cells. This enhances both the clarity and the accuracy of the data presented. Specific formatting options such as currency or percentage formats help tailor the display to match data interpretation needs, while number formats give fine control over decimal and digit groupings.
+Formulating cell data and number formats in Excel empowers users to influence the visual representation of numbers, dates, times, and other data types. By employing specific formats like currency or percentage, you can not only enhance visual comprehension but also uphold data precision. Data formats ensure that information is represented in your preferred style, while number formats allow familiarity in expressing numerical data with varied decimal and display preferences.
 
-IronXL, a library for .NET, facilitates the setting of both data and number formats directly in C#. It significantly eases the way developers can create, format, and manipulate Excel documents programmatically, making it an indispensable tool for any C# driven data management and presentation application.
+Utilizing the IronXL library, you can implement these data or number formats conveniently in C#. This library streamlines the tasks of generating, formatting, and manipulating Excel documents through code, proving essential for efficient data management and presentation in C# applications.
+
+### Begin with IronXL
+
+-------------------------------------
 
 ## Example: Setting Cell Data Formats
 
-You can utilize the `FormatString` property in IronXL to apply formats over cells, columns, rows, or ranges in Excel. Below is an example demonstrating this:
+Access the `FormatString` property via cells or ranges, permitting the configuration of data formats for individual cells or groupings like columns, rows, or any specified range.
 
 ```cs
-using IronXL.Excel;
+using IronXL;
+using IronXL.Formatting;
+using System;
 using System.Linq;
 
-namespace ironxl.SetCellDataFormat
-{
-    public class Example
-    {
-        public void Execute()
-        {
-            // Initialize a new workbook
-            WorkBook workbook = WorkBook.Create();
-            WorkSheet sheet = workbook.DefaultWorkSheet;
-            
-            // Apply percentage format
-            sheet["A1"].Value = 123;
-            sheet["A1"].FormatString = BuiltinFormats.Percent2;
-            
-            // Apply custom number format
-            sheet["A2"].Value = 123;
-            sheet["A2"].FormatString = "0.0000";
-            
-            // Apply date and time format across a range
-            var startDateTime = new DateTime(2020, 1, 1, 12, 12, 12);
-            sheet["A3"].Value = startDateTime;
-            sheet["A4"].Value = new DateTime(2022, 3, 3, 10, 10, 10);
-            sheet["A5"].Value = new DateTime(2021, 2, 2, 11, 11, 11);
+// Initialize a new workbook
+WorkBook workbook = WorkBook.Create();
+WorkSheet worksheet = workbook.DefaultWorkSheet;
 
-            Range dateRange = sheet["A3:A5"];
-            dateRange.FormatString = "MM/dd/yy h:mm:ss";
-            
-            workbook.SaveAs("FormattedData.xlsx");
-        }
-    }
-}
+// Apply percent format to the cell
+worksheet["A1"].Value = 123;
+worksheet["A1"].FormatString = BuiltinFormats.Percent2;
+
+// Set a custom numeric format
+worksheet["A2"].Value = 123;
+worksheet["A2"].FormatString = "0.0000";
+
+// Format a range to show date and time
+DateTime customDate = new DateTime(2020, 1, 1, 12, 12, 12);
+worksheet["A3"].Value = customDate;
+worksheet["A4"].Value = new DateTime(2022, 3, 3, 10, 10, 10);
+worksheet["A5"].Value = new DateTime(2021, 2, 2, 11, 11, 11);
+
+IronXL.Range dateRange = worksheet["A3:A5"];
+dateRange.FormatString = "MM/dd/yy h:mm:ss";
+
+workbook.SaveAs("formattedData.xlsx");
 ```
 
-### Set Cell Value as String
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/set-cell-data-format/data-format.png" alt="Data Format" class="img-responsive add-shadow">
+    </div>
+</div>
 
-In scenarios where you need to input text exactly as it appears, use `StringValue` to bypass automatic data type conversion in Excel.
+### Setting Cell Values as Strings
+
+To place a text value into a cell without converting its type, use the `StringValue` property. This is akin to entering text in Excel prefixed by an apostrophe.
 
 ```cs
-using IronXL.Excel;
-
-namespace ironxl.SetCellDataFormat
-{
-    public class ExampleString
-    {
-        public void Execute()
-        {
-            // Directly assign a string
-            workSheet["A1"].StringValue = "4402-12";
-        }
-    }
-}
+// Directly assign string value
+worksheet["A1"].StringValue = "4402-12";
 ```
 
-## Usage of Built-in Formats
+## Example of Using Built-In Formats
 
-IronXL offers several built-in format strings, which are readily available through `IronXL.Formatting.BuiltinFormats`, to standardize cell data display:
+IronXL provides a range of built-in format strings accessible through the  `IronXL.Formatting.BuiltinFormats` class, facilitating customized data displays in your Excel sheets.
 
 ```cs
-using IronXL.Excel;
+using IronXL;
 using IronXL.Formatting;
 
-namespace ironxl.SetCellDataFormat
-{
-    public class BuiltInFormatsExample
-    {
-        public void Execute()
-        {
-            // Initialize and format workbook
-            WorkBook workbook = WorkBook.Create();
-            WorkSheet sheet = workbook.DefaultWorkSheet;
+// Start a new workbook
+WorkBook newWorkbook = WorkBook.Create();
+WorkSheet newWorksheet = newWorkbook.DefaultWorkSheet;
 
-            // Assigning a preset format
-            sheet["A1"].Value = 123;
-            sheet["A1"].FormatString = BuiltinFormats.Accounting0;
-            
-            workbook.SaveAs("PrebuiltFormats.xlsx");
-        }
-    }
-}
+// Demonstrate the use of built-in format
+newWorksheet["A1"].Value = 123;
+newWorksheet["A1"].FormatString = BuiltinFormats.Accounting0;
+
+newWorkbook.SaveAs("builtinFormatsDemo.xlsx");
 ```
 
-### Comprehensive List of Data Formats
+### Overview of Predefined Data Formats
 
-IronXL supports various data types, including durations, dates, accounting figures, time, and scientific notations. Here are some of the formats available:
+Here's a summary of format types available for time durations, accounting, time display, date styles, scientific notation, percentages, currency, number formatting, and text:
 
-- **General**: Displays numbers as entered.
-- **Duration**: Shows time lengths with formats for minutes, seconds, and hours.
-- **Accounting**: Number formats intended for financial records.
-- **Time**: Multiple formats including both 12-hour and 24-hour clocks.
-- **Date**: Short and long date formats.
-- **Fraction**: Fractional representations.
-- **Scientific**: Scientific notations.
-- **Percent and Currency**: Formats for representing financial percentages and currency values.
-- **Number**: Decimal and plain numerical formats.
-- **Text**: Text format.
+<div class="content-img-align-center">
+    <div class="center-image-wrapper">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/set-cell-data-format/all-available-data-formats.png" alt="All Available Data Formats" class="img-responsive add-shadow">
+    </div>
+</div>
 
-These formatting options can be utilized to ensure the data adheres to expected standards for display and interpretation.
+#### Descriptions
 
-![Data Formats Example](https://ironsoftware.com/static-assets/excel/how-to/set-cell-data-format/data-format.png)
+- **General**: Displays values without any formatting applied, just as they are.
+- **Duration Formats**: Range from presenting minutes and seconds to displaying hours, minutes, and milliseconds.
+- **Accounting Formats**: Show financial figures in various styles, either with or without decimal places, and optionally highlighting negative values in red.
+- **Time Formats**: Available in both 12-hour and 24-hour settings, with or without seconds.
+- **Date Formats**: Include short and long styles, with options to display the year, month, and day in various combinations.
+- **Fractional Formats**: Allow representation of numbers as one or two-digit fractions.
+- **Scientific Formats**: Present numbers in scientific notation, differing by the number of decimals.
+- **Percentage**: Showcase values as percentages, with the choice to include decimals.
+- **Currency**: Specify monetary values in several styles, highlighting negative amounts and choosing decimal precision.
+- **Number Formats**: General number displays that can be adjusted for thousands separation and decimal places.
+- **Text**: Treats cell values as plain text, applying no specific formatting.
 
-![All Available Data Formats](https://ironsoftware.com/static-assets/excel/how-to/set-cell-data-format/all-available-data-formats.png)
+By mastering these formatting options, your Excel files become more functional and tailored to your specific data presentation requirements.

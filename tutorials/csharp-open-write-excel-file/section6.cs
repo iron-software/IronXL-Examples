@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             DataSet xmldataset = new DataSet();
             xmldataset.ReadXml($@"{Directory.GetCurrentDirectory()}\Files\CountryList.xml");

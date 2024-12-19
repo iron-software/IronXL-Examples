@@ -1,14 +1,14 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section19
+    public static class Section19
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
-            decimal max = workSheet["A2:A4"].Max();
-            Console.WriteLine(max);
+            decimal min = workSheet["A1:A4"].Min();
+            Console.WriteLine(min);
         }
     }
 }

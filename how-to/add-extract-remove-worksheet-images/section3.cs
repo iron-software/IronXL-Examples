@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.AddExtractRemoveWorksheetImages
+namespace IronXL.Examples.HowTo.AddExtractRemoveWorksheetImages
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("insertImages.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

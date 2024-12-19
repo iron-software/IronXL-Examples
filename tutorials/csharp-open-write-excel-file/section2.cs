@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             workSheet["B1"].Value = 11.54;
             

@@ -1,14 +1,15 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section20
+    public static class Section20
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
-            bool max2 = workSheet["A1:A4"].Max(c => c.IsFormula);
-            Console.WriteLine(max2);
+            workSheet["A1:A4"].SortAscending();
+            // workSheet["A1:A4"].SortDescending(); to order descending
+            workBook.SaveAs("SortedSheet.xlsx");
         }
     }
 }

@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.SetPasswordWorksheet
+namespace IronXL.Examples.HowTo.SetPasswordWorksheet
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Remove protection for selected worksheet. It works without password!
             workSheet.UnprotectSheet();

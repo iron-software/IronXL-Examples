@@ -1,19 +1,11 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section11
+    public static class Section11
     {
-        public void Run()
+        public static void Run()
         {
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-            workBook.Metadata.Title = "IronXL New File";
-            
-            WorkSheet workSheet = workBook.CreateWorkSheet("1stWorkSheet");
-            workSheet["A1"].Value = "Hello World";
-            workSheet["A2"].Style.BottomBorder.SetColor("#ff6600");
-            workSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Dashed;
-            
-            workBook.SaveAs($@"{Directory.GetCurrentDirectory()}\Files\HelloWorld.xlsx");
+            workBook.SaveAsJson($@"{Directory.GetCurrentDirectory()}\Files\HelloWorldJSON.json");
         }
     }
 }

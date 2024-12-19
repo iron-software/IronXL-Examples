@@ -1,9 +1,9 @@
-# IronXL Linux Compatibility & Setup Instruction
+# IronXL Linux Compatibility & Setup Guide
 
 ***Based on <https://ironsoftware.com/how-to/linux/>***
 
 
-IronXL is engineered exclusively with .NET Standard, enabling it to function seamlessly across all Linux distributions that support **.NET Core**, **.NET 5**, and **.NET 6**. Furthermore, it operates flawlessly on Docker, Azure, macOS, and Windows environments that support the .NET frameworks.
+IronXL is designed with pure .NET Standard, ensuring it operates seamlessly on any Linux distribution that supports `.NET Core`, `.NET 5`, and `.NET 6`. Additionally, it functions perfectly on Docker, Azure, macOS (all of which support .NET frameworks), and Windows.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/linux--v1.png" alt="Linux">
@@ -14,26 +14,26 @@ IronXL is engineered exclusively with .NET Standard, enabling it to function sea
     <img src="https://img.icons8.com/color/96/000000/debian--v1.png" alt="Debian">
 </div>
 
-We advise deploying IronXL on .NET Core 3.1, .NET Core 5, or .NET Core 6, especially those versions designated as [LTS by Microsoft](https://dotnet.microsoft.com/platform/support/policy) due to their extended support and thorough testing on Linux platforms.
+We advocate for the use of `.NET Core 3.1`, `.NET 5` or `.NET 6`, especially versions endorsed as LTS (Long Term Support) by Microsoft, as highlighted here [Microsoft's Support Policy](https://dotnet.microsoft.com/platform/support/policy), due to their robustness and ensured long-term support when running on Linux.
 
-IronXL is designed to work immediately upon installation, requiring no modifications to code on Linux, thanks to extensive testing and configurations performed by our team of engineers.
+IronXL requires no modifications to function on Linux, providing an immediate, ready-to-use solution thanks to extensive testing and fine-tuning by our dedicated engineering team.
 
-Support for Linux is crucial as numerous cloud services like Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Docker on Azure Devops predominantly utilize Linux. At Iron Software, we frequently utilize these cloud services and acknowledge their importance to our Enterprise and SAAS clientele.
+The significance of Linux compatibility cannot be understated, as many significant cloud services like Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and Azure DevOps Docker predominantly rely on Linux. At Iron Software, our routine use of these services aligns with the requirements of our Enterprise and SAAS clientele.
 
-### Full Support for All Linux Distros Compliant with .NET
+### Officially Supported All Linux Distros That Support .NET
 
-We **fully support** and suggest the newest **64-bit** versions of Linux listed below for straightforward "zero configuration" installation of IronXL:
+IronXL **officially supports** the use on the latest **64-bit** Linux operating systems listed below, offering a straightforward, "zero configuration" installation process:
 
-*   Ubuntu 20
-*   Ubuntu 18
-*   Debian 11
-*   Debian 10 _\[The Default Linux Distribution on Microsoft Azure\]_
-*   CentOS 7
-*   CentOS 8
+* Ubuntu 20
+* Ubuntu 18
+* Debian 11
+* Debian 10 _\[Currently the Microsoft Azure Default Linux Distro\]_
+* Centos 7
+* Centos 8
 
-Please consult "Other Linux Distros" later in this document for guidance on installing IronXL on an unsupported Linux version.
+For installations on Linux distributions not officially supported, please refer to the "Other Linux Distros" section further in this document for setup advice.
 
-It's recommended to use Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for seamless deployment. Other Linux distributions may partly support IronXL but could necessitate manual setup using `apt-get`. Refer to "Linux Manual Setup" at the document’s conclusion for more details.
+We recommend using Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/) for optimal compatibility. Other Linux distributions may be supported but could require manual configuration via apt-get. Further details are provided in the "Linux Manual Setup" at the end of this document.
 
 ## IronXL NuGet Packages
 
@@ -43,9 +43,24 @@ Install-Package IronXL.Excel
 
 ## Ubuntu Compatibility
 
-As one of our most frequently tested operating systems due to its extensive use in Azure's infrastructure, Ubuntu provides an optimal environment for continuous testing and deployment. This platform benefits from official Microsoft .NET support and readily available Official Docker Images.
+Ubuntu, being the most extensively tested Linux OS in our framework, is heavily utilized within the Azure ecosystem that supports our continuous testing and deployment processes. This platform benefits from official Microsoft .NET support and Official Docker Images.
 
 ### Ubuntu 20
+<div class="main-content__small-images-inline">
+    <img src="https://img.icons8.com/color/48/000000/microsoft.png" alt="Microsoft">
+    <img src="https://img.icons8.com/color/48/000000/ubuntu--v1.png" alt="Ubuntu">
+    <img src="https://img.icons8.com/color/48/000000/chrome--v1.png" alt="Chrome">
+    <img src="https://img.icons8.com/color/48/000000/safari--v1.png" alt="Safari">
+    <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker">
+    <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" alt="Azure">
+</div> 
+
+**Official Microsoft Docker Images:**
+
+* [64 bit Ubuntu 20.04 Docker Image for .NET Runtime 3.1 ('3.1-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+* [64 bit Ubuntu 20.04 Docker Image for .NET Runtime 5.0 ('5.0-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+
+### Ubuntu 18
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/48/000000/microsoft.png" alt="Microsoft">
@@ -54,21 +69,24 @@ As one of our most frequently tested operating systems due to its extensive use 
     <img src="https://img.icons8.com/color/48/000000/safari--v1.png" alt="Safari">
     <img src="https://img.icons8.com/color/48/000000/docker.png" alt="Docker">
     <img src="https://img.icons8.com/fluency/48/000000/azure-1.png" alt="Azure">
-</div>
+</div> 
 
 **Official Microsoft Docker Images:**
 
-*   [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 3.1 ('3.1-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
-*   [64-bit Ubuntu 20.04 Docker Image for .NET Runtime 5.0 ('5.0-focal')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
-
-### Ubuntu 18
-
-The structure and content for Ubuntu 18 are largely similar to Ubuntu 20, with high compatibility and extensive support, despite the absence of an official Docker image for .NET 5.
+* [64 bit Ubuntu 18.04 Docker Image for .NET Runtime 3.1 ('3.1-bionic')](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+* High compatibility with .NET 5 without an official Docker image.
 
 ### Debian 11 and Debian 10
 
-Both Debian 11 and Debian 10 are significantly supported with official Docker images suited for various .NET runtimes. Debian 10 is notably the default choice in Visual Studio when configuring Docker support for .NET projects.
+*Debian 10 remains the default Linux distribution for Microsoft* when integrating Docker support in .NET projects via Visual Studio.
 
-**CentOS 7 & CentOS 8** are well-integrated for use with IronXL; installing the necessary NuGet package is sufficient for operation without any special configuration.
+**Official Microsoft Docker Images for Debian:**
 
-**Other Linux Distributions** supporting .NET will also be compatible with IronXL following the same straightforward NuGet package installation, provided administrative privileges are available.
+* [64 bit Debian 11 Docker Image for .NET Runtime 3.1](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+* [64 bit Debian 11 Docker Image for .NET Runtime 5.0](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+* [64 bit Debian 10 Docker Image for .NET Runtime 3.1](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+* [64 bit Debian 10 Docker Image for .NET Runtime 5.0](https://hub.docker.com/_/microsoft-dotnet-runtime/)
+
+**CentOS 7 & CentOS 8** Only require administrative privileges with _sudo_ to install IronXL via NuGet, with no special configuration needed.
+
+**Other Linux Distros** Just ensure compatibility with .NET and administrative privileges, and IronXL can be installed and run directly with no special configuration required.

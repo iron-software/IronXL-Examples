@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.HowToReadExcelFileCsharp
+namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp
 {
-    public class Section12
+    public static class Section12
     {
-        public void Run()
+        public static void Run()
         {
             var resultsSheet = workBook.CreateWorkSheet("Results");
             resultsSheet["A1"].Value = "Row";

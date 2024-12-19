@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/sort-excel-range-csharp/>***
 
-Organizing data by alphabetical or numerical order simplifies the processing of information in Microsoft Excel. The IronXL library streamlines the sorting process for columns, rows, and ranges in C# and VB.NET.
+Organizing information in a systematic order, whether alphabetically or by value, simplifies the analysis of data within Microsoft Excel. IronXL simplifies the task of sorting Excel columns, rows, and ranges for developers using C# and VB.NET.
 
-To sort in either ascending or descending order, utilize the `SortAscending` or `SortDescending` method on the desired range or column. However, the `SortByColumn` method requires two arguments: the column to be sorted and the desired order of sorting.
+To sort data, you can utilize the methods `SortAscending` or `SortDescending` on the specific range or column to apply the desired sort order. The method `SortByColumn`, however, requires two parameters: the first is the column you want to sort, and the second specifies the sort direction.

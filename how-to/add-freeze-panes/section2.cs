@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.AddFreezePanes
+namespace IronXL.Examples.HowTo.AddFreezePanes
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Remove all existing freeze or split pane
             workSheet.RemovePane();

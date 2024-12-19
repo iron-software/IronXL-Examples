@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.ClearCells
+namespace IronXL.Examples.HowTo.ClearCells
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("sample.xlsx");
             

@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.AddComment
+namespace IronXL.Examples.HowTo.AddComment
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Create();
             WorkSheet workSheet = workBook.DefaultWorkSheet;

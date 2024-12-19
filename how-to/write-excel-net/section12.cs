@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.WriteExcelNet
+namespace IronXL.Examples.HowTo.WriteExcelNet
 {
-    public class Section12
+    public static class Section12
     {
-        public void Run()
+        public static void Run()
         {
             workSheet["From Cell Address : To Cell Address"].Replace("old value", "new value");
         }

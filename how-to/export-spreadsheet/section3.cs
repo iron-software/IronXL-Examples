@@ -1,10 +1,10 @@
 using System.IO;
 using IronXL.Excel;
-namespace ironxl.ExportSpreadsheet
+namespace IronXL.Examples.HowTo.ExportSpreadsheet
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Create new Excel WorkBook document
             WorkBook workBook = WorkBook.Create();

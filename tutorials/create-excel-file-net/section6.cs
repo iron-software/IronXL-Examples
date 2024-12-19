@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             // Create database objects to populate data from database
             string contring;

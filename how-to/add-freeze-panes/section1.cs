@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.AddFreezePanes
+namespace IronXL.Examples.HowTo.AddFreezePanes
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("sample.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();

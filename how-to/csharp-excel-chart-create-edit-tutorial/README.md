@@ -1,24 +1,26 @@
-# How to Create and Edit Excel Charts in C#
+# Creating and Modifying Excel Charts Using C# with IronXL
 
 ***Based on <https://ironsoftware.com/how-to/csharp-excel-chart-create-edit-tutorial/>***
 
 
-Excel charts serve as visual representations of data, significantly enhancing the interpretability and meaningfulness of the information presented. Excel offers an assortment of chart types such as bar, line, pie charts and others, catering to various data analysis needs.
+Excel charts provide a powerful way to visually represent data, making it easier to understand and analyze. Excel offers a variety of chart types such as bar, line, pie, and others, each designed for specific data presentations.
 
-IronXL provides robust support for creating and manipulating various types of charts, including column, scatter, line, pie, bar, and area charts. These charts can be customized in terms of series names, legend positions, chart titles, and other properties.
+IronXL supports a rich set of chart types including column, scatter, line, pie, bar, and area charts. These can be customized with different series names, legend placements, titles, and positions on a worksheet.
 
-## Creating Charts with IronXL
+### Getting Started with IronXL
 
-IronXL facilitates the creation of several chart types including column, scatter, line, pie, bar, and area charts. The chart creation process involves several straightforward steps:
+---
 
-1. Utilize the `CreateChart` method to define the chart type and its position on the spreadsheet.
-2. Use the `AddSeries` method to input data. This method can accept a single data column, which suffices for certain types of charts. The first parameter specifies the x-axis values and the second, the y-axis values.
-3. You can optionally set the series name, chart name, and position of the legend.
-4. The `Plot` method renders the chart using the specified data. Multiple executions of this method will create multiple charts rather than modifying an existing one.
+## Example: Creating Charts
 
-You can start creating charts using data from the Excel file available here: [Download chart.xlsx](https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/chart.xlsx).
+IronXL enables you to create various charts easily. Here are the steps to create a chart:
 
-Here's a preview of the data:
+1. Initiate with the `CreateChart` method, specifying the chart type and location in the worksheet.
+2. Add data series using the `AddSeries` method, which can accept data ranges for both the horizontal and vertical axes.
+3. Optionally, you can set the series name, chart title, and the position of the legend.
+4. Use the `Plot` method to render the chart. Each invocation of this method creates a new chart on the worksheet instead of modifying an existing one.
+
+Below is an example based on data from the [chart.xlsx](https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/chart.xlsx) file:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
@@ -26,46 +28,38 @@ Here's a preview of the data:
     </div>
 </div>
 
-### Example: Creating a Column Chart
+### Creating a Column Chart
 
 ```cs
+using IronXL;
 using IronXL.Drawing.Charts;
-using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("chart.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Define the chart type and position
-            IChart chart = workSheet.CreateChart(ChartType.Column, 5, 5, 20, 10);
-            
-            string xAxis = "A2:A7";
-            
-            // Insert the series
-            IChartSeries series = chart.AddSeries(xAxis, "B2:B7");
-            series.Title = workSheet["B1"].StringValue;
-            
-            // Additional series
-            series = chart.AddSeries(xAxis, "C2:C7");
-            series.Title = workSheet["C1"].StringValue;
-            series = chart.AddSeries(xAxis, "D2:D7");
-            series.Title = workSheet["D1"].StringValue;
-            
-            // Configure chart title and legend
-            chart.SetTitle("Column Chart");
-            chart.SetLegendPosition(LegendPosition.Bottom);
-            
-            // Render the chart
-            chart.Plot();
-            
-            workBook.SaveAs("columnChart.xlsx");
-        }
-    }
-}
+
+WorkBook workbook = WorkBook.Load("chart.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Determine chart type and specify its position on the worksheet
+IChart chart = worksheet.CreateChart(ChartType.Column, 5, 5, 20, 10);
+
+string xAxisDataRange = "A2:A7";
+
+// Add series to the chart
+IChartSeries series = chart.AddSeries(xAxisDataRange, "B2:B7");
+series.Title = worksheet["B1"].StringValue;
+
+series = chart.AddSeries(xAxisDataRange, "C2:C7");
+series.Title = worksheet["C1"].StringValue;
+
+series = chart.AddSeries(xAxisDataRange, "D2:D7");
+series.Title = worksheet["D1"].StringValue;
+
+// Configure chart title and legend placement
+chart.SetTitle("Column Chart");
+chart.SetLegendPosition(LegendPosition.Bottom);
+
+// Render the chart
+chart.Plot();
+
+workbook.SaveAs("columnChart.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -74,48 +68,38 @@ namespace ironxl.CsharpExcelChartCreateEditTutorial
     </div>
 </div>
 
-### Example: Creating a Line Chart
+### Creating a Line Chart
 
-Simply switching the chart type can transform a column chart into a line chart, while retaining the other properties.
+Switching to a line chart from a column chart is straightforward by merely changing the chart type.
 
 ```cs
+using IronXL;
 using IronXL.Drawing.Charts;
-using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("chart.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Define the chart type and position
-            IChart chart = workSheet.CreateChart(ChartType.Line, 5, 5, 20, 10);
-            
-            string xAxis = "A2:A7";
-            
-            // Insert the series
-            IChartSeries series = chart.AddSeries(xAxis, "B2:B7");
-            series.Title = workSheet["B1"].StringValue;
-            
-            // Additional series
-            series = chart.AddSeries(xAxis, "C2:C7");
-            series.Title = workSheet["C1"].StringValue;
-            series = chart.AddSeries(xAxis, "D2:D7");
-            series.Title = workSheet["D1"].StringValue;
-            
-            // Configure chart title and legend
-            chart.SetTitle("Line Chart");
-            chart.SetLegendPosition(LegendPosition.Bottom);
-            
-            // Render the chart
-            chart.Plot();
-            
-            workBook.SaveAs("lineChart.xlsx");
-        }
-    }
-}
+
+WorkBook workbook = WorkBook.Load("chart.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Define chart type and its location
+IChart chart = worksheet.CreateChart(ChartType.Line, 5, 5, 20, 10);
+
+// Adding data series
+series = chart.AddSeries("A2:A7", "B2:B7");
+series.Title = worksheet["B1"].StringValue;
+
+series = chart.AddSeries("A2:A7", "C2:C7");
+series.Title = worksheet["C1"].StringValue;
+
+series = chart.AddSeries("A2:A7", "D2:D7");
+series.Title = worksheet["D1"].StringValue;
+
+// Set chart properties
+chart.SetTitle("Line Chart");
+chart.SetLegendPosition(LegendPosition.Bottom);
+
+// Display the chart
+chart.Plot();
+
+workbook.SaveAs("lineChart.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -124,42 +108,32 @@ namespace ironxl.CsharpExcelChartCreateEditTutorial
     </div>
 </div>
 
-### Example: Creating a Pie Chart
+### Creating a Pie Chart
 
-A pie chart is typically generated using only one data column.
+A pie chart typically requires only one set of data.
 
 ```cs
+using IronXL;
 using IronXL.Drawing.Charts;
-using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("chart.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Define the chart type and position
-            IChart chart = workSheet.CreateChart(ChartType.Pie, 5, 5, 20, 10);
-            
-            string xAxis = "A2:A7";
-            
-            // Insert the series
-            IChartSeries series = chart.AddSeries(xAxis, "B2:B7");
-            series.Title = workSheet["B1"].StringValue;
-            
-            // Configure chart title and legend
-            chart.SetTitle("Pie Chart");
-            chart.SetLegendPosition(LegendPosition.Bottom);
-            
-            // Render the chart
-            chart.Plot();
-            
-            workBook.SaveAs("pieChart.xlsx");
-        }
-    }
-}
+
+WorkBook workbook = WorkBook.Load("chart.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Define the pie chart type and position
+IChart chart = worksheet.CreateChart(ChartType.Pie, 5, 5, 20, 10);
+
+// Add a single data series
+series = chart.AddSeries("A2:A7", "B2:B7");
+series.Title = worksheet["B1"].StringValue;
+
+// Configure the chart
+chart.SetTitle("Pie Chart");
+chart.SetLegendPosition(LegendPosition.Bottom);
+
+// Render the pie chart
+chart.Plot();
+
+workbook.SaveAs("pieChart.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -168,74 +142,61 @@ namespace ironxl.CsharpExcelChartCreateEditTutorial
     </div>
 </div>
 
-## Editing an Existing Chart Example
+---
 
-Modifying existing charts is straightforward in IronXL. You can change properties such as the legend position and the chart title.
+## Example: Modifying an Existing Chart
+
+You can update various properties of an existing chart, such as the legend position and the chart title.
 
 ```cs
+using IronXL;
 using IronXL.Drawing.Charts;
-using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("pieChart.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Access the chart
-            IChart chart = workSheet.Charts[0];
-            
-            // Modify the legend position
-            chart.SetLegendPosition(LegendPosition.Top);
-            
-            // Update the chart title
-            chart.SetTitle("Edited Chart");
-            
-            workBook.SaveAs("editedChart.xlsx");
-        }
-    }
-}
-```
 
-Before and after images of the edited chart:
+WorkBook workbook = WorkBook.Load("pieChart.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Retrieve the existing chart
+IChart chart = worksheet.Charts[0];
+
+// Modify the legend position and the chart title
+chart.SetLegendPosition(LegendPosition.Top);
+chart.SetTitle("Updated Pie Chart");
+
+workbook.SaveAs("updatedChart.xlsx");
+```
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 48%;">
-        <img src="https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/before.webp" alt="Before" class="img-responsive add-shadow">
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">Before</p>
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/before.webp" alt="Before" class="img-responsive add-shadow" >
+        <p class="competitors__download-link" style="color: #181818; font-style: italic;">Before Updated</p>
     </div>
     <div class="competitors__card" style="width: 49%;">
         <img src="https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/after.webp" alt="After" class="img-responsive add-shadow">
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">After</p>
+        <p class="competitors__download-link" style="color: #181818; font-style: italic;">After Updated</p>
     </div>
 </div>
 
-## Removing a Chart Example
+---
 
-To delete a chart, retrieve the specific chart object and use the `RemoveChart` method.
+## Example: Removing a Chart from a Spreadsheet
+
+Removal of charts is also facilitated through IronXL by fetching the chart from the `Charts` property and then passing it to the `RemoveChart` method.
 
 ```cs
+using IronXL;
+using IronXL.Drawing.Charts;
 using System.Collections.Generic;
-using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
-{
-    public class Section5
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("pieChart.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Access the list of charts
-            List<IChart> charts = workSheet.Charts;
-            
-            // Delete the chart
-            workSheet.RemoveChart(charts[0]);
-            
-            workBook.SaveAs("removedChart.xlsx");
-        }
-    }
-}
+
+WorkBook workbook = WorkBook.Load("updatedChart.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Access the list of charts
+List<IChart> charts = worksheet.Charts;
+
+// Remove the specified chart
+worksheet.RemoveChart(charts[0]);
+
+workbook.SaveAs("cleanWorksheet.xlsx");
 ```
+
+This comprehensive guide should provide you with detailed insights into creating, modifying, and removing charts in Excel using IronXL in a C# environment.

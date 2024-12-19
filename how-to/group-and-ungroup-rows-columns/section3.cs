@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.GroupAndUngroupRowsColumns
+namespace IronXL.Examples.HowTo.GroupAndUngroupRowsColumns
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Load existing spreadsheet
             WorkBook workBook = WorkBook.Load("sample.xlsx");

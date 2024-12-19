@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.AutosizeRowsColumns
+namespace IronXL.Examples.HowTo.AutosizeRowsColumns
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             workSheet.Merge("A1:B1");
             

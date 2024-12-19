@@ -1,11 +1,14 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section15
+    public static class Section15
     {
-        public void Run()
+        public static void Run()
         {
-            workBook.SaveAsXml($@"{Directory.GetCurrentDirectory()}\Files\HelloWorldXML.XML");
+            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
+            WorkSheet workSheet = workBook.WorkSheets.First();
+            decimal avg = workSheet["A2:A4"].Avg();
+            Console.WriteLine(avg);
         }
     }
 }

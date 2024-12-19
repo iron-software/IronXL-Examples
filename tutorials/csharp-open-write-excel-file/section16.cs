@@ -1,14 +1,14 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section16
+    public static class Section16
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
-            decimal sum = workSheet["A2:A4"].Sum();
-            Console.WriteLine(sum);
+            decimal count = workSheet["A2:A4"].Count();
+            Console.WriteLine(count);
         }
     }
 }

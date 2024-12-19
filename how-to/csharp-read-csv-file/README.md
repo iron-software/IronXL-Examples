@@ -1,21 +1,21 @@
-# Working with CSV Files in C#
+# Read a CSV File in C&num;
 
 ***Based on <https://ironsoftware.com/how-to/csharp-read-csv-file/>***
 
 
-IronXL provides a straightforward solution for reading CSV files in C#. Whether you're dealing with comma-separated values or another delimiter, you'll find IronXL to be exceptionally helpful. Below, we explore various aspects of reading CSV files using IronXL in .NET environments.
+For reading CSV files in C#, IronXL provides a straightforward solution. The following examples demonstrate how to manage CSV files using various delimiters in your code.
 
 <div class="learnn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Handling CSV Files in .NET Frameworks</h2>
+      <h2>Managing CSV Files in .NET Applications</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-1-install-the-ironxl-library">Set Up the C# Library for Reading CSV Files (IronXL)</a></li>
-        <li><a href="#anchor-2-read-csv-files-programmatically">Programmatically Handle CSV Files in C#</a></li>
-        <li><a href="#anchor-2-read-csv-files-programmatically">Define File Format and Delimiter</a></li>
+        <li><a href="#anchor-1-install-the-ironxl-library">Setting Up a C# Library for CSV File Management (IronXL)</a></li>
+        <li><a href="#anchor-2-read-csv-files-programmatically">Programmatic Reading of CSV Files in C#</a></li>
+        <li><a href="#anchor-2-read-csv-files-programmatically">Configure File Format and Delimiter Settings</a></li>
       </ul>
     </div>
-    <div class="col-sm-6">
+     <div class="col-sm-6">
       <div class="download-card">
         <img style="box-shadow: none; width: 308px; height: 320px;" src="https://ironsoftware.com/img/faq/excel/how-to-work.svg" class="img-responsive learn-how-to-img replaceable-img">
       </div>
@@ -27,14 +27,14 @@ IronXL provides a straightforward solution for reading CSV files in C#. Whether 
 
 <p class="main-content__segment-title">Step 1</p>
 
-## 1. Setting Up IronXL
+## 1. Install the IronXL Library
 
-To employ IronXL for reading or manipulating CSV files in technologies like MVC, ASP.NET, or .NET Core, start by installing the library. Follow this simple guide:
+To begin using IronXL for reading CSV files in MVC, ASP.NET, or .NET Core, start by installing the library. Follow these instructions:
 
-* Navigate to the Project menu in Visual Studio
+* Open Visual Studio and go to the Project menu
 * Choose Manage NuGet Packages
-* Look up IronXL.Excel
-* Proceed with the installation
+* Enter IronXL.Excel in the search bar
+* Click Install
 
 <center>
   <div class="center-image-wrapper">
@@ -62,33 +62,34 @@ To employ IronXL for reading or manipulating CSV files in technologies like MVC,
   </div>
 </center>
 
-Alternatively, download the package directly from Iron Software's website here: <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">Download IronXL.zip</a>
+Alternatively, download it directly from Iron Software's website here: [https://ironsoftware.com/csharp/excel/packages/IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.zip)
 
 <hr class="separator">
 
-<h4 class="tutorial-segment-title">Tutorial Explained</h4>
+<h4 class="tutorial-segment-title">How-to Tutorial</h4>
 
-## 2. Programmatic CSV Reading
+## 2. Read CSV Files Programmatically 
 
-Once IronXL is set up in your project, you're ready to start processing CSV files!
+Let's start with your project!
 
-Add the IronXL namespace to your project:
+First, add the IronXL namespace:
 
 ```cs
 using IronXL;
 ```
 
-Then, implement the following code snippet to read and manipulate a CSV file programmatically:
+Next, use the following C# code snippet to read a CSV file using IronXL:
 
 ```cs
 /**
-Read and process a CSV file
+Handle CSV file reading
+anchor-read-csv-files-programmatically
 **/
-private void ReadCsvButton_Click(object sender, EventArgs e)
+private void button2_Click(object sender, EventArgs e)
 {
-    WorkBook workbook = WorkBook.LoadCSV("Sample_CSV_File.csv", fileFormat: ExcelFileFormat.XLSX, ListDelimiter: ",");
-    WorkSheet ws = workbook.DefaultWorkSheet;
-    workbook.SaveAs("Output_Excel_File.xlsx");
+    WorkBook workbook = WorkBook.LoadCSV("Path_to_Read_CSV_Ex.csv", fileFormat: ExcelFileFormat.XLSX, ListDelimiter: ",");
+    WorkSheet ws = workbook.GetWorkSheet("Sheet1"); // Assuming the worksheet you want to interact with is named "Sheet1"
+    workbook.SaveAs("Converted_Csv_To_Excel.xlsx");
 }
 ```
 
@@ -101,7 +102,7 @@ private void ReadCsvButton_Click(object sender, EventArgs e)
       <img
         class="img-responsive"
         src="https://ironsoftware.com/img/faq/excel/csharp-read-csv-file/a-csv-file-opened-in-notepad.png"
-        alt="A CSV file displayed in Notepad"
+        alt="A CSV file opened in Notepad"
       >
     </a>
     <div class="image-description">
@@ -112,13 +113,13 @@ private void ReadCsvButton_Click(object sender, EventArgs e)
         -
       </span>
       <span class="image-description-text_italic">
-        A CSV file displayed in Notepad
+        A CSV file opened in Notepad
       </span>
     </div>
   </div>
 </center>
 
-In this tutorial, we create a `WorkBook` to read the CSV data, deciding upon the file's format and the delimiter. Following this, a `WorkSheet` is generated where the data is placed, and afterwards, you can save this as a new Excel file using a new file name and format.
+This code initializes a `WorkBook` object and uses the `LoadCSV` method to specify the CSV file, format, and delimiter. It then accesses the default worksheet where the CSV content is loaded, and finally, the content is saved into a new file.
 
 <center>
   <div class="center-image-wrapper">
@@ -129,7 +130,7 @@ In this tutorial, we create a `WorkBook` to read the CSV data, deciding upon the
       <img
         class="img-responsive"
         src="https://ironsoftware.com/img/faq/excel/csharp-read-csv-file/the-csv-file-opened-in-excel.png"
-        alt="The CSV file viewed in Excel"
+        alt="The CSV file opened in Excel"
       >
     </a>
     <div class="image-description">
@@ -140,7 +141,7 @@ In this tutorial, we create a `WorkBook` to read the CSV data, deciding upon the
         -
       </span>
       <span class="image-description-text_italic">
-        The CSV file viewed in Excel
+        The CSV file opened in Excel
       </span>
     </div>
   </div>
@@ -148,14 +149,14 @@ In this tutorial, we create a `WorkBook` to read the CSV data, deciding upon the
 
 <hr class="separator">
 
-<p class="main-content__segment-title">Quick Reference</p>
+<p class="main-content__segment-title">Library Quick Access</p>
 
 <div class="tutorial-section">
   <div class="row">
     <div class="col-sm-8">
-      <h3>IronXL API Reference Guide</h3>
-      <p>Explore more and learn about merging, splitting, and manipulating Excel cells using the comprehensive IronXL API Reference Guide.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Access the IronXL API Reference <i class="fa fa-chevron-right"></i></a>
+      <h3>IronXL API Reference Documentation</h3>
+      <p>Discover more and learn how to efficiently manage and manipulate cells within Excel documents using the comprehensive IronXL API Reference Documentation.</p>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Explore IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

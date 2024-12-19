@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section9
+    public static class Section9
     {
-        public void Run()
+        public static void Run()
         {
             // Use IronXL built-in aggregations
             decimal sum = workSheet["A2:A11"].Sum();

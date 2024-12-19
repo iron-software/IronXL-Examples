@@ -1,15 +1,22 @@
 ***Based on <https://ironsoftware.com/examples/select-excel-range/>***
 
-IronXL facilitates the easy selection and manipulation of ranges within any Excel `WorkSheet`. The provided code illustrates how ranges, rows, and columns are effortlessly selected and manipulated. With IronXL, performing operations like `SortAscending()`, `SortDescending()`, `Sum()`, `Max()`, `Min()`, and `Avg()` on these data collections is straightforward. It's important to be aware that methods which alter or relocate cell values will accordingly update the values in the affected ranges, rows, and columns.
+IronXL empowers users to effortlessly access and manipulate ranges within any Excel `WorkSheet`. The examples provided showcase how to select ranges, rows, and columns seamlessly. With IronXL, you can enhance this data set by implementing methods like `SortAscending()`, `SortDescending()`, `Sum()`, `Max()`, `Min()`, and `Avg()`. It's important to remember that methods modifying or moving cell values will impact the corresponding range, row, and column values as well.
 
 ## Range
 
-To select a range from **A2** to **A8**, you can use: `var range = sheet["A2:A8"]`.
+To select a specific range from **A2 to A8**, you can use the following code snippet: 
+```csharp
+var range = sheet["A2:A8"];
+```
 
 ## Row
 
-For selecting the first row, employ the method `GetRow(0)`. This method adheres to zero-based indexing, and the covered range consists of cells from all populated cells in the row, including those in row 1 itself.
+For selecting row **1**, the method `GetRow(0)` is utilized, adhering to a zero-based indexing system. The cell range for this row is defined by the combined area of all filled cells within row 1.
 
 ## Column
 
-To access column **A**, you can either use `GetColumn(0)` or directly set the range with `sheet["A:A"]`. The selected range will include all populated cells across the column, up to and including those in column A.
+To access column **A**, you can either employ `GetColumn(0)` or specify the column directly using:
+```csharp
+var column = sheet["A:A"];
+```
+The cell range for the column is defined by the populated area covering all of column A.

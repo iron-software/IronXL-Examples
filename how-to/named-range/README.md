@@ -1,118 +1,86 @@
-# How to Create and Utilize Named Ranges in Excel
+# How to Add Named Range
 
 ***Based on <https://ironsoftware.com/how-to/named-range/>***
 
 
-Named ranges provide a convenient way to refer to groups of cells within an Excel spreadsheet by using a distinct identifier, rather than standard cell coordinates like A1:B10. For instance, a named range could be called "SalesData" and used in functions such as `SUM(SalesData)`, enhancing clarity and simplifying formula applications.
+A named range is a predefined block of cells given a unique label. Instead of referencing these cells through their cell coordinates (such as A1:B10), you can simply name them, which simplifies referencing them in formulas and calculations. For instance, by labeling a range as "SalesData," you can use `SUM(SalesData)` in a formula rather than directly specifying the cell addresses.
 
-## Example of Adding a Named Range
+<h3>Get Started with IronXL</h3>
 
-To create a named range, utilize the `AddNamedRange` method within IronXL by providing a name for the range and the range itself.
+-------------------------------------
+
+## Add Named Range Example
+
+To create a named range, utilize the `AddNamedRange` method where you provide the name for the named range as a string and the corresponding range object.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.NamedRange
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create();
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Define a cell range
-            var selectedRange = workSheet["A1:A5"];
-            
-            // Assign a name to the range
-            workSheet.AddNamedRange("range1", selectedRange);
-            
-            workBook.SaveAs("addNamedRange.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Define range
+var selectedRange = workSheet["A1:A5"];
+
+// Create named range
+workSheet.AddNamedRange("range1", selectedRange);
+
+workBook.SaveAs("addNamedRange.xlsx");
 ```
 
-<div  class="content-img-align-center">
+<div class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/named-range/named-range.webp" alt="Named Range" class="img-responsive add-shadow">
+        <img src="https://ironsoftware.com/static-assets/excel/how-to/named-range/named-range.webp" alt="Named Range" class="img-responsive add-shadow">
     </div>
 </div>
 
 <hr>
 
-## Fetching Named Ranges
+## Retrieve Named Range Example
 
 ### Retrieve All Named Ranges
 
-You can retrieve all named ranges present in a worksheet by using the `GetNamedRanges` method, which delivers a list of range names.
+The `GetNamedRanges` method fetches a list containing all named ranges within the worksheet.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.NamedRange
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Access all named ranges
-            var namedRangeList = workSheet.GetNamedRanges();
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Obtain all named ranges
+var namedRangeList = workSheet.GetNamedRanges();
 ```
 
-### Access a Specific Named Range
+### Retrieve Specific Named Range
 
-To fetch a specific named range, employ the `FindNamedRange` method for acquiring its absolute reference. This reference can be used to locate or refer to the named range directly.
+Use the `FindNamedRange` method to obtain the exact reference for the named range specified, like Sheet1!$A$1:$A$5. This reference can subsequently be used both for referencing and selecting the relevant cell range. Be sure to include the worksheet name.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.NamedRange
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Obtain the address of the named range
-            string namedRangeAddress = workSheet.FindNamedRange("range1");
-            
-            // Utilize the named range
-            var range = workSheet[$"{namedRangeAddress}"];
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Retrieve named range reference
+string namedRangeAddress = workSheet.FindNamedRange("range1");
+
+// Access specific range
+var range = workSheet[$"{namedRangeAddress}"];
 ```
 
 <hr>
 
-## Removing a Named Range
+## Remove Named Range Example
 
-To eliminate a named range from a worksheet, use the `RemoveNamedRange` method by specifying the name of the range to be removed.
+To delete a named range, employ the `RemoveNamedRange` method with the name of the named range specified as a string.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.NamedRange
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Removal of the named range
-            workSheet.RemoveNamedRange("range1");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("addNamedRange.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Delete named range
+workSheet.RemoveNamedRange("range1");
 ```

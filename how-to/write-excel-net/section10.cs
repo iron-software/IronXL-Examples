@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.WriteExcelNet
+namespace IronXL.Examples.HowTo.WriteExcelNet
 {
-    public class Section10
+    public static class Section10
     {
-        public void Run()
+        public static void Run()
         {
             workSheet.Rows[RowIndex].Replace("old value", "new value");
         }

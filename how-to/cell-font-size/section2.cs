@@ -1,10 +1,10 @@
 using IronXL.Styles;
 using IronXL.Excel;
-namespace ironxl.CellFontSize
+namespace IronXL.Examples.HowTo.CellFontSize
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Create();
             WorkSheet workSheet = workBook.DefaultWorkSheet;

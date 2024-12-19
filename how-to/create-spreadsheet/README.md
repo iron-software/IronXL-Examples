@@ -3,68 +3,45 @@
 ***Based on <https://ironsoftware.com/how-to/create-spreadsheet/>***
 
 
-XLSX is a contemporary file format for storing Microsoft Excel spreadsheets. This format, which adheres to the Open XML standard, was introduced with Office 2007. XLSX is capable of supporting sophisticated features such as charts and conditional formatting, making it ideal for data analysis and business-related tasks.
+XLSX is a contemporary file format utilized for storing Microsoft Excel spreadsheets. It adheres to the Open XML standard, which was introduced in Office 2007. The XLSX format is equipped to handle sophisticated functions such as charts and conditional formatting, making it highly suitable for data analysis and various business applications.
 
-Conversely, XLS is the older, binary format used in former versions of Excel. It does not support the extensive features found in XLSX and has become increasingly rare.
+On the other hand, XLS is the older binary format for Excel files, predominant in earlier software versions. It does not support the enhanced functionalities of XLSX and has become increasingly rare.
 
-IronXL enables developers to generate both XLSX and XLS files effortlessly with a single line of code.
+IronXL empowers users to generate both XLSX and XLS files effortlessly using a single line of code.
 
-## Example: Creating a Spreadsheet
+### Begin with IronXL
 
-To create an Excel workbook, which can house a set of sheets or worksheets, use the static `Create` method from IronXL. By default, this method generates a workbook in the XLSX format.
+----------------------------------
+
+## Example of Creating a Spreadsheet
+
+To create an Excel workbook, which serves as a container for one or more sheets, utilize the static `Create` method. This method by default constructs a workbook in the XLSX format.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.CreateSpreadsheet
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Initialize a new workbook
-            WorkBook workBook = WorkBook.Create();
-        }
-    }
-}
+
+// Initialize a new spreadsheet
+WorkBook workBook = WorkBook.Create();
 ```
 
----
+<hr>
 
 ## Selecting the Spreadsheet Format
 
-The `Create` method includes an option to specify the desired format of the Excel file using the **ExcelFileFormat** enum, allowing the choice between the more modern, XML-based XLSX format and the older, binary XLS format. While XLSX is preferred for its advanced features and efficiency, XLS remains an option for compatibility with older systems.
+The `Create` method can also employ an **ExcelFileFormat** enumeration to determine the type of file to generate, whether XLSX or XLS. XLSX is the modern, XML-based format launched with Office 2007, offering enhanced functionality and efficiency. In contrast, XLS is the antiquated binary format from earlier Excel versions, now less frequently used due to its limitations.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.CreateSpreadsheet
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Generate an XLSX file
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-        }
-    }
-}
+
+// Generate an XLSX file
+WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
 ```
 
-There is also an overloaded version of the `Create` method, which accepts a **CreatingOptions** object. This parameter currently holds a single property, DefaultFileFormat, which specifies whether the created file should be in XLSX or XLS format. Below is a sample usage:
+There's an additional variant of the `Create` method, which accepts **CreatingOptions** as its parameter. Presently, the **CreatingOptions** class includes a single property, `DefaultFileFormat`, used to decide whether to produce an XLSX or XLS file. Refer to the following example for details:
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.CreateSpreadsheet
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Generate an XLSX file
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-        }
-    }
-}
+
+// Create an XLSX file with specific options
+WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
 ```

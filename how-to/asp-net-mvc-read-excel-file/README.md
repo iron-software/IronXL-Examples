@@ -1,25 +1,25 @@
-# Parsing Excel Files in ASP.NET MVC with IronXL
+# Read Excel Files in ASP.NET MVC Using IronXL
 
 ***Based on <https://ironsoftware.com/how-to/asp-net-mvc-read-excel-file/>***
 
 
-This guide describes how to incorporate Excel file reading capabilities into an ASP.NET MVC application using the IronXL library.
+This guide will walk developers through the steps required to incorporate Excel file reading functionality within ASP.NET MVC applications using IronXL.
 
-## Initiate an ASP.NET MVC Project
+## Create an ASP.NET Project
 
-Start by creating a new ASP.NET MVC project in Visual Studio 2022, or a comparable version. Ensure you include all necessary NuGet packages and additional source code required.
+First, launch Visual Studio 2022 or a similar IDE and create a new ASP.NET project. Integrate any necessary NuGet packages and add the source code required for your specific application.
 
-## Integration of IronXL Library
+## Install IronXL Library
 
-Once the project is set up, proceed to integrate the IronXL library. Utilize NuGet Package Manager Console to execute the following command:
+Once your ASP.NET project is set up, the next step is to install the IronXL library for working with Excel files. You can easily install it by executing the following command in the NuGet Package Manager Console:
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-## Implement Excel File Reading
+## Reading Excel file
 
-Navigate to the default controller in your project, typically `HomeController`, and modify the `Index` method by adding the following code:
+Navigate to the default controller in your ASP.NET project, typically `HomeController`, and update the `Index` method as shown below:
 
 ```cs
 public ActionResult Index()
@@ -33,22 +33,24 @@ public ActionResult Index()
 }
 ```
 
-In this updated `Index` action, we use `WorkBook.Load` from IronXL to open the specified Excel file. The first worksheet in the workbook is accessed and transformed into a `DataTable` which is then passed to the view.
+In this code snippet, the `Index` method starts by utilizing IronXL's `Load` method to open an Excel file. The path to the Excel document is furnished as an argument to this method. After loading, the first worksheet of the workbook is designated as the active worksheet and its contents are loaded into a `DataTable` object, which is then passed to the view.
 
-## Display Excel Data in a Web Browser
+## Display Excel Data on a Web Page
 
-To show how the data can be displayed, the Excel file referenced is illustrated as follows:
+This segment illustrates the method of displaying the `DataTable` obtained from the previous section in a web browser.
+
+Here's the Excel file we'll be showcasing:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-        <img src="https://ironsoftware.com/img/tutorials/asp-net-mvc-read-excel-file/asp-net-mvc-read-excel-file-1.webp" alt="Read Excel Files in ASP.NET MVC Using IronXL, Figure 1: Excel file" class="img-responsive add-shadow">
+        <img src="https://www.ironsoftware.com/img/tutorials/asp-net-mvc-read-excel-file/asp-net-mvc-read-excel-file-1.webp" alt="Read Excel Files in ASP.NET MVC Using IronXL, Figure 1: Excel file" class="img-responsive add-shadow">
         <p><em>Excel file</em></p>
     </div>
 </div>
 
-Adjust the `index.cshtml` (index view) file by replacing its content with the following HTML code:
+Replace the existing code in the `index.cshtml` (index view) with the following HTML markup:
 
-```cshtml
+```cs
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -74,13 +76,13 @@ Adjust the `index.cshtml` (index view) file by replacing its content with the fo
 </table>
 ```
 
-This updated script uses the `DataTable` received from the `Index` method as its model. It formats the data in a Bootstrap-themed table, iterating through each row and displaying each cell.
+This HTML code utilizes the aforementioned `DataTable` as a model, rendering each of its rows into a web page using a loop, while Bootstrap attributes enhance the visual formatting.
 
-Upon executing the project, the output will appear as follows:
+Upon running your project, the output will appear as follows.
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
-        <img src="https://ironsoftware.com/img/tutorials/asp-net-mvc-read-excel-file/asp-net-mvc-read-excel-file-2.webp" alt="Read Excel Files in ASP.NET MVC Using IronXL, Figure 2: Bootstrap Table" class="img-responsive add-shadow">
+        <img src="https://www.ironsoftware.com/img/tutorials/asp-net-mvc-read-excel-file/asp-net-mvc-read-excel-file-2.webp"  alt="Read Excel Files in ASP.NET MVC Using IronXL, Figure 2: Bootstrap Table" class="img-responsive add-shadow">
         <p><em>Bootstrap Table</em></p>
     </div>
 </div>

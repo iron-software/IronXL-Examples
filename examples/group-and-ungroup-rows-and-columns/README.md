@@ -1,17 +1,17 @@
 ***Based on <https://ironsoftware.com/examples/group-and-ungroup-rows-and-columns/>***
 
-Streamline the process of grouping and ungrouping rows and columns without the need for Office Interop using the **IronXL** library's intuitive APIs.
+Enable row and column grouping efficiently without Office Interop using the **IronXL** library.
 
-## Group and Ungroup Rows
+## Grouping and Ungrouping Rows
 
-To group rows, use the `GroupRows` method, which requires the index positions of the rows you want to group. You can apply multiple groupings by invoking this method multiple times.
+Utilize the `GroupRows` method to group rows by specifying their index positions. You can create multiple groupings by invoking this method repeatedly.
 
-For ungrouping, the `UngroupRows` method removes specific groupings, acting akin to a cutting tool. When applied to the center of a row group, it splits the group into two. However, these new segments do not form new individual groups. For instance, ungrouping rows 2-4 in a grouped set of 0-9 will result in two segments: rows 0-1 and 5-9.
+For ungrouping, employ the `UngroupRows` method. Think of it as a way to split a group; applying it to a segment within a row group splits the group into smaller sections. For instance, if you use `UngroupRows(2,4)` on a group from rows 0 to 9, you'll end up with groups spanning rows 0-1 and 5-9.
 
-## Group and Ungroup Columns
+## Grouping and Ungrouping Columns
 
-Grouping columns works similarly to grouping rows. The `GroupColumns` method allows you to define column groups by specifying either the index positions or the names of the columns as strings. It is also possible to create multiple groups of columns.
+Similarly, columns can be grouped using the `GroupColumns` method by specifying either the index positions or the names of the columns as `string` values. It's possible to create multiple column groups.
 
-Ungrouping columns with the `UngroupColumn` method similarly acts as a splitting mechanism. Applying it to the center of a column group divides it into two distinct groups. For example, ungrouping columns C-D from a grouped set of A-F will yield groups A-B and E-F.
+To ungroup columns, the `UngroupColumn` method works just like it does for rows. Applying it to the middle of a column group will divide it into two separate groups. For example, ungrouping columns C to D in a group from A to F will produce groups for columns A-B and E-F.
 
-It is important to note that all index positions are zero-based. Furthermore, groups can only be formed up to the last cell that contains a value.
+Please note that all the index positions mentioned are zero-based. Also, note that grouping can only be set up to the last cell that contains a value.

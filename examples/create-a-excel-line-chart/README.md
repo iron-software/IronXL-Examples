@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/create-a-excel-line-chart/>***
 
-IronXL offers the capability to craft and modify charts within Excel documents, specifically in the contemporary XLSX format.
+IronXL provides functionalities for both generating and modifying Charts within Excel files, specifically in the contemporary XLSX format.
 
-The following example demonstrates the process of constructing a Line Chart. Please note that IronXL supports various other types of charts as well.
+The following illustration demonstrates the process of creating a Line Chart. IronXL also accommodates various other types of charts.

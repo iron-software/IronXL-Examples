@@ -1,41 +1,40 @@
-# IronXL Integration with AWS Lambda using .NET Core
+# IronXL Integration for AWS Lambda with .NET Core
 
 ***Based on <https://ironsoftware.com/how-to/aws-lambda-support/>***
 
 
-IronXL offers complete compatibility with AWS Lambda for .NET Standard Libraries, and .NET Core, including .NET 5 and .NET 6 projects.
+IronXL provides robust support for AWS Lambda functions across .NET Standard libraries, .NET Core, .NET 5, and .NET 6 projects.
 
-For guidance on adding the AWS Toolkit to Visual Studio, refer to the comprehensive tutorial here: [Using the AWS Lambda Templates in the AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).
+For incorporating the AWS Toolkit into Visual Studio, consult the documentation here: [Working with AWS Lambda Templates in the AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).
 
-Installing the AWS Toolkit in Visual Studio simplifies the process of creating a project tailored for AWS Lambda. Detailed instructions on setting up your AWS Lambda project in Visual Studio can be found following this [link](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).
+Once you install the AWS Toolkit in Visual Studio, you can begin setting up your AWS Lambda Function Project. Detailed steps on creating this project in Visual Studio can be found at this [link](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).
 
-### Example Code for an AWS Lambda Function
+### Sample AWS Lambda Function Using IronXL
 
-Once you have established a new AWS Lambda project, consider the following code sample:
+Upon setting up a new AWS Lambda Function project, consider implementing the following code snippet:
 ```cs
     namespace AWSLambdaIronXL
     {
         public class Function
         {
-        
         /// <summary>
-        /// A simple method receiving a string and converting it to uppercase
+        /// A straightforward function that converts a string to uppercase
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="context"></param>
-        /// <returns>Base64 encoded string of an Excel file</returns>
+        /// <param name="input">Input string</param>
+        /// <param name="context">Lambda context</param>
+        /// <returns>Base64 representation of the Excel file</returns>
         public string FunctionHandler(string input, ILambdaContext context)
         {
-            WorkBook workbook = WorkBook.Create(ExcelFileFormat.XLS);
+            WorkBook workbook = WorkBook.LoadOrCreate(ExcelFileFormat.XLS); // Ensures a workbook is created if not existing
 
-            var newSheet = workbook.CreateWorkSheet("new_sheet");
-            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            foreach (char column in alphabet)
+            var sheet = workbook.CreateWorkSheet("new_sheet");
+            string columnNames = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            foreach (char column in columnNames)
             {
                 for (int row = 1; row <= 50; row++)
                 {
-                    var cellName = $"{column}{row}";
-                    newSheet[cellName].Value = $"Cell: {cellName}";
+                    var cell = $"{column}{row}";
+                    sheet[cell].Value = $"Content: {cell}";
                 }
             }
 
@@ -45,4 +44,4 @@ Once you have established a new AWS Lambda project, consider the following code 
     }
 ```
 
-For deployment, IronXL NuGet Packages are detailed in our documentation, which can be accessed [here](https://ironsoftware.com/csharp/excel/docs/).
+For information regarding deploying IronXL with NuGet packages, refer to the [IronXL NuGet Installation Guide](https://ironsoftware.com/csharp/excel/docs/).

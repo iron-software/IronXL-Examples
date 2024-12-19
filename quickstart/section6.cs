@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.Quickstart
+namespace IronXL.Examples.Overview.Quickstart
 {
-    public class Section6
+    public static class Section6
     {
-        public void Run()
+        public static void Run()
         {
             // Set a formula
             workSheet["A1"].Value = "=SUM(A2:A10)";

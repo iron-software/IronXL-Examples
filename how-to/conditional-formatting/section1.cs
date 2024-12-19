@@ -1,10 +1,10 @@
 using IronXL.Formatting.Enums;
 using IronXL.Excel;
-namespace ironxl.ConditionalFormatting
+namespace IronXL.Examples.HowTo.ConditionalFormatting
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("sample.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

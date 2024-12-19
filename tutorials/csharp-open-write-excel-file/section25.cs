@@ -1,19 +1,14 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section25
+    public static class Section25
     {
-        public void Run()
+        public static void Run()
         {
-            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
-            WorkSheet workSheet = workBook.WorkSheets.First();
-            int i = 1;
-            foreach (var cell in workSheet["f1:f4"])
-            {
-                cell.Formula = "=trim(D" + i + ")";
-                i++;
-            }
-            workBook.SaveAs("editedFile.xlsx");
+            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\testFile.xlsx");
+            WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
+            workSheet["A1"].Value = "Hello World";
+            workBook.SaveAs(@"F:\MY WORK\IronPackage\Xl tutorial\newFile.xlsx");
         }
     }
 }

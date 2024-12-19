@@ -1,21 +1,22 @@
 ***Based on <https://ironsoftware.com/examples/edit-excel-metadata-csharp/>***
 
-The above example illustrates how to work with metadata in Excel files using the IronXL C# library. To insert a custom author name into a spreadsheet, you simply set the `name` to the `Author` property like this: `workBook.Metadata.Author = "Your Name"`. You can access and manipulate various metadata attributes through the `Metadata` property of the `WorkBook`.
+The preceding code sample illustrates how to manipulate the metadata of an Excel file using the IronXL C# library. To apply a custom author name to a spreadsheet, simply set the `name` to the `Author` property. For instance, you would use `workBook.Metadata.Author = "Your Name"`. You can access and manipulate a variety of metadata attributes via the `Metadata` property of `WorkBook`.
 
-Below is a list of the metadata properties you can set, modify, and retrieve:
+The list below highlights the metadata properties that can be adjusted:
 
-- Customize and manage detailed metadata, including:
+- Modify and access detailed metadata such as:
   - `Author`
   - `Comments`
   - `LastPrinted`
   - `Keywords` and `Category`
   - `Created` and `ModifiedDate`
   - `Subject` and `Title`
-- Access detailed metadata such as:
+  
+- Access detailed metadata including:
   - `ApplicationName`
   - `CustomProperties`
   - `Company`
   - `Manager`
   - `Template`
 
-For additional insights and step-by-step guidance, visit the ["Edit Workbook Metadata" How-To](https://ironsoftware.com/csharp/excel/how-to/edit-workbook-metadata/) article.
+For further details and examples, please visit the ["Edit Workbook Metadata" How-To](https://ironsoftware.com/csharp/excel/how-to/edit-workbook-metadata/) article.

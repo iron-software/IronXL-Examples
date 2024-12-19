@@ -5,38 +5,33 @@
 
 ## Introduction
 
-Incorporating images into spreadsheets can greatly enhance the visual appeal and relevance of the data presented. Conversely, removing images helps streamline content management and editing. The capability to extract images is particularly useful for reusing them in different contexts or for updating them in ongoing projects. Together, these functionalities empower users with robust image management tools, improving both the user experience and the efficiency of working with images in Excel workbooks.
+Incorporating images into spreadsheets can significantly enhance the presentation of data by integrating pertinent graphics or illustrations. Conversely, the ability to delete or remove images from a workbook simplifies the content management process. Furthermore, extracting images from spreadsheets is crucial for their reutilization in different contexts or for updating them within the same document. These capabilities collectively improve the user experience by allowing for efficient image handling within Excel workbooks.
 
-## Add Images Example
+## Begin Using IronXL
 
-To embed an image in a spreadsheet, you can use the `InsertImage` method. This method works with various image formats including JPG/JPEG, BMP, PNG, GIF, and TIFF. To define the image's size, you need to provide the coordinates for both the top-left and bottom-right corners, calculated by the respective column and row indices. Here are a couple of examples to demonstrate:
-- For an image size of 1x1:
+---
+
+## Example of Adding Images
+
+When embedding an image in a spreadsheet, you can use the `InsertImage` method. This method is compatible with various image formats including JPG/JPEG, BMP, PNG, GIF, and TIFF. It requires the specification of the coordinates of the top-left and bottom-right corners to set its dimensions. For instance:
+- For sizing the image to 1x1:
   - `worksheet.InsertImage("image.gif", 5, 1, 6, 2);`
-- For an image size of 2x2:
+- For a 2x2 image size:
   - `worksheet.InsertImage("image.gif", 5, 1, 7, 3);`
 
-Image IDs are assigned in an incremental pattern of 1, 3, 5, 7, and so on.
+Generated image IDs are numbered in an odd sequence, such as 1, 3, 5, 7, etc.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AddExtractRemoveWorksheetImages
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Create();
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Insert images
-            workSheet.InsertImage("ironpdf.jpg", 2, 2, 4, 4);
-            workSheet.InsertImage("ironpdfIcon.png", 2, 6, 4, 8);
-            
-            workBook.SaveAs("insertImages.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Adding images to the worksheet
+workSheet.InsertImage("ironpdf.jpg", 2, 2, 4, 4);
+workSheet.InsertImage("ironpdfIcon.png", 2, 6, 4, 8);
+
+workBook.SaveAs("insertImages.xlsx");
 ```
 
 ### Output Spreadsheet
@@ -47,48 +42,43 @@ namespace ironxl.AddExtractRemoveWorksheetImages
     </div>
 </div>
 
-## Extract Images Example
+## Extracting Images Example
 
-To retrieve images from a worksheet, access the `Images` property. This property provides a list of all images in the worksheet. You can then export, resize, get the location, and acquire the byte array of each image. Image IDs continue their sequence with odd numbers such as 1, 3, 5, and 7.
+Accessing the `Images` property on a worksheet allows you to retrieve a list containing all the embedded images. This list can be used to perform several operations such as exporting the images, resizing them, finding their positions, or accessing their binary data. Note that the IDs of the images have an odd-numbered sequence.
 
 ```cs
+using IronSoftware.Drawing;
+using IronXL;
+using IronXL.Drawing;
+using System;
 using System.Collections.Generic;
-using IronXL.Excel;
-namespace ironxl.AddExtractRemoveWorksheetImages
+
+WorkBook workBook = WorkBook.Load("insertImages.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Extracting images
+List<IronXL.Drawing.Images.IImage> images = workSheet.Images;
+
+// Processing each image
+foreach (IronXL.Drawing.Images.IImage image in images)
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("insertImages.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Retrieve images
-            List<IronXL.Drawing.Images.IImage> images = workSheet.Images;
-            
-            // Process each image
-            foreach (IronXL.Drawing.Images.IImage image in images)
-            {
-                // Save the image
-                AnyBitmap anyBitmap = image.ToAnyBitmap();
-                anyBitmap.SaveAs($"{image.Id}.png");
-            
-                // Resize the image
-                image.Resize(1,3);
-            
-                // Get image position
-                Position position = image.Position;
-                Console.WriteLine("top row index: " + position.TopRowIndex);
-                Console.WriteLine("bottom row index: " + position.BottomRowIndex);
-            
-                // Access byte data
-                byte[] imageByte = image.Data;
-            }
-            
-            workBook.SaveAs("resizeImage.xlsx");
-        }
-    }
+    // Save the image
+    AnyBitmap anyBitmap = image.ToAnyBitmap();
+    anyBitmap.SaveAs($"{image.Id}.png");
+
+    // Resize the image
+    image.Resize(1,3);
+
+    // Obtain image position
+    Position position = image.Position;
+    Console.WriteLine("top row index: " + position.TopRowIndex);
+    Console.WriteLine("bottom row index: " + position.BottomRowIndex);
+
+    // Access binary data of the image
+    byte[] imageByte = image.Data;
 }
+
+workBook.SaveAs("resizeImage.xlsx");
 ```
 
 <div class="competitors-section__wrapper-even-1">
@@ -102,27 +92,18 @@ namespace ironxl.AddExtractRemoveWorksheetImages
     </div>
 </div>
 
-## Remove Image Example
+## Removing Images Example
 
-Following the extract images example, if you wish to remove an image, simply provide its ID to the `RemoveImage` method. This operation will delete the image from its worksheet.
+Referencing the previous example of extracting images, one can delete a specific image by providing its ID to the `RemoveImage` method. This effectively removes the designated image from the workbook.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AddExtractRemoveWorksheetImages
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("insertImages.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Remove image
-            workSheet.RemoveImage(3);
-            
-            workBook.SaveAs("removeImage.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("insertImages.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Removing an image by ID
+workSheet.RemoveImage(3);
+
+workBook.SaveAs("removeImage.xlsx");
 ```

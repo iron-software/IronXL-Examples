@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Default file format is XLSX, we can override it using CreatingOptions
             WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);

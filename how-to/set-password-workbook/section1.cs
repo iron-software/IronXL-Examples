@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.SetPasswordWorkbook
+namespace IronXL.Examples.HowTo.SetPasswordWorkbook
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("sample.xlsx");
             

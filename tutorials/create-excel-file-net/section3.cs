@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkSheet workSheet = workBook.CreateWorkSheet("2020 Budget");
         }

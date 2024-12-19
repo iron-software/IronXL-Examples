@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
+namespace IronXL.Examples.HowTo.CsharpExcelChartCreateEditTutorial
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("pieChart.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

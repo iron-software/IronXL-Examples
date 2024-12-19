@@ -1,16 +1,16 @@
-# IronXL Compatibility with macOS for .NET Applications
+# IronXL Now Supports macOS for .NET Core
 
 ***Based on <https://ironsoftware.com/how-to/macos/>***
 
 
-IronXL now offers comprehensive support for macOS environments across .NET Standard Libraries, Core applications, and .NET 5 projects.
+IronXL has expanded its compatibility to include full support for macOS (previously referred to as "OS X") across .NET Standard Libraries, Core applications, and .NET 5 projects.
 
-There is seamless compatibility with all releases of macOS right from the start.
+All macOS versions are seamlessly supported with IronXL.
 
-The integration does not demand any modifications in the codebase to accommodate Apple users or developers.
+There is no need to modify any code to accommodate Apple users or developers.
 
-Supporting macOS is significant for us, as many .NET developers, including our team members, prefer to use _Visual Studio for Mac_ and _JetBrains Rider_ to develop .NET applications on macOS.
+The inclusion of macOS support is crucial as many .NET developers, including our team members, prefer to use _Visual Studio for Mac_ and _JetBrains Rider_ for developing .NET applications on macOS.
 
-## Installation and Setup on macOS
+## Setting Up macOS with IronXL
 
-IronXL NuGet packages are available for macOS deployments. For more details, refer to our [IronXL NuGet installation guide](https://ironsoftware.com/csharp/excel/docs/).
+You can download IronXL's NuGet Packages for Mac deployments as documented in our [IronXL NuGet installation guide](https://ironsoftware.com/csharp/excel/docs/).

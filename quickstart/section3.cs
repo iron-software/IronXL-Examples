@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.Quickstart
+namespace IronXL.Examples.Overview.Quickstart
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             // Export to many formats with fluent saving
             workSheet.SaveAs("NewExcelFile.xls");

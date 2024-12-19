@@ -1,17 +1,17 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section24
+    public static class Section24
     {
-        public void Run()
+        public static void Run()
         {
-            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
-            WorkSheet workSheet = workBook.WorkSheets.First();
-            foreach (var cell in workSheet["B1:B4"])
+            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\testFile.xlsx");
+            WorkSheet workSheet = workBook.GetWorkSheet("Sheet2");
+            var range = workSheet["A2:D2"];
+            foreach (var cell in range)
             {
-                Console.WriteLine(cell.Formula);
+                Console.WriteLine(cell.Text);
             }
-            Console.ReadKey();
         }
     }
 }

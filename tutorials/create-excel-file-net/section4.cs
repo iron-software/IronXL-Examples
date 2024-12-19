@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             workSheet["A1"].Value = "January";
             workSheet["B1"].Value = "February";

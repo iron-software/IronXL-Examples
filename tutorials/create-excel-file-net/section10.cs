@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section10
+    public static class Section10
     {
-        public void Run()
+        public static void Run()
         {
             workSheet.ProtectSheet("Password");
             workSheet.CreateFreezePane(0, 1);

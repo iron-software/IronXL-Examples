@@ -1,9 +1,9 @@
-# C# Export to Excel: Comprehensive Guide
+# C# Export to Excel: Step by Step Guide
 
 ***Based on <https://ironsoftware.com/how-to/c-sharp-export-to-excel/>***
 
 
-Managing various Excel spreadsheet formats and leveraging C# export functionalities is often essential in projects that require manipulating `.xml`, `.csv`, `.xls`, `.xlsx`, and `.json` data. This guide provides a step-by-step process for exporting Excel data into these formats using C#, efficiently and without the need for the outdated Microsoft.Office.Interop.Excel library.
+Working with Excel spreadsheets in various formats is a common requirement in many projects, and the ability to export data from these spreadsheets using C# is a critical skill. Whether you're dealing with formats like `.xml`, `.csv`, `.xls`, `.xlsx`, or `.json`, this guide will show you how to proficiently export Excel spreadsheet data using C#. This tutorial will demonstrate a straightforward method that does not rely on the older Microsoft.Office.Interop.Excel library.
 
 <div class="learnn-how-section">
   <div class="row">
@@ -11,10 +11,10 @@ Managing various Excel spreadsheet formats and leveraging C# export functionalit
       <h2>C# Export to Excel</h2>
       <ul class="list-unstyled">
         <li><a href="#anchor-1-get-the-ironxl-library">Acquire the IronXL Library</a></li>
-        <li><a href="#anchor-3-c-num-export-to-xlsx-file">Export to XLSX with C#</a></li>
-        <li><a href="#anchor-5-c-num-export-to-csv-file">Export to CSV with C#</a></li>
-        <li><a href="#anchor-6-c-num-export-to-xml-file">Export to XML with C#</a></li>
-        <li><a href="#anchor-7-c-num-export-to-json-file">Export to JSON and more</a></li>
+        <li><a href="#anchor-3-c-num-export-to-xlsx-file">Exporting to XLSX using C#</a></li>
+        <li><a href="#anchor-5-c-num-export-to-csv-file">Export to CSV in C#</a></li>
+        <li><a href="#anchor-6-c-num-export-to-xml-file">Export to XML from Excel in C#</a></li>
+        <li><a href="#anchor-7-c-num-export-to-json-file">Handling JSON and Other Formats</a></li>
       </ul>
     </div>
     <div class="col-sm-6">
@@ -29,121 +29,78 @@ Managing various Excel spreadsheet formats and leveraging C# export functionalit
 
 <h4 class="tutorial-segment-title">Step 1</h4>
 
-## 1. Acquire the IronXL Library
+## 1. Acquire the IronXL Library 
 
-For streamlined handling of Excel files within .NET Core, consider using IronXL. [Download the IronXL DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.export.excel.zip) or [install it via NuGet](https://www.nuget.org/packages/IronXL.Excel) for development purposes at no cost.
+IronXL offers a streamlined solution for managing Excel files in .NET Core. You can [download the IronXL DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.export.excel.zip) or [install it via NuGet](https://www.nuget.org/packages/IronXL.Excel) to start using it in your development projects at no cost.
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-After downloading, incorporate its reference into your project, and access `IronXL` classes via the `IronXL` namespace.
+After downloading, ensure you reference it in your project, making the `IronXL` classes available through the `IronXL` namespace.
 
 <hr class="separator">
-<h4 class="tutorial-segment-title">Export Guide</h4>
+<h4 class="tutorial-segment-title">Tutorial Segment</h4>
 
-## 2. C# Export Methods
+## 2. Exporting Data to Excel in C#
 
-IronXL simplifies data export to Excel and supports exporting to formats like `.xls`, `.xlsx`, and `.csv`. Additionally, it handles data conversion to `.json` and `.xml`. Let's explore how effortlessly Excel file data can be converted to these formats.
+IronXL is the simplest tool for exporting data to `.xls`, `.xlsx`, and `.csv` file formats in .NET applications. Additionally, it supports exporting into `.json` and `.xml` formats. Explore how straightforward it is to convert Excel file data into these formats.
 
 <hr class="separator">
 
-## 3. Exporting to .XLSX File
+## 3. Export to .XLSX File
 
-Exporting an Excel file to `.xlsx` format is straightforward. The code below demonstrates this by working with an existing file located in your project's `bin>Debug` folder.
+Exporting to an `.xlsx` file format is particularly straightforward. Here’s an example where we have an existing `XlsFile.xls` in our project's `bin>Debug` directory.
 
-Remember: Always specify the file extension during import and export operations.
+Always remember to include the file extension when importing or exporting.
 
-For example, to create a new file in a specific directory, use:
+Normally, new Excel files are saved in the project's `bin>Debug` directory. To save to a custom path, use `wb.SaveAs(@"E:\IronXL\NewXlsxFile.xlsx");`. Learn more on [exporting Excel files in .NET](https://ironsoftware.com/csharp/excel/#convert-excel-spreadsheet).
 
 ```cs
+/**
+Export to XLSX
+anchor-c-export-to-xlsx-file
+**/
 using IronXL;
-
-static void Main(string[] args) {
-    WorkBook wb = WorkBook.Load("XlsFile.xls");
-    wb.SaveAs(@"E:\IronXL\NewXlsxFile.xlsx");
+static void Main(string [] args)
+{
+    WorkBook wb = WorkBook.Load("XlsFile.xls");//Import .xls, .csv, or .tsv file
+    wb.SaveAs("NewXlsxFile.xlsx");//Export as .xlsx file
 }
 ```
-
-Learn more about exporting Excel files in .NET from this [detailed tutorial](https://ironsoftware.com/csharp/excel/#convert-excel-spreadsheet).
-
 <hr class="separator">
 
-## 4. Exporting to .XLS File
+## 4. Export to .XLS File
 
-Similarly, exporting data to a `.xls` file can be accomplished with IronXL as illustrated below:
+Similarly, exporting to an `.xls` format is also feasible using IronXL. The following example demonstrates this process.
 
 ```cs
+/**
+Export to XLS
+anchor-c-export-to-xls-file
+**/
 using IronXL;
-
-static void Main(string[] args) {
-    WorkBook wb = WorkBook.Load("XlsxFile.xlsx");
-    wb.SaveAs("NewXlsFile.xls");
+static void Main(string [] args)
+{
+    WorkBook wb = WorkBook.Load("XlsxFile.xlsx");//Import .xlsx, .csv or .tsv file
+    wb.SaveAs("NewXlsFile.xls");//Export as .xls file
 }
 ```
-
 <hr class="separator">
 
-## 5. Exporting to .CSV File
+## 5. Export to .CSV File
 
-The following example showcases the conversion of `.xlsx` or `.xls` files to `.csv`. This process is illustrated when the `sample.xlsx` file containing multiple worksheets results in separate `.csv` files for each worksheet.
+Here's how you can convert your `.xlsx` or `.xls` files into `.csv` format using IronXL. The example highlights an approach for exporting Excel data to a CSV file.
 
 ```cs
+/**
+Export to CSV
+anchor-c-export-to-csv-file
+**/
 using IronXL;
-
-static void Main(string[] args) {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    wb.SaveAsCsv("NewCsvFile.csv");
+static void Main(string [] args)
+{
+    WorkBook wb = WorkBook.Load("sample.xlsx");  //Import .xlsx or .xls file          
+    wb.SaveAsCsv("NewCsvFile.csv"); //Export as .csv file
 }
 ```
-
-The resulting `.csv` files are created for each worksheet within the Excel file. If `sample.xlsx` includes only one worksheet, a single `.csv` file will be generated.
-
-<hr class="separator">
-
-## 6. Exporting to .XML File
- 
-Exporting Excel data to `.xml` format follows a similar approach, where multiple XML files may result from a single workbook containing multiple sheets.
-
-```cs
-using IronXL;
-
-static void Main(string[] args) {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    wb.SaveAsCsv("NewXmlFile.xml");
-}
-```
-
-<hr class="separator">
-
-## 7. Exporting to .JSON File
- 
-Finally, converting Excel data to JSON format is made easy with IronXL. Just as with previous formats, this may result in multiple JSON files if the original workbook contains multiple sheets.
-
-```cs
-using IronXL;
-
-static void Main(string[] args) {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    wb.SaveAsJson("NewjsonFile.json");
-}
-```
-
-<hr class="separator">
-
-<h4 class="tutorial-segment-title">Quick Access to Tutorial Resources</h4>
-
-<div class="tutorial-section">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="tutorial-image">
-        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg">
-      </div>
-    </div>
-    <div class="col-sm-8">
-      <h3>API Reference</h3>
-      <p>Explore comprehensive IronXL Documentation, including all namespaces, methods, properties, classes, and enums.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Read API Reference<i class="fa fa-chevron-right"></i></a>
-    </div>
-  </div>
-</div>

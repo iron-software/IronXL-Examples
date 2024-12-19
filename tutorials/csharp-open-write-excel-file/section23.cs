@@ -1,19 +1,19 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section23
+    public static class Section23
     {
-        public void Run()
+        public static void Run()
         {
-            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
+            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
             int i = 1;
-            foreach (var cell in workSheet["B1:B4"])
+            foreach (var cell in workSheet["f1:f4"])
             {
-                cell.Formula = "=IF(A" + i + ">=20,\" Pass\" ,\" Fail\" )";
+                cell.Formula = "=trim(D" + i + ")";
                 i++;
             }
-            workBook.SaveAs($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
+            workBook.SaveAs("editedFile.xlsx");
         }
     }
 }

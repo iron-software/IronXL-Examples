@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.SelectRange
+namespace IronXL.Examples.HowTo.SelectRange
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("sample.xls");
             WorkSheet workSheet = workBook.WorkSheets.First();

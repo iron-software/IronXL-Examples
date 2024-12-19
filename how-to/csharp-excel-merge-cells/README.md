@@ -1,124 +1,99 @@
-# How to Merge and Unmerge Cells
+# How to Combine and Separate Cells in Spreadsheets
 
 ***Based on <https://ironsoftware.com/how-to/csharp-excel-merge-cells/>***
 
 
-Merging cells involves combining adjacent cells into a single cell that's larger, while unmerging involves splitting a previously merged area into the original separate cells. This functionality enhances alignment, promotes consistency, and facilitates easier data analysis.
+Combining cells, more commonly known as cell merging, refers to the technique of fusing two or more neighboring cells into a single larger cell. Conversely, separating cells or unmerging refers to splitting a previously merged cell back into its original, individual cells. These functionalities enhance flexibility, ensure alignment uniformity, and aid in more effective data management.
 
-IronXL provides the ability to both merge and unmerge cells within a spreadsheet through programming.
+IronXL supports the programmatic merging and unmerging of cells in spreadsheets.
+
+***
+
+***
+
+<h3>Getting Started with IronXL</h3>
+
+----------------------------------
 
 ## Example of Merging Cells
 
-To merge a cluster of cells, we utilize the `Merge` method. This function consolidates the designated cells, preserving their original content, though only the upper-left cell's content will be visible post-merging. All original cell values are still retained and can be accessed in IronXL.
+The `Merge` function allows for the combination of a cell range. This action amalgamates the cells while preserving all existing content, although only the contents of the first cell in the merged area will be visible. Nevertheless, the information from all cells in the merged area remains accessible in IronXL.
 
-It's important to note that merging cells within certain ranges might lead to file conflicts that require using Excel repair to open the compromised file.
+It's noteworthy that merging cells within certain ranges might introduce conflicts in the Excel document, potentially necessitating the use of an Excel repair tool to access the spreadsheet normally.
 
-Below is an example illustrating how to merge cells by specifying their range:
+The following code snippet demonstrates how to merge a specified range of cells:
 
 ```cs
 using IronXL;
-using IronXL.Excel;
 
-namespace ironxl.CsharpExcelMergeCells
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Load an existing workbook
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            // Obtain the default worksheet
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            var range = workSheet["B2:B5"];
-            
-            // Merge cells from B7 to E7
-            workSheet.Merge("B7:E7");
-            
-            // Merge another selected range
-            workSheet.Merge(range.RangeAddressAsString);
-            
-            // Save the changes to a new file
-            workBook.SaveAs("mergedCell.xlsx");
-        }
-    }
-}
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+var range = workSheet["B2:B5"];
+
+// Merging cells from B7 to E7
+workSheet.Merge("B7:E7");
+
+// Merging the selected range
+workSheet.Merge(range.RangeAddressAsString);
+
+workBook.SaveAs("mergedCell.xlsx");
 ```
 
-### Illustration
+### Visualization Example
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
          <img src="https://ironsoftware.com/static-assets/excel/how-to/merge-cells/merge-cells-merge.png" alt="Merge Cells Demonstration" class="img-responsive add-shadow">
     </div>
 </div>
 
-## How to Retrieve Merged Regions
+## Example of Retrieving Merged Regions
 
-Obtaining merged regions is essential to uncover which cell values appear in applications like Microsoft Excel. The `GetMergedRegions` method enables you to gather a list of these regions.
-
-```cs
-using System;
-using IronXL.Excel;
-
-namespace ironxl.CsharpExcelMergeCells
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Create a new workbook
-            WorkBook workBook = WorkBook.Create();
-            // Obtain the default worksheet
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Execute merges on specific ranges
-            workSheet.Merge("B4:C4");
-            workSheet.Merge("A1:A4");
-            workSheet.Merge("A6:D9");
-            
-            // Fetch all merged regions
-            List<IronXL.Range> retrieveMergedRegions = workSheet.GetMergedRegions();
-            
-            // Output addresses of all merged regions
-            foreach (IronXL.Range mergedRegion in retrieveMergedRegions)
-            {
-                Console.WriteLine(mergedRegion.RangeAddressAsString);
-            }
-        }
-    }
-}
-```
-
-## How to Unmerge Cells
-
-Unmerging can be accomplished using either directly specified cell ranges or by using an index of previously merged regions.
+The ability to identify merged regions is especially useful in applications such as Microsoft Excel for interpreting the layout and data flow. The `GetMergedRegions` method facilitates the retrieval of these regions.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
+using System.Collections.Generic;
+using System;
 
-namespace ironxl.CsharpExcelMergeCells
+WorkBook workBook = WorkBook.Create();
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Implementing merges
+workSheet.Merge("B4:C4");
+workSheet.Merge("A1:A4");
+workSheet.Merge("A6:D9");
+
+// Gathering merged regions
+List<IronXL.Range> retrieveMergedRegions = workSheet.GetMergedRegions();
+
+foreach (IronXL.Range mergedRegion in retrieveMergedRegions)
 {
-    public class Section3
-    {
-        public void Run()
-        {
-            // Load a workbook containing merged cells
-            WorkBook workBook = WorkBook.Load("mergedCell.xlsx");
-            // Access the default worksheet
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Unmerge a specific region by specifying its range
-            workSheet.Unmerge("B7:E7");
-            
-            // Save the unmerged workbook
-            workBook.SaveAs("unmergedCell.xlsx");
-        }
-    }
+    Console.WriteLine(mergedRegion.RangeAddressAsString);
 }
 ```
 
-### Illustration
+## Example of Unmerging Cells
+
+To reverse the merge, you can either specify the precise cell addresses to be separated, such as *"B3:B6"*, or utilize the index of the merged region which can be identified via a list acquired previously.
+
+The cell addresses must match exactly to the original merged region for successful separation.
+
+The separation of partial merged regions is not supported.
+
+```cs
+using IronXL;
+
+WorkBook workBook = WorkBook.Load("mergedCell.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Separating the merged region from B7 to E7
+workSheet.Unmerge("B7:E7");
+
+workBook.SaveAs("unmergedCell.xlsx");
+```
+
+### Visualization Example
 <div class="content-img-align-center">
     <div class="center-image-wrapper">
          <img src="https://ironsoftware.com/static-assets/excel/how-to/merge-cells/merge-cells-unmerge.png" alt="Unmerge Cells Demonstration" class="img-responsive add-shadow">

@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.Hyperlinks
+namespace IronXL.Examples.HowTo.Hyperlinks
 {
-    public class Section3
+    public static class Section3
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
             WorkSheet workSheet = workBook.DefaultWorkSheet;

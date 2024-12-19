@@ -1,188 +1,135 @@
-# Excel Spreadsheet Handling in C# and VB.NET Applications
+# Working with Excel Files in C# & VB.NET Applications
 
 ***Based on <https://ironsoftware.com/docs/docs/>***
 
 
-Effortlessly manipulate Excel (XLS, XLSX, and CSV) files in C# and various other .NET languages using the robust IronXL software library from Iron Software.
+Manipulating Excel files such as XLS, XLSX, and CSV is straightforward in C# and other .NET languages with the help of the IronXL library from Iron Software.
 
-IronXL is designed to function seamlessly without the necessity of having Excel installed on your machine, eliminating the need for Microsoft Office Interop. Its API is more agile and user-friendly compared to **Microsoft.Office.Interop.Excel**.
+IronXL eliminates the need for having Excel installed on your server or using Interop. It offers an API that is both more efficient and more user-friendly than **Microsoft.Office.Interop.Excel**.
 
-IronXL is compatible with the following environments:
+IronXL is compatible with a range of platforms:
 
-* .NET Framework 4.6.2 or newer, supporting Windows and Azure deployments.
-* .NET Core 2 or higher, accommodating Windows, Linux, MacOS, and Azure.
-* .NET 5, .NET 6, .NET 7, and .NET 8 as well as Mono, Mobile, and Xamarin platforms.
+* .NET Framework 4.6.2 and newer on Windows and Azure
+* .NET Core 2 and newer on Windows, Linux, MacOS, and Azure
+* .NET 5, .NET 6, .NET 7, .NET 8, Mono, Mobile, and Xamarin
 
-## Setting up IronXL
 
-To begin with IronXL, you can either utilize our NuGet package or by [downloading the DLL directly from our site](https://ironsoftware.com/csharp/excel/packages/IronXL.zip).
+## Setting Up IronXL
 
-The easiest method to install IronXL is by using the NuGet Package Manager integrated in Visual Studio:
-The required package to search for is **IronXL.Excel**.
+To begin using IronXL, you can either install it via NuGet package or by [downloading the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip). The `IronXL` namespace encompasses all necessary classes.
+
+The simplest method to integrate IronXL is through the NuGet Package Manager in Visual Studio:
+The required package name is **IronXL.Excel**.
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-[Visit our NuGet page for more details](https://www.nuget.org/packages/ironxl.excel/)
+[NuGet Package Link](https://www.nuget.org/packages/ironxl.excel/)
 
-## How to Read an Excel File
 
-Utilizing IronXL to extract data from an Excel document is straightforward.
+## How to Read an Excel Document
 
-```cs
-using IronXL;
-using IronXL.Excel;
-namespace ironxl.Quickstart
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Reading spreadsheet formats such as XLSX, XLS, CSV, and TSV
-            WorkBook workBook = WorkBook.Load("data.xlsx");
-            WorkSheet workSheet = workBook.WorkSheets.First();
-
-            // Access cells using Excel notation and retrieve values, dates, texts, or formulas.
-            int cellValue = workSheet["A2"].IntValue;
-
-            // Elegant handling of cell ranges.
-            foreach (var cell in workSheet["A2:B10"])
-            {
-                Console.WriteLine("Cell {0} has value '{1}'", cell.AddressString, cell.Text);
-            }
-        }
-    }
-}
-```
-
-## Creating New Excel Documents
-
-IronXL offers a straightforward approach to create new Excel files in C# or VB.NET.
+Fetching data from an Excel file is simple with IronXL and only takes a few lines of code:
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.Quickstart
+
+// Formats supported: XLSX, XLS, CSV, and TSV
+WorkBook workBook = WorkBook.Load("data.xlsx");
+WorkSheet workSheet = workBook.WorkSheets.First();
+
+// Access cells using Excel references to retrieve values, dates, texts, or formulas
+int cellValue = workSheet["A2"].IntValue;
+
+// Iterate through a range of cells
+foreach (var cell in workSheet["A2:B10"])
 {
-    public class Section2
-    {
-        public void Run()
-        {
-            // Initialize a new Excel WorkBook.
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-            workBook.Metadata.Author = "IronXL";
-
-            // Create a new sheet.
-            WorkSheet workSheet = workBook.CreateWorkSheet("main_sheet");
-
-            // Insert data and style elements into cells
-            workSheet["A1"].Value = "Hello World";
-            workSheet["A2"].Style.BottomBorder.SetColor("#ff6600");
-            workSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Double;
-
-            // Save the document to a file
-            workBook.SaveAs("NewExcelFile.xlsx");
-        }
-    }
+    Console.WriteLine("Cell {0} has value '{1}'", cell.AddressString, cell.Text);
 }
 ```
 
-## File Export Options
+## Creating Excel Documents
 
-IronXL supports exporting to numerous popular file formats.
+IronXL also allows for easy creation of new Excel documents in C# or VB.NET:
 
 ```cs
-using IronXL.Excel;
-namespace ironxl.Quickstart
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Fluent file saving across multiple formats
-            workSheet.SaveAs("NewExcelFile.xls");
-            workSheet.SaveAs("NewExcelFile.xlsx");
-            workSheet.SaveAsCsv("NewExcelFile.csv");
-            workSheet.SaveAsJson("NewExcelFile.json");
-            workSheet.SaveAsXml("NewExcelFile.xml");
-        }
-    }
-}
+using IronXL;
+
+// Generate a new Excel WorkBook.
+WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
+workBook.Metadata.Author = "IronXL";
+
+// Add a new WorkSheet.
+WorkSheet workSheet = workBook.CreateWorkSheet("main_sheet");
+
+// Insert data and apply styles.
+workSheet["A1"].Value = "Hello World";
+workSheet["A2"].Style.BottomBorder.SetColor("#ff6600");
+workSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Double;
+
+// Save your Excel document.
+workBook.SaveAs("NewExcelFile.xlsx");
+```
+
+## Exporting to Various Formats
+
+Files can be saved or exported to popular spreadsheet formats with ease:
+
+```cs
+// Fluent saving to multiple formats
+workSheet.SaveAs("NewExcelFile.xls");
+workSheet.SaveAs("NewExcelFile.xlsx");
+workSheet.SaveAsCsv("NewExcelFile.csv");
+workSheet.SaveAsJson("NewExcelFile.json");
+workSheet.SaveAsXml("NewExcelFile.xml");
 ```
 
 ## Styling Cells and Ranges
 
-Customize the style of Excel cells and ranges using IronXL.
+Styling of Excel cells and ranges is handled through the `IronXL.Range.Style` object:
 
 ```cs
-using IronXL.Excel;
-namespace ironxl.Quickstart
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            // Customize cell values and styles
-            workSheet["A1"].Value = "Hello World";
-            workSheet["A2"].Style.BottomBorder.SetColor("#ff6600");
-            workSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Double;
-        }
-    }
-}
+// Define cell value and apply styles.
+workSheet["A1"].Value = "Hello World";
+workSheet["A2"].Style.BottomBorder.SetColor("#ff6600");
+workSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Double;
 ```
 
-## Sorting Cell Ranges
+## Sorting Data in Excel
 
-IronXL allows for the easy sorting of Excel cell ranges.
+Sorting is straightforward in IronXL, allowing range sorting via the `Range` class:
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.Quickstart
-{
-    public class Section5
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("test.xls");
-            WorkSheet workSheet = workBook.WorkSheets.First();
 
-            // Retrieve and sort a range in the worksheet
-            Range range = workSheet["A2:A8"];
+WorkBook workBook = WorkBook.Load("test.xls");
+WorkSheet workSheet = workBook.WorkSheets.First();
 
-            range.SortAscending();
-            workBook.Save();
-        }
-    }
-}
+// Obtain a range.
+Range range = workSheet["A2:A8"];
+
+// Sort the range in ascending order.
+range.SortAscending();
+workBook.Save();
 ```
 
-## Editing Cell Formulas
+## Modifying Formulas
 
-Adjusting Excel formulas is straightforward with IronXL, with real-time calculation.
+Setting and editing an Excel formula is as straightforward as adding an `=` sign at the beginning:
 
 ```cs
-using IronXL.Excel;
-namespace ironxl.Quickstart
-{
-    public class Section6
-    {
-        public void Run()
-        {
-            // Assign and calculate a formula
-            workSheet["A1"].Value = "=SUM(A2:A10)";
-            
-            decimal sum = workSheet["A1"].DecimalValue;
-        }
-    }
-}
+// Assign a formula
+workSheet["A1"].Value = "=SUM(A2:A10)";
+
+// Retrieve the computed value
+decimal sum = workSheet["A1"].DecimalValue;
 ```
 
-## Why Favor IronXL?
+## Why Opt for IronXL?
 
-IronXL provides an accessible and efficient API for .NET developers to handle Excel documents, bypassing the need for direct Excel software installations or Microsoft Excel Interop.
+IronXL offers a developer-friendly API for handling Excel documents in .NET environments efficiently and without the need for Excel Interop installations.
 
-## Advancing with IronXL
+## Further Steps
 
-To discover more about IronXL, delve into the [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/) styled like MSDN for comprehensive insights and deeper understanding.
+To delve deeper into IronXL, review our comprehensive [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/) styled like MSDN documentation.

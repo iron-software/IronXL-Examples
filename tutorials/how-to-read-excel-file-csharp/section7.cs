@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.HowToReadExcelFileCsharp
+namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp
 {
-    public class Section7
+    public static class Section7
     {
-        public void Run()
+        public static void Run()
         {
             IronXL.Cell cell = workSheet["B1"].First();
             string value = cell.StringValue;   // Read the value of the cell as a string

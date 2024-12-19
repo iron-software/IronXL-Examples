@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.AddRowsColumns
+namespace IronXL.Examples.HowTo.AddRowsColumns
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Load existing spreadsheet
             WorkBook workBook = WorkBook.Load("sample.xlsx");

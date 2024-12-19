@@ -1,10 +1,10 @@
 using System.Data;
 using IronXL.Excel;
-namespace ironxl.ExportDatasetDatatable
+namespace IronXL.Examples.HowTo.ExportDatasetDatatable
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Create new Excel WorkBook document
             WorkBook workBook = WorkBook.Create();

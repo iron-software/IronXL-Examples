@@ -1,5 +1,5 @@
 ***Based on <https://ironsoftware.com/examples/excel-sql-datatable/>***
 
-Transform various spreadsheet formats such as XLSX, XLS, XLSM, XLTX, CSV, and TSV into a `System.Data.DataTable`. This conversion facilitates seamless integration with `System.Data.SQL` or enhances the ability to fill a `DataGrid`.
+Convert Excel and CSV file formats like XLSX, XLS, XLSM, XLTX, CSV, and TSV into a `System.Data.DataTable`. This conversion facilitates seamless interaction with `System.Data.SQL` or allows for easy filling of a `DataGrid`.
 
-Set the first row as the header by passing `true` to the `ToDataTable` method, effectively using the first row's values as column names within the `DataTable`. This `DataTable` can then be used to populate a `DataGrid`.
+When using the `ToDataTable()` method, pass `true` to designate the first row as the header, which sets the column names in the `DataTable`. This structured data can then be used to populate a `DataGrid` effectively.

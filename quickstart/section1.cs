@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.Quickstart
+namespace IronXL.Examples.Overview.Quickstart
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Supported spreadsheet formats for reading include: XLSX, XLS, CSV and TSV
             WorkBook workBook = WorkBook.Load("data.xlsx");

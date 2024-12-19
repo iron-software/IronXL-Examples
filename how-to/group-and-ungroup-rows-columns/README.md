@@ -1,144 +1,104 @@
-# How to Group and Ungroup Rows & Columns in Excel
+# Row and Column Grouping in Excel with IronXL
 
 ***Based on <https://ironsoftware.com/how-to/group-and-ungroup-rows-columns/>***
 
 
-## Introduction
+## Overview
 
-The grouping feature in Excel allows for better organization of data by enabling users to create collapsible sections across rows or columns. This functionality is particularly useful for managing and analyzing extensive datasets. On the flip side, the ungrouping feature reverses these groups to their initial layout, facilitating straightforward data manipulation and detailed inspection of particular areas of the spreadsheet.
+In Excel, data management is enhanced through the use of grouping features, which allow users to create collapsible sections within rows or columns, making large datasets easier to handle and analyze. Ungrouping, on the other hand, reverses these settings to display the spreadsheet in its full detail once more. These functionalities are essential for making large amounts of data more manageable for detailed review.
 
-IronXL supports the ability to programmatically group and ungroup rows and columns in C# .NET environments, eliminating the need for Interop.
+Utilizing IronXL, developers can implement such grouping and ungrouping features programmatically in C# .NET applications, all without depending on Office Interop.
 
-## Group & Ungroup Rows Example
 
-Remember that all indexes specified are zero-based.
+<h3>Getting Started with IronXL</h3>
+----------------------------------
 
-Grouping and ungrouping operations are limited to cells that are not empty.
+## Example of Grouping and Ungrouping Rows
 
-### Group Rows
+Keep in mind that the indices used here are zero-based.
 
-To create row groups, use the `GroupRows` method, specifying the start and end index positions. You can execute multiple groupings on the same or different rows by repeating this method.
+### Grouping Rows
 
-```cs
-using IronXL;
-using IronXL.Excel;
-namespace ironxl.GroupAndUngroupRowsColumns
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Load the existing spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Group rows from index 0 to 7 (equivalent to Excel rows 1-8)
-            workSheet.GroupRows(0, 7);
-            
-            // Save the new spreadsheet
-            workBook.SaveAs("groupRow.xlsx");
-        }
-    }
-}
-```
-
-#### Output
-
-![Group Rows](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-row.png)
-
-### Ungroup Rows
-
-To ungroup previously grouped rows, use the `UngroupRows` method. This method provides the flexibility to segment a group of rows into smaller subgroups, although these won't be recognized as separate groupings. For instance, ungrouping rows 3 to 5 from a group consisting of rows 1 to 9 results in two ungrouped sections: rows 1-2 and 6-9.
+To create row groups in spreadsheets, the `WorkSheet.GroupRows` method is employed, which requires the start and end indices as parameters. It’s possible to execute multiple calls to this method on different or the same rows for additional groupings.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.GroupAndUngroupRowsColumns
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Load the existing spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Ungroup rows 3 to 5
-            workSheet.UngroupRows(2, 4);
-            
-            // Save the spreadsheet after ungrouping
-            workBook.SaveAs("ungroupRow.xlsx");
-        }
-    }
-}
+
+// Initialize and load a workbook
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Group rows from the first to the eighth
+worksheet.GroupRows(0, 7);
+
+workbook.SaveAs("groupedRows.xlsx");
 ```
 
-#### Output
+#### Grouped Rows Visual
 
-![Before Ungrouping Rows](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-row.png)
-![After Ungrouping Rows](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-ungroup-row.png)
+![View of Grouped Rows](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-row.png "Group Rows Example")
 
-## Group & Ungroup Columns Example
+### Ungrouping Rows
 
-### Group Columns
-
-Grouping columns operates similarly to rows. Utilize the `GroupColumns` method by specifying index numbers or alphabetical identifiers for columns. You can create multiple column groups by calling this method repeatedly.
+The `WorkSheet.UngroupRows` method serves to split grouped rows, essentially 'cutting' through them to segment the group effectively. It’s worth noting that despite the division, the newly separated areas will not be considered as new groups. For example, cutting through rows 3-5 that belong to a group from rows 0-8 will produce two groups: 0-2 and 6-8.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.GroupAndUngroupRowsColumns
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Load the existing spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Group columns from A to F
-            workSheet.GroupColumns(0, 5);
-            
-            // Save the spreadsheet with grouped columns
-            workBook.SaveAs("groupColumn.xlsx");
-        }
-    }
-}
+
+// Initialize and load a workbook
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Ungroup rows 3 through 5
+worksheet.UngroupRows(2, 4);
+
+workbook.SaveAs("ungroupedRows.xlsx");
 ```
 
-#### Output
+#### Ungrouped Rows Visual
 
-![Group Columns](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-column.png)
+![Before and After Ungrouping Rows](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-ungroup-row.png "Ungroup Rows Example")
 
-### Ungroup Columns
+## Example of Grouping and Ungrouping Columns
 
-To ungroup columns, you can use `UngroupColumn` for individual column identifiers or `UngroupColumns` for column indexes. This process effectively splits a group into two. For example, ungrouping columns C to D from a group of A to F results in columns A-B and E-F left as separate groups.
+### Grouping Columns
+
+Columns can be grouped similarly to rows using the `WorkSheet.GroupColumns` method. Specifying either the start and end indices or the alphabetical column identifiers can indicate the range to group.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.GroupAndUngroupRowsColumns
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            // Load the existing spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Ungroup columns between C and D
-            workSheet.UngroupColumn("C", "D");
-            
-            // Save the modified spreadsheet
-            workBook.SaveAs("ungroupColumn.xlsx");
-        }
-    }
-}
+
+// Load the workbook
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Group columns from A to F
+worksheet.GroupColumns(0, 5);
+
+workbook.SaveAs("groupedColumns.xlsx");
 ```
 
-#### Output
+#### Grouped Columns Visual
 
-![Before Ungrouping Columns](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-column.png)
-![After Ungrouping Columns](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-ungroup-column.png)
+![Grouped Columns Example](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-group-column.png "Visual Representation of Grouped Columns")
+
+### Ungrouping Columns
+
+To ungroup columns that have been grouped, utilize either the `WorkSheet.UngroupColumn` method for specific columns by their alphabetical identifiers or `WorkSheet.UngroupColumns` by indices. This function splits the group, resulting in two separate sections.
+
+```cs
+using IronXL;
+
+// Initialize and load the workbook
+WorkBook workbook = WorkBook.Load("sample.xlsx");
+WorkSheet worksheet = workbook.DefaultWorkSheet;
+
+// Ungroup columns C to D
+worksheet.UngroupColumn("C", "D");
+
+workbook.SaveAs("ungroupedColumns.xlsx");
+```
+
+#### Ungrouped Columns Visual
+
+![Before and After Ungrouping Columns](https://ironsoftware.com/static-assets/excel/how-to/group-and-ungroup-rows-columns/group-and-ungroup-rows-columns-ungroup-column.png "Ungroup Columns Example")

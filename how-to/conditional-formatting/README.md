@@ -1,47 +1,40 @@
-# Using Conditional Formatting with IronXL
+# Implementing Conditional Formatting with Cells
 
 ***Based on <https://ironsoftware.com/how-to/conditional-formatting/>***
 
 
-Conditional formatting is a powerful tool in spreadsheet and data processing software. It allows users to apply specific styles or parameters to cells based on predefined conditions, enhancing the visibility and comprehension of data in tables or spreadsheets.
+Conditional Formatting is an invaluable tool for spreadsheet and data management applications, facilitating the visual differentiation of data based on specific conditions or criteria. This functionality is crucial for highlighting significant data points within a spreadsheet or table, allowing for a streamlined data analysis and interpretation process.
 
-With IronXL, it's effortless to add, retrieve, and remove conditional formatting. Users can tweak styles such as [font and size](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [borders and alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/) directly through simple methods.
+IronXL enhances this experience by offering straightforward methods to add, retrieve, and erase conditional formatting. This includes customization capabilities like [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [borders and alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/).
 
-## Example of Adding Conditional Formatting
+### Getting Started with IronXL
 
-Conditional formatting in IronXL involves creating rules and applying styles when data fulfills these rules. For instance, adjustments to [font and size](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [borders and settings for alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and even [background colors and patterns](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/) can be defined easily.
+---
 
-Here's how you can create a conditional formatting rule:
+## Example: Adding Conditional Formatting
+
+Conditional formatting in IronXL involves creating rules and applying specific styles when cells meet these rules. Styles may encompass [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [border and alignment settings](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/).
+
+To set up a rule, harness the `CreateConditionalFormattingRule` method from the `ConditionalFormatting` object. Assigning the resulting object to a variable allows you to impose the desired styling. To implement the styling, use the `AddConditionalFormatting` method and specify both the rule and the affected cell range.
 
 ```cs
+using IronXL;
 using IronXL.Formatting.Enums;
-using IronXL.Excel;
-namespace ironxl.ConditionalFormatting
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Creating a conditional formatting rule for values less than 8
-            var rule = workSheet.ConditionalFormatting.CreateConditionalFormattingRule(ComparisonOperator.LessThan, "8");
-            
-            // Setting the background color style for the rule
-            rule.PatternFormatting.BackgroundColor = "#54BDD9";
-            
-            // Applying the rule to a range of cells
-            workSheet.ConditionalFormatting.AddConditionalFormatting("A1:A10", rule);
-            
-            // Save the workbook with changes
-            workBook.SaveAs("addConditionalFormatting.xlsx");
-        }
-    }
-}
-```
 
-Below are the visual changes before and after applying the formatting:
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Define a conditional formatting rule
+var rule = workSheet.ConditionalFormatting.CreateConditionalFormattingRule(ComparisonOperator.LessThan, "8");
+
+// Configure style settings
+rule.PatternFormatting.BackgroundColor = "#54BDD9";
+
+// Implement the conditional formatting rule
+workSheet.ConditionalFormatting.AddConditionalFormatting("A1:A10", rule);
+
+workBook.SaveAs("addConditionalFormatting.xlsx");
+```
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 49%;">
@@ -54,48 +47,38 @@ Below are the visual changes before and after applying the formatting:
     </div>
 </div>
 
-List of available rules includes:
-- NoComparison: Default
-- Between
-- NotBetween
-- Equal
-- NotEqual
-- GreaterThan
-- LessThan
-- GreaterThanOrEqual
-- LessThanOrEqual
+Here are the types of available conditional formatting rules:
+- **NoComparison**: Default rule.
+- **Between**: Checks if values lie within a specific range.
+- **NotBetween**: Ensures values do not lie within a specified range.
+- **Equal**: Tests for equality.
+- **NotEqual**: Checks for non-equality.
+- **GreaterThan**: Evaluates if greater than a value.
+- **LessThan**: Checks if less than a value.
+- **GreaterThanOrEqual**: Determines if values are greater than or equal to a certain number.
+- **LessThanOrEqual**: Assesses if values are less than or equal to a specified number.
 
-## Retrieving Conditional Formatting
+<hr>
 
-To access and modify an existing conditional formatting, you can retrieve it using the `GetConditionalFormattingAt` method. Adjust properties like **BackgroundColor** through the **PatternFormatting** attribute.
+## Example: Retrieving Conditional Formatting
+
+To access an applied conditional formatting rule, utilize the `GetConditionalFormattingAt` method. This method might return a set of rules, from which the `GetRule` method can be used to select an individual rule. Although many attributes of a returned rule are immutable, the **BackgroundColor** can be altered via the **PatternFormatting** property.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ConditionalFormatting
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("addConditionalFormatting.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Accessing the first conditional formatting rule
-            var ruleCollection = workSheet.ConditionalFormatting.GetConditionalFormattingAt(0);
-            var rule = ruleCollection.GetRule(0);
-            
-            // Modifying the background color
-            rule.PatternFormatting.BackgroundColor = "#B6CFB6";
-            
-            // Saving the workbook
-            workBook.SaveAs("editedConditionalFormatting.xlsx");
-        }
-    }
-}
-```
 
-The process allows a before (unaltered state) and after (modified state) view as demonstrated:
+WorkBook workBook = WorkBook.Load("addConditionalFormatting.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Access the first conditional formatting collection and retrieve its first rule
+var ruleCollection = workSheet.ConditionalFormatting.GetConditionalFormattingAt(0);
+var rule = ruleCollection.GetRule(0);
+
+// Modify the styling
+rule.PatternFormatting.BackgroundColor = "#B6CFB6";
+
+workBook.SaveAs("editedConditionalFormatting.xlsx");
+```
 
 <div class="competitors-section__wrapper-even-1">
     <div class="competitors__card" style="width: 49%;">
@@ -108,28 +91,20 @@ The process allows a before (unaltered state) and after (modified state) view as
     </div>
 </div>
 
-## Removing Conditional Formatting
+<hr>
 
-If you need to remove conditional formatting from a spreadsheet, use the `RemoveConditionalFormatting` method by specifying the rule index.
+## Example: Removing Conditional Formatting
+
+To erase a particular conditional formatting rule, employ the `RemoveConditionalFormatting` method, which requires the index of the rule to be removed.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ConditionalFormatting
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("addConditionalFormatting.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Removing the first conditional formatting rule
-            workSheet.ConditionalFormatting.RemoveConditionalFormatting(0);
-            
-            // Saving the changes
-            workBook.SaveAs("removedConditionalFormatting.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("addConditionalFormatting.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Erase the first conditional formatting rule
+workSheet.ConditionalFormatting.RemoveConditionalFormatting(0);
+
+workBook.SaveAs("removedConditionalFormatting.xlsx");
 ```

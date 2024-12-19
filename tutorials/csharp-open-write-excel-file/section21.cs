@@ -1,14 +1,19 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section21
+    public static class Section21
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
-            decimal min = workSheet["A1:A4"].Min();
-            Console.WriteLine(min);
+            int i = 1;
+            foreach (var cell in workSheet["B1:B4"])
+            {
+                cell.Formula = "=IF(A" + i + ">=20,\" Pass\" ,\" Fail\" )";
+                i++;
+            }
+            workBook.SaveAs($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
         }
     }
 }

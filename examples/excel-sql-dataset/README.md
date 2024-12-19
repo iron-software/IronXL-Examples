@@ -1,3 +1,3 @@
 ***Based on <https://ironsoftware.com/examples/excel-sql-dataset/>***
 
-Transform multiple file formats such as XLSX, XLS, XLSM, XLTX, CSV, and TSV into a `System.Data.DataTable`. This conversion supports seamless interoperability with `System.Data.SQL` or can be utilized to fill a **DataGrid**. The resulting `DataTable` may include multiple tables, relationships, and constraints for comprehensive file handling.
+Transform any file with formats like `XLSX`, `XLS`, `XLSM`, `XLTX`, `CSV`, and `TSV` into a `System.Data.DataTable`. This conversion facilitates full integration with `System.Data.SQL` and allows for the seamless population of a **DataGrid**. The `DataTable` created can include a collection of tables, their relationships, and constraints.

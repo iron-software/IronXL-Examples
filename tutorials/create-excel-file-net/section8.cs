@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.CreateExcelFileNet
+namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
             workSheet["A1:L1"].Style.TopBorder.SetColor("#000000");
             workSheet["A1:L1"].Style.BottomBorder.SetColor("#000000");

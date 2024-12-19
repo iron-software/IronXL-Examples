@@ -1,10 +1,10 @@
 using IronXL.Drawing.Charts;
 using IronXL.Excel;
-namespace ironxl.CsharpExcelChartCreateEditTutorial
+namespace IronXL.Examples.HowTo.CsharpExcelChartCreateEditTutorial
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("chart.xlsx");
             WorkSheet workSheet = workBook.DefaultWorkSheet;

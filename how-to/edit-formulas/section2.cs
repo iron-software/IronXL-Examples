@@ -1,10 +1,10 @@
 using System.Linq;
 using IronXL.Excel;
-namespace ironxl.EditFormulas
+namespace IronXL.Examples.HowTo.EditFormulas
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             // Load workbook
             WorkBook workBook = WorkBook.Load("Book1.xlsx");

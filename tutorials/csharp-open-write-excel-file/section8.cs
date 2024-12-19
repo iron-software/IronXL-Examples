@@ -1,15 +1,15 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section8
+    public static class Section8
     {
-        public void Run()
+        public static void Run()
         {
-            public class CountryModel
-                {
-                    public string name { get; set; }
-                    public string code { get; set; }
-                }
+            StreamReader jsonFile = new StreamReader($@"{Directory.GetCurrentDirectory()}\Files\CountriesList.json");
+            var countryList = Newtonsoft.Json.JsonConvert.DeserializeObject<CountryModel[]>(jsonFile.ReadToEnd());
+            var xmldataset = countryList.ToDataSet();
+            WorkBook workBook = IronXL.WorkBook.Load(xmldataset);
+            WorkSheet workSheet = workBook.WorkSheets.First();
         }
     }
 }

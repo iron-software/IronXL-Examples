@@ -1,41 +1,32 @@
-# How to Add New Rows and Columns
+# How to Add or Remove Rows and Columns Using IronXL
 
 ***Based on <https://ironsoftware.com/how-to/add-rows-columns/>***
 
 
-The IronXL library simplifies the addition of rows and columns in C# without the need for Office Interop.
+IronXL simplifies the process of adding or removing rows and columns in C# without relying on Office Interop. Here's how you can manage your spreadsheet data more efficiently.
 
+### Getting Started with IronXL
 
-## Example on How to Add a New Row
+---
 
-To add new rows to a spreadsheet, utilize the `InsertRow` and `InsertRows` methods. These functions allow you to specify the exact position for new rows.
+## Example: Adding New Rows
 
-However, be cautious when inserting rows at the filter row position as this can lead to conflicts, potentially requiring Excel repair operations for proper file handling.
+To add new rows to your Excel spreadsheet, utilize the `InsertRow` and `InsertRows` methods. These allow you to specify the precise location for the new rows. Note that adding rows directly on a filtered row may disrupt the file, making an Excel repair necessary to view the data again.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AddRowsColumns
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Opening an existing spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Inserting a single row at index 1
-            workSheet.InsertRow(1);
-            
-            // Adding three rows starting from index 3
-            workSheet.InsertRows(3, 3);
-            
-            // Save the updates to a new file
-            workBook.SaveAs("addRow.xlsx");
-        }
-    }
-}
+
+// Open an existing spreadsheet
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Add a single row before the second row
+workSheet.InsertRow(1);
+
+// Add three rows starting after the third row
+workSheet.InsertRows(3, 3);
+
+workBook.SaveAs("updatedRows.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -45,74 +36,48 @@ namespace ironxl.AddRowsColumns
 </div>
 <hr>
 
-## Example on How to Remove a Row
+## Remove a Row Example
 
-To delete a row, make use of the `GetRow` method to select it and `RemoveRow` to delete it from your sheet.
-
-Note that it's not possible to delete the spreadsheet's header row.
+To delete a row from the spreadsheet, use the `GetRow` method to locate it, then apply the `RemoveRow` method to it. Be aware that removing the header row is not an option.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AddRowsColumns
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Load the spreadsheet
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Target and remove the fifth row
-            workSheet.GetRow(4).RemoveRow();
-            
-            // Saving the file after changes
-            workBook.SaveAs("removeRow.xlsx");
-        }
-    }
-}
+
+// Open an existing spreadsheet
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Delete the fifth row
+workSheet.GetRow(4).RemoveRow();
+
+workBook.SaveAs("removedRow.xlsx");
 ```
 
 <div  class="content-img-align-center">
     <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-remove-row.png" alt="Add New Row" class="img-responsive add-shadow">
+         <img src="https://ironsoftware.com/static-assets/excel/how-to/add-rows-columns/add-rows-columns-remove-row.png" alt="Remove Row" class="img-responsive add-shadow">
     </div>
 </div>
 <hr>
 
-## How to Insert a New Column Example
+## Example: Inserting New Columns
 
-You can add new columns to your spreadsheet by employing the `InsertColumn` and `InsertColumns` methods, targeting specific index positions.
-
-Be mindful that inserting columns within the range of the table might cause file conflicts, potentially requiring Excel repair to correct.
-
-For managing space efficiency, use the [`Trim()`](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/) technique to eliminate extraneous rows and columns along the boundaries of the range. Current operations do not allow for the removal of columns, and adding a column to an empty sheet might result in a `System.InvalidOperationException`.
+Add new column(s) to specific locations within your sheet using the `InsertColumn` and `InsertColumns` methods. Bear in mind, inserting columns within certain ranges might lead to conflicts, requiring an Excel file repair for proper functionality.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.AddRowsColumns
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            // Open the spreadsheet file
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Adding a column at the beginning
-            workSheet.InsertColumn(0);
-            
-            // Adding two columns starting from the third column
-            workSheet.InsertColumns(2, 2);
-            
-            // Save the modified file
-            workBook.SaveAs("addColumn.xlsx");
-        }
-    }
-}
+
+// Open an existing spreadsheet
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Insert a single column at the start
+workSheet.InsertColumn(0);
+
+// Insert two columns after the second column
+workSheet.InsertColumns(2, 2);
+
+workBook.SaveAs("updatedColumns.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -121,4 +86,4 @@ namespace ironxl.AddRowsColumns
     </div>
 </div>
 
-Index positions for rows and columns start from zero.
+Keep in mind that row and column indices start at zero.

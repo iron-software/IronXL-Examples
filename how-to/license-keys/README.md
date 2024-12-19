@@ -1,122 +1,113 @@
-# Using IronXL License Keys
+# Working with IronXL License Keys
 
 ***Based on <https://ironsoftware.com/how-to/license-keys/>***
 
 
 ## Obtaining a License Key
 
-Obtaining an IronXL license key allows you to move your project to a live environment devoid of any limitations or watermark impositions.
+Deploying your project without any limitations or watermarks requires an IronXL license key.
 
-You can [purchase a license here](https://ironsoftware.com/csharp/excel/licensing/) or register for a [free 30-day trial key](https://ironsoftware.com/csharp/excel/licensing/).
+You can [purchase a license here](https://ironsoftware.com/csharp/excel/licensing/) or opt for a [free 30-day trial key here](https://ironsoftware.com/#trial-license), accessible through an interactive modal.
 
-<hr class="separator">
+---
 
-## Step 1: Install the Latest IronXL Version
+## Step 1: Install the Latest IronXL
 
+Begin by incorporating the IronXL.Excel library to enhance your .NET project with Excel capabilities.
 
-The initial step is to integrate IronXL.Excel, which extends Excel capabilities to the .NET environment.
+### Installation via NuGet Package
 
-<h3>Via NuGet Package</h3>
-
-1. In Visual Studio, right-click on your project and select "Manage NuGet Packages..."
-2. Look for the IronXL.Excel package and install it
+1. Open Visual Studio, right-click on your project and select 'Manage NuGet Packages...'
+2. Look for the IronXL.Excel package and proceed to install it
 
 Alternatively,
 
 1. Open the Package Manager Console
-2. Execute: `Install-Package IronXL.Excel`
+2. Execute the command below to install the package:
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-<br>
-[Check out the package on NuGet](https://www.nuget.org/packages/IronXL.Excel/)
+Check out [the package on the NuGet website](https://www.nuget.org/packages/IronXL.Excel/).
 
-<h3>Manual DLL Download</h3>
+### Installation via Direct DLL Download
 
-Download the IronXL [.NET Excel DLL here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually include it in your Visual Studio project.
+[Download the IronXL .NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually integrate it into Visual Studio.
 
-<hr class="separator">
+---
 
-## Step 2: Activate Your License Key
+## Step 2: Activating Your License Key
 
-### Embed the License Key in Your Code###
+### Embed the License Key in Your Code
 
-Insert this code at the beginning of your application, prior to employing IronXL.
+Ensure to insert this line of code at your application's startup, prior to utilizing IronXL.
 
 ```cs
 IronXL.License.LicenseKey = "IRONXL-MYLICENSE-KEY-1EF01";
 ```
 
-<hr class="separator">
+### Configuration File Integration in .NET Framework Applications
 
-### Apply Your License Using `Web.Config` or `App.Config` in .NET Framework Projects###
-
-To assign the license key across your application via `Web.Config` or `App.Config`, insert this setting into your config file under `appSettings`.
+To globally activate your key within a .NET Framework application using a configuration file:
 
 ```xml
 <configuration>
-...
+  ...
   <appSettings>
-    <add key="IronXL.LicenseKey" value="IronXL-MYLICENSE-KEY-1EF01"/>
+    <add key="IronXL.LicenseKey" value="IRONXL-MYLICENSE-KEY-1EF01"/>
   </appSettings>
-...
+  ...
 </configuration>
 ```
 
-Between IronXL version [2023.4.13](https://www.nuget.org/packages/IronXL.Excel/2023.4.13) and [2024.3.20](https://www.nuget.org/packages/IronXL.Excel/2024.3.20), there's an issue for:
-- **ASP.NET** projects
-- **.NET Framework version >= 4.6.2**
+Please note an ongoing licensing issue affecting versions [2023.4.13](https://www.nuget.org/packages/IronXL.Excel/2023.4.13) through [2024.3.20](https://www.nuget.org/packages/IronXL.Excel/2024.3.20) for projects using:
+- ASP.NET
+- .NET Framework version 4.6.2 or higher
 
-The key configured in `Web.config` might not be properly recognized. Learn more from the ['Setting License Key in Web.config'](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/) guide.
+The configuration details provided in a `Web.config` file may not be recognized. For guidance, refer to the ['Setting License Key in Web.config'](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/) article.
 
-Verify the license activation with `IronXL.License.IsLicensed`.
+It's crucial to verify the licensing status with `IronXL.License.IsLicensed`.
 
-<hr class="separator">
+### Applying Key in .NET Core Applications
 
-### Implementing the Key in a .NET Core `appsettings.json` File###
+To apply a license key to your .NET Core application:
 
-To globally apply the key in .NET Core:
+* Add an 'appsettings.json' file at the root directory of your project
+* Insert the 'IronXL.LicenseKey' with your key as its value
+* Set the file properties to *Copy to Output Directory: Copy always*
+* Confirm the licensing status by checking `IronXL.License.IsLicensed`
 
-* Include a JSON file named `appsettings.json` at the root of your project
-* Insert a 'IronXL.LicenseKey' setting. Assign your license key to this setting.
-* Make sure the file property is set to *Copy to Output Directory: Copy always*
-* Verify the license with `IronXL.License.IsLicensed`.
-
-File: *appsettings.json*
+Example file: *appsettings.json*
 ```json
 {
-
-	"IronXL.LicenseKey":"IronXL-MYLICENSE-KEY-1EF01"
-
-}  
+  "IronXL.LicenseKey": "IronXL-MYLICENSE-KEY-1EF01"
+}
 ```
 
-<hr class="separator">
+---
 
-## Step 3: Verify Your License
+## Step 3: Verifying Your Key
 
-Check if your license is effectively installed.
-
+Ensure the accuracy of your license application:
 ```cs
-// Validate the license key.
-bool result = IronXL.License.IsValidLicense("IronXL-MYLICENSE-KEY-1EF01");
+// Validate the license key string
+bool result = IronXL.License.IsValidLicense("IRONXL-MYLICENSE-KEY-1EF01");
 
-// Determine if IronXL is officially licensed
+// Confirm successful IronXL licensing
 bool is_licensed = IronXL.License.IsLicensed;
 ```
 
-*Note:* Always clean and republish your application after license integration to avoid deployment errors.
+*Note:* Always clean and republish your application post licensing to prevent deployment issues.
 
-<hr class="separator">
+---
 
 ## Step 4: Kickstart Your Project
 
-Follow our guide on how to [Get Started with IronXL](https://ironsoftware.com/csharp/excel/docs/).
+Explore our step-by-step guide on [Getting Started with IronXL](https://ironsoftware.com/csharp/excel/docs/).
 
-<hr class="separator">
+---
 
 ## Need Help?
 
-Feel free to contact [support@ironsoftware.com](mailto:support@ironsoftware.com) with any inquiries.
+For any inquiries, please contact [support@ironsoftware.com](mailto:support@ironsoftware.com).

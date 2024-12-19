@@ -1,9 +1,9 @@
 using IronXL.Excel;
-namespace ironxl.HowToReadExcelFileCsharp
+namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp
 {
-    public class Section4
+    public static class Section4
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = new WorkBook(ExcelFileFormat.XLSX);
         }

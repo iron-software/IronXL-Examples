@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.AutosizeRowsColumns
+namespace IronXL.Examples.HowTo.AutosizeRowsColumns
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             // Load existing spreadsheet
             WorkBook workBook = WorkBook.Load("sample.xlsx");

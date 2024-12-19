@@ -1,126 +1,117 @@
-# C# Excel Add in (Code Example Tutorial)
+# C# Excel Integration (Code Example Tutorial)
 
 ***Based on <https://ironsoftware.com/how-to/excel-add-in-csharp/>***
 
 
-Developing applications often requires managing data in Excel spreadsheets programmatically—such as inserting new rows or columns. C# provides robust capabilities for manipulating Excel files directly through libraries like IronXL. The examples below demonstrate how to leverage these capabilities.
+Developing applications often requires the ability to manipulate Excel spreadsheets without the use of Excel itself. For instance, you might find it necessary to programmatically insert new rows or columns into an existing Excel spreadsheet. The C# "Excel: Add" functionality in IronXL enables you to do exactly this and much more. Below are detailed examples of how to implement these functions.
 
-<hr class="separator">
+---
 
-<p class="main-content__segment-title">Step 1</p>
+### Step 1: Install the IronXL Excel Library
 
-## 1. Install the IronXL Excel Library 
-
-Before adding rows and columns to your Excel files, you'll need to integrate IronXL. This library, which is freely available for development use, can be directly downloaded or installed via NuGet.
-
-- [Download the DLL here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Add.Excel.Csharp.zip)
-- Install through NuGet:
+To utilize the functionalities for adding rows and columns in Excel, you must initially download the IronXL Excel Library. It is available at no cost for development within your projects. You can [get the DLL directly here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Add.Excel.Csharp.zip) or utilize the [NuGet package manager](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-<hr class="separator">
-<p class="main-content__segment-title">How to Tutorial</p>
+---
 
-## 2. Adding Rows to Excel in C&num;
+### Tutorial: Adding Rows and Columns in Excel
 
-With IronXL installed, you can now effortlessly insert rows and columns into existing Excel spreadsheets.
+After the installation of IronXL, you can easily add new rows and columns to existing Excel spreadsheets through C#.
 
-Start by loading your Excel file and selecting the worksheet where you want to add rows or columns.
+#### Adding a Row at the End of the Spreadsheet
 
-### 2.1. Add a Row at the Last Position
-Our first example demonstrates adding a row at the end of the spreadsheet. Assuming the file is named `sample.xlsx` and contains columns from `A` to `E`, here is how you add the row:
+Consider an Excel file named `sample.xlsx`, which contains 5 columns labeled from `A` to `E`. Below is how you can append a new row at the end:
 
-```cs
-// Add a new row at the end of the Excel spreadsheet
+```csharp
+// Example: Adding a Row at the Last Position
 using IronXL;
-static void Main(string [] args)
+
+class Program
 {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
-    int newRowPosition = ws.Rows.Count() + 1;  // Position for the new row
-    for(char column = 'A'; column <= 'E'; column++){
-        ws[$"{column}{newRowPosition}"].Value = "New Row";
+    static void Main(string[] args)
+    {
+        WorkBook wb = WorkBook.Load("sample.xlsx");
+        WorkSheet ws = wb.GetWorkSheet("Sheet1");
+        int rowIndex = ws.Rows.Count() + 1;  // Calculate the new row index
+        string[] columns = {"A", "B", "C", "D", "E"};
+
+        foreach (var col in columns)
+        {
+            ws[col + rowIndex].Value = "New Row";  // Set value for each column in the new row
+        }
+
+        wb.SaveAs("sample.xlsx");  // Save the changes
     }
-    wb.SaveAs("sample.xlsx");
 }
 ```
 
-This code inserts a new row filled with "New Row" indicating a successful addition.
+This code adds a new row with the value `New Row` in each column to the `sample.xlsx` at the bottom.
 
-### 2.2. Add a Row at the First Position
+#### Adding a Row at the Beginning of the Spreadsheet
 
-If you need to add a new row at the top of an Excel sheet:
+Here's how to prepend a new row at the beginning of the spreadsheet:
 
-```cs
-// Insert a new row at the beginning of the spreadsheet
+```csharp
+// Example: Adding a Row at the First Position
 using IronXL;
-static void Main(string [] args)
+
+class Program
 {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
-    ws.Rows.Insert(0); // Shift all rows down by one
-    ws.Rows[0].Value = "new row"; // Set the new first row's value
-    wb.SaveAs("sample.xlsx");
+    static void Main(string[] args)
+    {
+        WorkBook wb = WorkBook.Load("sample.xlsx");
+        WorkSheet ws = wb.GetWorkSheet("Sheet1");
+        ws.Rows.First().InsertRowsAbove(1);  // Insert a new row at the very top
+        ws["A1:E1"].Value = "new row";  // Set values for the entire row
+
+        wb.SaveAs("sample.xlsx");  // Save the changes
+    }
 }
 ```
 
-Compare the table before and after in `sample.xlsx`, using these images:
+This operation shifts existing rows down and sets all columns of the newly added top row to `new row`.
 
 |Before|After|
-|:---:|:-----:|
-|![before](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/before2.png)|![after](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/after2.png)|
+|:---:|:---:|
+|![Before](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/before2.png)|![After](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/after2.png)|
 
-### 2.3. Add a New First Row When There are Headers
+#### Adding a Column in Excel
 
-If the first row contains headers:
+Adding a new column is equally simple:
 
-```cs
-// Revise the original loop to maintain headers and add a new data row at the second position
-// Because the previous code was shown with logical errors, we have revised it to correctly handle headers
-```
-
-<hr class="separator">
-
-## 3. Adding Columns in Excel with C# 
-
-You can also add columns to your Excel sheets. Suppose we want to insert a column before the first existing column in `sample.xlsx`:
-
-```cs
-// Code to add a new column at the first position in an Excel sheet
+```csharp
+// Example: Adding a Column
 using IronXL;
-static void Main(string [] args)
+
+class Program
 {
-    WorkBook wb = WorkBook.Load("sample.xlsx");
-    WorkSheet ws = wb.GetWorkSheet("Sheet1");
-    ws.Columns.Insert(0); // Shift all columns to the right
-    ws.Rows.ForEach(row => row[0].Value = "New Column Added"); // Add new column content
-    wb.SaveAs("sample.xlsx");
+    static void Main(string[] args)
+    {
+        WorkBook wb = WorkBook.Load("sample.xlsx");
+        WorkSheet ws = wb.GetWorkSheet("Sheet1");
+        ws.Columns.First().InsertColumnsBefore(1);  // Insert a new column before the first
+        ws["A1:A" + ws.Rows.Count()].Value = "New Column Added";  // Fill the new column
+
+        wb.SaveAs("sample.xlsx");  // Save workbook
+    }
 }
 ```
 
-Here’s the visual comparison showing the spreadsheet before and after adding a column:
+This shifts existing columns to the right and adds a new column at position `A` filled with `New Column Added`.
 
 |Before|After|
-|:---:|:-----:|
-|![before](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/before1.png)|![after](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/after1.png)|
+|:---:|:---:|
+|![Before](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/before1.png)|![After](https://ironsoftware.com/img/faq/excel/excel-add-in-csharp/after1.png)|
 
-<hr class="separator">
+---
 
-<p class="main-content__segment-title">Library Quick Access</p>
+### Quick Access to Library Documentation
 
-<div class="tutorial-section">
-  <div class="row">
-    <div class="col-sm-8">
-      <h3>Explore IronXL Documentation</h3>
-      <p>Dive deeper into other functionalities of IronXL by reviewing the comprehensive documentation.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Read the IronXL Documentation <i class="fa fa-chevron-right"></i></a>
-    </div>
-    <div class="col-sm-4">
-      <div class="tutorial-image">
-        <img alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
-      </div>
-    </div>
-  </div>
-</div>
+Explore more functions and further documentation on adding and manipulating rows, columns, and other Excel functionalities with C# through IronXL's extensive documentation.
+
+[Read the IronXL Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/) on detailed API references and guides.
+
+![IronXL Documentation](https://ironsoftware.com/img/svgs/documentation.svg)

@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.ManageWorksheet
+namespace IronXL.Examples.HowTo.ManageWorksheet
 {
-    public class Section1
+    public static class Section1
     {
-        public void Run()
+        public static void Run()
         {
             // Create new Excel spreadsheet
             WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);

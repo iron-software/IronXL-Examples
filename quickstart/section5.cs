@@ -1,10 +1,10 @@
 using IronXL;
 using IronXL.Excel;
-namespace ironxl.Quickstart
+namespace IronXL.Examples.Overview.Quickstart
 {
-    public class Section5
+    public static class Section5
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Load("test.xls");
             WorkSheet workSheet = workBook.WorkSheets.First();

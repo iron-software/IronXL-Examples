@@ -1,16 +1,16 @@
-# Generating Excel Charts with C# and IronXL
+# Generating Excel Charts with C# Using IronXL
 
 ***Based on <https://ironsoftware.com/how-to/csharp-create-excel-chart-programmatically/>***
 
 
-This tutorial guides you through the process of programmatically creating Excel charts using IronXL in C#.
+This guide provides step-by-step instructions for creating Excel charts in C# utilizing the IronXL library.
 
-<div class="learnn-how-section">
+<div class="learn-how-section">
   <div class="row">
     <div class="col-sm-6">
-      <h2>Automation of Excel Charts in .NET</h2>
+      <h2>Programmatic Chart Creation in .NET</h2>
       <ul class="list-unstyled">
-        <li><a href="#anchor-2-create-excel-chart-for-net">Programmatically generating Excel charts</a></li>
+        <li><a href="#anchor-2-create-excel-chart-for-net">Using code to generate Excel graphs</a></li>
         <li><a href="#anchor-2-create-excel-chart-for-net">Incorporating series, titles, and legends</a></li>
       </ul>
     </div>
@@ -24,43 +24,41 @@ This tutorial guides you through the process of programmatically creating Excel 
 
 <hr class="separator">
 
-<h2>Generating Excel Charts in C#</h2>
+<h2>Steps to Creating an Excel Chart in C#</h2>
 
-1. Install the IronXL library for Excel chart generation.
-2. Load an existing Excel document into a `Workbook` object.
-3. Initialize a chart using the `CreateChart` method.
-4. Define the chart's title and legend.
-5. Execute the `Plot` method.
-6. Save the updated `Workbook` back to an Excel file.
+1. Install the library needed for Excel chart generation.
+2. Load your existing Excel document into a `Workbook` object.
+3. Utilize `CreateChart` to forge a new chart.
+4. Assign a title and set up the legend for your chart.
+5. Execute the `Plot` method to draw the chart.
+6. Persist the modified `Workbook` back to an Excel file.
 
 <p class="main-content__segment-title">Step 1</p>
 
-## 1. Install IronXL
+## 1. Setting Up IronXL
 
-Beginning with the installation, IronXL can be conveniently added using NuGet in Visual Studio:
+The quickest way to install IronXL is by using the NuGet Package Manager in Visual Studio:
 
-* Navigate to the Project menu
-* Select Manage NuGet Packages
-* Look for IronXL.Excel
-* Click Install
+* Go to the Project menu;
+* Choose Manage NuGet Packages;
+* Search for IronXL.Excel;
+* Click on Install.
 
-Alternatively, install via the Developer Command Prompt:
+Alternatively, you can run the following command in the Developer Command Prompt:
 
 ```shell
 Install-Package IronXL.Excel
 ```
 
-Or download directly from here: <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">IronXL Package</a>
+Or, download the package directly through this link: <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">IronXL Package</a>
 
 <hr class="separator">
 
 <p class="main-content__segment-title">How to Tutorial</p>
 
-## 2. Craft an Excel Chart for .NET
+## 2. Creating an Excel Chart for .NET
 
-Let’s start the practical component of this tutorial!
-
-Prepare your data within an Excel sheet as illustrated below:
+Begin your project by populating a new Excel Spreadsheet as illustrated below:
 
 <div class="content-img-align-center">
 	<div class="center-image-wrapper">
@@ -74,18 +72,18 @@ Prepare your data within an Excel sheet as illustrated below:
         alt="Data to be used for charting"
       >
     </a>
-    <p><strong>Figure 1</strong> – <em> Data to be used for charting</em></p>
+    <p><strong>Figure 1</strong> – <em>Data to be used for charting</em></p>
 	</div>
 </div>
 
-Incorporate the necessary namespaces to manage Excel charts inside IronXL:
+Include the necessary namespaces to deal with Excel charts in IronXL:
 
 ```cs
 using IronXL;
 using IronXL.Drawing.Charts;
 ```
 
-Implement this code to create the Excel chart programmatically using IronXL:
+Implement code to dynamically generate an Excel chart using IronXL:
 
 ```cs
 private void button1_Click(object sender, EventArgs e)
@@ -95,6 +93,7 @@ private void button1_Click(object sender, EventArgs e)
             
     var chart = ws.CreateChart(ChartType.Column, 10, 15, 25, 20);
 
+    // Define the X-Axis range.
     const string xAxis = "A2:A7";
 
     var series = chart.AddSeries(xAxis, "B2:B7");
@@ -106,14 +105,14 @@ private void button1_Click(object sender, EventArgs e)
     series = chart.AddSeries(xAxis, "D2:D7");
     series.Title = ws["D1"].StringValue;
             
-    chart.SetTitle("Sales Performance Chart");
+    chart.SetTitle("Column Chart");
     chart.SetLegendPosition(LegendPosition.Bottom);
     chart.Plot();
-    wb.SaveAs("Generated_Column_Chart.xlsx");
+    wb.SaveAs("Exported_Column_Chart.xlsx");
 }
 ```
 
-In this method, we start by opening a Workbook and accessing its default Worksheet. A chart is initiated indicating the type and position. Titles and legend positions are set for each added series, and then chart plotting takes place.
+In this example, we configure the chart type and location using the `CreateChart` method of the `WorkSheet` object, then add title and legend to the series as demonstrated.
 
 <div class="content-img-align-center">
 	<div class="center-image-wrapper">
@@ -122,7 +121,7 @@ In this method, we start by opening a Workbook and accessing its default Workshe
         src="https://ironsoftware.com/img/faq/excel/csharp-create-excel-chart-programmatically/chart-output.png"
         alt="Chart output"
       >
-   	<p><strong>Figure 2</strong> – <em>Generated chart output</em></p>
+   	<p><strong>Figure 2</strong> – <em>Chart output</em></p>
 	</div>
 </div>
 
@@ -133,13 +132,13 @@ In this method, we start by opening a Workbook and accessing its default Workshe
 <div class="tutorial-section">
   <div class="row">
     <div class="col-sm-8">
-      <h3>Explore IronXL API Reference Documentation</h3>
-      <p>Delve into the IronXL API Reference Documentation for in-depth knowledge on handling various Excel operations like merging, unmerging, and manipulating cells.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
+      <h3>IronXL API Reference Documentation</h3>
+      <p>Explore additional capabilities like merging, unmerging, and manipulating cells in Excel sheets through the detailed IronXL API Reference Documentation.</p>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Learn More <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">
-        <img style="max-width: 110px; width: 100px; height: 140px;" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
+        <img style="max-width: 110px; width: 100px; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg" width="100" height="140">
       </div>
     </div>
   </div>

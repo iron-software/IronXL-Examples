@@ -1,15 +1,17 @@
 using IronXL.Excel;
-namespace ironxl.CsharpOpenWriteExcelFile
+namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
-    public class Section22
+    public static class Section22
     {
-        public void Run()
+        public static void Run()
         {
-            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
+            WorkBook workBook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
             WorkSheet workSheet = workBook.WorkSheets.First();
-            workSheet["A1:A4"].SortAscending();
-            // workSheet["A1:A4"].SortDescending(); to order descending
-            workBook.SaveAs("SortedSheet.xlsx");
+            foreach (var cell in workSheet["B1:B4"])
+            {
+                Console.WriteLine(cell.Formula);
+            }
+            Console.ReadKey();
         }
     }
 }

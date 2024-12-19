@@ -1,7 +1,18 @@
 ***Based on <https://ironsoftware.com/examples/copy-an-excel-worksheet/>***
 
-The preceding code sample demonstrates leveraging IronXL to replicate and transfer `WorkSheets` across different `WorkBooks`, and even within the same `WorkBook`. This enables the copying and pasting of sheets between workbooks or duplicating them in the same workbook.
+The code snippet presented illustrates the process of using IronXL to clone and replicate `WorkSheets` across different `WorkBooks`, as well as within the same `WorkBook`. This functionality facilitates the transfer of sheets between workbooks or the creation of identical sheets within a single workbook.
 
-For duplicating a worksheet within the same workbook or spreadsheet, you would utilize the `CopySheet` method. This function necessitates specifying the name of the new worksheet as a parameter.
+To replicate a worksheet within the same workbook or spreadsheet, the `CopySheet` method is employed. This method requires the name of the new worksheet as an argument.
 
-To replicate a sheet to another workbook or from another workbook, the `CopyTo` method is utilized. This requires specifying the `WorkBook` as the first parameter followed by the name of the new worksheet.
+For duplicating a sheet to or from another workbook, utilize the `CopyTo` method. This method requires the `WorkBook` as the initial argument, followed by the name of the new worksheet.
+
+```
+// Example of using CopySheet to duplicate a worksheet
+var workbook = new WorkBook("example.xlsx");
+var originalSheet = workbook.DefaultWorkSheet;
+var duplicatedSheet = originalSheet.CopySheet("Copied Sheet");
+
+// Example of using CopyTo to transfer a sheet to another workbook
+var targetWorkbook = new WorkBook("target.xlsx");
+originalSheet.CopyTo(targetWorkbook, "Transferred Sheet");
+```

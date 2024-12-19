@@ -1,61 +1,48 @@
-# Setting a Password for a Worksheet
+# How to Set a Password on a Worksheet
 
 ***Based on <https://ironsoftware.com/how-to/set-password-worksheet/>***
 
 
-Applying a **Read-Only** protection is frequently required to ensure data security in files. IronXL simplifies the process of imposing **Read-Only** protection on worksheets within .NET applications.
+Setting a worksheet to **Read-Only** is a frequently required feature for data files. IronXL simplifies the process of applying **Read-Only** protection to worksheets in .NET applications.
 
-## Accessing a Password-Protected Worksheet
+### Initial Setup with IronXL
 
-IronXL provides the capability to access and alter a protected worksheet without needing the original password. Upon opening the spreadsheet through IronXL, all the cells within any worksheet become editable.
+---
 
-## Enforcing Password Protection on a Worksheet
+## Accessing a Password Protected Worksheet
 
-To prevent alterations to a worksheet while still permitting view access in Excel, the `ProtectSheet` method can be employed with a password argument. For instance, calling `workSheet.ProtectSheet("IronXL")` activates a password-based **ReadOnly** protection on the specified worksheet.
+IronXL enables the modification and access of any protected worksheet without the need for a password. Once you open the spreadsheet through IronXL, you're free to alter any cell across the worksheets.
+
+## Implementing Password Protection on a Worksheet
+
+To prevent changes to a worksheet while still permitting viewing access in Excel, employ the `ProtectSheet` method alongside a password argument. For instance, `workSheet.ProtectSheet("IronXL")` establishes password-based **ReadOnly** protection for the targeted worksheet.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.SetPasswordWorksheet
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("sample.xlsx");
-            WorkSheet workSheet = workBook.DefaultWorkSheet;
-            
-            // Applying password protection to the worksheet
-            workSheet.ProtectSheet("IronXL");
-            
-            // Save changes to the workbook
-            workBook.Save();
-        }
-    }
-}
+
+// Load an existing workbook
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+// Access the default worksheet
+WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+// Applying ReadOnly protection with a password
+workSheet.ProtectSheet("IronXL");
+
+// Save the changes to the workbook
+workBook.Save();
 ```
 
-### Accessing a Worksheet That is Password-Protected
+### Viewing a Worksheet Protected by Password
 
 ![Access Protected Worksheet](https://ironsoftware.com/static-assets/excel/how-to/set-password-worksheet/set-password-worksheet-access.gif)
 
-## Removing a Password from a Worksheet
+## Disabling Password on a Worksheet
 
-Utilizing the `UnprotectSheet` method allows you to strip away the password from a worksheet. By invoking `workSheet.UnprotectSheet()`, password protection can be lifted without requiring the original password.
+To eliminate the password protection from a specific worksheet, utilize the `UnprotectSheet` method. A simple invocation of `workSheet.UnprotectSheet()` suffices to remove the associated password.
 
 ```cs
-using IronXL.Excel;
-namespace ironxl.SetPasswordWorksheet
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            // Clear password protection from the worksheet
-            workSheet.UnprotectSheet();
-        }
-    }
-}
+// Unlock the worksheet without needing the password
+workSheet.UnprotectSheet();
 ```
 
-IronXL enables straightforward protection and removal of security features on both Excel <a href="https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/">workbooks</a> and **worksheets** via simple C# commands.
+IronXL facilitates the protection and de-protection of any Excel [workbook](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/) and **worksheet** using merely a single line of C# code.

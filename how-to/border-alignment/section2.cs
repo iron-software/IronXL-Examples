@@ -1,10 +1,10 @@
 using IronSoftware.Drawing;
 using IronXL.Excel;
-namespace ironxl.BorderAlignment
+namespace IronXL.Examples.HowTo.BorderAlignment
 {
-    public class Section2
+    public static class Section2
     {
-        public void Run()
+        public static void Run()
         {
             WorkBook workBook = WorkBook.Create();
             WorkSheet workSheet = workBook.DefaultWorkSheet;

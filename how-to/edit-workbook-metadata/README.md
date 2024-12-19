@@ -1,51 +1,46 @@
-# How to Modify Excel Workbook Metadata
+# Managing Workbook Metadata with IronXL
 
 ***Based on <https://ironsoftware.com/how-to/edit-workbook-metadata/>***
 
 
-Metadata in an Excel file encompasses details such as the title, author, subject, keywords, and dates of creation and modification, among others. This metadata is crucial as it provides context, aids in organizing, and improves the management of spreadsheet files, which is especially beneficial when dealing with a large number of files.
+Metadata within an Excel file encompasses various details such as the author, title, subject, keywords, and dates related to the creation and modification of the document. This kind of information is crucial as it provides insights and aids in the systematic organization and searching of Excel files within larger datasets.
 
+The **IronXL** library is a robust tool that allows users to modify the metadata of Excel workbooks effortlessly, eliminating the need for Office Interop installations.
 
-The **IronXL** library simplifies the task of editing workbook metadata, eliminating the need for Office Interop.
+***
 
 ***
 
-***
+### Initialize IronXL
+
+--------------------------
 
 ## Example: Modifying Workbook Metadata
 
-To change the author of an Excel file, you can modify the `Author` property. For instance, you might set `workBook.Metadata.Author = "New Author Name";`. The `Metadata` property of the `WorkBook` class allows for easy access and modification of such metadata.
+To modify the metadata of an Excel file, such as changing the author's name, utilize the `Author` property like this: `workBook.Metadata.Author = "John Doe";`. You can access and manipulate various metadata attributes through the `Metadata` property available in the `WorkBook` class.
 
 ```cs
+// Importing the IronXL namespace
+using IronXL;
 using System;
-using IronXL.Excel;
-namespace ironxl.ModifyWorkbookMetadata
-{
-    public class ModifyMetadataSection
-    {
-        public void Execute()
-        {
-            WorkBook workBook = WorkBook.Load("example.xlsx");
-            
-            // Update author
-            workBook.Metadata.Author = "New Author Name";
-            // Update comments
-            workBook.Metadata.Comments = "Annual report generation";
-            // Update title
-            workBook.Metadata.Title = "Annual Report 2023";
-            // Update keywords
-            workBook.Metadata.Keywords = "Annual,Finance,Summary";
-            
-            // Retrieve the creation date of the workbook
-            DateTime? creationDate = workBook.Metadata.Created;
-            
-            // Retrieve the last printed date
-            DateTime? printDate = workBook.Metadata.LastPrinted;
-            
-            workBook.SaveAs("updatedMetadata.xlsx");
-        }
-    }
-}
+
+// Load an existing workbook
+WorkBook workBook = WorkBook.Load("sample.xlsx");
+
+// Modifying metadata
+workBook.Metadata.Author = "John Doe";  // Setting the author's name
+workBook.Metadata.Comments = "Q3 Financial Overview"; // Adding comments
+workBook.Metadata.Title = "September Accounts"; // Setting the title
+workBook.Metadata.Keywords = "Finance, Quarterly"; // Defining keywords
+
+// Retrieving the date of creation
+DateTime? creationDate = workBook.Metadata.Created;
+
+// Retrieving the date of last print
+DateTime? printDate = workBook.Metadata.LastPrinted;
+
+// Save the workbook with edited metadata
+workBook.SaveAs("updatedMetadata.xlsx");
 ```
 
 <div class="content-img-align-center">
@@ -56,19 +51,19 @@ namespace ironxl.ModifyWorkbookMetadata
 
 <hr>
 
-## Editable and Accessible Metadata Properties
+## Metadata Properties Overview
 
-While you can edit several metadata fields, some are only accessible for viewing. Below is a detailed list of the properties:
+While you can edit many metadata properties, some can only be accessed for reading. Below is a categorization of the metadata properties that can be edited or just retrieved:
 
-#### Editable or Modifiable and Accessible
+### Editable and Retrievable Properties
   - Author
   - Comments
   - LastPrinted
   - Keywords and Category
-  - Created and ModifiedDate
+  - Creation and Modification Dates
   - Subject and Title
 
-#### Accessible Only
+### Read-Only Properties
   - ApplicationName
   - CustomProperties
   - Company

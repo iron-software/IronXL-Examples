@@ -1,193 +1,132 @@
-# Mastering Worksheet Management
+# Managing Worksheets with IronXL
 
 ***Based on <https://ironsoftware.com/how-to/manage-worksheet/>***
 
 
-The **IronXL** library offers a streamlined approach to managing worksheets through C# coding. Leveraging IronXL negates the necessity for Office Interop, empowering you with capabilities such as sheet creation, deletion, repositioning, and activation within an Excel workbook.
+The IronXL library provides a straightforward approach to managing worksheets within your C# applications. This powerful tool enables you to create, delete, reposition, and set the active worksheet in an Excel file, completely eliminating the need for Office Interop.
 
-## Examples of Worksheet Management
+***
 
-IronXL equips you with straightforward commands for creating, moving, and removing worksheets efficiently.
+### Getting Started with IronXL
 
-All index references utilize zero-based indexing for clarity.
+***
 
-## Create Worksheet
+## Example of Worksheet Management
 
-Utilize the `CreateWorkSheet` method for instantiating a new sheet, which only requires a unique sheet name as an argument. The method also conveniently returns the worksheet instance for immediate further actions such as [merging cells](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/).
+IronXL facilitates efficient worksheet management, allowing you to create, move, and delete worksheets seamlessly using concise code syntax.
+
+Indices used here are zero-based.
+
+## Creating a Worksheet
+
+To add a new worksheet, use the `CreateWorksheet` method, which only requires the desired name of the worksheet. Once created, additional operations such as [merging cells](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/) can be immediately applied.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ManageWorksheet
-{
-    public class Section1
-    {
-        public void Run()
-        {
-            // Initialize a new Excel workbook
-            WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
-            
-            // Add multiple worksheets
-            WorkSheet workSheet1 = workBook.CreateWorkSheet("workSheet1");
-            WorkSheet workSheet2 = workBook.CreateWorkSheet("workSheet2");
-            WorkSheet workSheet3 = workBook.CreateWorkSheet("workSheet3");
-            WorkSheet workSheet4 = workBook.CreateWorkSheet("workSheet4");
-            
-            // Save the workbook with new sheets
-            workBook.SaveAs("createNewWorkSheets.xlsx");
-        }
-    }
-}
+
+// Initialize a new Excel workbook
+WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
+
+// Adding multiple worksheets
+WorkSheet workSheet1 = workBook.CreateWorkSheet("workSheet1");
+WorkSheet workSheet2 = workBook.CreateWorkSheet("workSheet2");
+WorkSheet workSheet3 = workBook.CreateWorkSheet("workSheet3");
+WorkSheet workSheet4 = workBook.CreateWorkSheet("workSheet4");
+
+
+workBook.SaveAs("createNewWorkSheets.xlsx");
 ```
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-create-worksheet.png" alt="Create Worksheets" class="img-responsive add-shadow">
-    </div>
-</div>
+<center>
+    ![Create Worksheets](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-create-worksheet.png)
+</center>
 
 <hr>
 
-## Adjust Worksheet Position
-
-Reordering a sheet within the workbook is achieved using the `SetSheetPosition` method. It requires the name of the worksheet and its new zero-based index.
+## Reordering Worksheets
+The method `SetSheetPosition` relocates a worksheet to a new position within the workbook. It requires the worksheet’s name and new index position.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ManageWorksheet
-{
-    public class Section2
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
-            
-            // Rearrange the position of a worksheet
-            workBook.SetSheetPosition("workSheet2", 0);
-            
-            // Store changes
-            workBook.SaveAs("setWorksheetPosition.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
+
+// Reorder the second worksheet to the first position
+workBook.SetSheetPosition("workSheet2", 0);
+
+workBook.SaveAs("setWorksheetPosition.xlsx");
 ```
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-set-sheet-position.png" alt="Change Worksheet Position" class="img-responsive add-shadow">
-    </div>
-</div>
+<center>
+    ![Change Worksheet Position](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-set-sheet-position.png)
+</center>
 
 <hr>
 
-## Activate a Worksheet
-
-Designate an active worksheet so that it opens by default when the workbook is accessed. This is done using the `SetActiveTab` method, specifying the sheet's index.
+## Activating a Worksheet
+Use the `SetActiveTab` method to specify the default active worksheet when the workbook is opened, accepting the index of the worksheet.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ManageWorksheet
-{
-    public class Section3
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
-            
-            // Make workSheet3 the default active sheet
-            workBook.SetActiveTab(2);
-            
-            // Save the configuration
-            workBook.SaveAs("setActiveTab.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
+
+// Make the third worksheet active
+workBook.SetActiveTab(2);
+
+workBook.SaveAs("setActiveTab.xlsx");
 ```
 
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-set-active-tab.png" alt="Set Active Worksheet" class="img-responsive add-shadow">
-    </div>
-</div>
+<center>
+    ![Set Active Worksheet](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-set-active-tab.png)
+</center>
 
 <hr>
 
-## Remove Worksheet
-
-To remove a worksheet, employ the `RemoveWorksheet` method by specifying either the sheet's index or its name.
-
-```cs
-using IronXL;
-using IronXL.Excel;
-namespace ironxl.ManageWorksheet
-{
-    public class Section4
-    {
-        public void Run()
-        {
-            WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
-            
-            // Delete workSheet1 by index
-            workBook.RemoveWorkSheet(1);
-            
-            // Delete workSheet2 by name
-            workBook.RemoveWorkSheet("workSheet2");
-            
-            // Persist changes
-            workBook.SaveAs("removeWorksheet.xlsx");
-        }
-    }
-}
-```
-
-<div class="content-img-align-center">
-    <div class="center-image-wrapper">
-         <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-remove-worksheet.png" alt="Remove Worksheet" class="img-responsive add-shadow">
-    </div>
-</div>
-
-## Duplicate Worksheet
-
-You can clone a worksheet either within the same workbook or to another workbook by utilizing the `CopySheet` method for intra-workbook duplication or `CopyTo` for inter-workbook operations.
+## Deleting a Worksheet
+The `RemoveWorksheet` method is utilized to eliminate a worksheet using its index or name.
 
 ```cs
 using IronXL;
-using IronXL.Excel;
-namespace ironxl.ManageWorksheet
-{
-    public class Section5
-    {
-        public void Run()
-        {
-            WorkBook firstBook = WorkBook.Create(ExcelFileFormat.XLSX);
-            WorkBook secondBook = WorkBook.Create();
-            
-            // Grab the initial sheet
-            WorkSheet workSheet = firstBook.DefaultWorkSheet;
-            
-            // Clone within the same workbook
-            workSheet.CopySheet("Copied Sheet");
-            
-            // Clone to a different workbook
-            workSheet.CopyTo(secondBook, "Copied Sheet");
-            
-            // Save both workbooks
-            firstBook.SaveAs("firstWorksheet.xlsx");
-            secondBook.SaveAs("secondWorksheet.xlsx");
-        }
-    }
-}
+
+WorkBook workBook = WorkBook.Load("createNewWorkSheets.xlsx");
+
+// Delete the second worksheet using index
+workBook.RemoveWorkSheet(1);
+
+// Also, deleting another by name
+workBook.RemoveWorkSheet("workSheet2");
+
+workBook.SaveAs("removeWorksheet.xlsx");
 ```
 
-<div class="competitors-section__wrapper-even-1">
-    <div class="competitors__card" style="width: 54%;">
-        <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-copy-worksheet-first.png" alt="First Worksheet" class="img-responsive add-shadow" style="margin-bottom: 20px;"/>
-        <p class="competitors__download-link" style="color: #181818; font-style: italic; margin-bottom: 30px;">firstWorksheet.xlsx</p>
-    </div>
-    <div class="competitors__card" style="width: 44%;">
-        <img src="https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-copy-worksheet-second.png" alt="Second Worksheet" class="img-responsive add-shadow" style="margin-bottom: 20px;"/>
-        <p class="competitors__download-link" style="color: #181818; font-style: italic;">secondWorksheet.xlsx</p>
-    </div>
+<center>
+    ![Remove Worksheet](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-remove-worksheet.png)
+</center>
+
+## Copying Worksheets
+Worksheets can be duplicated within the same workbook or transferred to a different one using the `CopySheet` and `CopyTo` methods, respectively.
+
+```cs
+using IronXL;
+
+WorkBook firstBook = WorkBook.Create(ExcelFileFormat.XLSX);
+WorkBook secondBook = WorkBook.Create();
+
+// Access the default worksheet
+WorkSheet workSheet = firstBook.DefaultWorkSheet;
+
+// Copy inside the same workbook
+workSheet.CopySheet("Copied Sheet");
+
+// Transfer sheet to another workbook
+workSheet.CopyTo(secondBook, "Copied Sheet");
+
+firstBook.SaveAs("firstWorksheet.xlsx");
+secondBook.SaveAs("secondWorksheet.xlsx");
+```
+
+<div style="display: flex; justify-content: space-between;">
+    ![First Worksheet](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-copy-worksheet-first.png)
+    ![Second Worksheet](https://ironsoftware.com/static-assets/excel/how-to/manage-worksheet/manage-worksheet-copy-worksheet-second.png)
 </div>
