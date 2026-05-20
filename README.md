@@ -1,90 +1,66 @@
-![Nuget Version](https://img.shields.io/nuget/v/IronXL.Excel?color=informational&label=latest) ![Installs Count](https://img.shields.io/nuget/dt/IronXL.Excel?color=informational&label=installs&logo=nuget) ![Build Status](https://img.shields.io/badge/build-%20%E2%9C%93%202425%20tests%20passed%20(0%20failed)%20-107C10?logo=visualstudio) [![Windows Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=windows)](https://ironsoftware.com/csharp/excel/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![macOS Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=apple)](https://ironsoftware.com/csharp/excel/docs/questions/macos?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Linux Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=linux&logoColor=white)](https://ironsoftware.com/csharp/excel/docs/questions/linux?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Docker Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=docker&logoColor=white)](https://ironsoftware.com/csharp/excel/docs/questions/docker-support?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![AWS Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=amazonaws)](https://ironsoftware.com/csharp/excel/docs/questions/aws-lambada-support?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Microsoft Azure Support](https://img.shields.io/badge/%E2%80%8E%20-%20%E2%9C%93-107C10?logo=microsoftazure)](https://ironsoftware.com/csharp/excel/docs/questions/azure-support?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield) [![Live Chat](https://img.shields.io/badge/Live%20Chat-Active-purple?logo=googlechat&logoColor=white)](https://ironsoftware.com/csharp/excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topshield#helpscout-support)
+# IronXL.Examples
 
-## IronXL - The C# Excel Library
+Runnable C# examples for [IronXL](https://ironsoftware.com/csharp/excel/), a .NET Excel library that reads, writes, and edits XLSX, XLS, CSV, and TSV files without Microsoft Office or COM Interop.
 
-[![IronXL NuGet Trial Banner Image](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronXL-readme/nuget-trial-banner-large.png)](https://ironsoftware.com/csharp/excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=topbanner#trial-license)
+## Install
 
-[Get Started](https://ironsoftware.com/csharp/excel/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Features](https://ironsoftware.com/csharp/excel/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Code Examples](https://ironsoftware.com/csharp/excel/examples/read-excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Licensing](https://ironsoftware.com/csharp/excel/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation) | [Free Trial](https://ironsoftware.com/csharp/excel/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=navigation#trial-license)
-
-IronXL is a robust C# library developed by Iron Software for managing and interacting with Excel and other spreadsheet files within .NET projects. It enables developers to read, create, and manipulate spreadsheet documents directly from their applications without needing to install Microsoft Office, and it's fully compatible with .NET, .NET Core, and Azure platforms.
-
-#### Core Capabilities of IronXL:
-
-  * Data import from formats including XLS, XLSX, CSV, and TSV.
-  * Export data to formats like XLS, XLSX, CSV, TSV, and JSON.
-  * Excel file encryption and decryption.
-  * Operate on Excel sheets as `System.Data.DataSet` and `System.Data.DataTable`.
-  * Automatic recalculation of formulas upon modifications.
-  * Simple cell reference syntax like `WorkSheet["A1:B10"]`.
-  * Sorting capabilities for ranges, columns, and rows.
-  * Extensive cell formatting options such as font, background, border styles, and alignment.
-
-##### Document Management
-
-  * Supported Formats for Loading and Editing: XLS, XLSX, XLSM, XLST, CSV, TSV
-  * Formats for Saving and Exporting: XLS, XLSX, XLSM, XLST, CSV, TSV, JSON
-  * System.Data Integration: Manage spreadsheets as `System.Data.DataSet` and `System.Data.DataTable`
-
-##### Spreadsheet Operations:
-
-  * Formula Management: Seamless integration and automatic updates of Excel formulas.
-  * Data Formatting: Extensive options including text, number, date, currency, and custom formats.
-  * Advanced Sorting and Cell Styling: Customize cell appearance and spreadsheet structure.
-
-#### Cross-Platform Compatibility:
-
-  * Supports **.NET 8** and earlier versions, .NET Core, Standard, Framework
-  * Compatible with Windows, macOS, Linux, Docker, Azure, and AWS environments
-
-[![Cross-Platform Compatibility](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronXL-readme/cross-platform-compatibility.png)](https://ironsoftware.com/csharp/excel/docs/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=crossplatformbanner)
-
-Discover more about our API and complete licensing details on our website.
-
-#### Getting Started with IronXL:
-
-To integrate IronXL into your project, simply install the NuGet package:
-
-```plaintext
-PM> Install-Package IronXL.Excel
+```bash
+dotnet add package IronXL.Excel
 ```
 
-To jumpstart your project, add `using IronXL` to your C# files. Here’s an initiation example:
+## Quickstart
 
 ```csharp
 using IronXL;
-using System.Linq;
 
-// Read various spreadsheet formats:
-WorkBook workbook = WorkBook.Load("test.xlsx");
+WorkBook workbook = WorkBook.Load("data.xlsx");
 WorkSheet sheet = workbook.WorkSheets.First();
 
-// Fetch a specific cell using Excel-like syntax:
-int cellValue = sheet["A2"].IntValue;
+// Read cells using Excel-like addressing
+string customerName = sheet["A2"].StringValue;
+decimal total = sheet["B2:B100"].Sum();
 
-// Elegantly access and read range of cells:
-foreach (var cell in sheet["A2:A10"]) {
-    Console.WriteLine($"Cell {cell.AddressString} has value '{cell.Text}'");
-}
-
-// Use LINQ to compute aggregates:
-decimal sum = sheet["A2:A10"].Sum();
-decimal max = sheet["A2:A10"].Max(c => c.DecimalValue);
+// Write a value and save
+sheet["C1"].Value = "Updated";
+workbook.SaveAs("updated.xlsx");
 ```
 
-### Features and Licensing
+Ranges support the LINQ-style aggregations you'd expect (`Sum`, `Max`, `Min`, `Average`) and iterate cell-by-cell. Worksheets can also be projected into `System.Data.DataTable` and `System.Data.DataSet` for integration with existing .NET data pipelines.
 
-[![IronXL Features](https://raw.githubusercontent.com/iron-software/iron-nuget-assets/main/IronXL-readme/features-table.png)](https://ironsoftware.com/csharp/excel/features/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=featuresbanner)
+For production use, set a license key via `License.LicenseKey = "YOUR-KEY"`. Without one, saved files include a watermark sheet.
 
-For more code samples, tutorials and detailed documentation, visit [https://ironsoftware.com/csharp/excel/](https://ironsoftware.com/csharp/excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
+## What's in this repo
 
-For detailed support, contact us via support@ironsoftware.com.
+Each folder contains a self-contained .NET project you can open and run:
 
-### Helpful Resources
+- `examples/` — focused snippets demonstrating individual features
+- `how-to/` — task-oriented guides for specific spreadsheet operations
+- `quickstart/` — end-to-end project scaffolds
+- `tutorials/` — longer walkthroughs combining multiple features
 
-  * Code Samples: [https://ironsoftware.com/csharp/excel/examples/](https://ironsoftware.com/csharp/excel/examples/read-excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * API Documentation: [https://ironsoftware.com/csharp/excel/object-reference/api/](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * Tutorials: [https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * Licensing Information: [https://ironsoftware.com/csharp/excel/licensing/](https://ironsoftware.com/csharp/excel/licensing/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs)
-  * Live Chat Assistance: [https://ironsoftware.com/csharp/excel/#helpscout-support](https://ironsoftware.com/csharp/excel/?utm_source=nuget&utm_medium=organic&utm_campaign=readme&utm_content=supportanddocs#helpscout-support)
+## Common tasks covered
 
-For questions or direct assistance, please email support@ironsoftware.com. We provide comprehensive support and licensing options for your commercial projects.
+- Reading and writing XLSX, XLS, XLSM, CSV, and TSV files
+- Cell formulas with automatic recalculation on edit
+- Range arithmetic: Sum, Max, Min, Average, and LINQ-style aggregations
+- Cell formatting: fonts, colors, borders, alignment, number formats
+- Sorting ranges, columns, and rows
+- DataSet and DataTable conversion for ADO.NET integration
+- Excel encryption, decryption, and password protection
+- Export to JSON
+- Conditional formatting and named ranges
+
+## Platform support
+
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS. See the [installation docs](https://ironsoftware.com/csharp/excel/docs/) for environment-specific notes.
+
+## Documentation and support
+
+- Full documentation: [ironsoftware.com/csharp/excel/docs](https://ironsoftware.com/csharp/excel/docs/)
+- API reference: [ironsoftware.com/csharp/excel/object-reference/api](https://ironsoftware.com/csharp/excel/object-reference/api/)
+- Issues with these examples: file directly on this repository
+- Product support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
+
+## About
+
+This repository is maintained by [Iron Software](https://ironsoftware.com/). IronXL is a commercial library — see [licensing](https://ironsoftware.com/csharp/excel/licensing/) for terms and trial details.
