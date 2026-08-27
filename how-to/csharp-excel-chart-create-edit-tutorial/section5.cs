@@ -1,3 +1,4 @@
+using IronXL.Drawing.Charts;
 using System.Collections.Generic;
 using IronXL;
 namespace IronXL.Examples.HowTo.CsharpExcelChartCreateEditTutorial

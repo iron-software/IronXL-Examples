@@ -1,3 +1,4 @@
+using IronXL.Formatting;
 using IronXL.Formatting.Enums;
 using IronXL;
 namespace IronXL.Examples.HowTo.ConditionalFormatting

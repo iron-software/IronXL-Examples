@@ -1,3 +1,5 @@
+using IronSoftware.Drawing;
+using IronXL.Drawing;
 using System.Collections.Generic;
 using IronXL;
 namespace IronXL.Examples.HowTo.AddExtractRemoveWorksheetImages

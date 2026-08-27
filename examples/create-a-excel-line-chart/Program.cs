@@ -1,3 +1,4 @@
+using IronXL.Drawing;
 using IronXL;
 using IronXL.Drawing.Charts;
 

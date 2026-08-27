@@ -1,3 +1,4 @@
+using IronXL.Printing;
 using IronXL;
 namespace IronXL.Examples.Tutorial.CreateExcelFileNet
 {

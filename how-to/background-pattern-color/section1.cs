@@ -1,3 +1,4 @@
+using IronXL.Styles;
 using IronSoftware.Drawing;
 using IronXL;
 namespace IronXL.Examples.HowTo.BackgroundPatternColor

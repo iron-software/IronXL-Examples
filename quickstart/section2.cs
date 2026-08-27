@@ -1,3 +1,4 @@
+using IronXL.Styles;
 using IronXL;
 using IronXL;
 namespace IronXL.Examples.Overview.Quickstart

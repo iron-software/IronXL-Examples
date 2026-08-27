@@ -1,3 +1,4 @@
+using IronXL.Formatting;
 using System.Linq;
 using IronXL;
 namespace IronXL.Examples.HowTo.SetCellDataFormat

@@ -1,3 +1,4 @@
+using IronXL.Styles;
 using IronXL;
 namespace IronXL.Examples.HowTo.CreateXlsxFileCSharp
 {
