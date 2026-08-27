@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/excel-print-setup/>***
+> Full guide: [Excel print setup](https://ironsoftware.com/csharp/excel/examples/excel-print-setup/)
 
 IronXL provides detailed control over the **Print Setup** for any Excel file, allowing precise management of various print settings whether the output is to a physical or PDF printer.
 

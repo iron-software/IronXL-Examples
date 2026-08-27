@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/add-extract-remove-worksheet-images/>***
+> Full guide: [Add extract remove worksheet images](https://ironsoftware.com/csharp/excel/examples/add-extract-remove-worksheet-images/)
 
 ## Example of Adding Images
 

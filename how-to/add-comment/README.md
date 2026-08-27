@@ -1,6 +1,6 @@
 # How to Add a Comment to Excel Cells
 
-***Based on <https://ironsoftware.com/how-to/add-comment/>***
+> Full guide: [How to Add a Comment to Excel Cells](https://ironsoftware.com/how-to/add-comment/)
 
 
 In Excel, comments serve as helpful annotations or notes attached to a cell. They provide supplementary information, adding context or reminders without altering the content of the cell itself. This additional layer of information is especially useful for explaining the data or calculations in a cell.

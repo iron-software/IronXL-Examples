@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/excel-worksheets/>***
+> Full guide: [Excel worksheets](https://ironsoftware.com/csharp/excel/examples/excel-worksheets/)
 
 The **IronXL** library simplifies the management of Excel worksheets using C#. It offers functionalities such as creating and deleting worksheets, rearranging them, and setting a default active worksheet, all without the need for Office Interop.
 

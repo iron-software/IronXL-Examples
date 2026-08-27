@@ -1,9 +1,9 @@
 # Can IronXL be Operated with .NET on Azure?
 
-***Based on <https://ironsoftware.com/get-started/azure/>***
+> Full guide: [Can IronXL be Operated with .NET on Azure?](https://ironsoftware.com/csharp/excel/get-started/azure/)
 
 
-Absolutely! IronXL is fully compatible with Azure for tasks such as generating and reading QR Codes and Barcodes in C# & VB.NET applications. It has been effectively deployed and tested across various Azure environments including MVC websites, Azure Functions, among others.
+IronXL reads and writes Excel spreadsheets from C# and VB.NET applications hosted in Azure. It has been deployed and tested across Azure environments including MVC websites and Azure Functions.
 
 ---
 

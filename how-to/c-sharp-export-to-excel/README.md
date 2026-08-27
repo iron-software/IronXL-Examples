@@ -1,6 +1,6 @@
 # C# Export to Excel: Step by Step Guide
 
-***Based on <https://ironsoftware.com/how-to/c-sharp-export-to-excel/>***
+> Full guide: [C# Export to Excel: Step by Step Guide](https://ironsoftware.com/how-to/c-sharp-export-to-excel/)
 
 
 Working with Excel spreadsheets in various formats is a common requirement in many projects, and the ability to export data from these spreadsheets using C# is a critical skill. Whether you're dealing with formats like `.xml`, `.csv`, `.xls`, `.xlsx`, or `.json`, this guide will show you how to proficiently export Excel spreadsheet data using C#. This tutorial will demonstrate a straightforward method that does not rely on the older Microsoft.Office.Interop.Excel library.

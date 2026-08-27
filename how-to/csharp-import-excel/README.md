@@ -1,6 +1,6 @@
 # Importing Excel Files in C&#35;
 
-***Based on <https://ironsoftware.com/how-to/csharp-import-excel/>***
+> Full guide: [Importing Excel Files in C&#35;](https://ironsoftware.com/how-to/csharp-import-excel/)
 
 
 For software developers, the ability to import data from Excel files simplifies many tasks related to application and data management. The IronXL library streamlines this process, allowing developers to incorporate and manipulate Excel data within C# projects with minimal code.

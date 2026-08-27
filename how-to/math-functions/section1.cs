@@ -1,5 +1,5 @@
 using System.Linq;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.MathFunctions
 {
     public static class Section1

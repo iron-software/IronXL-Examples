@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.AutosizeRowsColumns
 {
     public static class Section6

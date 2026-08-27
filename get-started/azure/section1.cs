@@ -1,5 +1,5 @@
 using System.Net.Http.Headers;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.GettingStarted.Azure
 {
     public static class Section1

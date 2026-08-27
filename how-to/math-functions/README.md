@@ -1,6 +1,6 @@
 # Utilizing Mathematical Functions in IronXL
 
-***Based on <https://ironsoftware.com/how-to/math-functions/>***
+> Full guide: [Utilizing Mathematical Functions in IronXL](https://ironsoftware.com/how-to/math-functions/)
 
 
 IronXL is an invaluable asset within Excel that offers a variety of mathematical aggregation operations such as Average, Sum, Min, and Max. These functions play a critical role in calculating values and analyzing data. By leveraging IronXL, you can utilize these mathematical capabilities to gain insights, make informed choices, and analyze numerical data in Excel efficiently, all without needing to use Interop.

@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/create-a-excel-line-chart/>***
+> Full guide: [Create a excel line chart](https://ironsoftware.com/csharp/excel/examples/create-a-excel-line-chart/)
 
 IronXL provides functionalities for both generating and modifying Charts within Excel files, specifically in the contemporary XLSX format.
 

@@ -1,7 +1,6 @@
 # C# Tutorial on Reading Excel Files
 
-***Based on <https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp/>***
-
+> Full guide: [C# Tutorial on Reading Excel Files](https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp/)
 
 This guide provides a comprehensive overview of how to read Excel documents using C#, covering common tasks such as data validation, converting databases, integrating with Web APIs, and altering formulas. It includes practical code examples that demonstrate the use of the IronXL .NET Excel library.
 
@@ -28,8 +27,6 @@ Here's a quick guide to reading Excel files with the IronXL library:
 2. **Loading Documents**: Open your XLS, XLSX, or CSV files by employing the `WorkBook.Load` method.
 
 3. **Accessing Cell Values**: Retrieve values from specific cells with a straightforward syntax, for example, `sheet["A11"].DecimalValue` to get the numeric value of cell A11.
-
-Here is a paraphrased version of the provided C# code section, ensuring all relative links are resolved to `ironsoftware.com`:
 
 ```cs
 using IronXL;
@@ -328,8 +325,6 @@ By navigating these functionalities, you can effectively manage and verify data 
 
 Interacting with individual cell values within a spreadsheet involves fetching the specific cell from the `WorkSheet`, as demonstrated below:
 
-Here's the paraphrased section of the code:
-
 ```cs
 // Load the workbook from an existing file
 WorkBook workbook = WorkBook.Load("test.xlsx");
@@ -347,7 +342,7 @@ Each `WorkSheet` in IronXL contains a collection of `Cell` objects, each corresp
 
 Once a `Cell` object is selected, it becomes straightforward to both retrieve data from and write data to any cell in the spreadsheet.
 
-The given C# code snippet illustrates how to manipulate the contents of a specific cell in an Excel worksheet using the IronXL library. Here is a paraphrased version of the code, which retains the same functionality:
+The C# snippet below reads from and writes to a specific cell in an Excel worksheet using IronXL:
 
 ```cs
 // Access the cell at position B1 from the worksheet
@@ -398,7 +393,7 @@ for (int rowIndex = 2; rowIndex <= 101; rowIndex++)
     validationResults.DateErrorMessage = ValidateDate(dateInText);
 }
 ```
-This revised script skillfully navigates the validation process for data within specified cell ranges, ensuring each step is clear and concise for effective data management within a spreadsheet. It demonstrates practical use of a loop to iterate through cell values for validation in IronXL, adhering to the best practices of .NET programming.
+The script validates the data in a given cell range, looping through each cell value in turn.
 
 ```cs
 // Loop through each row
@@ -505,9 +500,6 @@ for (var rowIndex = 2; rowIndex < i; rowIndex++)
 
 # Adding Formulas in a Spreadsheet
 
-***Based on <https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp/>***
-
-
 When adding formulas to a cell within a spreadsheet using IronXL, you can easily compute values dynamically based on other cell values. Below, you'll find an example to help you understand how to utilize formulas effectively. This example focuses on updating column C with the percentage totals based on values in column B.
 
 ```cs
@@ -527,8 +519,6 @@ This method illustrates handling cell formulas programmatically, aiming to updat
 ### Spreadsheet Data Validation
 
 IronXL excels in ensuring the accuracy of your data within spreadsheets. In the `DataValidation` example, we utilize `libphonenumber-csharp` for phone number verification along with standard C# APIs to check the validity of email addresses and dates. These tools work in tandem to ensure that the data adheres to specified formats and standards.
-
-Here's the paraphrased section with actionable comments and improved clarity, and all relative URL paths resolved to `ironsoftware.com`:
 
 ```cs
 // Loop through each row from 2 to 101
@@ -642,8 +632,6 @@ public class CountryContext : DbContext
 ```
 
 Construct a `CountryContext`, traverse through the specified range to generate each record, and subsequently utilize `SaveAsync` to finalize the entries in the database.
-
-Here is the paraphrased section of the article with the resolved URL paths for any links or images to `ironsoftware.com`:
 
 ```cs
 public async Task ExecuteDatabaseExportAsync()
@@ -762,7 +750,6 @@ Here's a visual representation of the JSON data obtained from the API.
 <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" target="_blank">
   <img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 </a>
-```
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/country-data.png" target="_blank">
   <img src="/img/tutorials/how-to-read-excel-file-csharp/country-data.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">

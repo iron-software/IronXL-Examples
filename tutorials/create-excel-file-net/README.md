@@ -1,16 +1,12 @@
 # C# Excel File Creation Tutorial
 
-***Based on <https://ironsoftware.com/tutorials/create-excel-file-net/>***
-
+> Full guide: [C# Excel File Creation Tutorial](https://ironsoftware.com/tutorials/create-excel-file-net/)
 
 In this tutorial, we'll walk you through the process of creating an Excel Workbook on any platform compatible with either .NET Framework 4.5 or .NET Core. Creating Excel files using C# is straightforward and does not rely on the outdated **Microsoft.Office.Interop.Excel** library. Learn to utilize IronXL to manage worksheet attributes such as freezing panes and adding protection, as well as configuring printing settings and more.
 
 <hr class="separator">
 
 <h4 class="tutorial-segment-title">Overview</h4>
-
-
-
 
 <h2>IronXL Creates C&num; Excel Files in .NET</h2>
 
@@ -55,7 +51,6 @@ if (worksheet["A6"].IntValue == worksheet["A2:A4"].IntValue)
 }
 workbook.SaveAs("example_workbook.xlsx");
 ```
-This revised version maintains the original operations while enhancing readability and structure in the code comments and actions.
 
 <hr class="separator">
 
@@ -126,9 +121,6 @@ Launch the Developer Command Prompt and execute the following instructions to in
 
 <h3>Download the NuGet Package directly</h3>
 
-Here's a paraphrased version of the section with URL paths resolved to ironsoftware.com:
-
------
 To successfully download the NuGet package, follow these steps:
 
 1. Visit this URL: [https://www.nuget.org/packages/ironxl.excel/](https://www.nuget.org/packages/ironxl.excel/)
@@ -141,9 +133,6 @@ To successfully download the NuGet package, follow these steps:
 
 <h3>Install IronXL by Direct Download of the Library</h3>
 
-Here's your paraphrased section with the resolved URL path:
-
------
 Another method to set up IronXL is via direct download. Access the file from this link: [https://ironsoftware.com/csharp/excel/](https://ironsoftware.com/csharp/excel/).
 
 <center>
@@ -203,9 +192,6 @@ You now have a base to start enriching with IronXL capabilities.
   <li>Reload your Visual Studio project</li>
 </ul>
 
-Here's a paraphrased version of the section provided, with updated relative paths for links and images:
-
-----
 Follow these instructions to start building an ASP.NET website:
 
 1. Initiate Visual Studio.
@@ -242,7 +228,6 @@ Follow these instructions to start building an ASP.NET website:
 </center>
 
 <strong style="margin-left: 40px;">Figure 2</strong> – *Web Forms*
-```
 
 <br>
 
@@ -265,12 +250,9 @@ IronXL is compatible with both the XLS (the original Excel file version) and XLS
 
 Creating a default worksheet is straightforward and quick:
 
-Here's a paraphrased version of the section specified:
-
 ```cs
 // Initialize a new worksheet named "2020 Budget" in the workbook
 WorkSheet budgetSheet = workBook.CreateWorkSheet("2020 Budget");
-```
 
 In the provided code snippet, "Sheet" denotes a worksheet which can be utilized to assign values to cells and perform nearly all tasks possible with Excel.
 
@@ -280,13 +262,15 @@ A Workbook is essentially a container for one or more Worksheets. You have the f
 
 <hr class="separator">
 
+```
+
 ## 4. Defining Cell Values ##
 
 ### 4.1. Manually Assigning Values to Cells ###
 
+```cs
 Setting the values of cells is straightforward. Here's how you specify the content for individual cells:
 
-```cs
 workSheet["A1"].Value = "January";
 workSheet["B1"].Value = "February";
 workSheet["C1"].Value = "March";
@@ -299,14 +283,15 @@ workSheet["I1"].Value = "September";
 workSheet["J1"].Value = "October";
 workSheet["K1"].Value = "November";
 workSheet["L1"].Value = "December";
-```
 In this example, each cell from A1 to L1 across the first row is populated with the name of a month.
+
+```
 
 ### 4.2. Dynamically Populating Cell Values ###
 
+```cs
 To dynamically assign cell values, use the following approach that doesn’t require you to hard-code the cell positions:
 
-```cs
 Random random = new Random();
 for (int i = 2; i <= 11; i++)
 {
@@ -323,14 +308,15 @@ for (int i = 2; i <= 11; i++)
     workSheet["K" + i].Value = random.Next(10000, 11000);
     workSheet["L" + i].Value = random.Next(11000, 12000);
 }
-```
 This segment of code will auto-generate unique values ranging from specified minimums to maximums for cells A2 to L11.
+
+```
 
 ### 4.3. Inserting Data Directly from a Database ###
 
+```cs
 You can also auto-populate data directly from a database with ease. Here’s a quick example assuming the database connections are properly configured:
 
-```cs
 // Database objects for data retrieval
 string connectionString;
 string query;
@@ -369,13 +355,14 @@ foreach (DataTable table in dataSet.Tables)
         workSheet["L" + rowIndex].Value = table.Rows[rowCount]["Column12"].ToString();
     }
 }
+
 ```
 
 ### 4.1. Manually Assigning Values to Cells ###
 
+```cs
 When you need to input values into cells individually, you select the specific cell by its reference and assign the desired value directly. The following sample illustrates this straightforward process: 
 
-```cs
 workSheet["A1"].Value = "January";
 workSheet["B1"].Value = "February";
 workSheet["C1"].Value = "March";
@@ -388,13 +375,9 @@ workSheet["I1"].Value = "September";
 workSheet["J1"].Value = "October";
 workSheet["K1"].Value = "November";
 workSheet["L1"].Value = "December";
-```
 
 Here, individual months are assigned to cells from A1 to L1, populating each cell in the first row with a different month name.
 
-Here is a paraphrased version of the given section:
-
-```cs
 // Assigning the names of months to the first row, from column A to L
 workSheet["A1"].Value = "Jan";
 workSheet["B1"].Value = "Feb";
@@ -408,19 +391,18 @@ workSheet["I1"].Value = "Sep";
 workSheet["J1"].Value = "Oct";
 workSheet["K1"].Value = "Nov";
 workSheet["L1"].Value = "Dec";
-```
 
 This snippet places the abbreviated names of the months into the corresponding cells from column A to L in the first row of the worksheet.
 
 In this example, I have filled each column from A through L and assigned the first row of each column with the names of different months.
 
+```
+
 ### 4.2. Dynamically Assigning Cell Values ###
 
+```cs
 The process of dynamically assigning values to cells follows closely to the previously mentioned method, but it offers the benefit of not requiring the specification of exact cell addresses. The upcoming example demonstrates how to instantiate a new `Random` object for generating random numbers. Afterwards, a `for` loop is utilized to traverse through a specified range of cells to fill them dynamically with these values.
 
-Here's a paraphrased version of the provided C# code snippet:
-
-```cs
 // Initialize a random number generator
 Random randomGenerator = new Random();
 
@@ -440,7 +422,6 @@ for (int i = 2; i <= 11; i++)
     workSheet[$"K{i}"].Value = randomGenerator.Next(10000, 11000); // Values for column K
     workSheet[$"L{i}"].Value = randomGenerator.Next(11000, 12000); // Values for column L
 }
-```
 
 The code retains the same functionality but varies the syntax slightly, providing fresh expression while ensuring clarity and readability for developers.
 
@@ -448,11 +429,13 @@ Each cell in the range from A2 to L11 is populated with a distinct, randomly gen
 
 Discussing the insertion of dynamic values, let's explore how you can programmatically insert data from a database into cells. The upcoming code example demonstrates this process, provided that your database connections are appropriately established.
 
+```
+
 ### 4.3. Insert Data Straight from a Database ###
 
+```cs
 Incorporating data directly from a database into your worksheet is straightforward using IronXL. Below you will find a code snippet that demonstrates how to accomplish this, assuming you already have your database connection established.
 
-```cs
 // Establish objects for database interaction
 string connectionString;
 string sqlQuery;
@@ -493,13 +476,9 @@ foreach (DataTable table in dataSet.Tables)
     }
     rowIndex++;
 }
-```
 
 This example utilizes a `SqlConnection` to fetch data from a specified database and fills a `DataSet`. The `WorkSheet` object then dynamically receives data, populating each cell with information directly from your database fields.
 
-Here is the paraphrased section:
-
-```cs
 // Initialize database components to load data from the database
 string connectionString;
 string query;
@@ -554,15 +533,16 @@ To change the background color of individual cells or cell ranges, you can accom
 
 ```cs
 workSheet["A1:L1"].Style.SetBackgroundColor("#d3d3d3");
-```
 
 This example paints the range from A1 to L1 with a gray color. Here, the color is specified using a hexadecimal code, which is a standard color coding in HTML where each pair of digits represents the intensity of red, green, and blue components, respectively, from 00 to FF.
 
+```
+
 ### 5.2. Adding Borders to Cells ###
 
+```cs
 To define borders around cells using IronXL is straightforward. Below is how you can define borders for various ranges:
 
-```cs
 // Set the top and bottom borders of A1 to L1 to black
 workSheet["A1:L1"].Style.TopBorder.SetColor("#000000");
 workSheet["A1:L1"].Style.BottomBorder.SetColor("#000000");
@@ -574,16 +554,17 @@ workSheet["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
 // Apply a medium bottom border from A11 to L11
 workSheet["A11:L11"].Style.BottomBorder.SetColor("#000000");
 workSheet["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
-```
 
 In the code snippet above, we define black top and bottom borders for the cells A1 through L1. For cells L2 through L11, a right border is applied, and similarly, a bottom border is defined for A11 through L11, both with a medium thickness. 
 
 These examples show how versatile and easy it is to format cells using IronXL, enhancing both the functionality and aesthetics of your Excel data presentations.
 
+```
+
 ### 5.1. Applying Background Colors to Cells ###
 
+```cs
 To define the background color for a single cell or a group of cells, use a simple line of code as demonstrated below:
-```
 
 ```cs
 // Apply gray background color to the cells from A1 to L1
@@ -610,13 +591,11 @@ workSheet["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
 // Establishing a medium bottom border for the range A11 to L11
 workSheet["A11:L11"].Style.BottomBorder.SetColor("#000000");
 workSheet["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
-```
 
 With this straightforward code, you can apply top, bottom, and right borders of varying styles across specific cell ranges, enhancing both aesthetics and readability of your data presentation.
 
 The provided code snippet demonstrates how to apply border styles to various cells in an Excel worksheet using IronXL:
 
-```cs
 // Setting the color of the top and bottom borders for A1 to L1 to black
 workSheet["A1:L1"].Style.TopBorder.SetColor("#000000");
 workSheet["A1:L1"].Style.BottomBorder.SetColor("#000000");
@@ -654,8 +633,6 @@ workSheet["D12"].Value = minimumValue;
 
 This example beautifully illustrates the usability of IronXL, enabling you to apply common statistical functions like SUM (to add values), AVG (to calculate average), MAX (to find the highest value), and MIN (to determine the lowest value) directly within your .NET applications.
 
-Here's a paraphrased version of the specified section:
-
 ```cs
 // Employ IronXL's aggregation functions
 decimal total = workSheet["A2:A11"].Sum();  // Calculate total of range A2:A11
@@ -669,8 +646,6 @@ workSheet["B12"].Value = average;
 workSheet["C12"].Value = highest;
 workSheet["D12"].Value = lowest;
 ```
-
-This revised snippet uses different variable names and comments to enhance clarity and maintain the original functions' purposes, demonstrating how to utilize IronXL to perform and apply spreadsheet calculations efficiently.
 
 One of the great features here is the ability to specify the data type for a cell, thereby influencing the outcome of the formula. The previously mentioned block of code demonstrates how to implement basic functions like SUM (to total up values), AVG (to calculate the average), MAX (to find the maximum value), and MIN (to determine the minimum value).
 
@@ -770,8 +745,6 @@ The topmost row remains static and won't move vertically with the rest of the sh
 
 Adjust various page settings including the layout orientation, page dimensions, and designated print areas, among others.
 
-Here's a paraphrased version of the provided section, with modified code, enhanced code comments, and absolute URL paths resolved:
-
 ```cs
 // Define the area of the worksheet to be printed
 workSheet.SetPrintArea("A1:L12");
@@ -797,8 +770,6 @@ The printable section of the worksheet is defined as ranging from A1 to L12. Thi
 ```cs
 workBook.SaveAs("Budget.xlsx");
 ```
-
-Here's the paraphrased section of the article:
 
 ```cs
 // Save the Excel Workbook with a new name
@@ -840,8 +811,6 @@ workBook.SaveAs("FinancialPlanning.xlsx");
     </div>
   </div>
 </div>
-
-
 
 <div class="tutorial-section">
   <div class="row">

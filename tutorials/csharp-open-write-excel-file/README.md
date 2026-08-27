@@ -1,9 +1,8 @@
 # C# Excel File Manipulation [Interop-Free] - Code Example Tutorial
 
-***Based on <https://ironsoftware.com/tutorials/csharp-open-write-excel-file/>***
+> Full guide: [C# Excel File Manipulation [Interop-Free] - Code Example Tutorial](https://ironsoftware.com/tutorials/csharp-open-write-excel-file/)
 
-
-Discover through practical examples how to create, open, and preserve Excel documents using C#, while performing elementary operations such as summing, averaging, counting, among others. IronXL.Excel is an independent .NET library capable of interacting with various spreadsheet formats. This library functions seamlessly without the need for [Microsoft Excel](https://products.office.com/en-us/excel) installation or reliance on Interop.
+Discover through practical examples how to create, open, and preserve Excel documents using C#, while performing elementary operations such as summing, averaging, counting, among others. IronXL.Excel is an independent .NET library capable of interacting with various spreadsheet formats. It needs neither an installed copy of [Microsoft Excel](https://products.office.com/en-us/excel) nor Interop.
 
 <hr class="separator">
 
@@ -12,7 +11,7 @@ Discover through practical examples how to create, open, and preserve Excel docu
 <h2>Use IronXL to Open and Write Excel Files</h2>
 
 ------
-Easily open, write, save, and modify Excel files using the highly intuitive [IronXL C# library](https://ironsoftware.com/csharp/excel/).
+Open, write, save, and modify Excel files with the [IronXL C# library](https://ironsoftware.com/csharp/excel/).
 
 Acquire a [sample project from GitHub](https://github.com/magedo93/IronSoftware.git) or start with your own to follow along with this guide.
 
@@ -22,7 +21,7 @@ Steps to begin:
    
 2. Employ the `WorkBook.Load` method for accessing any XLS, XLSX, or CSV files.
 
-3. Retrieve cell values effortlessly with the syntax: `sheet["A11"].DecimalValue`
+3. Retrieve cell values with the syntax `sheet["A11"].DecimalValue`
 
 Throughout this tutorial, we will guide you through:
 
@@ -31,8 +30,6 @@ Throughout this tutorial, we will guide you through:
 - **Advanced Sheet Operations**: Explore advanced features such as adding headers and footers, performing mathematical functions, and more.
 
 <h4>Open an Excel File : Quick Code</h4>
-
-Here's the paraphrased section of the article:
 
 ```cs
 using IronXL;
@@ -68,9 +65,6 @@ if (worksheet["A11"].DecimalValue == accumulatedTotal)
 
 <h4>Write and Save Changes to the Excel File : Quick Code</h4>
 
-Below is the paraphrased section of the article, with resolved URL paths:
-
------
 ```cs
 // Assign a decimal value to cell B1
 workSheet["B1"].Value = 11.54;
@@ -86,13 +80,13 @@ workBook.SaveAs("test.xlsx");
 
 -------------------------------------------
 
-IronXL.Excel offers a robust and adaptable library designed for managing Excel files within a .NET environment. This library supports a broad range of .NET project types including desktop applications, ASP.NET MVC, and .NET Core applications, facilitating tasks such as reading, writing, modifying, and saving Excel documents. Whether for desktop or web applications, IronXL ensures comprehensive Excel manipulation without the need for Microsoft Excel.
+IronXL.Excel reads, writes, modifies, and saves Excel files from .NET. It supports desktop applications, ASP.NET MVC, and .NET Core, and needs no installed copy of Microsoft Excel.
 
 <h3>Install the Excel Library to your Visual Studio Project with NuGet</h3>
 
 The initial step involves incorporating IronXL.Excel into your project. You have two methods to achieve this: using the NuGet Package Manager or the NuGet Package Manager Console.
 
-For installing IronXL.Excel with the NuGet Package Manager, leverage the graphical interface as follows:
+To install IronXL.Excel with the NuGet Package Manager, use the graphical interface as follows:
 
 1. Navigate by clicking with your mouse. Right-click on your project's name in your solution explorer and choose "Manage NuGet Packages."
 
@@ -108,9 +102,6 @@ For installing IronXL.Excel with the NuGet Package Manager, leverage the graphic
 
 </a>
 
-Below is your paraphrased content with URLs resolved against ironsoftware.com:
-
------
 3. Installation Complete
 <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" target="_blank">
     <p><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
@@ -119,8 +110,6 @@ Below is your paraphrased content with URLs resolved against ironsoftware.com:
 <a rel="nofollow" href="/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" target="_blank">
     <p><img src="/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
 </a>
-
-
 
 <h3>Install Using NuGet Package Manager Console</h3>
 
@@ -148,9 +137,6 @@ Additionally, you have the option to manually integrate the [DLL](https://ironso
 
 # C# Write to Excel [Using IronXL Library] Code Tutorial
 
-***Based on <https://ironsoftware.com/tutorials/csharp-open-write-excel-file/>***
-
-
 This tutorial provides a series of step-by-step instructions for creating, opening, and editing Excel files using C#, exploring basic operations like summation, averaging, counting, and beyond. The IronXL.Excel library, which operates independently of .NET, enables these functions without necessitating the installation of Microsoft Excel or reliance on Interop.
 
 <hr class="separator">
@@ -165,7 +151,7 @@ Download a <a href="https://github.com/magedo93/IronSoftware.git" target="_blank
 
 1. Acquire the IronXL Excel Library via <a href="https://www.nuget.org/packages/IronXL.Excel" target="_blank">NuGet</a> or through direct DLL download.
 2. Load any XLS, XLSX, or CSV document utilizing the `WorkBook.Load` method.
-3. Extract Cell values using an intuitive command: `sheet["A11"].DecimalValue`.
+3. Extract cell values with `sheet["A11"].DecimalValue`.
 
 Throughout this tutorial, you'll learn:
 
@@ -212,7 +198,7 @@ workBook.SaveAs("updated.xlsx");
 
 <hr class="separator">
 
-Throughout these instructions, the aim is to provide practical, easy-to-follow guidance to harness the robust features of the IronXL library efficiently. Whether you're constructing a complex financial model or managing simple data lists, this tutorial is designed to get you up and running with minimal fuss.
+These instructions cover the IronXL library from a first spreadsheet through to a financial model.
 
 <hr class="separator">
 <h4 class="tutorial-segment-title">How To Tutorials</h4>
@@ -439,8 +425,6 @@ Console.WriteLine(cell);
 
 <p class="list-decimal">2.1.7. Add our first few lines that reads 1st cell in 1st sheet in the Excel file, and print</p>
 
-Here is the paraphrased version of the provided code snippet from the IronXL tutorial:
-
 ```cs
 // Load the workbook from the current directory
 var workbook = IronXL.WorkBook.Load($@"{Environment.CurrentDirectory}\Files\HelloWorld.xlsx");
@@ -473,8 +457,6 @@ newWorkSheet["A2"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Dashed;
 In this code block, we create a new `WorkBook` instance and set its format to `.XLSX`. A new worksheet named "FirstSheet" is created, and a greeting "Hello World" is inserted into cell A1. We then apply a dashed border with an orange color below the second cell.
 
 <p class="list-description">Create a new Excel file using IronXL</p>
-
-Here's the paraphrased section with the relative URL paths resolved against ironsoftware.com:
 
 ```cs
 WorkBook newWorkBook = WorkBook.Create(ExcelFileFormat.XLSX);
@@ -558,8 +540,6 @@ WorkSheet worksheet = workbook.WorkSheets.First();
 
 <p class="list-decimal"></p>
 <p class="list-decimal">Your code snippet should look like this</p>
-
-Here's a paraphrased version of the provided C# code snippet:
 
 ```cs
 // Load the workbook from a CSV file within the current working directory
@@ -808,8 +788,6 @@ public static class ConversionHelper
 <p class="list-decimal"></p>
 <p class="list-decimal">And finally load this dataset as a workbook</p>
 
-Here is the paraphrased section with resolved relative URL paths:
-
 ```cs
 // Open the JSON file containing the country list
 StreamReader jsonFileStream = new StreamReader($@"{Directory.GetCurrentDirectory()}\Files\CountriesList.json");
@@ -892,7 +870,7 @@ This example generates the following XML structure:
 </_x0031_stWorkSheet>
 ```
 
-Each of these methods enhances the versatility of document management, allowing users to tailor the output to specific requirements of their systems or third-party applications.
+Each of these methods lets you match the output to what a downstream system or third-party application expects.
 
 <span class="list-description">We can save or export the Excel file to multiple file formats like (“.xlsx”,”.csv”,”.html”) using one of the following commands.</span>
 
@@ -944,11 +922,8 @@ myWorkbook.SaveAs($@"{Directory.GetCurrentDirectory()}\Files\HelloWorld.xlsx");
 ### 2.4.2 Saving as CSV
 
 To export your workbook in a “.csv” format, utilize the `SaveAsCsv` method. This function requires two arguments: the desired filename along with its path, and a delimiter which can be a comma (`,`), pipe (`|`), or colon (`:`).
-```
 
 </p>
-
-Here is the paraphrased section of the article, with relative URL paths resolved to `ironsoftware.com`:
 
 ```cs
 // Save the workbook as a CSV file with a specified delimiter
@@ -959,7 +934,7 @@ workBook.SaveAsCsv($"{Directory.GetCurrentDirectory()}\\Files\\HelloWorld.csv", 
 
 ### 2.4.3 Export to JSON Format ".json" ###
 
-This section details the process of exporting an Excel workbook to a JSON file format using IronXL. This capability allows for versatile data sharing and storage options that align with modern data handling standards.
+This section details the process of exporting an Excel workbook to a JSON file format using IronXL. JSON output makes the data straightforward to share and store.
 
 ```cs
 WorkBook workBook = WorkBook.Create(ExcelFileFormat.XLSX);
@@ -986,12 +961,10 @@ Following the execution of this code, the resulting JSON file will appear as:
 ]
 ```
 
-This function empowers developers to seamlessly transition workbook data into a widely used and easily consumable JSON format, enhancing integration with various applications and services.
+The function writes workbook data straight to JSON, which most applications and services can consume directly.
 
 <span class="list-description">To save to Json “.json” use SaveAsJson as follow</span>
 </p>
-
-Here's the paraphrased section with the resolved relative URL path:
 
 ```cs
 // Export the Excel workbook to a JSON file in the current directory
@@ -1052,8 +1025,6 @@ This XML structure clearly represents the data in a well-defined, hierarchical w
 <span class="list-description">To save to xml use SaveAsXml as follow</span>
 </p>
 
-Here is the paraphrased section of the article with the resolved URL path for the Iron Software domain:
-
 ```cs
 // This command saves the workbook to an XML file in the current directory.
 workBook.SaveAsXml($@"{Directory.GetCurrentDirectory()}\Files\HelloWorldXML.XML");
@@ -1079,7 +1050,7 @@ workBook.SaveAsXml($@"{Directory.GetCurrentDirectory()}\Files\HelloWorldXML.XML"
 
 ## 3. Advanced Operations: Sum, Average, Count, and More ##
 
-This section delves into the utilization of popular Excel functions such as SUM, AVG, and COUNT, with detailed coding examples provided for each.
+This section covers the common Excel functions SUM, AVG, and COUNT, with a code example for each.
 
 ### 3.1 Sum Operation Example ###
 
@@ -1288,7 +1259,7 @@ decimal maximumValue = workSheet["A2:A4"].Max();
 Console.WriteLine(maximumValue);
 ```
 
-With the `Max()` method, you can effortlessly retrieve the highest value from a range of cells. If you need to introduce more complex calculations or consider only specific cells based on a condition, IronXL also supports transformations right within the `Max` method:
+The `Max()` method returns the highest value in a range of cells. If you need to introduce more complex calculations or consider only specific cells based on a condition, IronXL also supports transformations right within the `Max` method:
 
 ```cs
 WorkBook loadedWorkbook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
@@ -1300,8 +1271,6 @@ Console.WriteLine(result);
 This enhanced functionality checks if any cells in the specified range contain formulas by returning `true` or `false`, displayed in the console as necessary. The code example demonstrates a simplified way to augment Excel file interactions, showcasing that no formulae are detected in this instance by outputting "false."
 
 <p class="list-description">Using the same file, we can get the max value of range of cells:</p>
-
-Here's the paraphrased section with the URLs resolved:
 
 ```cs
 // Load the workbook from a specified directory
@@ -1318,8 +1287,6 @@ Console.WriteLine(maximumValue);
 ```
 
 <p class="list-description">– We can apply the transform function to the result of max function:</p>
-
-Here's the paraphrased snippet, with the relative URL paths resolved:
 
 ```cs
 // Load the workbook from the current directory
@@ -1368,8 +1335,6 @@ This simple sequence of commands makes it easy to integrate Excel data operation
 
 <p class="list-description">Using the same file, we can get the min value of range of cells:</p>
 
-Here's the paraphrased section where we're finding the minimum value from a specified range in an Excel workbook using IronXL:
-
 ```cs
 // Load the workbook from a specified path
 WorkBook workbook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
@@ -1405,11 +1370,9 @@ cells.SortAscending();
 workBook.SaveAs("SortedSheet.xlsx");
 ```
 
-This streamlined approach allows you to easily adjust the order of data in your Excel sheets using IronXL, enhancing data organization and analysis capabilities.
+This is how IronXL reorders data in an Excel sheet.
 
 <p class="list-description">Using the same file, we can order cells by ascending or descending:</p>
-
-Here’s the rewritten section of the code with an updated version that provides clearer comments and slightly varied logic to achieve similar outcomes.
 
 ```cs
 // Load the workbook from the specified path
@@ -1470,8 +1433,6 @@ This tutorial illustrates the proficiency of IronXL in handling conditional logi
 
 <p class="list-decimal">3.7.1. Save to XML “.xml”</p>
 
-Below is a paraphrased version of the provided C# code section. I've adjusted the syntax and comments for clarity and a slight variation in the logic:
-
 ```cs
 // Load the workbook from a specified path
 WorkBook workbook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\Sum.xlsx");
@@ -1495,8 +1456,6 @@ workbook.SaveAs($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
 ```
 
 <p class="list-decimal">7.2. Using the generated file from the previous example, we can get the Cell’s Formula:</p>
-
-Below is the paraphrased section of the article with updated relative URL paths resolved to `ironsoftware.com`:
 
 ```cs
 // Load the workbook from the current directory
@@ -1547,8 +1506,6 @@ By utilizing this approach, you can ensure that text data within your Excel docu
 
 <p class="list-description">And use this code</p>
 
-Here's the paraphrased section of the code, with updated comments and resolved relative URL paths:
-
 ```cs
 // Load the workbook from a specific location on your drive
 WorkBook workbook = IronXL.WorkBook.Load($@"{Directory.GetCurrentDirectory()}\Files\NewExcelFile.xlsx");
@@ -1598,8 +1555,6 @@ foreach (var cell in range)
 <p class="list-description">I created an xlsx file that contains two sheets: “Sheet1”,” Sheet2”</p>
 <p class="list-description">Until now we used WorkSheets.First() to work with the first sheet. In this example we will specify the sheet name and work with it</p>
 
-Here's the paraphrased section with properly resolved URL paths and formatted markdown:
-
 ```cs
 // Load an existing Excel workbook using the IronXL library
 WorkBook workbook = IronXL.WorkBook.Load($"{Directory.GetCurrentDirectory()}\\Files\\testFile.xlsx");
@@ -1617,7 +1572,7 @@ foreach (var cell in selectedRange)
 }
 ```
 
-This script defines how to load an Excel file, access a specific worksheet, extract a range of cells, and print their contents using IronXL, a robust library for handling Excel files in .NET environments without the need for Microsoft Excel.
+This script defines how to load an Excel file, access a specific worksheet, extract a range of cells, and print their contents using IronXL, which handles Excel files in .NET without Microsoft Excel.
 
 ### 4.2. Incorporating a New Worksheet into your Workbook ###
 
@@ -1640,8 +1595,6 @@ workbook.SaveAs(@"F:\MY WORK\IronPackage\Xl tutorial\newFile.xlsx");
 In this example, after loading an existing workbook, a new worksheet named `new_sheet` is created. The cell `A1` on this new sheet is set with the text "Hello World," demonstrating a simple write operation. Finally, the workbook, now containing the new sheet, is saved to a specified path. This function allows for dynamic expansion of workbooks to accommodate new data or analysis sheets as needed.
 
 <p class="list-description">We can also add new sheet to a workbook:</p>
-
-Here is the paraphrased section of the article that deals with C# code for working with Excel files using IronXL, resolving relative URL paths as required:
 
 ```cs
 // Initialize the workbook by loading an existing file
@@ -1747,8 +1700,6 @@ dbContext.SaveChanges();
 
 <p class="list-description">Insert the data to the Country table in TestDb Database</p>
 
-Here is the paraphrased section:
-
 ```cs
 // Initialize database context for TestDb
 TestDbEntities databaseContext = new TestDbEntities();
@@ -1820,8 +1771,6 @@ For detailed insights into the `WorkBook` class and more, our [API Reference](ht
     </div>
   </div>
 </div>
-
-
 
 <div class="tutorial-section">
   <div class="row">

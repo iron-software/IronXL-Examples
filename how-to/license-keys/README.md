@@ -1,6 +1,6 @@
 # Working with IronXL License Keys
 
-***Based on <https://ironsoftware.com/how-to/license-keys/>***
+> Full guide: [Working with IronXL License Keys](https://ironsoftware.com/how-to/license-keys/)
 
 
 ## Obtaining a License Key

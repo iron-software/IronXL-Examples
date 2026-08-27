@@ -1,6 +1,6 @@
 # How to Trim Cell Range
 
-***Based on <https://ironsoftware.com/how-to/trim-cell-range/>***
+> Full guide: [How to Trim Cell Range](https://ironsoftware.com/how-to/trim-cell-range/)
 
 
 The IronXL library simplifies removal of all empty rows and columns at the borders of a range in C# without the need for Office Interop. This capability significantly enhances the efficiency of data handling and manipulation, sidestepping the need to interact with the Office suite directly.

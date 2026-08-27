@@ -1,6 +1,6 @@
 # Row and Column Grouping in Excel with IronXL
 
-***Based on <https://ironsoftware.com/how-to/group-and-ungroup-rows-columns/>***
+> Full guide: [Row and Column Grouping in Excel with IronXL](https://ironsoftware.com/how-to/group-and-ungroup-rows-columns/)
 
 
 ## Overview

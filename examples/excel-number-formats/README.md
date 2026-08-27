@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/excel-number-formats/>***
+> Full guide: [Excel number formats](https://ironsoftware.com/csharp/excel/examples/excel-number-formats/)
 
 You can utilize the `FormatString` property in C# with IronXL to format the display value of any Excel `Cell` or `Range`.
 

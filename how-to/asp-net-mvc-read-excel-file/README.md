@@ -1,6 +1,6 @@
 # Read Excel Files in ASP.NET MVC Using IronXL
 
-***Based on <https://ironsoftware.com/how-to/asp-net-mvc-read-excel-file/>***
+> Full guide: [Read Excel Files in ASP.NET MVC Using IronXL](https://ironsoftware.com/how-to/asp-net-mvc-read-excel-file/)
 
 
 This guide will walk developers through the steps required to incorporate Excel file reading functionality within ASP.NET MVC applications using IronXL.

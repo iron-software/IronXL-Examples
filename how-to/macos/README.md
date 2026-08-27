@@ -1,6 +1,6 @@
 # IronXL Now Supports macOS for .NET Core
 
-***Based on <https://ironsoftware.com/how-to/macos/>***
+> Full guide: [IronXL Now Supports macOS for .NET Core](https://ironsoftware.com/how-to/macos/)
 
 
 IronXL has expanded its compatibility to include full support for macOS (previously referred to as "OS X") across .NET Standard Libraries, Core applications, and .NET 5 projects.

@@ -1,6 +1,6 @@
 # Implementing IronXL in Docker Environments
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
+> Full guide: [Implementing IronXL in Docker Environments](https://ironsoftware.com/how-to/docker-support/)
 
 
 Discover how to [manage Excel files using C# in Docker containers](https://ironsoftware.com/csharp/excel/). IronXL offers seamless integration with Docker, fully supporting various environments such as Azure Docker Containers on both Linux and Windows platforms.
@@ -47,39 +47,27 @@ Install-Package IronXL.Excel
 ```dockerfile
 # Base runtime image (Ubuntu 20 w/ .NET runtime)
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
 WORKDIR /app
 
 # Base development image (Ubuntu 20 w/ .NET SDK)
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 # Restore NuGet packages
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
 # Build project
-
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
 # Publish project
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
 # Run app
-
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
 
 FROM base AS final
 WORKDIR /app

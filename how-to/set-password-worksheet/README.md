@@ -1,6 +1,6 @@
 # How to Set a Password on a Worksheet
 
-***Based on <https://ironsoftware.com/how-to/set-password-worksheet/>***
+> Full guide: [How to Set a Password on a Worksheet](https://ironsoftware.com/how-to/set-password-worksheet/)
 
 
 Setting a worksheet to **Read-Only** is a frequently required feature for data files. IronXL simplifies the process of applying **Read-Only** protection to worksheets in .NET applications.

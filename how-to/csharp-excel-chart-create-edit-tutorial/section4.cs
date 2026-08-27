@@ -1,5 +1,5 @@
 using IronXL.Drawing.Charts;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.CsharpExcelChartCreateEditTutorial
 {
     public static class Section4

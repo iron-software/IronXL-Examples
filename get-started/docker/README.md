@@ -1,6 +1,6 @@
 # Setting up IronXL in Docker Containers
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
+> Full guide: [Setting up IronXL in Docker Containers](https://ironsoftware.com/csharp/excel/get-started/docker/)
 
 
 Explore how to [interact with Excel spreadsheets using C#](https://ironsoftware.com/csharp/excel/)?
@@ -58,28 +58,20 @@ Install-Package IronXL.Excel
 ```Dockerfile
 # Base image for run-time environment (Ubuntu 20 with .NET runtime)
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
-
 FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
 WORKDIR /app
 
 # Base image for development environment (Ubuntu 20 with .NET SDK)
-
-***Based on <https://ironsoftware.com/get-started/docker/>***
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 
 # NuGet package restoration
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
-
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
 
 # Compiling the project
-
-***Based on <https://ironsoftware.com/get-started/docker/>***
 
 COPY . .
 WORKDIR "/src/Example"
@@ -87,14 +79,10 @@ RUN dotnet build "Example.csproj" -c Release -o /app/build
 
 # Publishing the project
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
-
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
 
 # Executing the application
-
-***Based on <https://ironsoftware.com/get-started/docker/>***
 
 FROM base AS final
 WORKDIR /app
@@ -107,14 +95,11 @@ ENTRYPOINT ["dotnet", "Example.dll"]
 ```Dockerfile
 # Base runtime image (for Ubuntu 20 with .NET 3.1 LTS)
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
-
 FROM mcr.microsoft.com/dotnet/runtime:3.1-focal AS base
 WORKDIR /app
 
 # Developing environment setup (for Ubuntu 20 with .NET 3.1 SDK)
 
-***Based on <https://ironsoftware.com/get-started/docker/>***
-
 FROM mcr.microsoft.com/dotnet/sdk:3.1-focal AS build
 WORK
+```

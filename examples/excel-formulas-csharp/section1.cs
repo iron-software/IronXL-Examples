@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.Example.ExcelFormulasCsharp
 {
     public static class Section1

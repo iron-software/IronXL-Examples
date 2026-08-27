@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/protect-excel-file/>***
+> Full guide: [Protect excel file](https://ironsoftware.com/csharp/excel/examples/protect-excel-file/)
 
 Ensuring the right person receives the correct data is crucial in affirming proper authorization. IronXL facilitates this through capabilities that allow the creation of password-protected spreadsheets, including individual `WorkSheet`s.
 

@@ -1,6 +1,6 @@
 # How to Generate New Excel Files
 
-***Based on <https://ironsoftware.com/how-to/create-spreadsheet/>***
+> Full guide: [How to Generate New Excel Files](https://ironsoftware.com/how-to/create-spreadsheet/)
 
 
 XLSX is a contemporary file format utilized for storing Microsoft Excel spreadsheets. It adheres to the Open XML standard, which was introduced in Office 2007. The XLSX format is equipped to handle sophisticated functions such as charts and conditional formatting, making it highly suitable for data analysis and various business applications.

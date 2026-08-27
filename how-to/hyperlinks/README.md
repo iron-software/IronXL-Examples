@@ -1,6 +1,6 @@
 # How to Create Hyperlinks in Excel
 
-***Based on <https://ironsoftware.com/how-to/hyperlinks/>***
+> Full guide: [How to Create Hyperlinks in Excel](https://ironsoftware.com/how-to/hyperlinks/)
 
 
 Excel hyperlinks are interactive elements that enable users to jump to different locations in the workbook, access various files, navigate to web pages, or compose emails. These features enhance the user experience by simplifying access to related data and external references. The addition of hyperlinks makes spreadsheets more dynamic and user-friendly, streamlining the interaction with additional information or external resources.

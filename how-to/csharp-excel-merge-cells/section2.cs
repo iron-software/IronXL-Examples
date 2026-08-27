@@ -1,5 +1,5 @@
 using System;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.CsharpExcelMergeCells
 {
     public static class Section2

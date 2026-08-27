@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/sort-excel-range-csharp/>***
+> Full guide: [Sort excel range C#](https://ironsoftware.com/csharp/excel/examples/sort-excel-range-csharp/)
 
 Organizing information in a systematic order, whether alphabetically or by value, simplifies the analysis of data within Microsoft Excel. IronXL simplifies the task of sorting Excel columns, rows, and ranges for developers using C# and VB.NET.
 

@@ -1,6 +1,6 @@
 # Reading Excel Files in Blazor with IronXL: A Comprehensive Tutorial
 
-***Based on <https://ironsoftware.com/how-to/blazor-read-excel-file-tutorial/>***
+> Full guide: [Reading Excel Files in Blazor with IronXL: A Comprehensive Tutorial](https://ironsoftware.com/how-to/blazor-read-excel-file-tutorial/)
 
 
 ## Introduction

@@ -1,7 +1,6 @@
 # C# Excel File Handling with Practical Examples
 
-***Based on <https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp_old_changed may 2021/>***
-
+> Full guide: [C# Excel File Handling with Practical Examples](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
 
 This guide demonstrates how to extract data from Excel files using C# and leverage the library for common operations such as data validation, converting data for database storage, capturing data from Web APIs, and altering formulas within the spreadsheet. It highlights examples from the IronXL library coded within a .NET Core Console Application.
 
@@ -32,8 +31,6 @@ This guide demonstrates how to extract data from Excel files using C# and levera
 <a name ="video"></a><h4 class="tutorial-segment-title">Overview</h4>
 <h2>Read Data from Excel in .NET using IronXL</h2>
 
-
-
 <iframe class="lazy" width="100%" height="450" data-src="https://www.youtube.com/embed/sXkcdZWUcWI?rel=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope picture-in-picture" allowfullscreen></iframe>
 
 IronXL is a comprehensive .NET library designed for manipulating and managing Microsoft Excel files using C#. This guide provides step-by-step instructions on how to utilize C# to [read Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
@@ -51,7 +48,6 @@ IronXL is a comprehensive .NET library designed for manipulating and managing Mi
 - Simplify setup with straightforward integration into Microsoft Visual Studio.
 
 - Utilize the development version at no cost. Affordable licensing options start from `$liteLicense`.
-
 
 Experience the simplicity of processing **Excel** files using C# or VB.NET with the IronXL library, inclusive of examples across three different Excel spreadsheets.
 
@@ -100,13 +96,9 @@ To begin, it is essential to incorporate the IronXL.Excel library into your proj
 
 <h3>Installing the IronXL NuGet Package</h3>
 
-Here's the paraphrased section with all relative URL paths resolved to ironsoftware.com:
-
-
 1. Open Visual Studio, right-click your project in the solution explorer, and choose "Manage NuGet Packages..."
 
 2. Look up the IronXL.Excel package in the search bar and proceed with the installation.
-```
 
 <a rel="nofollow" href="/img/tutorials/how-to-read-excel-file-csharp/ef-nuget.png" target="_blank">
   <p><img src="/img/tutorials/how-to-read-excel-file-csharp/ef-nuget.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
@@ -137,8 +129,6 @@ Alternatively, you can begin by downloading the IronXL [.NET Excel DLL](https://
 ## 2. Load a Workbook ##
 
 The [`WorkBook`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html) class embodies an Excel spreadsheet document. To initiate a `WorkBook`, employ the `WorkBook.Load` method and designate the file path to the Excel file (.xlsx).
-
-Here's the paraphrased section with resolved URL paths:
 
 ```cs
 /**
@@ -364,8 +354,6 @@ This method not only validates data but also helps in preemptively correcting er
 
 There are multiple approaches to either reading or updating the contents of cells within a specified Range. If the number of cells is predetermined, utilizing a For loop is an effective method.
 
-Here's a paraphrased version of the provided code section, where relative paths have also been resolved to the specified domain (ironsoftware.com):
-
 ```cs
 /**
 Modify Range Cell Content
@@ -514,8 +502,6 @@ public class Nation
 
 The provided code snippet is set up to configure the database context. If you need to utilize another database, you should install the suitable NuGet package and locate the appropriate method that corresponds to `UseSqLite()`.
 
-Here's the paraphrased section of the original text, with relative URL paths resolved to `ironsoftware.com` as requested:
-
 ```cs
 /**
  * Initialization and configuration of the Entity Framework for data export
@@ -554,8 +540,6 @@ public class CountryContext : DbContext
 ```
 
 Establish a `CountryContext`, process each record in the provided range, and utilize `SaveAsync` to finalize the updates to the database.
-
-Below is the paraphrased version of the provided C# code snippet, which is designed to automate the process of importing data from an Excel spreadsheet into a database using IronXL and Entity Framework.
 
 ```cs
 public async Task ImportDataAsync()
@@ -740,8 +724,6 @@ This segment of code iterates through each populated row, selecting the cell in 
 
 The subsequent example demonstrates how to perform a REST API request using [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net). This process retrieves JSON data and transforms it into a `List` of the `RestCountry` type. From there, you can efficiently loop through each country and transfer the API data directly into an Excel file.
 
-Here's your paraphrased section with resolved URLs:
-
 ```cs
 /**
 Retrieve Data from API and Load into Spreadsheet
@@ -751,9 +733,6 @@ var httpClient = new Client(new Uri("https://restcountries.eu/rest/v2/"));
 List<RestCountry> countryList = await httpClient.GetAsync<List<RestCountry>>();
 ```
 
-Below is the paraphrased section of the article, with links and image paths resolved to ironsoftware.com:
-
----
 Sample: *ApiToExcel*
 
 Here is a preview of the JSON data obtained from the API:
@@ -763,8 +742,6 @@ Here is a preview of the JSON data obtained from the API:
 </a>
 
 The subsequent code segment cycles through the list of countries and populates columns in the spreadsheet with the Name, Population, Region, NumericCode, and the Top 3 Languages of each country.
-
-Here is the paraphrased version of the provided C# code snippet:
 
 ```cs
 // Loop through countries starting from the second item
@@ -838,8 +815,6 @@ Furthermore, you can explore additional tutorials that illuminate various featur
     </div>
   </div>
 </div>
-
-
 
 <div class="tutorial-section">
   <div class="row">

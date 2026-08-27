@@ -1,6 +1,6 @@
 # How to Configure Cell Background Pattern & Color in Excel
 
-***Based on <https://ironsoftware.com/how-to/background-pattern-color/>***
+> Full guide: [How to Configure Cell Background Pattern & Color in Excel](https://ironsoftware.com/how-to/background-pattern-color/)
 
 
 In Excel, the term "background cell pattern" refers to the texture or visual pattern added to the background of a cell. Similarly, "background cell color" pertains to the flat, uniform color that fills a cell's background.

@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/how-to/c-sharp-excel-interop/>***
+> Full guide: [C sharp excel interop](https://ironsoftware.com/how-to/c-sharp-excel-interop/)
 
 ```cs
 static void Main(string [] args)

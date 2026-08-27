@@ -1,6 +1,6 @@
 # Working with Excel Files in C# & VB.NET Applications
 
-***Based on <https://ironsoftware.com/docs/docs/>***
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
 
 
 Manipulating Excel files such as XLS, XLSX, and CSV is straightforward in C# and other .NET languages with the help of the IronXL library from Iron Software.

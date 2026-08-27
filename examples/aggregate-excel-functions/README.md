@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/aggregate-excel-functions/>***
+> Full guide: [Aggregate excel functions](https://ironsoftware.com/csharp/excel/examples/aggregate-excel-functions/)
 
 The illustrated code snippet demonstrates the straightforward process of obtaining aggregate values from a selected range of cells in an Excel spreadsheet. It's important to note that cells containing non-numeric data will not be included in these calculations.
 

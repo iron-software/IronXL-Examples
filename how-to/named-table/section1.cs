@@ -1,5 +1,5 @@
 using IronXL.Styles;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.NamedTable
 {
     public static class Section1

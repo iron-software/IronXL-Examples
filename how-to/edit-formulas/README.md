@@ -1,7 +1,6 @@
 # Editing Formulas in an Excel Worksheet
 
-***Based on <https://ironsoftware.com/how-to/edit-formulas/>***
-
+> Full guide: [Editing Formulas in an Excel Worksheet](https://ironsoftware.com/how-to/edit-formulas/)
 
 An Excel formula, which begins with an equal sign (=), is used for carrying out mathematical operations, manipulating data, and deriving results from the values of cells. Such formulas might include arithmetic operators, function calls, cell references, constants, and logical operations, allowing for dynamic changes as the content of cells evolves. This adaptability makes Excel an indispensable tool for task automation and comprehensive data analysis.
 
@@ -10,9 +9,6 @@ IronXL provides robust support for modifying existing formulas within Excel file
 <h3>Get started with IronXL</h3>
 
 # How to Edit Formulas in a Worksheet
-
-***Based on <https://ironsoftware.com/how-to/edit-formulas/>***
-
 
 Excel formulas, which begin with an equals sign (`=`), are used to perform calculations, manipulate data, and derive outcomes based on cell content. These expressions may consist of arithmetic operations, functions, references to other cells, constants, and logical operators. The dynamic nature of formulas ensures that outputs update automatically when underlying cell values are adjusted, transforming Excel into an invaluable tool for task automation and data analysis.
 
@@ -93,8 +89,6 @@ This detailed granularity in formula support amplifies the versatility of IronXL
 
 To modify or establish a formula, utilize the **Formula** property. Initially, identify a Range or Cell, and then manipulate the Formula property accordingly. This property allows both retrieval and assignment, yielding the formula string present, if there is one. Execute the `EvaluateAll` method to reassess the entire workbook, promoting precision in the resulting calculations.
 
-Here's the paraphrased section of your article, with the same technical content presented in a slightly different manner:
-
 ```cs
 using IronXL;
 
@@ -117,7 +111,7 @@ workbook.EvaluateAll();
 
 While it's sometimes feasible to obtain the formula result using the **Value** property of the selected Range or Cell, for more precise outcomes, it's advisable to use the **FormattedCellValue** property of the Cell. Within the chosen Range, utilize the `First` method to pinpoint the Cell. This method isolates the initial element of the range, which in our example is the "A4" Cell. Subsequently, you can extract the formula result from the FormattedCellValue attribute.
 
-I've revised the C# code section on how to retrieve and print the result of a formula using IronXL:
+The following C# code retrieves and prints the result of a formula using IronXL:
 
 ```cs
 using IronXL;
@@ -145,15 +139,11 @@ Excel offers over 450 distinct formulas to facilitate a range of calculations an
 
 <style>
 
-Here is your paraphrased content for the specified section:
-
 ```css
 tr:nth-child(odd) {
     background-color: #f1f9fb;
 }
 ```
-
-This revised version uses a hexadecimal color code instead of the original RGB value, but keeps the same hue, providing a consistent but slightly refined styling approach.
 
 </style>
 

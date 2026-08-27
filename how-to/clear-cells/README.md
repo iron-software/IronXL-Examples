@@ -1,6 +1,6 @@
 # How to Clear Cells in Excel with IronXL
 
-***Based on <https://ironsoftware.com/how-to/clear-cells/>***
+> Full guide: [How to Clear Cells in Excel with IronXL](https://ironsoftware.com/how-to/clear-cells/)
 
 
 Clearing cells in Excel files using C# is a common task, often needed to remove old or irrelevant data, initialize templates, repair mistakes, or tidy up spreadsheet appearances. IronXL provides a straightforward way of executing these tasks without relying on Interop services. Here's how you can achieve these results using IronXL.

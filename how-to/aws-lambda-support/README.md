@@ -1,6 +1,6 @@
 # IronXL Integration for AWS Lambda with .NET Core
 
-***Based on <https://ironsoftware.com/how-to/aws-lambda-support/>***
+> Full guide: [IronXL Integration for AWS Lambda with .NET Core](https://ironsoftware.com/how-to/aws-lambda-support/)
 
 
 IronXL provides robust support for AWS Lambda functions across .NET Standard libraries, .NET Core, .NET 5, and .NET 6 projects.

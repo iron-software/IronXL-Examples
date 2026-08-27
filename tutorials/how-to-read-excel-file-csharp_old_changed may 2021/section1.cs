@@ -1,4 +1,5 @@
-using IronXL.Excel;
+using System.Linq;
+using IronXL;
 namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp_Old_Changed May 2021
 {
     public static class Section1
@@ -9,8 +10,6 @@ namespace IronXL.Examples.Tutorial.HowToReadExcelFileCsharp_Old_Changed May 2021
             Read XLS or XLSX File
             anchor-read-an-xls-or-xlsx-file
             **/
-            using IronXL;
-            using System.Linq;
                 
             //Supported spreadsheet formats for reading include: XLSX, XLS, CSV and TSV
             WorkBook workbook = WorkBook.Load("test.xlsx");

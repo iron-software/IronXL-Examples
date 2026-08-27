@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/read-excel/>***
+> Full guide: [Read excel](https://ironsoftware.com/csharp/excel/examples/read-excel/)
 
 IronXL is a C# and .NET Excel library that enables developers to read Excel data from formats such as **XLSX, XLS, XLSM, XLTX, CSV, and TSV** _without relying on Microsoft.Office.Interop.Excel_. Although all formats can be accessed using the `Load` method, it is advisable to utilize the `LoadCSV` method specifically for CSV files.
 

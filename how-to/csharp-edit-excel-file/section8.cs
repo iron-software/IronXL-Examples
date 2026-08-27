@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.CsharpEditExcelFile
 {
     public static class Section8

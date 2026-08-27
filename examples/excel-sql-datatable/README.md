@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/excel-sql-datatable/>***
+> Full guide: [Excel sql datatable](https://ironsoftware.com/csharp/excel/examples/excel-sql-datatable/)
 
 Convert Excel and CSV file formats like XLSX, XLS, XLSM, XLTX, CSV, and TSV into a `System.Data.DataTable`. This conversion facilitates seamless interaction with `System.Data.SQL` or allows for easy filling of a `DataGrid`.
 

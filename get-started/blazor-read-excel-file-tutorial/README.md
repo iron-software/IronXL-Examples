@@ -1,6 +1,6 @@
 # Blazor Read Excel File in C# Using IronXL (Example Tutorial)
 
-***Based on <https://ironsoftware.com/get-started/blazor-read-excel-file-tutorial/>***
+> Full guide: [Blazor Read Excel File in C# Using IronXL (Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/)
 
 
 ## Introduction

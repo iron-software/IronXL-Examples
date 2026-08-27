@@ -1,7 +1,6 @@
 # C# Excel File Creation Guide
 
-***Based on <https://ironsoftware.com/tutorials/create-excel-file-net_old_changed may 2021/>***
-
+> Full guide: [C# Excel File Creation Guide](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/)
 
 This guide provides a detailed walkthrough on how to generate an Excel Workbook on platforms compatible with .NET Framework 4.5 or .NET Core. The process of building Excel files in C# is straightforward and does not require the traditional **Microsoft.Office.Interop.Excel** library. Utilize IronXL to manage worksheet features such as freeze panes, security settings, printing configurations, and much more.
 
@@ -33,15 +32,11 @@ This guide provides a detailed walkthrough on how to generate an Excel Workbook 
 
 <h2>IronXL Creates C# Excel Files in .NET</h2>
 
-[IronXL provides a seamless C# & VB Excel API](https://ironsoftware.com/csharp/excel/) designed for robust and efficient manipulation of Excel spreadsheets within .NET applications. Achieve high-speed operations without the necessity for MS Office or Excel Interop installations.
+[IronXL is a C# and VB Excel API](https://ironsoftware.com/csharp/excel/) for manipulating Excel spreadsheets inside .NET applications. Achieve high-speed operations without the necessity for MS Office or Excel Interop installations.
 
 IronXL offers comprehensive support across multiple platforms and frameworks including .NET Core, .NET Framework, Xamarin, Mobile, Linux, macOS, and Azure, ensuring flexibility in deployment and integration.
 
 <h3>IronXL Features:</h3>
-
-Here's the paraphrased section with resolved links:
-
------
 
 - Direct access to human technical support from our team of .NET experts
 
@@ -54,8 +49,6 @@ Here's the paraphrased section with resolved links:
 <a class="js-modal-open" href="https://www.nuget.org/packages/IronXL.Excel/" target="_blank" data-modal-id="trial-license-after-download">https://www.nuget.org/packages/IronXL.Excel/</a>
 
 Alternatively, you can download the [IronXL.Dll](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) directly and incorporate it into your project.
-
-Here is the paraphrased section of the article with enhanced code comments and any relative URLs resolved to `ironsoftware.com`:
 
 ```cs
 /**
@@ -105,7 +98,7 @@ There are primarily three methods to incorporate the IronXL NuGet package into y
 
 #### Via Visual Studio
 
-Visual Studio seamlessly integrates NuGet Package Manager, which can be accessed from the Project Menu or by right-clicking your project in Solution Explorer as demonstrated below in Figures 3 and 4.
+Visual Studio ships with the NuGet Package Manager, reachable from the Project menu or by right-clicking your project in Solution Explorer as demonstrated below in Figures 3 and 4.
 
 <center>
   <div style="display: inline-block; text-align: left; margin-bottom: 20px;">
@@ -166,7 +159,7 @@ After downloading, integrate the library into your project:
 - Click 'References', browse to your downloaded IronXL.dll library.
 - Press OK.
 
-Ready to explore IronXL's capabilities? Let's dive in!
+The sections below cover what IronXL can do.
 
 <h3>Install by Using NuGet</h3>
 
@@ -298,7 +291,7 @@ Now, let's start creating an ASP.NET Website:
    
 7. Confirm your selection by clicking 'OK'.
 
-Once these steps are completed, you're ready to incorporate IronXL into your project and start customizing your Excel files effortlessly.
+Once these steps are done, IronXL is available in the project.
 
 <ul>
   <li>Navigate to the following URL:</li>
@@ -307,10 +300,6 @@ Once these steps are completed, you're ready to incorporate IronXL into your pro
   <li>After the package has downloaded, double click it</li>
   <li>Reload your Visual Studio project</li>
 </ul>
-
-Here is the paraphrased version of the specified section with resolved URL paths:
-
------
 
 Follow these steps to initiate an ASP.NET website:
 
@@ -325,8 +314,6 @@ Follow these steps to initiate an ASP.NET website:
 ![ASP.NET New Project](https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png)
 
 -----
-
-The URL and images paths have been resolved to point to the absolute path as per your request.
 
 <br></br>
 <center>
@@ -366,9 +353,7 @@ Create Excel Workbook effortlessly with IronXL
 WorkBook newWorkbook = WorkBook.Create(ExcelFileFormat.XLSX);
 ```
 
-IronXL makes it incredibly straightforward to initialize a new Excel Workbook. As you can see, it just takes a single line of code! This feature underscores the simplicity and power of the IronXL library, making .NET developers' tasks much more manageable. Whether you're using older Excel file formats like XLS or the more current XLSX format, IronXL supports them all seamlessly.
-
-Here is the paraphrased section of the article with resolved URLs:
+Initializing a new Excel workbook takes a single line of code. IronXL handles the older XLS format as well as XLSX.
 
 ```cs
 // Initialize a new Workbook object in the XLSX format
@@ -385,7 +370,7 @@ Creating a default worksheet is even more straightforward:
 var sheet = workbook.CreateWorkSheet("Budget2020");
 ```
 
-In the code example above, the term "Sheet" refers to the worksheet. It's a versatile component that allows you to modify cell values along with virtually every other capability available in Excel.
+In the code example above, the term "Sheet" refers to the worksheet. It carries the cell values along with almost everything else Excel exposes.
 
 To clarify, a Workbook is essentially a collection of Worksheets. You have the flexibility to include multiple Worksheets within a single Workbook, details of which will be covered in a forthcoming article. Within each Worksheet, you will find Rows and Columns. The point where a Row intersects with a Column is known as a Cell, which will be your primary area of interaction when managing data in Excel.
 
@@ -517,8 +502,6 @@ sheet["L1"].Value = "December";
 
 In the provided code snippet, each cell from `A1` to `L1` is being assigned the name of a different month.
 
-Here's the paraphrased section, with resolved relative URL paths and enhanced comments in the code snippet for clarity:
-
 ```cs
 /**
 Manually Assign Values to Cells
@@ -539,13 +522,11 @@ sheet["K1"].Value = "November";  // Set value of cell K1
 sheet["L1"].Value = "December";  // Set value of cell L1
 ```
 
-This rewritten code block achieves the same functionality but with more explicit commenting that enhances understanding.
-
 In this example, I have filled Columns A through L with the names of different months in the first row of each column.
 
 ### 4.2. Dynamically Assign Cell Values ###
 
-Assigning values to cells dynamically offers a flexible approach similar to the method discussed earlier. What sets this method apart is that it eliminates the need to specify exact cell coordinates in advance. In the following example, you'll see how to instantiate a new `Random` object for generating random numbers. Then, leveraging a `for` loop, you'll iterate over a specified range of cells, filling each one with a value.
+Assigning values to cells dynamically offers a flexible approach similar to the method discussed earlier. What sets this method apart is that it eliminates the need to specify exact cell coordinates in advance. In the following example, you'll see how to instantiate a new `Random` object for generating random numbers. A `for` loop then walks a range of cells, filling each one with a value.
 
 ```cs
 // Setting Cell Values Dynamically
@@ -575,7 +556,7 @@ Shifting our focus to dynamic data insertion, let’s explore how you can direct
 
 ### 4.3. Import Data Directly from a Database ###
 
-Integrating data directly from a database into your Excel workbook is seamless with IronXL. Below, you'll find the steps to populate your spreadsheet using database records:
+IronXL populates a workbook directly from database records. The steps are below:
 
 ```cs
 /**
@@ -627,8 +608,6 @@ foreach (DataTable table in dataSet.Tables)
 ```
 
 By setting the `Value` property of each cell, you can dynamically enter the specific field values directly into your spreadsheet cells. The ease of integration makes IronXL a powerful tool for instant data management and reporting from your databases.
-
-Here's the paraphrased section of the article, with improvements in code comments and changes to some code snippets, plus resolution of image and link URLs to `ironsoftware.com`:
 
 ```cs
 /**
@@ -744,8 +723,6 @@ This code assigns a gray background color to a specific range of cells. The colo
 
 Setting up borders in cells using IronXL is straightforward and effective, as demonstrated below:
 
-Here's the paraphrased section of the code:
-
 ```cs
 /**
 Define Borders for Spreadsheet Cells
@@ -772,10 +749,7 @@ In the provided code example, black borders are assigned to the top and bottom o
 
 ## 6. Utilizing Formulas in Cells ##
 
-IronXL simplifies the process of using formulas within your spreadsheets to an astonishing degree. Here's a demonstration of how effortlessly you can integrate mathematical functions into your cells:
-```
-
-Here's the paraphrased section of the article with resolved relative URL paths where needed:
+Here is how mathematical functions go into cells with IronXL:
 
 ```cs
 /**
@@ -874,8 +848,6 @@ The initial row is locked in place and remains stationary while you scroll throu
 
 It's possible to customize various page attributes including the page orientation, its dimensions, and the specified print area, among others.
 
-Here is the paraphrased section with the relative URL paths resolved to ironsoftware.com:
-
 ```cs
 /**
 Configuring Page Layout and Print Settings
@@ -908,10 +880,8 @@ Save the Excel Workbook
 anchor-save-workbook
 **/
 workbook.SaveAs("FinancialReport.xlsx");
-```
 
 The `SaveAs` method allows you to specify the file name for your workbook, in this case, saving it as "FinancialReport.xlsx".
-```
 
 ```cs
 // Persisting the Excel Workbook
@@ -954,8 +924,6 @@ workbook.SaveAs("Budget.xlsx");
     </div>
   </div>
 </div>
-
-
 
 <div class="tutorial-section">
   <div class="row">

@@ -1,6 +1,6 @@
 # How to Apply Cell Data Formats
 
-***Based on <https://ironsoftware.com/how-to/set-cell-data-format/>***
+> Full guide: [How to Apply Cell Data Formats](https://ironsoftware.com/how-to/set-cell-data-format/)
 
 
 Formulating cell data and number formats in Excel empowers users to influence the visual representation of numbers, dates, times, and other data types. By employing specific formats like currency or percentage, you can not only enhance visual comprehension but also uphold data precision. Data formats ensure that information is represented in your preferred style, while number formats allow familiarity in expressing numerical data with varied decimal and display preferences.

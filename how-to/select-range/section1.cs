@@ -1,5 +1,5 @@
 using System.Linq;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.SelectRange
 {
     public static class Section1

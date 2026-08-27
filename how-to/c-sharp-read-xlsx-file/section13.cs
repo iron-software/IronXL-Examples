@@ -1,4 +1,5 @@
-using IronXL.Excel;
+using System.Data;
+using IronXL;
 namespace IronXL.Examples.HowTo.CSharpReadXlsxFile
 {
     public static class Section13
@@ -9,8 +10,6 @@ namespace IronXL.Examples.HowTo.CSharpReadXlsxFile
             WorkSheet Cell Values
             anchor-read-excel-file-as-dataset
             **/
-            using IronXL;
-            using System.Data; 
             static void Main(string [] args)
             { 
             WorkBook wb = WorkBook.Load("sample.xlsx");

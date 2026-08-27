@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.Tutorial.CreateExcelFileNet_Old_Changed May 2021
 {
     public static class Section1
@@ -9,7 +9,6 @@ namespace IronXL.Examples.Tutorial.CreateExcelFileNet_Old_Changed May 2021
             Create & Save Excel File 
             anchor-create-and-save-an-excel-file
             **/
-            using IronXL;
             
             
             //default file format is XLSX, we can override it using CreatingOptions

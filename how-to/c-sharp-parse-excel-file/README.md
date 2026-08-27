@@ -1,6 +1,6 @@
 # C# Parse Excel File
 
-***Based on <https://ironsoftware.com/how-to/c-sharp-parse-excel-file/>***
+> Full guide: [C# Parse Excel File](https://ironsoftware.com/how-to/c-sharp-parse-excel-file/)
 
 
 In C# applications that utilize Excel spreadsheets, it's common to extract and transform spreadsheet data into various formats for analysis. Leveraging IronXL within the C# environment simplifies these tasks, allowing developers to efficiently parse Excel files as illustrated in the steps below.

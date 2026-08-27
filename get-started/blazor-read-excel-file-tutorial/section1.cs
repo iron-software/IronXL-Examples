@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.GettingStarted.BlazorReadExcelFileTutorial
 {
     public static class Section1
