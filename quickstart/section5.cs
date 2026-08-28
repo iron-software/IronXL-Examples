@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.Overview.Quickstart
 {
     public static class Section5

@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.CsharpDatatableToCsv
 {
     public static class Section1

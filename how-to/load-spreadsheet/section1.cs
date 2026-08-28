@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.LoadSpreadsheet
 {
     public static class Section1

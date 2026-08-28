@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.GroupAndUngroupRowsColumns
 {
     public static class Section2

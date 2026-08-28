@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.CSharpReadExcelFileExample
 {
     public static class Section7

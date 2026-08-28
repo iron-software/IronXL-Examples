@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.CsharpWriteToCsvFile
 {
     public static class Section1

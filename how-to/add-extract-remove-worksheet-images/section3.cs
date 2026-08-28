@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL;
 namespace IronXL.Examples.HowTo.AddExtractRemoveWorksheetImages
 {
     public static class Section3
