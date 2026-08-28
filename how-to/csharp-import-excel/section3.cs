@@ -1,3 +1,4 @@
+using System.Linq;
 using IronXL;
 namespace IronXL.Examples.HowTo.CsharpImportExcel
 {
@@ -5,18 +6,23 @@ namespace IronXL.Examples.HowTo.CsharpImportExcel
     {
         public static void Run()
         {
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            int SheetIndex = 0;
+
             /**
             Import WorkSheet 
             anchor-access-worksheet-for-project
             **/
             //by sheet indexing
-            WorkBook.WorkSheets [SheetIndex];
+            WorkSheet byIndex = workBook.WorkSheets [SheetIndex];
             //get default  WorkSheet
-            WorkBook.DefaultWorkSheet;
+            WorkSheet defaultSheet = workBook.DefaultWorkSheet;
             //get first WorkSheet
-            WorkBook.WorkSheets.First();
+            WorkSheet firstSheet = workBook.WorkSheets.First();
             //for the first or default sheet:
-            WorkBook.WorkSheets.FirstOrDefault();
+            WorkSheet firstOrDefaultSheet = workBook.WorkSheets.FirstOrDefault();
         }
     }
 }

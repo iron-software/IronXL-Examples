@@ -5,6 +5,12 @@ namespace IronXL.Examples.HowTo.CSharpExcelInterop
     {
         public static void Run()
         {
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            IronXL.WorkSheet WorkSheet = workBook.DefaultWorkSheet;
+            int RowIndex = 0;
+
             WorkSheet.Rows [RowIndex].Replace("old value", "new value");
         }
     }

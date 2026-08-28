@@ -1,3 +1,4 @@
+using System.Data;
 using IronXL;
 namespace IronXL.Examples.HowTo.CsharpImportExcel
 {
@@ -5,7 +6,11 @@ namespace IronXL.Examples.HowTo.CsharpImportExcel
     {
         public static void Run()
         {
-            ToDataSet(true);
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+
+            DataSet ds = workBook.ToDataSet(true);
         }
     }
 }

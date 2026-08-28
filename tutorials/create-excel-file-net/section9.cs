@@ -5,6 +5,11 @@ namespace IronXL.Examples.Tutorial.CreateExcelFileNet
     {
         public static void Run()
         {
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            IronXL.WorkSheet workSheet = workBook.DefaultWorkSheet;
+
             // Use IronXL built-in aggregations
             decimal sum = workSheet["A2:A11"].Sum();
             decimal avg = workSheet["B2:B11"].Avg();

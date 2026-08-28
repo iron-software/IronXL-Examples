@@ -1,3 +1,4 @@
+using System.Data;
 using IronXL;
 namespace IronXL.Examples.HowTo.CSharpParseExcelFile
 {
@@ -5,7 +6,12 @@ namespace IronXL.Examples.HowTo.CSharpParseExcelFile
     {
         public static void Run()
         {
-            DataTable dt=WorkSheet.ToDataTable(True);
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            IronXL.WorkSheet WorkSheet = workBook.DefaultWorkSheet;
+
+            DataTable dt = WorkSheet.ToDataTable(true);
         }
     }
 }

@@ -5,9 +5,14 @@ namespace IronXL.Examples.Example.ExcelFormulasCsharp
     {
         public static void Run()
         {
-            workSheet ["A2"].Formula = "=SQRT(A1)"
-            workSheet ["B8"].Formula = "=C9/C11"
-            workSheet ["G31"].Formula = "=TAN(G30)"
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            IronXL.WorkSheet workSheet = workBook.DefaultWorkSheet;
+
+            workSheet ["A2"].Formula = "=SQRT(A1)";
+            workSheet ["B8"].Formula = "=C9/C11";
+            workSheet ["G31"].Formula = "=TAN(G30)";
         }
     }
 }

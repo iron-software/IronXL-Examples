@@ -12,7 +12,7 @@ namespace IronXL.Examples.HowTo.CsharpCreateExcel
             //for creating .xlsx extension file
             WorkBook wb = WorkBook.Create(ExcelFileFormat.XLSX);
             //for creating .xls extension file
-            WorkBook wb = WorkBook.Create(ExcelFileFormat.XLS);
+            WorkBook wbXls = WorkBook.Create(ExcelFileFormat.XLS);
         }
     }
 }
