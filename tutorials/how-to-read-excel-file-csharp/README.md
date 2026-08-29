@@ -192,11 +192,9 @@ To initiate a new Excel document, instantiate a new `WorkBook` object and specif
 WorkBook workbook = new WorkBook(ExcelFileFormat.XLSX);
 ```
 
-```
 Sample: *ApiToExcelProcessor*
 
 Note: For compatibility with older versions of Microsoft Excel (95 and earlier), utilize `ExcelFileFormat.XLS`.
-```
 
 ### Adding a Worksheet to an Excel Document
 

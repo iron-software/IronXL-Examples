@@ -119,9 +119,7 @@ To install IronXL.Excel with the NuGet Package Manager, use the graphical interf
     <p><img src="/img/tutorials/csharp-open-write-excel-file/package-manager-console.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
 </a>
 
-```
 2. Execute the following command in the console: `Install-Package IronXL.Excel -Version 2019.5.2`
-```
 
 <a rel="nofollow" href="/img/tutorials/csharp-open-write-excel-file/install-package-ironxl.jpg" target="_blank">
     <p><img src="/img/tutorials/csharp-open-write-excel-file/install-package-ironxl.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
@@ -131,8 +129,8 @@ To install IronXL.Excel with the NuGet Package Manager, use the graphical interf
 
 Additionally, you have the option to manually integrate the [DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) into your project or the global assembly cache if you prefer a non-NuGet installation method.
 
-```
- PM > Install-Package IronXL.Excel
+```shell
+PM > Install-Package IronXL.Excel
 ```
 
 # C# Write to Excel [Using IronXL Library] Code Tutorial

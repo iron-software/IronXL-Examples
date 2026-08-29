@@ -109,7 +109,7 @@ Launch the Developer Command Prompt and execute the following instructions to in
 
 2. Enter this command:
 
-   ```
+   ```shell
    PM> Install-Package IronXL.Excel
    ```
 
