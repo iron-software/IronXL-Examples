@@ -2,7 +2,6 @@
 
 > Full guide: [Utilizing IronXL License Keys](https://ironsoftware.com/get-started/license-keys/)
 
-
 ## Acquiring a License Key
 
 Implementing an IronXL license key in your project means you can go live without any operational restrictions or watermarks.
@@ -11,11 +10,6 @@ Purchase a license key on the [buy a license page](https://ironsoftware.com/csha
 
 <hr class="separator">
 
-## Step 1: Install the Latest IronXL Version
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
----------------------------------------
 The initial step is to integrate the IronXL.Excel library to enable Excel capabilities within the .NET framework.
 
 ### Installation via NuGet Package Manager

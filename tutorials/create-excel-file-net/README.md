@@ -540,9 +540,10 @@ This example paints the range from A1 to L1 with a gray color. Here, the color i
 
 ### 5.2. Adding Borders to Cells ###
 
-```cs
-To define borders around cells using IronXL is straightforward. Below is how you can define borders for various ranges:
+Defining borders around cells is straightforward. Here is how to set them for
+several ranges:
 
+```cs
 // Set the top and bottom borders of A1 to L1 to black
 workSheet["A1:L1"].Style.TopBorder.SetColor("#000000");
 workSheet["A1:L1"].Style.BottomBorder.SetColor("#000000");
@@ -554,16 +555,13 @@ workSheet["L2:L11"].Style.RightBorder.Type = IronXL.Styles.BorderType.Medium;
 // Apply a medium bottom border from A11 to L11
 workSheet["A11:L11"].Style.BottomBorder.SetColor("#000000");
 workSheet["A11:L11"].Style.BottomBorder.Type = IronXL.Styles.BorderType.Medium;
-
-In the code snippet above, we define black top and bottom borders for the cells A1 through L1. For cells L2 through L11, a right border is applied, and similarly, a bottom border is defined for A11 through L11, both with a medium thickness. 
-
-These examples show how versatile and easy it is to format cells using IronXL, enhancing both the functionality and aesthetics of your Excel data presentations.
-
 ```
+
+This gives A1 through L1 a black top and bottom border. L2 through L11 gets a
+right border, and A11 through L11 a bottom border, both at medium thickness.
 
 ### 5.1. Applying Background Colors to Cells ###
 
-```cs
 To define the background color for a single cell or a group of cells, use a simple line of code as demonstrated below:
 
 ```cs

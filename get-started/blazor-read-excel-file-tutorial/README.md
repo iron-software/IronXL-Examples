@@ -2,17 +2,11 @@
 
 > Full guide: [Blazor Read Excel File in C# Using IronXL (Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/)
 
-
 ## Introduction
 
 Blazor, a .NET Web framework developed by Microsoft, allows applications to run C# code on the web by compiling it into JavaScript and HTML that the browser can execute. This tutorial will guide you through an effective method for reading Excel files within a Blazor server-side application using the IronXL C# library.
 
 ![Demonstration of IronXL Viewing Excel in Blazor](https://ironsoftware.com/static-assets/excel/how-to/blazor-read-excel-file-tutorial/demo.gif "IronXL Excel Display in Blazor")
-
-### Start Using IronXL
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
-----------------------------------
 
 ## Step 1 - Create a Blazor Project in Visual Studio
 
