@@ -39,7 +39,7 @@ Reading and writing Excel spreadsheets is a common requirement for .NET applicat
 
 ## 1. Download IronXL DLL
 
-IronXL simplifies the process of creating Excel files in C# projects. [Download the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.create.xlsx.zip?utm_source=github) or use [NuGet](https://www.nuget.org/packages/IronXL.Excel) for a simple setup to use it freely during development.
+IronXL simplifies the process of creating Excel files in C# projects. [Download the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or use [NuGet](https://www.nuget.org/packages/IronXL.Excel) for a simple setup to use it freely during development.
 
 ```shell
 Install-Package IronXL.Excel

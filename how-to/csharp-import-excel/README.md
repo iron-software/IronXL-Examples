@@ -30,7 +30,7 @@ For software developers, the ability to import data from Excel files simplifies 
 
 ## 1. Installing and Using IronXL to Import Data
 
-To start, you'll need to make IronXL accessible in your C# project either by downloading the required DLL from [here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Import.Excel.Csharp.zip?utm_source=github) or via NuGet:
+To start, you'll need to make IronXL accessible in your C# project either by downloading the required DLL from [here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or via NuGet:
 
 ```shell
 Install-Package IronXL.Excel

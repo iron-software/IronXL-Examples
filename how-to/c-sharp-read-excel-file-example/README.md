@@ -31,7 +31,7 @@ For developers, it's crucial to efficiently process and analyze a vast array of 
 
 ## 1. Install the Library 
 
-Either [download the Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.excel.example.zip?utm_source=github) or [access it through NuGet](https://www.nuget.org/packages/IronXL.Excel). The IronXL library offers comprehensive capabilities for inputting and manipulating Excel file data, perfect for any project development.
+Either [download the Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or [access it through NuGet](https://www.nuget.org/packages/IronXL.Excel). The IronXL library offers comprehensive capabilities for inputting and manipulating Excel file data, perfect for any project development.
 
 ```shell
 Install-Package IronXL.Excel

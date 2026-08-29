@@ -13,7 +13,7 @@ When working with Excel files in C#, developers should proceed with caution to a
 
 For this tutorial, we're using the functionalities provided by IronXL, a comprehensive C# library for handling Excel files. First, you need to install IronXL into your project, which is free for development purposes.
 
-You can [download IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Edit.Excel.Csharp.zip?utm_source=github) directly or learn more and install it via the [NuGet package page](https://www.nuget.org/packages/IronXL.Excel).
+You can [download IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) directly or learn more and install it via the [NuGet package page](https://www.nuget.org/packages/IronXL.Excel).
 
 After installation, let's set up your environment:
 

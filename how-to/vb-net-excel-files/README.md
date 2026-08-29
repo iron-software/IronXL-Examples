@@ -11,7 +11,7 @@ For developers working in VB .NET, a straightforward method to manage Excel file
 
 ## 1. Excel for VB.NET Library
 
-Begin by integrating the IronXL Excel library for VB.NET into your project. This can be done either by downloading the DLL from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.vb.net.excel.files.zip?utm_source=github) or by using [NuGet](https://www.nuget.org/packages/IronXL.Excel). IronXL will be instrumental in our walkthrough, particularly for rapid Excel data handling in our VB.NET applications.
+Begin by integrating the IronXL Excel library for VB.NET into your project. This can be done either by downloading the DLL from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or by using [NuGet](https://www.nuget.org/packages/IronXL.Excel). IronXL will be instrumental in our walkthrough, particularly for rapid Excel data handling in our VB.NET applications.
 
 ```shell
 Install-Package IronXL.Excel

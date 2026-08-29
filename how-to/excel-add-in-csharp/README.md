@@ -9,7 +9,7 @@ Developing applications often requires the ability to manipulate Excel spreadshe
 
 ### Step 1: Install the IronXL Excel Library
 
-To utilize the functionalities for adding rows and columns in Excel, you must initially download the IronXL Excel Library. It is available at no cost for development within your projects. You can [get the DLL directly here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Add.Excel.Csharp.zip?utm_source=github) or utilize the [NuGet package manager](https://www.nuget.org/packages/IronXL.Excel).
+To utilize the functionalities for adding rows and columns in Excel, you must initially download the IronXL Excel Library. It is available at no cost for development within your projects. You can [get the DLL directly here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or utilize the [NuGet package manager](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel

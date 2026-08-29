@@ -33,7 +33,7 @@ In this tutorial, we explore the process of creating Excel workbooks in C#, incl
 
 We'll utilize the IronXL library, a C# tool for Excel manipulation, enabling efficient file creation and management for development projects. Start by installing this tool and following this tutorial.
 
-[Download for your project](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Create.Excel.Csharp.Spreadsheets.zip?utm_source=github) or via [NuGet to integrate into Visual Studio](https://www.nuget.org/packages/IronXL.Excel).
+[Download for your project](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or via [NuGet to integrate into Visual Studio](https://www.nuget.org/packages/IronXL.Excel).
 
 <br>
 

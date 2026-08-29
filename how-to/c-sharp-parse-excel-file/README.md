@@ -38,7 +38,7 @@ In C# applications that utilize Excel spreadsheets, it's common to extract and t
 
 ## 1. Download IronXL for Visual Studio  
 
-Begin by [Installing IronXL for Visual Studio](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.parse.excel.file.zip?utm_source=github), available as a free tool for developers, or you can also install it via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
+Begin by [Installing IronXL for Visual Studio](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github), available as a free tool for developers, or you can also install it via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel

@@ -39,7 +39,7 @@ Explore how to effectively manage Excel files in C# by opening various file form
 
 ## 1. Access Excel C# Library
 
-Get the [Excel C# Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.excel.worksheet.zip?utm_source=github) or install it using a preferred [NuGet manager](https://www.nuget.org/packages/IronXL.Excel). With the IronXL library included in your project, utilize the functions below to open Excel Worksheets in C#.
+Get the [Excel C# Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or install it using a preferred [NuGet manager](https://www.nuget.org/packages/IronXL.Excel). With the IronXL library included in your project, utilize the functions below to open Excel Worksheets in C#.
 
 ```shell
 Install-Package IronXL.Excel

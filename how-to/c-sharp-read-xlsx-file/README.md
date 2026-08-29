@@ -31,7 +31,7 @@ Dealing with different Excel file formats typically involves reading and manipul
 
 ## 1. Incorporate IronXL into Your Project
 
-For easy manipulation of Excel files in C#, include IronXL in your project. You can [download IronXL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.xlsx.zip?utm_source=github) or use [NuGet to install it via Visual Studio](https://www.nuget.org/packages/IronXL.Excel). IronXL is free for development purposes.
+For easy manipulation of Excel files in C#, include IronXL in your project. You can [download IronXL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or use [NuGet to install it via Visual Studio](https://www.nuget.org/packages/IronXL.Excel). IronXL is free for development purposes.
 
 ```shell
 Install-Package IronXL.Excel
