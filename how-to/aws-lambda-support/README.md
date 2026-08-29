@@ -3,7 +3,7 @@
 > Full guide: [IronXL Integration for AWS Lambda with .NET Core](https://ironsoftware.com/how-to/aws-lambda-support/)
 
 
-IronXL provides robust support for AWS Lambda functions across .NET Standard libraries, .NET Core, .NET 5, and .NET 6 projects.
+IronXL provides support for AWS Lambda functions across .NET Standard libraries, .NET Core, .NET 5, and .NET 6 projects.
 
 For incorporating the AWS Toolkit into Visual Studio, consult the documentation here: [Working with AWS Lambda Templates in the AWS Toolkit for Visual Studio](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-creating-project-in-visual-studio.html).
 

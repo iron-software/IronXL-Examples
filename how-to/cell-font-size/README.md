@@ -3,7 +3,7 @@
 > Full guide: [Customizing Cell Font and Size in Excel](https://ironsoftware.com/how-to/cell-font-size/)
 
 
-Customizing the font attributes such as the font type, size, color, underline, bolding, italicizing, subscripting, and strike-through enhances the readability, emphasizes key details, and augments the visual aesthetics of your documents. IronXL allows you to modify these font properties easily in your C# .NET applications, streamlining the process to help you produce professional and polished outputs.
+Customizing the font attributes such as the font type, size, color, underline, bolding, italicizing, subscripting, and strike-through enhances the readability, emphasizes key details, and augments the visual aesthetics of your documents. IronXL allows you to modify these font properties easily in your C# .NET applications, simplifying the process to help you produce professional and polished outputs.
 
 ### Start Using IronXL
 

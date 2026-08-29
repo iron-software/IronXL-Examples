@@ -31,7 +31,7 @@ Working with Excel spreadsheets in various formats is a common requirement in ma
 
 ## 1. Acquire the IronXL Library 
 
-IronXL offers a streamlined solution for managing Excel files in .NET Core. You can [download the IronXL DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.export.excel.zip) or [install it via NuGet](https://www.nuget.org/packages/IronXL.Excel) to start using it in your development projects at no cost.
+IronXL offers a simplified solution for managing Excel files in .NET Core. You can [download the IronXL DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.export.excel.zip) or [install it via NuGet](https://www.nuget.org/packages/IronXL.Excel) to start using it in your development projects at no cost.
 
 ```shell
 Install-Package IronXL.Excel

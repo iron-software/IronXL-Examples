@@ -155,7 +155,7 @@ decimal minValue = ws["From:To"].Min();  // Find minimum
 decimal maxValue = ws["From:To"].Max();  // Find maximum
 ```
 
-For more advanced usage, refer to our comprehensive guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
+For more advanced usage, refer to our guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
 
 ```cs
 // Sum, Min, Max Functions

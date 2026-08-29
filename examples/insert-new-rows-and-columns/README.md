@@ -4,7 +4,7 @@
 
 ### Adding a Row
 
-Utilizing the `InsertRow` and `InsertRows` methods, you can seamlessly introduce new rows. These methods insert the row(s) preceding the designated index.
+Utilizing the `InsertRow` and `InsertRows` methods, you can introduce new rows. These methods insert the row(s) preceding the designated index.
 
 ### Adding a Column
 

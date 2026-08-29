@@ -18,4 +18,4 @@ Using the `Min()` method, one can determine the smallest number within the chose
 
 Conversely, the `Max()` method identifies the largest number present in the selected range of cells.
 
-These functions are also adaptable to either individual or multiple rows and columns for added versatility in data manipulation. For more details on how to specify rows and columns, visit our guide on selecting ranges in Excel sheets [here](https://ironsoftware.com/csharp/excel/examples/select-excel-range/).
+They apply to a single row or column as readily as to several. For more details on how to specify rows and columns, visit our guide on selecting ranges in Excel sheets [here](https://ironsoftware.com/csharp/excel/examples/select-excel-range/).

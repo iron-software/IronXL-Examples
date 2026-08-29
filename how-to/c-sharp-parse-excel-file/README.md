@@ -3,7 +3,7 @@
 > Full guide: [C# Parse Excel File](https://ironsoftware.com/how-to/c-sharp-parse-excel-file/)
 
 
-In C# applications that utilize Excel spreadsheets, it's common to extract and transform spreadsheet data into various formats for analysis. Leveraging IronXL within the C# environment simplifies these tasks, allowing developers to efficiently parse Excel files as illustrated in the steps below.
+In C# applications that utilize Excel spreadsheets, it's common to extract and transform spreadsheet data into various formats for analysis. Using IronXL within the C# environment simplifies these tasks, allowing developers to efficiently parse Excel files as illustrated in the steps below.
 
 <div class="learnn-how-section">
   <div class="row">
@@ -293,7 +293,7 @@ For configuring DataTable column names based on the first row of the Excel file,
 DataTable dt = ws.ToDataTable(true);
 ```
 
-This parameter determines whether the first row in Excel acts as the column names. Detailed information on leveraging ExcelWorksheet as DataTable in C# can be found at [this resource](https://ironsoftware.com/csharp/excel/#excel-sql-datatable).
+This parameter determines whether the first row in Excel acts as the column names. Detailed information on using ExcelWorksheet as DataTable in C# can be found at [this resource](https://ironsoftware.com/csharp/excel/#excel-sql-datatable).
 
 Consider this example for parsing into DataTable:
 
@@ -356,7 +356,7 @@ Further details on working with Excel SQL Datasets are provided at [this resourc
     </div>
     <div class="col-sm-8">
       <h3>Documentation for Excel in C#</h3>
-      <p>Utilize the comprehensive IronXL documentation for leveraging Excel functionalities in your C# projects.</p>
+      <p>The IronXL documentation covers the rest of the Excel API.</p>
       <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Explore Excel in C# Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>

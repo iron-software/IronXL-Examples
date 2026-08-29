@@ -48,7 +48,7 @@ workbook.SaveAs("customBackgroundPattern.xlsx");
 
 ## Fill Patterns Available
 
-Leverage the distinct fill patterns obtainable via the **IronXL.Styles.FillPattern** enum to customize your Excel documents. Below is a portrayal of all the fill patterns that IronXL offers:
+Use the distinct fill patterns obtainable via the **IronXL.Styles.FillPattern** enum to customize your Excel documents. Below is a portrayal of all the fill patterns that IronXL offers:
 
 <div  class="content-img-align-center">
     <div class="center-image-wrapper">

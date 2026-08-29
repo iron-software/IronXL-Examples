@@ -3,7 +3,7 @@
 > Full guide: [.NET Excel Functions with IronXL](https://ironsoftware.com/how-to/write-excel-net/)
 
 
-Developing C# applications often includes tasks like creating or updating Excel spreadsheets programmatically. While Excel .NET integration can seem daunting, the IronXL library simplifies these tasks significantly. It allows developers to work seamlessly with Excel files of any format by directly accessing and modifying cells without extensive code.
+Developing C# applications often includes tasks like creating or updating Excel spreadsheets programmatically. While Excel .NET integration can seem daunting, the IronXL library simplifies these tasks significantly. It allows developers to work with Excel files of any format by directly accessing and modifying cells without extensive code.
 
 ### Getting Started with IronXL
 
@@ -223,7 +223,7 @@ For comprehensive guidance on creating .NET applications that operate with Excel
   <div class="row">
     <div class="col-sm-8">
       <h3>Access Our Complete API Reference</h3>
-      <p>Delve into the IronXL documentation for a comprehensive list of functions, features, namespaces, classes, and enums available for your projects.</p>
+      <p>The IronXL documentation lists every function, namespace, class and enum.</p>
       <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Explore API Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">

@@ -7,13 +7,13 @@ A DataSet serves as a powerful in-memory data structure that can accommodate num
 
 Central to any DataSet is the DataTable, which functions as a single table composed of rows and columns. It mirrors a typical database table and is essential for organizing and processing data in a structured format.
 
-Using IronXL, you can seamlessly convert a DataSet into a spreadsheet object and later revert it back to a DataSet form.
+Using IronXL, you can convert a DataSet into a spreadsheet object and later revert it back to a DataSet form.
 
 ### Begin with IronXL
 
 ## Importing a DataSet
 
-To import a DataSet into a spreadsheet object, leverage the static `LoadWorkSheetsFromDataSet` method from the `WorkBook` class. This method requires an initialized `DataSet` and `WorkBook` instance. Initialize your workbook or spreadsheet first by invoking the `Create` method. Below is an example illustrating how to import a DataSet into a workbook, employing both the DataSet and workbook instances.
+To import a DataSet into a spreadsheet object, use the static `LoadWorkSheetsFromDataSet` method from the `WorkBook` class. This method requires an initialized `DataSet` and `WorkBook` instance. Initialize your workbook or spreadsheet first by invoking the `Create` method. Below is an example illustrating how to import a DataSet into a workbook, employing both the DataSet and workbook instances.
 
 ```cs
 using IronXL;

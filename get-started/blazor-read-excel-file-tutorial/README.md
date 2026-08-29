@@ -66,7 +66,7 @@ Our objective is to incorporate an Excel file uploading functionality and subseq
 
 ### IronXL: .NET Excel Library (Installation Steps):
 
-IronXL is a robust .NET library that enables developers to interact with Excel spreadsheets as if they are objects. This feature-rich library facilitates easy manipulation of rows, columns, and cell data in Excel files, making it superior to NPOI in both functionality and user support.
+IronXL is a .NET library that enables developers to interact with Excel spreadsheets as if they are objects. This feature-rich library facilitates easy manipulation of rows, columns, and cell data in Excel files, making it superior to NPOI in both functionality and user support.
 
 IronXL is compatible with the latest .NET (8, 7, and 6) and .NET Core 4.6.2+ versions.
 

@@ -3,7 +3,7 @@
 > Full guide: [IronXL Linux Compatibility & Setup Guide](https://ironsoftware.com/how-to/linux/)
 
 
-IronXL is designed with pure .NET Standard, ensuring it operates seamlessly on any Linux distribution that supports `.NET Core`, `.NET 5`, and `.NET 6`. Additionally, it functions perfectly on Docker, Azure, macOS (all of which support .NET frameworks), and Windows.
+IronXL is designed with pure .NET Standard, ensuring it operates on any Linux distribution that supports `.NET Core`, `.NET 5`, and `.NET 6`. Additionally, it functions perfectly on Docker, Azure, macOS (all of which support .NET frameworks), and Windows.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/linux--v1.png" alt="Linux">
@@ -14,7 +14,7 @@ IronXL is designed with pure .NET Standard, ensuring it operates seamlessly on a
     <img src="https://img.icons8.com/color/96/000000/debian--v1.png" alt="Debian">
 </div>
 
-We advocate for the use of `.NET Core 3.1`, `.NET 5` or `.NET 6`, especially versions endorsed as LTS (Long Term Support) by Microsoft, as highlighted here [Microsoft's Support Policy](https://dotnet.microsoft.com/platform/support/policy), due to their robustness and ensured long-term support when running on Linux.
+We advocate for the use of `.NET Core 3.1`, `.NET 5` or `.NET 6`, especially versions endorsed as LTS (Long Term Support) by Microsoft, as highlighted here [Microsoft's Support Policy](https://dotnet.microsoft.com/platform/support/policy), because they are supported for longer on Linux.
 
 IronXL requires no modifications to function on Linux, providing an immediate, ready-to-use solution thanks to extensive testing and fine-tuning by our dedicated engineering team.
 

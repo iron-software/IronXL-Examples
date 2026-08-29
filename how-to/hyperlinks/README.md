@@ -3,7 +3,7 @@
 > Full guide: [How to Create Hyperlinks in Excel](https://ironsoftware.com/how-to/hyperlinks/)
 
 
-Excel hyperlinks are interactive elements that enable users to jump to different locations in the workbook, access various files, navigate to web pages, or compose emails. These features enhance the user experience by simplifying access to related data and external references. The addition of hyperlinks makes spreadsheets more dynamic and user-friendly, streamlining the interaction with additional information or external resources.
+Excel hyperlinks are interactive elements that enable users to jump to different locations in the workbook, access various files, navigate to web pages, or compose emails. These features enhance the user experience by simplifying access to related data and external references. The addition of hyperlinks makes spreadsheets more dynamic and user-friendly, simplifying the interaction with additional information or external resources.
 
 IronXL supports the addition of hyperlinks to URLs, the opening of external files from local and FTP file systems, email addresses, specific cell addresses, and named cells all without requiring Interop within .NET C#.
 
@@ -17,7 +17,7 @@ In the **Cell** class of IronXL, there is a **Hyperlink** property. Accessing th
 
 Alternatively, the `GetCellAt` method provides direct access to a cell, making it straightforward to manipulate its **Hyperlink** property.
 
-Let us delve into an example of creating link hyperlinks, supporting both HTTP and HTTPS protocols.
+Let us look at an example of creating link hyperlinks, supporting both HTTP and HTTPS protocols.
 
 Note: Utilizing the `GetCellAt` method on an uninitialized cell will lead to a *System.NullReferenceException: 'Object reference not set to an instance of an object.'*
 

@@ -18,7 +18,7 @@ The IronXL library is compatible with multiple platforms including .NET Core, .N
 
 - Direct assistance from our dedicated .NET engineering team
 
-- Quick and seamless setup through Microsoft Visual Studio
+- Quick and setup through Microsoft Visual Studio
 
 - No cost for development phase. Licensing starts from `$liteLicense`.
 
@@ -678,7 +678,7 @@ This code freezes the first row and secures the worksheet, preventing unauthoriz
 
 ### 7.2. Adjust Page and Print Configuration ###
 
-Tailor your document's layout and printing specifications effortlessly with IronXL with just a few lines of code:
+Tailor your document's layout and printing specifications with IronXL with just a few lines of code:
 
 ```cs
 workSheet.SetPrintArea("A1:L12");

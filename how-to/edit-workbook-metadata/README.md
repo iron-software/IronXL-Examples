@@ -5,7 +5,7 @@
 
 Metadata within an Excel file encompasses various details such as the author, title, subject, keywords, and dates related to the creation and modification of the document. This kind of information is crucial as it provides insights and aids in the systematic organization and searching of Excel files within larger datasets.
 
-The **IronXL** library is a robust tool that allows users to modify the metadata of Excel workbooks effortlessly, eliminating the need for Office Interop installations.
+The **IronXL** library is a tool that allows users to modify the metadata of Excel workbooks, eliminating the need for Office Interop installations.
 
 ***
 

@@ -12,7 +12,7 @@ workSheet["G31"].Formula = "=TAN(G30)"; // Computes the tangent of the angle in 
 
 A formula is essentially an expression used to determine the value of a spreadsheet cell. Excel functions, which are predefined formulas, are readily accessible within Excel.
 
-What distinguishes IronXL in the `.NET Excel library` landscape is its robust support for numerous Excel formulas and its ability to instantly compute formula outcomes.
+IronXL supports a wide range of Excel formulas and computes their results immediately.
 
 # Implementing Excel Formulas Using C&num;
 

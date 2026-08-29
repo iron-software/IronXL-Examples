@@ -13,7 +13,7 @@ The IronXL library provides a straightforward approach to managing worksheets wi
 
 ## Example of Worksheet Management
 
-IronXL facilitates efficient worksheet management, allowing you to create, move, and delete worksheets seamlessly using concise code syntax.
+IronXL facilitates efficient worksheet management, allowing you to create, move, and delete worksheets using concise code syntax.
 
 Indices used here are zero-based.
 

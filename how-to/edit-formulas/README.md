@@ -4,7 +4,7 @@
 
 An Excel formula, which begins with an equal sign (=), is used for carrying out mathematical operations, manipulating data, and deriving results from the values of cells. Such formulas might include arithmetic operators, function calls, cell references, constants, and logical operations, allowing for dynamic changes as the content of cells evolves. This adaptability makes Excel an indispensable tool for task automation and comprehensive data analysis.
 
-IronXL provides robust support for modifying existing formulas within Excel files. It also allows users to fetch the outcomes from these formulas and enforces a reevaluation of the entire workbook. This reassessment guarantees that every formula is recalculated to deliver precise outcomes. Currently, IronXL supports more than **165 different formulas**.
+IronXL provides support for modifying existing formulas within Excel files. It also allows users to fetch the outcomes from these formulas and enforces a reevaluation of the entire workbook. This reassessment guarantees that every formula is recalculated to deliver precise outcomes. Currently, IronXL supports more than **165 different formulas**.
 
 <h3>Get started with IronXL</h3>
 
@@ -12,7 +12,7 @@ IronXL provides robust support for modifying existing formulas within Excel file
 
 Excel formulas, which begin with an equals sign (`=`), are used to perform calculations, manipulate data, and derive outcomes based on cell content. These expressions may consist of arithmetic operations, functions, references to other cells, constants, and logical operators. The dynamic nature of formulas ensures that outputs update automatically when underlying cell values are adjusted, transforming Excel into an invaluable tool for task automation and data analysis.
 
-IronXL provides robust support for modifying existing Excel formulas, allowing you to fetch results and compel the workbook to recalculate for precision. With support for over **165 formulas**, IronXL ensures comprehensive functionality.
+IronXL provides support for modifying existing Excel formulas, allowing you to fetch results and compel the workbook to recalculate for precision. With support for over **165 formulas**, IronXL ensures comprehensive functionality.
 
 ### Getting Started with IronXL
 
@@ -83,7 +83,7 @@ Excel houses over 450 formulas pertinent to a myriad of computational needs. Iro
 </table>
 ```
 
-This detailed granularity in formula support amplifies the versatility of IronXL, facilitating a broad range of data manipulation tasks efficiently and effectively.
+Formula support at this level of detail is what makes most spreadsheet work possible without opening Excel.
 
 ## Example of Formula Editing
 

@@ -19,7 +19,7 @@ Install-Package IronXL.Excel
 
 ---
 
-#### Comprehensive Guide: Working with Excel in VB.NET
+#### Guide: Working with Excel in VB.NET
 
 ### 2. Generating Excel Documents
 

@@ -8,7 +8,7 @@ This guide provides a comprehensive overview of how to read Excel documents usin
 
 <p class="main-content__segment-title">Overview</p>
 
-IronXL empowers the handling and modification of Microsoft Excel documents using C#. It operates independently of Microsoft Excel and does not utilize [Interop](https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia). Moreover, [IronXL offers a more rapid and user-friendly API compared to `Microsoft.Office.Interop.Excel`](https://ironsoftware.com/csharp/excel/blog/compare-to-other-components/microsoft-office-excel-interop-alternative/).
+IronXL allows the handling and modification of Microsoft Excel documents using C#. It operates independently of Microsoft Excel and does not utilize [Interop](https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia). Moreover, [IronXL offers a more rapid and user-friendly API compared to `Microsoft.Office.Interop.Excel`](https://ironsoftware.com/csharp/excel/blog/compare-to-other-components/microsoft-office-excel-interop-alternative/).
 
 ## What IronXL Provides:
 
@@ -121,7 +121,7 @@ Multiple [`WorkSheet`](https://ironsoftware.com/csharp/excel/object-reference/ap
 WorkSheet workSheet = workBook.GetWorkSheet("GDPByCountry");
 ```
 
-In the *ExcelToDB* example, the process involves reading data from a spreadsheet and exporting it to an SQLite database, leveraging the capabilities of *Entity Framework* for database operations. This example is geared towards handling data for a collection of countries, each represented by a unique `GUID`, a name, and their respective GDP values.
+In the *ExcelToDB* example, the process involves reading data from a spreadsheet and exporting it to an SQLite database, using the capabilities of *Entity Framework* for database operations. This example is geared towards handling data for a collection of countries, each represented by a unique `GUID`, a name, and their respective GDP values.
 
 ```cs
 public class Country
@@ -220,7 +220,7 @@ WorkSheet workSheet = workBook.GetWorkSheet("GDPByCountry");
 
 ### Read and Edit Individual Cells
 
-To handle specific cell values within a spreadsheet, you can easily retrieve cells by leveraging IronXL's concise API. Here's an illustration:
+To handle specific cell values within a spreadsheet, you can easily retrieve cells by using IronXL's concise API. Here's an illustration:
 
 ```csharp
 WorkBook workBook = WorkBook.Load("test.xlsx");
@@ -664,7 +664,7 @@ public async Task ExecuteDatabaseExportAsync()
 
 ## Exporting Data from Excel to a Database Using IronXL
 
-This task involves reading data from an Excel spreadsheet and transferring it to an SQLite database by leveraging the IronXL library coupled with the Entity Framework. The dataset example uses a spreadsheet with GDP data by country.
+This task involves reading data from an Excel spreadsheet and transferring it to an SQLite database by using the IronXL library coupled with the Entity Framework. The dataset example uses a spreadsheet with GDP data by country.
 
 1. **Installation of Necessary Packages**: Begin by adding the required SQLite Entity Framework packages to your project. You can find these on your respective package management console or NuGet gallery.
 
@@ -733,7 +733,7 @@ In this scenario, every row in the Excel spreadsheet from the indicated range is
 
 ## 5. Importing Data from an API into a Spreadsheet
 
-The process initiates with a REST API call using [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net), which retrieves JSON data. This data is subsequently transformed into a "List" of `RestCountry` objects. Following this transformation, each country's data is seamlessly transferred and stored into an Excel file.
+The process initiates with a REST API call using [RestClient.Net](https://github.com/MelbourneDeveloper/RestClient.Net), which retrieves JSON data. This data is subsequently transformed into a "List" of `RestCountry` objects. Following this transformation, each country's data is transferred and stored into an Excel file.
 
 ```cs
 // Create a new REST client instance pointing to the REST Countries API
@@ -795,7 +795,7 @@ Furthermore, you can explore additional tutorials that provide insights into var
 
 IronXL.Excel stands alone as a .NET software library, supporting a vast range of spreadsheet formats. It operates independently without the need for installing [Microsoft Excel](https://products.office.com/en-us/excel) or relying on Interop.
 
-Should you find the .NET library beneficial for altering Excel documents, consider delving into the [Google Sheets API Client Library](https://developers.google.com/api-client-library/dotnet/apis/sheets/v4) designed for .NET, enabling the modification of Google Sheets.
+Should you find the .NET library beneficial for altering Excel documents, consider looking at the [Google Sheets API Client Library](https://developers.google.com/api-client-library/dotnet/apis/sheets/v4) designed for .NET, enabling the modification of Google Sheets.
 
 <hr class="separator">
 

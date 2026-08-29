@@ -132,4 +132,4 @@ IronXL offers a developer-friendly API for handling Excel documents in .NET envi
 
 ## Further Steps
 
-To delve deeper into IronXL, review our comprehensive [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/) styled like MSDN documentation.
+For the rest of the API, see the [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/) styled like MSDN documentation.

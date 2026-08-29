@@ -4,7 +4,7 @@ The **IronXL** library simplifies the management of Excel worksheets using C#. I
 
 ## Create a Worksheet
 
-Creating a new worksheet is streamlined with the `CreateWorkSheet` method. This method requires just one parameter: the name of the new worksheet.
+Creating a new worksheet is simplified with the `CreateWorkSheet` method. This method requires just one parameter: the name of the new worksheet.
 
 ## Adjust Worksheet Position
 

@@ -199,4 +199,4 @@ worksheet.RemoveChart(charts[0]);
 workbook.SaveAs("cleanWorksheet.xlsx");
 ```
 
-This comprehensive guide should provide you with detailed insights into creating, modifying, and removing charts in Excel using IronXL in a C# environment.
+This guide should provide you with detailed insights into creating, modifying, and removing charts in Excel using IronXL in a C# environment.
