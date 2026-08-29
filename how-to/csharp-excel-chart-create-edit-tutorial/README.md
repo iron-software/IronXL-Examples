@@ -1,6 +1,6 @@
 # Creating and Modifying Excel Charts Using C# with IronXL
 
-***Based on <https://ironsoftware.com/how-to/csharp-excel-chart-create-edit-tutorial/>***
+> Full guide: [Creating and Modifying Excel Charts Using C# with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-chart-create-edit-tutorial/)
 
 
 Excel charts provide a powerful way to visually represent data, making it easier to understand and analyze. Excel offers a variety of chart types such as bar, line, pie, and others, each designed for specific data presentations.
@@ -199,4 +199,4 @@ worksheet.RemoveChart(charts[0]);
 workbook.SaveAs("cleanWorksheet.xlsx");
 ```
 
-This comprehensive guide should provide you with detailed insights into creating, modifying, and removing charts in Excel using IronXL in a C# environment.
+This guide should provide you with detailed insights into creating, modifying, and removing charts in Excel using IronXL in a C# environment.

@@ -1,6 +1,6 @@
 # VB.NET Techniques for Reading and Creating Excel Documents
 
-***Based on <https://ironsoftware.com/get-started/vb-net-excel-files/>***
+> Full guide: [VB.NET Techniques for Reading and Creating Excel Documents](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/)
 
 
 For developers using VB.NET, accessing and manipulating Excel files can often be essential. This guide introduces IronXL, demonstrating how it can facilitate the creation and reading of Excel files - including various formats like `.xls`, `.xlsx`, `.csv`, and `.tsv`. Additionally, you'll learn to customize cell styles and populate data using VB.NET Excel functions.
@@ -19,7 +19,7 @@ Install-Package IronXL.Excel
 
 ---
 
-#### Comprehensive Guide: Working with Excel in VB.NET
+#### Guide: Working with Excel in VB.NET
 
 ### 2. Generating Excel Documents
 

@@ -1,6 +1,6 @@
 # How to Select a Range in Excel with IronXL
 
-***Based on <https://ironsoftware.com/how-to/select-range/>***
+> Full guide: [How to Select a Range in Excel with IronXL](https://ironsoftware.com/csharp/excel/how-to/select-range/)
 
 
 IronXL simplifies the process of selecting and manipulating ranges in an Excel worksheet, offering a powerful alternative to Office Interop.

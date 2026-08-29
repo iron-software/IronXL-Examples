@@ -1,11 +1,11 @@
 # How to Apply Cell Data Formats
 
-***Based on <https://ironsoftware.com/how-to/set-cell-data-format/>***
+> Full guide: [How to Apply Cell Data Formats](https://ironsoftware.com/csharp/excel/how-to/set-cell-data-format/)
 
 
-Formulating cell data and number formats in Excel empowers users to influence the visual representation of numbers, dates, times, and other data types. By employing specific formats like currency or percentage, you can not only enhance visual comprehension but also uphold data precision. Data formats ensure that information is represented in your preferred style, while number formats allow familiarity in expressing numerical data with varied decimal and display preferences.
+Formulating cell data and number formats in Excel lets users influence the visual representation of numbers, dates, times, and other data types. By employing specific formats like currency or percentage, you can not only enhance visual comprehension but also uphold data precision. Data formats ensure that information is represented in your preferred style, while number formats allow familiarity in expressing numerical data with varied decimal and display preferences.
 
-Utilizing the IronXL library, you can implement these data or number formats conveniently in C#. This library streamlines the tasks of generating, formatting, and manipulating Excel documents through code, proving essential for efficient data management and presentation in C# applications.
+Utilizing the IronXL library, you can implement these data or number formats conveniently in C#. This library simplifies the tasks of generating, formatting, and manipulating Excel documents through code, proving essential for efficient data management and presentation in C# applications.
 
 ### Begin with IronXL
 

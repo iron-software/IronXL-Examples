@@ -1,6 +1,6 @@
 # How to Copy Cells
 
-***Based on <https://ironsoftware.com/how-to/copy-cells/>***
+> Full guide: [How to Copy Cells](https://ironsoftware.com/csharp/excel/how-to/copy-cells/)
 
 
 The "Copy cell" functionality enables you to clone the content of a cell, allowing you to transfer it to another cell or multiple cells. This feature is very useful for duplicating data, formulas, formatting, or other elements across your spreadsheet.

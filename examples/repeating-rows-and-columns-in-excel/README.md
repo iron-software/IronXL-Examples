@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/repeating-rows-and-columns-in-excel/>***
+> Full guide: [Repeating rows and columns in excel](https://ironsoftware.com/csharp/excel/examples/repeating-rows-and-columns-in-excel/)
 
 When dealing with multi-page Excel spreadsheets, readability improves significantly when the column or row headings are printed on each page. These headings are often referred to as _Repeating Rows and Columns_ or _Header Rows and Columns_ in Excel. Using IronXL, you can easily implement this feature with just a few lines of code.
 

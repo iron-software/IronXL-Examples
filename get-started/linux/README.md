@@ -1,9 +1,9 @@
 # IronXL Linux Compatibility & Setup Guide
 
-***Based on <https://ironsoftware.com/get-started/linux/>***
+> Full guide: [IronXL Linux Compatibility & Setup Guide](https://ironsoftware.com/csharp/excel/get-started/linux/)
 
 
-IronXL is engineered entirely using .NET Standard, enabling seamless functionality across all Linux distributions that support **.NET Core**, **.NET 5**, and **.NET 6**. Compatibility extends to Docker, Azure, macOS platforms, and Windows—all of which support .NET frameworks.
+IronXL is engineered entirely using .NET Standard, enabling functionality across all Linux distributions that support **.NET Core**, **.NET 5**, and **.NET 6**. Compatibility extends to Docker, Azure, macOS platforms, and Windows—all of which support .NET frameworks.
 
 <div class="main-content__small-images-inline">
     <img src="https://img.icons8.com/color/96/000000/linux--v1.png" alt="Linux">
@@ -14,15 +14,15 @@ IronXL is engineered entirely using .NET Standard, enabling seamless functionali
     <img src="https://img.icons8.com/color/96/000000/debian--v1.png" alt="Debian">
 </div>
 
-We suggest utilizing .NET Core 3.1, .NET 5, or .NET 6, along with other runtimes designated as [long-term support (LTS) by Microsoft](https://dotnet.microsoft.com/platform/support/policy) because of their robust testing and support on Linux platforms.
+We suggest utilizing .NET Core 3.1, .NET 5, or .NET 6, along with other runtimes designated as [long-term support (LTS) by Microsoft](https://dotnet.microsoft.com/platform/support/policy) because of their testing and support on Linux platforms.
 
 Running IronXL on Linux does not require any modifications to the code. IronXL typically operates flawlessly right off the bat, thanks to thorough testing and optimization by our development team.
 
-Linux compatibility is crucial for many cloud environments such as Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and containers in Azure DevOps, since these services predominantly utilize Linux. At Iron Software, we leverage these cloud services extensively and recognize their importance to our Enterprise and SAAS clients.
+Linux compatibility is crucial for many cloud environments such as Azure Web Apps, Azure Functions, AWS EC2, AWS Lambda, and containers in Azure DevOps, since these services predominantly utilize Linux. At Iron Software, we use these cloud services extensively and recognize their importance to our Enterprise and SAAS clients.
 
 ### Officially Supported Linux Distributions for .NET
 
-IronXL **officially supports** the following latest **64-bit** Linux operating systems for effortless, "zero-configuration" installation:
+IronXL **officially supports** the following latest **64-bit** Linux operating systems, on which no configuration is needed:
 
 * Ubuntu 20
 * Ubuntu 18
@@ -39,8 +39,6 @@ We advise using Microsoft's [Official Docker Images](https://hub.docker.com/_/mi
 
 ```shell
 # To install IronXL using the dotnet CLI, use the following command:
-
-***Based on <https://ironsoftware.com/get-started/linux/>***
 
 dotnet add package IronXL
 ```

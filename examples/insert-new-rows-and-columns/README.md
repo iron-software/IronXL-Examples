@@ -1,10 +1,10 @@
-***Based on <https://ironsoftware.com/examples/insert-new-rows-and-columns/>***
+> Full guide: [Insert new rows and columns](https://ironsoftware.com/csharp/excel/examples/insert-new-rows-and-columns/)
 
 **IronXL Library** provides functionality for adding both individual and several rows or columns within C# code, eliminating the need for Office Interop.
 
 ### Adding a Row
 
-Utilizing the `InsertRow` and `InsertRows` methods, you can seamlessly introduce new rows. These methods insert the row(s) preceding the designated index.
+Utilizing the `InsertRow` and `InsertRows` methods, you can introduce new rows. These methods insert the row(s) preceding the designated index.
 
 ### Adding a Column
 

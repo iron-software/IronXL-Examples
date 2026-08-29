@@ -1,6 +1,6 @@
 # C# Excel Integration (Code Example Tutorial)
 
-***Based on <https://ironsoftware.com/how-to/excel-add-in-csharp/>***
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
 
 
 Developing applications often requires the ability to manipulate Excel spreadsheets without the use of Excel itself. For instance, you might find it necessary to programmatically insert new rows or columns into an existing Excel spreadsheet. The C# "Excel: Add" functionality in IronXL enables you to do exactly this and much more. Below are detailed examples of how to implement these functions.

@@ -1,6 +1,6 @@
 # Reading Excel Files in Blazor with IronXL: A Comprehensive Tutorial
 
-***Based on <https://ironsoftware.com/how-to/blazor-read-excel-file-tutorial/>***
+> Full guide: [Reading Excel Files in Blazor with IronXL: A Comprehensive Tutorial](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/)
 
 
 ## Introduction
@@ -71,7 +71,7 @@ The aim is to incorporate an upload mechanism for Excel files and to display the
 
 ### IronXL: .NET Excel Library
 
-IronXL is a robust .NET library that treats Excel spreadsheets as objects. This enables deep integration with C# to manipulate spreadsheet data effectively. IronXL offers comprehensive functionalities over alternatives like NPOI, providing easier complex operations, more licensing options, and better support.
+IronXL is a .NET library that treats Excel spreadsheets as objects. This enables deep integration with C# to manipulate spreadsheet data effectively. IronXL offers comprehensive functionalities over alternatives like NPOI, providing easier complex operations, more licensing options, and better support.
 
 IronXL is compatible with the latest .NET versions (8, 7, 6) and .NET Core Framework 4.6.2+.
 
@@ -168,7 +168,7 @@ Replace the content of `FetchData.razor` with the following code:
 
 The `<InputFile>` component aids in uploading files to the webpage, invoking the `OpenExcelFileFromDisk` asynchronous method to process the uploaded Excel file. The HTML renders the Excel sheet as a table on the web tab.
 
-IronXL.Excel stands out in the .NET ecosystem as a versatile library for reading an array of spreadsheet formats without needing Microsoft Excel installed.
+IronXL.Excel stands out in the .NET ecosystem as a library for reading an array of spreadsheet formats without needing Microsoft Excel installed.
 
 <hr class="separator">
 

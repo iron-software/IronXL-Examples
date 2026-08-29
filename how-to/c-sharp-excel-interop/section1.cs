@@ -1,4 +1,5 @@
-using IronXL.Excel;
+using System.Data;
+using IronXL;
 namespace IronXL.Examples.HowTo.CSharpExcelInterop
 {
     public static class Section1

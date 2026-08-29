@@ -1,9 +1,9 @@
 # Importing Excel Files in C&#35;
 
-***Based on <https://ironsoftware.com/how-to/csharp-import-excel/>***
+> Full guide: [Importing Excel Files in C&#35;](https://ironsoftware.com/csharp/excel/how-to/csharp-import-excel/)
 
 
-For software developers, the ability to import data from Excel files simplifies many tasks related to application and data management. The IronXL library streamlines this process, allowing developers to incorporate and manipulate Excel data within C# projects with minimal code.
+For software developers, the ability to import data from Excel files simplifies many tasks related to application and data management. The IronXL library simplifies this process, allowing developers to incorporate and manipulate Excel data within C# projects with minimal code.
 
 <div class="learnn-how-section">
   <div class="row">
@@ -134,7 +134,7 @@ Deepen your understanding of these functions [here](https://ironsoftware.com/csh
 
 ## 6. Importing Complete Excel Files
 
-To manage complete Excel WorkBooks, convert them into DataSets to leverage the relational dataset features:
+To manage complete Excel WorkBooks, convert them into DataSets to use the relational dataset features:
 
 ```cs
 // Convert the entire workbook into a dataset
@@ -142,7 +142,7 @@ DataSet dataSet = workbook.ToDataSet(true);  // Includes headers
 Console.WriteLine("Full Excel data has been imported.");
 ```
 
-Explore further usage scenarios in our [comprehensive guide](https://ironsoftware.com/csharp/excel/#read-excel).
+Explore further usage scenarios in our [guide](https://ironsoftware.com/csharp/excel/#read-excel).
 
 <hr class="separator">
 

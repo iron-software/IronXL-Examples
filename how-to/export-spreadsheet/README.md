@@ -1,6 +1,6 @@
 # How to Save or Export Spreadsheets
 
-***Based on <https://ironsoftware.com/how-to/export-spreadsheet/>***
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
 
 
 The `DataSet` class, built into Microsoft's .NET framework, is a crucial part of ADO.NET (ActiveX Data Objects for .NET) technology. It is essential for applications dealing with databases and provides the ability to work with data from various sources including databases, XML, etc.

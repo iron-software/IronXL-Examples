@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/freeze-panes-in-excel/>***
+> Full guide: [Freeze panes in excel](https://ironsoftware.com/csharp/excel/examples/freeze-panes-in-excel/)
 
 The above code snippet illustrates the method of creating a freeze pane in spreadsheets—this technique secures rows and columns, ensuring their visibility as the user scrolls. It is particularly beneficial for maintaining the visual presence of headers while quickly comparing data across different sections.
 

@@ -1,3 +1,4 @@
+using IronXL.Formatting;
 using IronXL;
 using IronXL.Formatting.Enums;
 using IronXL.Styles;

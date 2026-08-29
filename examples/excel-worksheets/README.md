@@ -1,10 +1,10 @@
-***Based on <https://ironsoftware.com/examples/excel-worksheets/>***
+> Full guide: [Excel worksheets](https://ironsoftware.com/csharp/excel/how-to/c-sharp-open-excel-worksheet/)
 
 The **IronXL** library simplifies the management of Excel worksheets using C#. It offers functionalities such as creating and deleting worksheets, rearranging them, and setting a default active worksheet, all without the need for Office Interop.
 
 ## Create a Worksheet
 
-Creating a new worksheet is streamlined with the `CreateWorkSheet` method. This method requires just one parameter: the name of the new worksheet.
+Creating a new worksheet is simplified with the `CreateWorkSheet` method. This method requires just one parameter: the name of the new worksheet.
 
 ## Adjust Worksheet Position
 

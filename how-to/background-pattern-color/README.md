@@ -1,6 +1,6 @@
 # How to Configure Cell Background Pattern & Color in Excel
 
-***Based on <https://ironsoftware.com/how-to/background-pattern-color/>***
+> Full guide: [How to Configure Cell Background Pattern & Color in Excel](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/)
 
 
 In Excel, the term "background cell pattern" refers to the texture or visual pattern added to the background of a cell. Similarly, "background cell color" pertains to the flat, uniform color that fills a cell's background.
@@ -48,7 +48,7 @@ workbook.SaveAs("customBackgroundPattern.xlsx");
 
 ## Fill Patterns Available
 
-Leverage the distinct fill patterns obtainable via the **IronXL.Styles.FillPattern** enum to customize your Excel documents. Below is a portrayal of all the fill patterns that IronXL offers:
+Use the distinct fill patterns obtainable via the **IronXL.Styles.FillPattern** enum to customize your Excel documents. Below is a portrayal of all the fill patterns that IronXL offers:
 
 <div  class="content-img-align-center">
     <div class="center-image-wrapper">

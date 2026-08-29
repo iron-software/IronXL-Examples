@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL.Excel;
 namespace IronXL.Examples.Tutorial.CsharpOpenWriteExcelFile
 {
     public static class Section1

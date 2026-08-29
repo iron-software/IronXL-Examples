@@ -1,5 +1,6 @@
+using IronXL.Formatting;
 using IronXL.Formatting.Enums;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.ConditionalFormatting
 {
     public static class Section1

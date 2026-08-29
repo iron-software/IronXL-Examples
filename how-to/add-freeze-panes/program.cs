@@ -1,4 +1,4 @@
-using IronXL.Excel;
+using IronXL;
 using IronXL.Examples.HowTo.AddFreezePanes;
 
 

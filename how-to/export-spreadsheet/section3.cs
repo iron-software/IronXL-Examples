@@ -1,5 +1,5 @@
 using System.IO;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.ExportSpreadsheet
 {
     public static class Section3

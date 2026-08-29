@@ -1,3 +1,3 @@
-***Based on <https://ironsoftware.com/examples/excel-sql-dataset/>***
+> Full guide: [Excel sql dataset](https://ironsoftware.com/csharp/excel/examples/excel-sql-dataset/)
 
-Transform any file with formats like `XLSX`, `XLS`, `XLSM`, `XLTX`, `CSV`, and `TSV` into a `System.Data.DataTable`. This conversion facilitates full integration with `System.Data.SQL` and allows for the seamless population of a **DataGrid**. The `DataTable` created can include a collection of tables, their relationships, and constraints.
+Transform any file with formats like `XLSX`, `XLS`, `XLSM`, `XLTX`, `CSV`, and `TSV` into a `System.Data.DataTable`. This conversion facilitates full integration with `System.Data.SQL` and allows for the population of a **DataGrid**. The `DataTable` created can include a collection of tables, their relationships, and constraints.

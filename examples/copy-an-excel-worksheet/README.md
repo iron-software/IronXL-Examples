@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/copy-an-excel-worksheet/>***
+> Full guide: [Copy an excel worksheet](https://ironsoftware.com/csharp/excel/examples/copy-an-excel-worksheet/)
 
 The code snippet presented illustrates the process of using IronXL to clone and replicate `WorkSheets` across different `WorkBooks`, as well as within the same `WorkBook`. This functionality facilitates the transfer of sheets between workbooks or the creation of identical sheets within a single workbook.
 

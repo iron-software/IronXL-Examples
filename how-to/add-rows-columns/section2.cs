@@ -1,5 +1,4 @@
 using IronXL;
-using IronXL.Excel;
 namespace IronXL.Examples.HowTo.AddRowsColumns
 {
     public static class Section2

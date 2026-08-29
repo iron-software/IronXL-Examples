@@ -1,6 +1,6 @@
-***Based on <https://ironsoftware.com/examples/select-excel-range/>***
+> Full guide: [Select excel range](https://ironsoftware.com/csharp/excel/examples/select-excel-range/)
 
-IronXL empowers users to effortlessly access and manipulate ranges within any Excel `WorkSheet`. The examples provided showcase how to select ranges, rows, and columns seamlessly. With IronXL, you can enhance this data set by implementing methods like `SortAscending()`, `SortDescending()`, `Sum()`, `Max()`, `Min()`, and `Avg()`. It's important to remember that methods modifying or moving cell values will impact the corresponding range, row, and column values as well.
+IronXL lets users access and manipulate ranges within any Excel `WorkSheet`. The examples provided showcase how to select ranges, rows, and columns. With IronXL, you can enhance this data set by implementing methods like `SortAscending()`, `SortDescending()`, `Sum()`, `Max()`, `Min()`, and `Avg()`. It's important to remember that methods modifying or moving cell values will impact the corresponding range, row, and column values as well.
 
 ## Range
 

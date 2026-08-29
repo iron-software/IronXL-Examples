@@ -1,15 +1,14 @@
 # Generate, Manipulate, and Manage Excel Documents in .NET MAUI
 
-***Based on <https://ironsoftware.com/how-to/read-create-excel-net-maui/>***
-
+> Full guide: [Generate, Manipulate, and Manage Excel Documents in .NET MAUI](https://ironsoftware.com/csharp/excel/get-started/read-create-excel-net-maui/)
 
 ## Overview
 
-*This comprehensive guide demonstrates how to work with Excel files in .NET MAUI applications targeting Windows platforms, utilizing IronXL. Let's dive in.*
+*This guide covers working with Excel files in .NET MAUI applications on Windows, using IronXL.*
 
 ## IronXL: The C# Excel Solution
 
-IronXL is a robust C# .NET library designed for managing Excel files. It empowers developers to generate Excel spreadsheets from the ground up, encompassing content, layout, and even metadata such as titles and authors. IronXL provides a variety of customization options for the user interface, including adjustments to margins, orientation, page sizes, and inclusion of images. Importantly, IronXL is a self-sufficient library that doesn't depend on external frameworks or third-party libraries for Excel generation.
+IronXL is a C# .NET library for Excel files. It builds spreadsheets from scratch: content, layout, and metadata such as title and author. IronXL provides a variety of customization options for the user interface, including adjustments to margins, orientation, page sizes, and inclusion of images. Importantly, IronXL is a self-sufficient library that doesn't depend on external frameworks or third-party libraries for Excel generation.
 
 ## Installation of IronXL
 
@@ -305,7 +304,7 @@ Upon accessing the modified document, the result displays as follows:
 
 This tutorial provided a complete walkthrough for creating, reading, and altering Excel files in a .NET MAUI app using IronXL. IronXL delivers high performance and precision, making it superior to other methods like Microsoft Interop since it doesn't require any Office installations on the host machine. Additionally, IronXL supports various file formats beyond Excel, such as CSV, TSV, and more.
 
-IronXL is versatile, supporting numerous project types such as Windows Form, WPF, ASP.NET Core, among others. For further insights, explore our detailed tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
+IronXL supports Windows Forms, WPF, and ASP.NET Core projects, among others. See the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
 
 <hr class="separator">
 
@@ -335,7 +334,7 @@ IronXL is versatile, supporting numerous project types such as Windows Form, WPF
     </div>
     <div class="col-sm-8">
       <h3>Browse the API Documentation</h3
-      <p>Delve into the API Documentation for IronXL which delineates all features, namespaces, classes, methods, fields, and enums available.</p>
+      <p>The IronXL API documentation covers every namespace, class, method, field, and enum.</p>
       <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Examine the API Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
@@ -355,8 +354,6 @@ To integrate IronXL into your project, use the NuGet Package Manager Console wit
 ```shell
 Install-Package IronXL.Excel
 ```
-
-Here is the paraphrased section with the resolved URL path:
 
 ```shell
 Install-Package IronXL.Excel
@@ -411,7 +408,7 @@ Start by editing your XAML page titled `**MainPage.xaml**`. Replace its existing
 </ContentPage>
 ```
 
-This revised code forms the interface for our basic .NET MAUI application, featuring one label and two buttons within a vertical layout, facilitating better navigation and aesthetics across various devices.
+This markup forms the interface for the .NET MAUI application: one label and two buttons in a vertical layout.
 
 ### Generating Excel Documents
 
@@ -485,13 +482,11 @@ private void CreateExcel(object sender, EventArgs e)
 
 This method creates a `Workbook` with one `Worksheet`, assigns values to its cells, styles them, applies various Excel formulas like sum, average, max, and min, and finally saves and displays the new Excel file using the `SaveService` class.
 
-In our demo, IronXL simplifies Excel file creation, styling, and data manipulation within a .NET MAUI environment, demonstrating its robustness and ease of use compared to traditional methods that might rely on external software installations.
+The demo creates, styles, and manipulates an Excel file inside a .NET MAUI application, with no external software installed.
 
 ### Frontend Application Design
 
 Begin by navigating to the XAML file titled `**MainPage.xaml**`. Update this file with the provided code snippet below. This sets the structure for your application's user interface in .NET MAUI.
-
-Here is a revised version of the XML section:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -531,8 +526,6 @@ Here is a revised version of the XML section:
 
 </ContentPage>
 ```
-
-This revised section maintains the original XML structure and intent, while rephrasing the content to keep the description fresh and distinct from the source text.
 
 The provided code structures the user interface for a straightforward .NET MAUI application, featuring a label and two buttons. The first button initiates the creation of an Excel file, while the second allows for reading and modifying an existing Excel file. All components are embedded within a `VerticalStackLayout`, ensuring they align vertically across all compatible devices.
 
@@ -601,8 +594,6 @@ private void GenerateExcelFile(object sender, EventArgs e)
 }
 ```
 
-In this modified code snippet, the step-by-step creation of an Excel file using the IronXL library is streamlined to enhance readability and maintenance. Variables and method calls are slightly altered to improve the overall clarity and provide consistent nomenclature within the application.
-
 ```cs
 private void CreateExcel(object sender, EventArgs e)
 {
@@ -667,15 +658,13 @@ In the provided source code, a workbook with a single worksheet is initialized w
 
 The use of the `Style` property facilitates the addition of aesthetics and borders to cells. This customization can be applied to either individual cells or to groups of cells as demonstrated.
 
-IronXL offers robust support for Excel formulas. These formulas can be tailored for individual or multiple cells. Additionally, the results of these formulas can be captured in variables for subsequent use.
+IronXL supports Excel formulas, set on a single cell or across many. Additionally, the results of these formulas can be captured in variables for subsequent use.
 
 The `SaveService` class, which is introduced earlier in the code, plays a crucial role in saving and presenting the Excel files that are generated. This class has been proclaimed in the previous script and is set to be elaborated on further in subsequent sections.
 
 ### Viewing Excel Files in a Browser
 
 Proceed by opening the `MainPage.xaml.cs` file and inserting the code snippet provided below.
-
-Here's your paraphrased section:
 
 ```cs
 private void ReadExcel(object sender, EventArgs e)
@@ -709,8 +698,6 @@ In this part, we'll introduce and set up the `SaveService` class that was mentio
 
 Start by creating a file named `SaveService.cs` and include the following code snippet:
 
-Here's your paraphrased section with its relative paths resolved to `ironsoftware.com`:
-
 ```cs
 using System;
 using System.Collections.Generic;
@@ -730,8 +717,6 @@ namespace MAUI_IronXL
 ```
 
 Create a new class titled `SaveWindows.cs` located in the Platforms > Windows directory, and incorporate the following code snippet:
-
-Here is the paraphrased section with updated code:
 
 ```cs
 using Windows.Storage;
@@ -860,7 +845,7 @@ Upon accessing the modified document, the display will outline the contents as s
 
 This section has demonstrated the capabilities of the IronXL library for creating, reading, and modifying Excel files within .NET MAUI applications. IronXL delivers high performance and precise operations, making it a superior choice for Excel-related tasks. It outshines Microsoft Interop by eliminating the need for Microsoft Office Suite installation on the device. Furthermore, IronXL provides extensive functionalities, including the creation of workbooks and worksheets, cell range manipulations, formatting, and the ability to export data to various file formats like CSV and TSV.
 
-IronXL is versatile, supporting various project environments including Windows Forms, WPF, and ASP.NET Core. For more insights on utilizing IronXL, explore our tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
+IronXL supports Windows Forms, WPF, and ASP.NET Core projects. For more on using IronXL, see the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
 
 <hr class="separator">
 

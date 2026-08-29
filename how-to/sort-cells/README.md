@@ -1,6 +1,6 @@
 # Sorting Cell Ranges
 
-***Based on <https://ironsoftware.com/how-to/sort-cells/>***
+> Full guide: [Sorting Cell Ranges](https://ironsoftware.com/csharp/excel/how-to/sort-cells/)
 
 
 Sorting Excel data by values or alphabetically is critical for thorough data analysis. IronXL simplifies the process of sorting columns, rows, and cell ranges in both C# and VB.NET environments.

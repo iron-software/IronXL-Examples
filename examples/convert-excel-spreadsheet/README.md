@@ -1,4 +1,4 @@
-***Based on <https://ironsoftware.com/examples/convert-excel-spreadsheet/>***
+> Full guide: [Convert excel spreadsheet](https://ironsoftware.com/csharp/excel/examples/convert-excel-spreadsheet/)
 
 **IronXL** provides a highly convenient and secure method for transforming popular spreadsheet file formats into the desired formats needed for subsequent processes in your .Net project. A list of supported file formats for loading and exporting is provided:
 

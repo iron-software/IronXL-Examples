@@ -1,9 +1,9 @@
 # Implementing IronXL in Docker Environments
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
+> Full guide: [Implementing IronXL in Docker Environments](https://ironsoftware.com/csharp/excel/get-started/docker/)
 
 
-Discover how to [manage Excel files using C# in Docker containers](https://ironsoftware.com/csharp/excel/). IronXL offers seamless integration with Docker, fully supporting various environments such as Azure Docker Containers on both Linux and Windows platforms.
+Discover how to [manage Excel files using C# in Docker containers](https://ironsoftware.com/csharp/excel/). IronXL offers integration with Docker, fully supporting various environments such as Azure Docker Containers on both Linux and Windows platforms.
 
 ![Docker](https://img.icons8.com/color/96/000000/docker--v1.png) ![Azure](https://img.icons8.com/fluency/96/000000/azure-1.png) ![Linux](https://img.icons8.com/color/96/000000/linux--v1.png) ![Amazon](https://img.icons8.com/color/96/000000/amazon-web-services--v1.png) ![Windows](https://img.icons8.com/color/96/000000/windows-logo--v1.png)
 
@@ -13,7 +13,7 @@ Docker simplifies the process of packaging, delivering, and running applications
 
 ## Getting Started with IronXL on Linux and Docker
 
-For those new to Docker within the .NET framework, we suggest this comprehensive guide on [debugging and integrating Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
+For those new to Docker within the .NET framework, we suggest this guide on [debugging and integrating Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
 Explore our detailed [guide on setting up IronXL with Linux](https://ironsoftware.com/csharp/excel/how-to/linux/).
 
@@ -47,39 +47,27 @@ Install-Package IronXL.Excel
 ```dockerfile
 # Base runtime image (Ubuntu 20 w/ .NET runtime)
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM mcr.microsoft.com/dotnet/runtime:5.0-focal AS base
 WORKDIR /app
 
 # Base development image (Ubuntu 20 w/ .NET SDK)
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
 WORKDIR /src
 # Restore NuGet packages
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 COPY ["Example/Example.csproj", "Example/"]
 RUN dotnet restore "Example/Example.csproj"
 # Build project
-
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
 
 COPY . .
 WORKDIR "/src/Example"
 RUN dotnet build "Example.csproj" -c Release -o /app/build
 # Publish project
 
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
-
 FROM build AS publish
 RUN dotnet publish "Example.csproj" -c Release -o /app/publish
 # Run app
-
-***Based on <https://ironsoftware.com/how-to/docker-support/>***
 
 FROM base AS final
 WORKDIR /app

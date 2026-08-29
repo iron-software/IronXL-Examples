@@ -1,6 +1,6 @@
 # C# Read XLSX File
 
-***Based on <https://ironsoftware.com/how-to/c-sharp-read-xlsx-file/>***
+> Full guide: [C# Read XLSX File](https://ironsoftware.com/csharp/excel/how-to/c-sharp-read-xlsx-file/)
 
 
 Dealing with different Excel file formats typically involves reading and manipulating the data with C# programming. In this tutorial, we'll explore how to read information from an Excel spreadsheet using the IronXL library.
@@ -155,7 +155,7 @@ decimal minValue = ws["From:To"].Min();  // Find minimum
 decimal maxValue = ws["From:To"].Max();  // Find maximum
 ```
 
-For more advanced usage, refer to our comprehensive guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
+For more advanced usage, refer to our guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
 
 ```cs
 // Sum, Min, Max Functions

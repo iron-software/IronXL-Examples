@@ -1,5 +1,5 @@
+using IronXL.Formatting;
 using IronXL;
-using IronXL.Excel;
 namespace IronXL.Examples.HowTo.ConditionalFormatting
 {
     public static class Section3

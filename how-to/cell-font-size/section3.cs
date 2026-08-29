@@ -1,5 +1,5 @@
 using IronSoftware.Drawing;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.CellFontSize
 {
     public static class Section3

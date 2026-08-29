@@ -1,6 +1,6 @@
 # How to Add, Extract, and Remove Images from Worksheets
 
-***Based on <https://ironsoftware.com/how-to/add-extract-remove-worksheet-images/>***
+> Full guide: [How to Add, Extract, and Remove Images from Worksheets](https://ironsoftware.com/csharp/excel/how-to/add-extract-remove-worksheet-images/)
 
 
 ## Introduction

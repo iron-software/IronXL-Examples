@@ -1,5 +1,5 @@
 using System;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.EditWorkbookMetadata
 {
     public static class Section1

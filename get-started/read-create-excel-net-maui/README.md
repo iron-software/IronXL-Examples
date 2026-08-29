@@ -1,21 +1,15 @@
 # Create, Read and Edit Excel Files in .NET MAUI
 
-***Based on <https://ironsoftware.com/get-started/read-create-excel-net-maui/>***
-
+> Full guide: [Create, Read and Edit Excel Files in .NET MAUI](https://ironsoftware.com/csharp/excel/get-started/read-create-excel-net-maui/)
 
 ## Introduction
 
-*Welcome to our How-To Guide on using IronXL to create and read Excel files within .NET MAUI applications on Windows. Let's dive in.*
+*Welcome to our How-To Guide on using IronXL to create and read Excel files within .NET MAUI applications on Windows.*
 
 ## IronXL: C# Excel Library
 
-IronXL is a robust C# .NET library designed for the manipulation, creation, and reading of Excel files. This library allows users to build Excel documents from the ground up, manage content and styles, and set document properties like title and author. IronXL offers features for customizing the user interface, such as adjusting margins, setting page orientation, adding images, and more without the need for any third-party libraries or external frameworks. It operates independently as a self-contained unit.
+IronXL is a C# .NET library designed for the manipulation, creation, and reading of Excel files. This library allows users to build Excel documents from the ground up, manage content and styles, and set document properties like title and author. IronXL offers features for customizing the user interface, such as adjusting margins, setting page orientation, adding images, and more without the need for any third-party libraries or external frameworks. It operates independently as a self-contained unit.
 
-## Install IronXL
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
-----------------------------
 Incorporating IronXL into your project is straightforward using the NuGet Package Manager Console within Visual Studio. Simply open up the Console and execute the given command:
 
 ```shell

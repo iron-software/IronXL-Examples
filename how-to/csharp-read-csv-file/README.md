@@ -1,6 +1,6 @@
 # Read a CSV File in C&num;
 
-***Based on <https://ironsoftware.com/how-to/csharp-read-csv-file/>***
+> Full guide: [Read a CSV File in C&num;](https://ironsoftware.com/csharp/excel/how-to/csharp-read-csv-file/)
 
 
 For reading CSV files in C#, IronXL provides a straightforward solution. The following examples demonstrate how to manage CSV files using various delimiters in your code.

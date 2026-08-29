@@ -1,6 +1,6 @@
 # C# Handling Excel Files
 
-***Based on <https://ironsoftware.com/how-to/c-sharp-open-excel-worksheet/>***
+> Full guide: [C# Handling Excel Files](https://ironsoftware.com/csharp/excel/how-to/c-sharp-open-excel-worksheet/)
 
 
 Explore how to effectively manage Excel files in C# by opening various file formats including `.xls`, `.csv`, `.tsv`, and `.xlsx`. Whether you're developing applications that need to process or manipulate Excel data programmatically, this guide offers an efficient solution that minimizes code complexity and enhances execution speed.

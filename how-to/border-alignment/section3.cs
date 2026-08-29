@@ -1,5 +1,5 @@
 using IronXL.Styles;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.BorderAlignment
 {
     public static class Section3

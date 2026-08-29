@@ -1,5 +1,5 @@
 using System.Linq;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.Hyperlinks
 {
     public static class Section3

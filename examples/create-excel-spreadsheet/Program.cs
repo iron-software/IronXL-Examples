@@ -1,3 +1,4 @@
+using IronXL.Styles;
 using IronXL;
 
 // Create new Excel WorkBook document

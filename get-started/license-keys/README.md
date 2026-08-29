@@ -1,7 +1,6 @@
 # Utilizing IronXL License Keys
 
-***Based on <https://ironsoftware.com/get-started/license-keys/>***
-
+> Full guide: [Utilizing IronXL License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
 
 ## Acquiring a License Key
 
@@ -11,11 +10,6 @@ Purchase a license key on the [buy a license page](https://ironsoftware.com/csha
 
 <hr class="separator">
 
-## Step 1: Install the Latest IronXL Version
-
-!!!--LIBRARY_START_TRIAL_BLOCK--!!!
-
----------------------------------------
 The initial step is to integrate the IronXL.Excel library to enable Excel capabilities within the .NET framework.
 
 ### Installation via NuGet Package Manager

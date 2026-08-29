@@ -1,11 +1,16 @@
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.CsharpImportExcel
 {
     public static class Section4
     {
         public static void Run()
         {
-            WorkSheet ["Cell Address"];
+            // The docs page opens the workbook before this snippet; declared here so
+            // the section stands on its own.
+            IronXL.WorkBook workBook = IronXL.WorkBook.Load("sample.xlsx");
+            IronXL.WorkSheet WorkSheet = workBook.DefaultWorkSheet;
+
+            IronXL.Range cell = WorkSheet ["Cell Address"];
         }
     }
 }

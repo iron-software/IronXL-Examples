@@ -1,5 +1,5 @@
 using IronXL.Formatting;
-using IronXL.Excel;
+using IronXL;
 namespace IronXL.Examples.HowTo.SetCellDataFormat
 {
     public static class Section3

@@ -1,6 +1,6 @@
 # How to Convert Spreadsheet File Formats
 
-***Based on <https://ironsoftware.com/how-to/convert-spreadsheet-file-types/>***
+> Full guide: [How to Convert Spreadsheet File Formats](https://ironsoftware.com/csharp/excel/how-to/convert-spreadsheet-file-types/)
 
 
 ## Introduction
@@ -63,7 +63,7 @@ While the previous section highlighted commonly used file formats, IronXL suppor
 - Inline code data types:
   - HTML string
   - Binary and Byte array
-  - Data set: Converts Excel to `System.Data.DataSet` and `System.Data.DataTable` for seamless integration with DataGrids, SQL, and EF.
+ - Data set: Converts Excel to `System.Data.DataSet` and `System.Data.DataTable` for integration with DataGrids, SQL, and EF.
   - Memory stream
 
 These data types can also be utilized in RESTful API responses or converted to a PDF using IronPDF.
