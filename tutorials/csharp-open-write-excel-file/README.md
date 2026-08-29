@@ -370,7 +370,7 @@ WorkSheet worksheet = workbook.WorkSheets.First();
 
 For this demonstration, we'll be loading data from a JSON file into an Excel workbook.
 
-```cs
+```json
 [{
     "name": "United Arab Emirates",
     "code": "AE"
@@ -456,7 +456,7 @@ WorkSheet workSheet = workBook.WorkSheets.First();
 <span class="list-description">Create JSON country list</span>
 </p>
 
-```cs
+```json
 [
     {
         "name": "United Arab Emirates",
@@ -667,7 +667,7 @@ workBook.ExportToJson($@"{Directory.GetCurrentDirectory()}\Files\HelloWorldJSON.
   <span class="list-description">The result file should look like this</span>
 </p>
 
-```cs
+```json
 [
     [
         "Hello World"
