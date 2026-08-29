@@ -15,7 +15,7 @@ Docker simplifies the process of packaging, delivering, and running applications
 
 For those new to Docker within the .NET framework, we suggest this guide on [debugging and integrating Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-Explore our detailed [guide on setting up IronXL with Linux](https://ironsoftware.com/csharp/excel/how-to/linux/?utm_source=github).
+Explore our detailed [guide on setting up IronXL with Linux](https://ironsoftware.com/csharp/excel/get-started/linux/?utm_source=github).
 
 ### Suggested Linux Distros for Docker
 
@@ -28,7 +28,7 @@ The following 64-bit Linux distributions are recommended for straightforward ins
 - CentOS 7
 - CentOS 8
 
-For optimal setup, consider using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). For other Linux distributions, manual configuration might be necessary. Refer to our [Linux Manual Setup](https://ironsoftware.com/csharp/excel/how-to/linux/?utm_source=github) for detailed instructions.
+For optimal setup, consider using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). For other Linux distributions, manual configuration might be necessary. Refer to our [Linux Manual Setup](https://ironsoftware.com/csharp/excel/get-started/linux/?utm_source=github) for detailed instructions.
 
 Find Dockerfiles for select Linux distributions mentioned below in this document.
 

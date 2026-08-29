@@ -189,4 +189,4 @@ IronXL.Excel stands out in the .NET ecosystem as a library for reading an array 
   </div>
 </div>
 
-*[Download IronXL for Blazor](https://ironsoftware.com/csharp/excel/how-to/blazor-read-excel-file-tutorial/?utm_source=github)*
+*[Download IronXL for Blazor](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/?utm_source=github)*

@@ -49,4 +49,4 @@ WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
 DataSet dataSet = workBook.ToDataSet();
 ```
 
-For more insights into exporting spreadsheets to various file formats, take a look at this [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/export-spreadsheet/?utm_source=github) article.
+For more insights into exporting spreadsheets to various file formats, take a look at this [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/docs/?utm_source=github) article.

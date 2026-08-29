@@ -44,7 +44,7 @@ Install-Package IronXL.Excel
 
 For additional help, consult our tutorials at [IronXL Guide](https://ironsoftware.com/csharp/excel/docs/?utm_source=github).
 
-You can download the sample project [here](https://ironsoftware.com/csharp/excel/downloads/csharp-write-to-csv.zip?utm_source=github).
+You can download the sample project [here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github).
 
 <hr class="separator">
 

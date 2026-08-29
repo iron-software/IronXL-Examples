@@ -34,7 +34,7 @@ For QR processing workloads, avoid Azure's free and shared tiers, including the 
 
 ## Utilizing Docker with Azure
 
-Deploying IronXL within Docker containers on Azure can significantly enhance control over performance. We offer a detailed guide for both Linux and Windows setups in our [IronXL Azure Docker Guide](https://ironsoftware.com/csharp/excel/how-to/docker-support/?utm_source=github).
+Deploying IronXL within Docker containers on Azure can significantly enhance control over performance. We offer a detailed guide for both Linux and Windows setups in our [IronXL Azure Docker Guide](https://ironsoftware.com/csharp/excel/get-started/docker/?utm_source=github).
 
 ## Support for Azure Functions
 

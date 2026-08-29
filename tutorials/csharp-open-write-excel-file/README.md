@@ -1,6 +1,6 @@
 # C# Excel File Manipulation [Interop-Free] - Code Example Tutorial
 
-> Full guide: [C# Excel File Manipulation [Interop-Free] - Code Example Tutorial](https://ironsoftware.com/tutorials/csharp-open-write-excel-file/?utm_source=github)
+> Full guide: [C# Excel File Manipulation [Interop-Free] - Code Example Tutorial](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/?utm_source=github)
 
 Discover through practical examples how to create, open, and preserve Excel documents using C#, while performing elementary operations such as summing, averaging, counting, among others. IronXL.Excel is an independent .NET library capable of interacting with various spreadsheet formats. It needs neither an installed copy of [Microsoft Excel](https://products.office.com/en-us/excel) nor Interop.
 
@@ -1323,7 +1323,7 @@ databaseContext.SaveChanges();
 
 For those interested in deepening their understanding of IronXL, consider exploring the supplementary tutorials available in this segment, as well as the sample implementations on our main page, which generally provide sufficient introduction for most developers.
 
-For detailed insights into the `WorkBook` class and more, our [API Reference](https://ironsoftware.com/csharp/excel/object-reference/?utm_source=github) is an invaluable resource.
+For detailed insights into the `WorkBook` class and more, our [API Reference](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github) is an invaluable resource.
 
 <hr class="separator">
 
