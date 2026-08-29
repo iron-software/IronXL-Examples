@@ -6,7 +6,7 @@
 
 Implementing an IronXL license key in your project means you can go live without any operational restrictions or watermarks.
 
-Purchase a license key on the [buy a license page](https://ironsoftware.com/csharp/excel/licensing/?utm_source=github) or begin a [free 30-day trial here](https://ironsoftware.com/trial-license?utm_source=github).
+Purchase a license key on the [buy a license page](https://ironsoftware.com/csharp/excel/licensing/?utm_source=github) or begin a [free 30-day trial here](https://ironsoftware.com/csharp/excel/?utm_source=github#trial-license).
 
 <hr class="separator">
 
