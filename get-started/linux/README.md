@@ -1,6 +1,6 @@
 # IronXL Linux Compatibility & Setup Guide
 
-> Full guide: [IronXL Linux Compatibility & Setup Guide](https://ironsoftware.com/csharp/excel/get-started/linux/)
+> Full guide: [IronXL Linux Compatibility & Setup Guide](https://ironsoftware.com/csharp/excel/get-started/linux/?utm_source=github)
 
 
 IronXL is engineered entirely using .NET Standard, enabling functionality across all Linux distributions that support **.NET Core**, **.NET 5**, and **.NET 6**. Compatibility extends to Docker, Azure, macOS platforms, and Windows—all of which support .NET frameworks.

@@ -1,4 +1,4 @@
-> Full guide: [Excel conditional formatting](https://ironsoftware.com/csharp/excel/examples/excel-conditional-formatting/)
+> Full guide: [Excel conditional formatting](https://ironsoftware.com/csharp/excel/examples/excel-conditional-formatting/?utm_source=github)
 
 The IronXL library enables **Conditional Formatting** for cells and ranges, allowing dynamic changes to cell styles like background color or text style based on specified logical or programmatic rules.
 

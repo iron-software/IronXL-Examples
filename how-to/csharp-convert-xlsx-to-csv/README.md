@@ -1,6 +1,6 @@
 # Converting XLSX to CSV, JSON, XML, and more using C&num; and IronXL
 
-> Full guide: [Converting XLSX to CSV, JSON, XML, and more using C&num; and IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-convert-xlsx-to-csv/)
+> Full guide: [Converting XLSX to CSV, JSON, XML, and more using C&num; and IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-convert-xlsx-to-csv/?utm_source=github)
 
 
 IronXL provides a way to convert Excel files into a variety of formats including JSON, CSV, XML, and even the older Excel format such as XLS. This article will guide you on how to utilize IronXL for converting Excel documents to XML, CSV, JSON, and will also demonstrate how to convert an Excel worksheet into a dataset.
@@ -12,7 +12,7 @@ IronXL provides a way to convert Excel files into a variety of formats including
 To begin using IronXL in your projects, it must first be installed. You can install IronXL via two primary methods:
 
 - **Download Directly:** 
-  - Visit [IronXL Excel Documentation](https://ironsoftware.com/csharp/excel/docs/)
+  - Visit [IronXL Excel Documentation](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
 
 - **Using NuGet Package Manager:** 
   - Right-click on the Solution name in the Solution Explorer.
@@ -72,5 +72,5 @@ Enjoy a visual representation of each file format exported:
 
 To learn more about working with Excel functionalities like merging, unmerging, and manipulating cells using IronXL, refer to:
 
-- [IronXL API Reference Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/ "IronXL API Reference Documentation")
+- [IronXL API Reference Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github "IronXL API Reference Documentation")
   ![IronXL Document](https://ironsoftware.com/img/svgs/documentation.svg "IronXL API Documentation")

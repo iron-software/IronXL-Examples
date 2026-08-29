@@ -1,6 +1,6 @@
 # How to Add Named Range
 
-> Full guide: [How to Add Named Range](https://ironsoftware.com/csharp/excel/how-to/named-range/)
+> Full guide: [How to Add Named Range](https://ironsoftware.com/csharp/excel/how-to/named-range/?utm_source=github)
 
 
 A named range is a predefined block of cells given a unique label. Instead of referencing these cells through their cell coordinates (such as A1:B10), you can simply name them, which simplifies referencing them in formulas and calculations. For instance, by labeling a range as "SalesData," you can use `SUM(SalesData)` in a formula rather than directly specifying the cell addresses.

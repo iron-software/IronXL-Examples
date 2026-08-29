@@ -1,6 +1,6 @@
 # How to Add or Remove Rows and Columns Using IronXL
 
-> Full guide: [How to Add or Remove Rows and Columns Using IronXL](https://ironsoftware.com/csharp/excel/how-to/add-rows-columns/)
+> Full guide: [How to Add or Remove Rows and Columns Using IronXL](https://ironsoftware.com/csharp/excel/how-to/add-rows-columns/?utm_source=github)
 
 
 IronXL simplifies the process of adding or removing rows and columns in C# without relying on Office Interop. Here's how you can manage your spreadsheet data more efficiently.

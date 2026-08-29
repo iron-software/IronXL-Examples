@@ -1,6 +1,6 @@
 # How to Trim Cell Range
 
-> Full guide: [How to Trim Cell Range](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/)
+> Full guide: [How to Trim Cell Range](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/?utm_source=github)
 
 
 The IronXL library simplifies removal of all empty rows and columns at the borders of a range in C# without the need for Office Interop. This capability significantly enhances the efficiency of data handling and manipulation, sidestepping the need to interact with the Office suite directly.
@@ -11,9 +11,9 @@ The IronXL library simplifies removal of all empty rows and columns at the borde
 
 ## Example: Trimming a Cell Range
 
-Identify the specific <a href="https://ironsoftware.com/csharp/excel/how-to/select-range/">Range</a> of cells you want to modify and use the `Trim` method on it. This function cuts away the empty cells at the beginning and end of the selected range.
+Identify the specific <a href="https://ironsoftware.com/csharp/excel/how-to/select-range/?utm_source=github">Range</a> of cells you want to modify and use the `Trim` method on it. This function cuts away the empty cells at the beginning and end of the selected range.
 
-Note that the `Trim` method does not eliminate empty cells that are situated in the middle of the range across rows and columns. To organize these, you might consider <a href="https://ironsoftware.com/csharp/excel/how-to/sort-cells/">sorting</a> the cells, thereby moving the empty ones to either the top or bottom of the range.
+Note that the `Trim` method does not eliminate empty cells that are situated in the middle of the range across rows and columns. To organize these, you might consider <a href="https://ironsoftware.com/csharp/excel/how-to/sort-cells/?utm_source=github">sorting</a> the cells, thereby moving the empty ones to either the top or bottom of the range.
 
 ```cs
 using IronXL;

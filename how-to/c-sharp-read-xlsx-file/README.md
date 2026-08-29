@@ -1,6 +1,6 @@
 # C# Read XLSX File
 
-> Full guide: [C# Read XLSX File](https://ironsoftware.com/csharp/excel/how-to/c-sharp-read-xlsx-file/)
+> Full guide: [C# Read XLSX File](https://ironsoftware.com/csharp/excel/how-to/c-sharp-read-xlsx-file/?utm_source=github)
 
 
 Dealing with different Excel file formats typically involves reading and manipulating the data with C# programming. In this tutorial, we'll explore how to read information from an Excel spreadsheet using the IronXL library.
@@ -31,7 +31,7 @@ Dealing with different Excel file formats typically involves reading and manipul
 
 ## 1. Incorporate IronXL into Your Project
 
-For easy manipulation of Excel files in C#, include IronXL in your project. You can [download IronXL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.xlsx.zip) or use [NuGet to install it via Visual Studio](https://www.nuget.org/packages/IronXL.Excel). IronXL is free for development purposes.
+For easy manipulation of Excel files in C#, include IronXL in your project. You can [download IronXL directly](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or use [NuGet to install it via Visual Studio](https://www.nuget.org/packages/IronXL.Excel). IronXL is free for development purposes.
 
 ```shell
 Install-Package IronXL.Excel
@@ -129,7 +129,7 @@ The output will appear as follows:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-input1.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
@@ -137,7 +137,7 @@ With the Excel file `Sample.xlsx` showcased:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-1.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
@@ -155,7 +155,7 @@ decimal minValue = ws["From:To"].Min();  // Find minimum
 decimal maxValue = ws["From:To"].Max();  // Find maximum
 ```
 
-For more advanced usage, refer to our guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
+For more advanced usage, refer to our guide on [Writing C# Excel Files](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/?utm_source=github#advanced-operations-sum-avg-count-etc) which includes detailed examples on aggregate functions.
 
 ```cs
 // Sum, Min, Max Functions
@@ -179,7 +179,7 @@ This code will produce the following display:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-output2.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
@@ -187,7 +187,7 @@ And this represents the data from the Excel file `Sample.xlsx`:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc3-2.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
@@ -260,7 +260,7 @@ The output will appear like this:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-output2.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
@@ -268,11 +268,11 @@ And this will show how the Excel file `Sample.xlsx` looks:
 
 <center>
 <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-xlsx-file/doc10-2.png" alt="" class="img-responsive add-shadow"></a>
 </div>
 </center>
 
-In this example, we've demonstrated the simple, yet flexible ways to handle an Excel file as a DataSet, utilizing each worksheet as a DataTable and manipulating the data accordingly. For more details on parsing Excel as a DataSet, dive into our resources [here](https://ironsoftware.com/csharp/excel/#excel-sql-dataset) which include broader code examples.
+In this example, we've demonstrated the simple, yet flexible ways to handle an Excel file as a DataSet, utilizing each worksheet as a DataTable and manipulating the data accordingly. For more details on parsing Excel as a DataSet, dive into our resources [here](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-sql-dataset) which include broader code examples.
 
 Let's explore another example on how to access cell values in all Excel sheets. You can easily retrieve values from every worksheet in the Excel file:
 
@@ -298,7 +298,7 @@ foreach (DataTable dt in ds.Tables)  // Treat each Excel Worksheet as a DataTabl
 ```
 This example showcases the convenience of accessing individual cell values from every sheet in the Excel file.
 
-For comprehensive guides on [Reading Excel Files Without Interop](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/) and further examples, check out our resources on this topic.
+For comprehensive guides on [Reading Excel Files Without Interop](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github) and further examples, check out our resources on this topic.
 
 <hr class="separator">
 

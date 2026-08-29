@@ -1,6 +1,6 @@
 # Read a CSV File in C&num;
 
-> Full guide: [Read a CSV File in C&num;](https://ironsoftware.com/csharp/excel/how-to/csharp-read-csv-file/)
+> Full guide: [Read a CSV File in C&num;](https://ironsoftware.com/csharp/excel/how-to/csharp-read-csv-file/?utm_source=github)
 
 
 For reading CSV files in C#, IronXL provides a straightforward solution. The following examples demonstrate how to manage CSV files using various delimiters in your code.
@@ -62,7 +62,7 @@ To begin using IronXL for reading CSV files in MVC, ASP.NET, or .NET Core, start
   </div>
 </center>
 
-Alternatively, download it directly from Iron Software's website here: [https://ironsoftware.com/csharp/excel/packages/IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.zip)
+Alternatively, download it directly from Iron Software's website here: [https://ironsoftware.com/csharp/excel/packages/IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github)
 
 <hr class="separator">
 
@@ -156,7 +156,7 @@ This code initializes a `WorkBook` object and uses the `LoadCSV` method to speci
     <div class="col-sm-8">
       <h3>IronXL API Reference Documentation</h3>
       <p>Discover more and learn how to efficiently manage and manipulate cells within Excel documents using the comprehensive IronXL API Reference Documentation.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Explore IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> Explore IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

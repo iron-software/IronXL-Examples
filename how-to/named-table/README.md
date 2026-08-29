@@ -1,6 +1,6 @@
 # How to Insert a Named Table
 
-> Full guide: [How to Insert a Named Table](https://ironsoftware.com/csharp/excel/how-to/named-table/)
+> Full guide: [How to Insert a Named Table](https://ironsoftware.com/csharp/excel/how-to/named-table/?utm_source=github)
 
 
 A named table, often referred to as an Excel Table, is a range that has been distinctly named and possesses enhanced features and capabilities.
@@ -76,4 +76,4 @@ WorkSheet workSheet = workBook.DefaultWorkSheet;
 var namedRangeAddress = workSheet.GetNamedTable("table1");
 ```
 
-IronXL also supports creating named ranges. Discover more at [How to Add Named Range](https://ironsoftware.com/csharp/excel/how-to/named-range/).
+IronXL also supports creating named ranges. Discover more at [How to Add Named Range](https://ironsoftware.com/csharp/excel/how-to/named-range/?utm_source=github).

@@ -1,6 +1,6 @@
 # Blazor Read Excel File in C# Using IronXL (Example Tutorial)
 
-> Full guide: [Blazor Read Excel File in C# Using IronXL (Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/)
+> Full guide: [Blazor Read Excel File in C# Using IronXL (Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/?utm_source=github)
 
 ## Introduction
 
@@ -177,8 +177,8 @@ IronXL.Excel operates independently of Microsoft Excel, providing broad support 
     <div class="col-sm-8">
         <h3>Detailed API Reference</h3>
         <p>Explore the comprehensive API Reference for IronXL, detailing all its features, namespaces, classes, methods, fields, and enums.</p>
-        <a href="https://ironsoftware.com/csharp/excel/object-reference/api/" class="doc-link" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
+        <a href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" class="doc-link" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
     </div>
 </div>
 
-*[Download](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/) the IronXL software.*
+*[Download](https://ironsoftware.com/csharp/excel/get-started/blazor-read-excel-file-tutorial/?utm_source=github) the IronXL software.*

@@ -1,6 +1,6 @@
 # C# Edit Excel File
 
-> Full guide: [C# Edit Excel File](https://ironsoftware.com/csharp/excel/how-to/csharp-edit-excel-file/)
+> Full guide: [C# Edit Excel File](https://ironsoftware.com/csharp/excel/how-to/csharp-edit-excel-file/?utm_source=github)
 
 
 When working with Excel files in C#, developers should proceed with caution to avoid unwanted modifications to the document. Short, well-tested code both lowers the risk of error and keeps programmatic edits and deletions readable. This guide edits Excel files in C# using IronXL's functions.
@@ -13,7 +13,7 @@ When working with Excel files in C#, developers should proceed with caution to a
 
 For this tutorial, we're using the functionalities provided by IronXL, a comprehensive C# library for handling Excel files. First, you need to install IronXL into your project, which is free for development purposes.
 
-You can [download IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Edit.Excel.Csharp.zip) directly or learn more and install it via the [NuGet package page](https://www.nuget.org/packages/IronXL.Excel).
+You can [download IronXL.zip](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) directly or learn more and install it via the [NuGet package page](https://www.nuget.org/packages/IronXL.Excel).
 
 After installation, let's set up your environment:
 
@@ -273,7 +273,7 @@ IronXL provides a multitude of functions for efficiently performing any sort of 
     <div class="col-sm-8">
       <h3>Explore IronXL Library Documentation</h3>
       <p>Dive into the extensive features of the IronXL C# Library with various functions for editing, deleting, styling, and enhancing your Excel workbooks.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> IronXL Library Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> IronXL Library Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

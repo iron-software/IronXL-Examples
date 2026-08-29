@@ -1,6 +1,6 @@
 # C# Handling Excel Files
 
-> Full guide: [C# Handling Excel Files](https://ironsoftware.com/csharp/excel/how-to/c-sharp-open-excel-worksheet/)
+> Full guide: [C# Handling Excel Files](https://ironsoftware.com/csharp/excel/how-to/c-sharp-open-excel-worksheet/?utm_source=github)
 
 
 Explore how to effectively manage Excel files in C# by opening various file formats including `.xls`, `.csv`, `.tsv`, and `.xlsx`. Whether you're developing applications that need to process or manipulate Excel data programmatically, this guide offers an efficient solution that minimizes code complexity and enhances execution speed.
@@ -39,7 +39,7 @@ Explore how to effectively manage Excel files in C# by opening various file form
 
 ## 1. Access Excel C# Library
 
-Get the [Excel C# Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.excel.worksheet.zip) or install it using a preferred [NuGet manager](https://www.nuget.org/packages/IronXL.Excel). With the IronXL library included in your project, utilize the functions below to open Excel Worksheets in C#.
+Get the [Excel C# Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or install it using a preferred [NuGet manager](https://www.nuget.org/packages/IronXL.Excel). With the IronXL library included in your project, utilize the functions below to open Excel Worksheets in C#.
 
 ```shell
 Install-Package IronXL.Excel
@@ -135,7 +135,7 @@ This output will illustrate the values retrieved from both cell address and indi
 
 <center>
   <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1output.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1output.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1output.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1output.png" alt="" class="img-responsive add-shadow"></a>
   </div>
 </center>
 
@@ -143,13 +143,13 @@ This output will illustrate the values retrieved from both cell address and indi
 
 <center>
   <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1excel.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/1excel.png" alt="" class="img-responsive add-shadow"></a>
   </div>
 </center>
 
 Indexes for rows and columns begin at `0`.
 
-Open Excel `WorkSheets`, retrieve specific cell data, and learn more about [reading Excel data in C#](https://ironsoftware.com/csharp/excel/#read-excel) from already open Excel Worksheets.
+Open Excel `WorkSheets`, retrieve specific cell data, and learn more about [reading Excel data in C#](https://ironsoftware.com/csharp/excel/?utm_source=github#read-excel) from already open Excel Worksheets.
 
 ### 4.2. Extract Data Within Specific Range
 
@@ -181,7 +181,7 @@ This will retrieve data from cells `B2` to `B10`:
 
 <center>
   <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2output.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2output.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2output.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2output.png" alt="" class="img-responsive add-shadow"></a>
   </div>
 </center>
 
@@ -189,7 +189,7 @@ Values from file `sample.xlsx` from `B2` to `B10` are shown below:
 
 <center>
   <div class="center-image-wrapper">
-    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2excel.png" alt="" class="img-responsive add-shadow"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-open-excel-worksheet/2excel.png" alt="" class="img-responsive add-shadow"></a>
   </div>
 </center>
 
@@ -201,7 +201,7 @@ Define a range for a specific row using the cell address syntax:
 WorkSheet ["A1:E1"] // This retrieves data from cells `A1` to `E1`
 ```
 
-Learn more about handling [C# Excel Ranges](https://ironsoftware.com/csharp/excel/#excel-ranges) to effectively manage row and column data.
+Learn more about handling [C# Excel Ranges](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-ranges) to effectively manage row and column data.
 
 ### 4.4. Complete Data Extraction from Worksheet
 
@@ -243,7 +243,7 @@ This will display each cell value from the complete open Excel `Worksheet`.
     <div class="col-sm-8">
       <h3>API Reference Resource</h3>
       <p>Consult the IronXL API Reference for detailed documentation on functions, classes, namespaces, methods, enums, and features available for your projects.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> API Reference Resource <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> API Reference Resource <i class="fa fa-chevron-right"></i></a>
     </div>
   </div>
 </div>

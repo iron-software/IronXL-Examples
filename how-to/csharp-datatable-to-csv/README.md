@@ -1,6 +1,6 @@
 # C# Tutorial: Convert DataTable to CSV with IronXL
 
-> Full guide: [C# Tutorial: Convert DataTable to CSV with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-datatable-to-csv/)
+> Full guide: [C# Tutorial: Convert DataTable to CSV with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-datatable-to-csv/?utm_source=github)
 
 
 This guide will illustrate how to transform a DataTable into a CSV file using IronXL, simplifying the process into simple, easy-to-follow steps.
@@ -11,7 +11,7 @@ This guide will illustrate how to transform a DataTable into a CSV file using Ir
 
 To begin, install IronXL in your project. You can easily add IronXL in several ways:
 
-- Download it directly from [IronXL's documentation page](https://ironsoftware.com/csharp/excel/docs/)
+- Download it directly from [IronXL's documentation page](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
 - Or from within Visual Studio:
   - Open the `Project` menu
   - Choose `Manage NuGet Packages`
@@ -22,7 +22,7 @@ Install-Package IronXL.Excel
 ```
 
 <div align="center">
-  <a href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png" target="_blank">
+  <a href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png?utm_source=github" target="_blank">
     <img src="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/ironxl-excel-nuget-package.png" alt="IronXL.Excel NuGet Package" class="img-responsive">
   </a>
   <div>
@@ -74,7 +74,7 @@ private void ConvertDataTableToCSV(object sender, EventArgs e)
 This code initializes a `DataTable` and fills it with example data. A `WorkBook` instance is created, and each row from the `DataTable` is written into the workbook. Finally, the workbook is saved as a CSV file using the `SaveAsCsv` method.
 
 <div align="center">
-  <a href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png" target="_blank">
+  <a href="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png?utm_source=github" target="_blank">
     <img src="https://ironsoftware.com/img/faq/excel/csharp-datatable-to-csv/datatable-output-to-csv.png" alt="Datatable output to CSV" class="img-responsive">
   </a>
   <div>
@@ -90,7 +90,7 @@ This code initializes a `DataTable` and fills it with example data. A `WorkBook`
   <div class="col-sm-8">
     <h3>IronXL API Reference Documentation</h3>
     <p>Explore further and learn how to manage cells in Excel spreadsheets proficiently using IronXL's comprehensive API reference documentation.</p>
-    <a href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Access IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
+    <a href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">Access IronXL API Reference Documentation <i class="fa fa-chevron-right"></i></a>
   </div>
   <div class="col-sm-4">
     <img style="max-width: 110px; width: 100%; height: 140px;" alt="" class="img-responsive add-shadow" src="https://ironsoftware.com/img/svgs/documentation.svg">

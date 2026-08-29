@@ -1,6 +1,6 @@
 # How to Import and Export as DataSet
 
-> Full guide: [How to Import and Export as DataSet](https://ironsoftware.com/csharp/excel/how-to/export-dataset-datatable/)
+> Full guide: [How to Import and Export as DataSet](https://ironsoftware.com/csharp/excel/how-to/export-dataset-datatable/?utm_source=github)
 
 
 A DataSet serves as a powerful in-memory data structure that can accommodate numerous related tables, along with their relationships and constraints. It's particularly useful for managing data from diverse sources like databases, XML files, and more.
@@ -29,7 +29,7 @@ WorkBook workBook = WorkBook.Create();
 WorkBook.LoadWorkSheetsFromDataSet(dataSet, workBook);
 ```
 
-Learn more about loading spreadsheets from different formats in this [How to Load Existing Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/) guide.
+Learn more about loading spreadsheets from different formats in this [How to Load Existing Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/?utm_source=github) guide.
 
 ## Exporting a DataSet
 
@@ -49,4 +49,4 @@ WorkSheet workSheet = workBook.CreateWorkSheet("new_sheet");
 DataSet dataSet = workBook.ToDataSet();
 ```
 
-For more insights into exporting spreadsheets to various file formats, take a look at this [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/export-spreadsheet/) article.
+For more insights into exporting spreadsheets to various file formats, take a look at this [How to Save or Export Spreadsheets](https://ironsoftware.com/csharp/excel/docs/?utm_source=github) article.

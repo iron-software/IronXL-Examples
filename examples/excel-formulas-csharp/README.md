@@ -1,4 +1,4 @@
-> Full guide: [Excel formulas C#](https://ironsoftware.com/csharp/excel/examples/excel-formulas-csharp/)
+> Full guide: [Excel formulas C#](https://ironsoftware.com/csharp/excel/examples/excel-formulas-csharp/?utm_source=github)
 
 Utilize IronXL to implement, evaluate, and acquire the computed values through formulas without the need for Office Interop. IronXL currently supports over **150+ formulas** and that number continues to grow with each update. Formulas can be applied using the
 

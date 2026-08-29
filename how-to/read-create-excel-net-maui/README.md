@@ -1,6 +1,6 @@
 # Generate, Manipulate, and Manage Excel Documents in .NET MAUI
 
-> Full guide: [Generate, Manipulate, and Manage Excel Documents in .NET MAUI](https://ironsoftware.com/csharp/excel/get-started/read-create-excel-net-maui/)
+> Full guide: [Generate, Manipulate, and Manage Excel Documents in .NET MAUI](https://ironsoftware.com/csharp/excel/get-started/read-create-excel-net-maui/?utm_source=github)
 
 ## Overview
 
@@ -304,7 +304,7 @@ Upon accessing the modified document, the result displays as follows:
 
 This tutorial provided a complete walkthrough for creating, reading, and altering Excel files in a .NET MAUI app using IronXL. IronXL delivers high performance and precision, making it superior to other methods like Microsoft Interop since it doesn't require any Office installations on the host machine. Additionally, IronXL supports various file formats beyond Excel, such as CSV, TSV, and more.
 
-IronXL supports Windows Forms, WPF, and ASP.NET Core projects, among others. See the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
+IronXL supports Windows Forms, WPF, and ASP.NET Core projects, among others. See the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/?utm_source=github) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github).
 
 <hr class="separator">
 
@@ -335,7 +335,7 @@ IronXL supports Windows Forms, WPF, and ASP.NET Core projects, among others. See
     <div class="col-sm-8">
       <h3>Browse the API Documentation</h3
       <p>The IronXL API documentation covers every namespace, class, method, field, and enum.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Examine the API Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">Examine the API Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>
@@ -845,7 +845,7 @@ Upon accessing the modified document, the display will outline the contents as s
 
 This section has demonstrated the capabilities of the IronXL library for creating, reading, and modifying Excel files within .NET MAUI applications. IronXL delivers high performance and precise operations, making it a superior choice for Excel-related tasks. It outshines Microsoft Interop by eliminating the need for Microsoft Office Suite installation on the device. Furthermore, IronXL provides extensive functionalities, including the creation of workbooks and worksheets, cell range manipulations, formatting, and the ability to export data to various file formats like CSV and TSV.
 
-IronXL supports Windows Forms, WPF, and ASP.NET Core projects. For more on using IronXL, see the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/).
+IronXL supports Windows Forms, WPF, and ASP.NET Core projects. For more on using IronXL, see the tutorials on [creating Excel files](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/?utm_source=github) and [reading Excel files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github).
 
 <hr class="separator">
 
@@ -877,7 +877,7 @@ IronXL supports Windows Forms, WPF, and ASP.NET Core projects. For more on using
     <div class="col-sm-8">
       <h3>View the API Reference</h3>
       <p>Explore the API Reference for IronXL, outlining the details of all of IronXL’s features, namespaces, classes, methods fields and enums.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

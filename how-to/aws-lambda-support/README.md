@@ -1,6 +1,6 @@
 # IronXL Integration for AWS Lambda with .NET Core
 
-> Full guide: [IronXL Integration for AWS Lambda with .NET Core](https://ironsoftware.com/csharp/excel/get-started/aws/)
+> Full guide: [IronXL Integration for AWS Lambda with .NET Core](https://ironsoftware.com/csharp/excel/get-started/aws/?utm_source=github)
 
 
 IronXL provides support for AWS Lambda functions across .NET Standard libraries, .NET Core, .NET 5, and .NET 6 projects.
@@ -44,4 +44,4 @@ Upon setting up a new AWS Lambda Function project, consider implementing the fol
     }
 ```
 
-For information regarding deploying IronXL with NuGet packages, refer to the [IronXL NuGet Installation Guide](https://ironsoftware.com/csharp/excel/docs/).
+For information regarding deploying IronXL with NuGet packages, refer to the [IronXL NuGet Installation Guide](https://ironsoftware.com/csharp/excel/docs/?utm_source=github).

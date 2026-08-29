@@ -1,6 +1,6 @@
 # How to Write CSV in .NET
 
-> Full guide: [How to Write CSV in .NET](https://ironsoftware.com/csharp/excel/how-to/csharp-write-to-csv-file/)
+> Full guide: [How to Write CSV in .NET](https://ironsoftware.com/csharp/excel/how-to/csharp-write-to-csv-file/?utm_source=github)
 
 
 Curious about using C# to write to CSV? Discover how IronXL simplifies the process of writing data into CSV files in the .NET framework.
@@ -42,9 +42,9 @@ Alternatively, input this command in the Developer Command Prompt:
 Install-Package IronXL.Excel
 ```
 
-For additional help, consult our tutorials at [IronXL Guide](https://ironsoftware.com/csharp/excel/docs/).
+For additional help, consult our tutorials at [IronXL Guide](https://ironsoftware.com/csharp/excel/docs/?utm_source=github).
 
-You can download the sample project [here](https://ironsoftware.com/csharp/excel/downloads/csharp-write-to-csv.zip).
+You can download the sample project [here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github).
 
 <hr class="separator">
 
@@ -141,7 +141,7 @@ Here's how the resulting CSV file appears when opened with a simple Text Editor 
     <div class="col-sm-8">
       <h3>IronXL API Reference Documentation</h3>
       <p>Explore further and learn about merging, unmerging, and manipulating cells in Excel sheets through our detailed IronXL API Reference Documentation.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Discover IronXL API Reference Docs <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> Discover IronXL API Reference Docs <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

@@ -1,6 +1,6 @@
 # How to Combine and Separate Cells in Spreadsheets
 
-> Full guide: [How to Combine and Separate Cells in Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/)
+> Full guide: [How to Combine and Separate Cells in Spreadsheets](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/?utm_source=github)
 
 
 Combining cells, more commonly known as cell merging, refers to the technique of fusing two or more neighboring cells into a single larger cell. Conversely, separating cells or unmerging refers to splitting a previously merged cell back into its original, individual cells. These functionalities enhance flexibility, ensure alignment uniformity, and aid in more effective data management.

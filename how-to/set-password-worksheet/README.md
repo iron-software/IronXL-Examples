@@ -1,6 +1,6 @@
 # How to Set a Password on a Worksheet
 
-> Full guide: [How to Set a Password on a Worksheet](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/)
+> Full guide: [How to Set a Password on a Worksheet](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/?utm_source=github)
 
 
 Setting a worksheet to **Read-Only** is a frequently required feature for data files. IronXL simplifies the process of applying **Read-Only** protection to worksheets in .NET applications.
@@ -45,4 +45,4 @@ To eliminate the password protection from a specific worksheet, utilize the `Unp
 workSheet.UnprotectSheet();
 ```
 
-IronXL facilitates the protection and de-protection of any Excel [workbook](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/) and **worksheet** using merely a single line of C# code.
+IronXL facilitates the protection and de-protection of any Excel [workbook](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/?utm_source=github) and **worksheet** using merely a single line of C# code.

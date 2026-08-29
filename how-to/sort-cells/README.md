@@ -1,6 +1,6 @@
 # Sorting Cell Ranges
 
-> Full guide: [Sorting Cell Ranges](https://ironsoftware.com/csharp/excel/how-to/sort-cells/)
+> Full guide: [Sorting Cell Ranges](https://ironsoftware.com/csharp/excel/how-to/sort-cells/?utm_source=github)
 
 
 Sorting Excel data by values or alphabetically is critical for thorough data analysis. IronXL simplifies the process of sorting columns, rows, and cell ranges in both C# and VB.NET environments.
@@ -15,7 +15,7 @@ Apply sorting to selected ranges or columns using the `SortAscending` or `SortDe
 
 When sorting across a range with multiple columns, the `SortAscending` or `SortDescending` methods operate on each column individually.
 
-These methods position any empty cells at either the top or bottom of the range. To clean up these empty cells, use the [Trim method](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/) post-sorting, which helps in maintaining a tidy dataset.
+These methods position any empty cells at either the top or bottom of the range. To clean up these empty cells, use the [Trim method](https://ironsoftware.com/csharp/excel/how-to/trim-cell-range/?utm_source=github) post-sorting, which helps in maintaining a tidy dataset.
 
 ```cs
 using IronXL;

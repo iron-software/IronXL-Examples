@@ -1,6 +1,6 @@
 # How to Configure Cell Border and Text Alignment
 
-> Full guide: [How to Configure Cell Border and Text Alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/)
+> Full guide: [How to Configure Cell Border and Text Alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/?utm_source=github)
 
 
 Cell borders in Excel are the distinct lines that can be added around cells or groups of cells. Text alignment, conversely, determines the placement of text within a cell both on the vertical and horizontal axes.
@@ -13,7 +13,7 @@ Utilizing IronXL, you can elevate data visualization, augment readability, and f
 
 ## Example: Setting Cell Border and Alignment
 
-Modify the visual style of a [specific cell, column, row, or block of cells](https://ironsoftware.com/csharp/excel/how-to/select-range/) by applying borders through the **TopBorder**, **RightBorder**, **BottomBorder**, and **LeftBorder** properties. IronXL offers various border styles through the **IronXL.Styles.BorderType** enumeration. Explore all possible border styles to select the ideal one for your needs.
+Modify the visual style of a [specific cell, column, row, or block of cells](https://ironsoftware.com/csharp/excel/how-to/select-range/?utm_source=github) by applying borders through the **TopBorder**, **RightBorder**, **BottomBorder**, and **LeftBorder** properties. IronXL offers various border styles through the **IronXL.Styles.BorderType** enumeration. Explore all possible border styles to select the ideal one for your needs.
 
 For precise control over text positioning, tweak the **HorizontalAlignment** and **VerticalAlignment** properties in the Style object according to your requirements. Use the enumerations **IronXL.Styles.HorizontalAlignment** and **IronXL.Styles.VerticalAlignment** for setting desired text orientations. Discover all alignment options to perfectly present your data.
 

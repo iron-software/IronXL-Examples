@@ -1,4 +1,4 @@
-> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
 
 IronXL provides functionality for both merging and unmerging cells in spreadsheets programmatically. Below is a detailed explanation of how cells can be merged by specifying their addresses in the spreadsheet.
 

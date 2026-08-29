@@ -1,6 +1,6 @@
 # Importing Excel Files in C&#35;
 
-> Full guide: [Importing Excel Files in C&#35;](https://ironsoftware.com/csharp/excel/how-to/csharp-import-excel/)
+> Full guide: [Importing Excel Files in C&#35;](https://ironsoftware.com/csharp/excel/how-to/csharp-import-excel/?utm_source=github)
 
 
 For software developers, the ability to import data from Excel files simplifies many tasks related to application and data management. The IronXL library simplifies this process, allowing developers to incorporate and manipulate Excel data within C# projects with minimal code.
@@ -30,7 +30,7 @@ For software developers, the ability to import data from Excel files simplifies 
 
 ## 1. Installing and Using IronXL to Import Data
 
-To start, you'll need to make IronXL accessible in your C# project either by downloading the required DLL from [here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Import.Excel.Csharp.zip) or via NuGet:
+To start, you'll need to make IronXL accessible in your C# project either by downloading the required DLL from [here](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or via NuGet:
 
 ```shell
 Install-Package IronXL.Excel
@@ -96,7 +96,7 @@ For importing data across a range:
 var rangeData = WorkSheet["StartCell:EndCell"];  // E.g., "A1:C10"
 ```
 
-Learn more about handling ranges [here](https://ironsoftware.com/csharp/excel/#excel-ranges).
+Learn more about handling ranges [here](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-ranges).
 
 Code implementation with a sample:
 
@@ -128,7 +128,7 @@ decimal maximum = worksheet["D2:D9"].Max();
 Console.WriteLine("Sum, Avg, Min, Max from D2 to D9: {0}, {1}, {2}, {3}", sumResult, averageResult, minimum, maximum);
 ```
 
-Deepen your understanding of these functions [here](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/#advanced-operations-sum-avg-count-etc).
+Deepen your understanding of these functions [here](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/?utm_source=github#advanced-operations-sum-avg-count-etc).
 
 <hr class="separator">
 
@@ -142,7 +142,7 @@ DataSet dataSet = workbook.ToDataSet(true);  // Includes headers
 Console.WriteLine("Full Excel data has been imported.");
 ```
 
-Explore further usage scenarios in our [guide](https://ironsoftware.com/csharp/excel/#read-excel).
+Explore further usage scenarios in our [guide](https://ironsoftware.com/csharp/excel/?utm_source=github#read-excel).
 
 <hr class="separator">
 
@@ -153,7 +153,7 @@ Explore further usage scenarios in our [guide](https://ironsoftware.com/csharp/e
     <div class="col-sm-8">
       <h3>IronXL API Reference</h3>
       <p>Explore detailed documentation on extracting Excel data using various methods in our API reference for IronXL.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Explore the IronXL API Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">Explore the IronXL API Reference <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

@@ -1,6 +1,6 @@
 # Can IronXL be Operated with .NET on Azure?
 
-> Full guide: [Can IronXL be Operated with .NET on Azure?](https://ironsoftware.com/csharp/excel/get-started/azure/)
+> Full guide: [Can IronXL be Operated with .NET on Azure?](https://ironsoftware.com/csharp/excel/get-started/azure/?utm_source=github)
 
 
 IronXL reads and writes Excel spreadsheets from C# and VB.NET applications hosted in Azure. It has been deployed and tested across Azure environments including MVC websites and Azure Functions.
@@ -35,7 +35,7 @@ It's important to note that the Azure free and shared tiers, including the consu
 
 ## 4. Utilizing Docker for Enhanced Performance on Azure
 
-Docker offers enhanced control over performance for IronXL applications on Azure. We provide detailed guidance in our [IronXL Azure Docker Guide](https://ironsoftware.com/csharp/excel/how-to/docker-support/) tailored for both Linux and Windows setups.
+Docker offers enhanced control over performance for IronXL applications on Azure. We provide detailed guidance in our [IronXL Azure Docker Guide](https://ironsoftware.com/csharp/excel/get-started/docker/?utm_source=github) tailored for both Linux and Windows setups.
 
 ## 5. Azure Function Compatibility
 

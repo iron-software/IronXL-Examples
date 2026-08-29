@@ -1,9 +1,9 @@
 # Implementing IronXL in Docker Environments
 
-> Full guide: [Implementing IronXL in Docker Environments](https://ironsoftware.com/csharp/excel/get-started/docker/)
+> Full guide: [Implementing IronXL in Docker Environments](https://ironsoftware.com/csharp/excel/get-started/docker/?utm_source=github)
 
 
-Discover how to [manage Excel files using C# in Docker containers](https://ironsoftware.com/csharp/excel/). IronXL offers integration with Docker, fully supporting various environments such as Azure Docker Containers on both Linux and Windows platforms.
+Discover how to [manage Excel files using C# in Docker containers](https://ironsoftware.com/csharp/excel/?utm_source=github). IronXL offers integration with Docker, fully supporting various environments such as Azure Docker Containers on both Linux and Windows platforms.
 
 ![Docker](https://img.icons8.com/color/96/000000/docker--v1.png) ![Azure](https://img.icons8.com/fluency/96/000000/azure-1.png) ![Linux](https://img.icons8.com/color/96/000000/linux--v1.png) ![Amazon](https://img.icons8.com/color/96/000000/amazon-web-services--v1.png) ![Windows](https://img.icons8.com/color/96/000000/windows-logo--v1.png)
 
@@ -15,7 +15,7 @@ Docker simplifies the process of packaging, delivering, and running applications
 
 For those new to Docker within the .NET framework, we suggest this guide on [debugging and integrating Docker with Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-Explore our detailed [guide on setting up IronXL with Linux](https://ironsoftware.com/csharp/excel/how-to/linux/).
+Explore our detailed [guide on setting up IronXL with Linux](https://ironsoftware.com/csharp/excel/get-started/linux/?utm_source=github).
 
 ### Suggested Linux Distros for Docker
 
@@ -28,7 +28,7 @@ The following 64-bit Linux distributions are recommended for straightforward ins
 - CentOS 7
 - CentOS 8
 
-For optimal setup, consider using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). For other Linux distributions, manual configuration might be necessary. Refer to our [Linux Manual Setup](https://ironsoftware.com/csharp/excel/how-to/linux/) for detailed instructions.
+For optimal setup, consider using [Microsoft's Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). For other Linux distributions, manual configuration might be necessary. Refer to our [Linux Manual Setup](https://ironsoftware.com/csharp/excel/get-started/linux/?utm_source=github) for detailed instructions.
 
 Find Dockerfiles for select Linux distributions mentioned below in this document.
 

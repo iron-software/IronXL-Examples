@@ -1,6 +1,6 @@
 # Utilizing Mathematical Functions in IronXL
 
-> Full guide: [Utilizing Mathematical Functions in IronXL](https://ironsoftware.com/csharp/excel/how-to/math-functions/)
+> Full guide: [Utilizing Mathematical Functions in IronXL](https://ironsoftware.com/csharp/excel/how-to/math-functions/?utm_source=github)
 
 
 IronXL is an invaluable asset within Excel that offers a variety of mathematical aggregation operations such as Average, Sum, Min, and Max. These functions play a critical role in calculating values and analyzing data. By using IronXL, you can utilize these mathematical capabilities to gain insights, make informed choices, and analyze numerical data in Excel efficiently, all without needing to use Interop.
@@ -48,4 +48,4 @@ decimal maximumValue = cellRange.Max();
 decimal minimumValue = cellRange.Min();
 ```
 
-Additionally, these functions can be applied not only to ranges but also to individual or multiple rows and columns. Learn more about [selecting rows and columns](https://ironsoftware.com/csharp/excel/how-to/select-range/).
+Additionally, these functions can be applied not only to ranges but also to individual or multiple rows and columns. Learn more about [selecting rows and columns](https://ironsoftware.com/csharp/excel/how-to/select-range/?utm_source=github).

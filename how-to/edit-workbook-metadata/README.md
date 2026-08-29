@@ -1,6 +1,6 @@
 # Managing Workbook Metadata with IronXL
 
-> Full guide: [Managing Workbook Metadata with IronXL](https://ironsoftware.com/csharp/excel/how-to/edit-workbook-metadata/)
+> Full guide: [Managing Workbook Metadata with IronXL](https://ironsoftware.com/csharp/excel/how-to/edit-workbook-metadata/?utm_source=github)
 
 
 Metadata within an Excel file encompasses various details such as the author, title, subject, keywords, and dates related to the creation and modification of the document. This kind of information is crucial as it provides insights and aids in the systematic organization and searching of Excel files within larger datasets.

@@ -1,6 +1,6 @@
 # How to Copy Cells
 
-> Full guide: [How to Copy Cells](https://ironsoftware.com/csharp/excel/how-to/copy-cells/)
+> Full guide: [How to Copy Cells](https://ironsoftware.com/csharp/excel/how-to/copy-cells/?utm_source=github)
 
 
 The "Copy cell" functionality enables you to clone the content of a cell, allowing you to transfer it to another cell or multiple cells. This feature is very useful for duplicating data, formulas, formatting, or other elements across your spreadsheet.
@@ -37,7 +37,7 @@ workBook.SaveAs("copySingleCell.xlsx");
 
 ## Example of Copying a Cell Range
 
-Just like the <a href="https://ironsoftware.com/csharp/excel/how-to/clear-cells/">Clear</a> method, the **Range** class offers a similar copying function which can be applied to a single cell, a column, a row, or a specific cell block, regardless of the range's size. Here’s how it operates:
+Just like the <a href="https://ironsoftware.com/csharp/excel/how-to/clear-cells/?utm_source=github">Clear</a> method, the **Range** class offers a similar copying function which can be applied to a single cell, a column, a row, or a specific cell block, regardless of the range's size. Here’s how it operates:
 
 Duplicate a single cell (C10):
 - **workSheet["C10"].Copy(workBook.GetWorkSheet("Sheet1"), "B13")**
