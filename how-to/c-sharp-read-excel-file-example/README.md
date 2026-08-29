@@ -1,6 +1,6 @@
 # C# Read Excel File Example
 
-> Full guide: [C# Read Excel File Example](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
+> Full guide: [C# Read Excel File Example](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github)
 
 
 For developers, it's crucial to efficiently process and analyze a vast array of Excel data within our projects. The goal is to find a straightforward and rapid approach to reading Excel data using C# and integrating it with our applications. This guide presents various examples on how to utilize IronXL to facilitate this task efficiently.
@@ -31,7 +31,7 @@ For developers, it's crucial to efficiently process and analyze a vast array of 
 
 ## 1. Install the Library 
 
-Either [download the Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.excel.example.zip) or [access it through NuGet](https://www.nuget.org/packages/IronXL.Excel). The IronXL library offers comprehensive capabilities for inputting and manipulating Excel file data, perfect for any project development.
+Either [download the Library via DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.read.excel.example.zip?utm_source=github) or [access it through NuGet](https://www.nuget.org/packages/IronXL.Excel). The IronXL library offers comprehensive capabilities for inputting and manipulating Excel file data, perfect for any project development.
 
 ```shell
 Install-Package IronXL.Excel
@@ -43,7 +43,7 @@ Install-Package IronXL.Excel
 
 ## 2. Open the WorkSheet 
 
-Begin by learning how to [read Excel file data](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/) in C# by loading an Excel file and selecting the desired worksheet in your project.
+Begin by learning how to [read Excel file data](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github) in C# by loading an Excel file and selecting the desired worksheet in your project.
 
 ```cs
 // Load the Excel file
@@ -106,7 +106,7 @@ The output displayed will be:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1output.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1output.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1output.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1output.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -114,7 +114,7 @@ Here, you can observe the values recorded in the Excel file `sample.xlsx`:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1excel.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-read-excel-file-example/1excel.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 

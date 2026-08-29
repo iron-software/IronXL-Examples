@@ -1,9 +1,9 @@
 # How to Password Protect an Excel Workbook with IronXL
 
-> Full guide: [How to Password Protect an Excel Workbook with IronXL](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/)
+> Full guide: [How to Password Protect an Excel Workbook with IronXL](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/?utm_source=github)
 
 
-It's important to ensure that sensitive data within an Excel file is accessible only to authorized users. Using IronXL, you can secure your data by applying password protection to both the Excel workbook and individual [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/).
+It's important to ensure that sensitive data within an Excel file is accessible only to authorized users. Using IronXL, you can secure your data by applying password protection to both the Excel workbook and individual [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/?utm_source=github).
 
 ***
 
@@ -50,4 +50,4 @@ Deleting a password from an Excel file is straightforward; set the **Password** 
 workBook.Password = null;
 ```
 
-IronXL simplifies the process of protecting and unprotecting Excel **workBooks** and [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/) with minimal coding effort, all through C#.
+IronXL simplifies the process of protecting and unprotecting Excel **workBooks** and [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/?utm_source=github) with minimal coding effort, all through C#.

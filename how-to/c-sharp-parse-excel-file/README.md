@@ -1,6 +1,6 @@
 # C# Parse Excel File
 
-> Full guide: [C# Parse Excel File](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
+> Full guide: [C# Parse Excel File](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github)
 
 
 In C# applications that utilize Excel spreadsheets, it's common to extract and transform spreadsheet data into various formats for analysis. Using IronXL within the C# environment simplifies these tasks, allowing developers to efficiently parse Excel files as illustrated in the steps below.
@@ -38,7 +38,7 @@ In C# applications that utilize Excel spreadsheets, it's common to extract and t
 
 ## 1. Download IronXL for Visual Studio  
 
-Begin by [Installing IronXL for Visual Studio](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.parse.excel.file.zip), available as a free tool for developers, or you can also install it via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
+Begin by [Installing IronXL for Visual Studio](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.parse.excel.file.zip?utm_source=github), available as a free tool for developers, or you can also install it via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel
@@ -82,7 +82,7 @@ Now, you can fetch and parse data from your chosen worksheet. Below is an exampl
 string val = ws["Cell Address"].ToString();
 ```
 
-In the code above, `ws` refers to the worksheet accessed previously. More examples on [reading Excel file data are available here.](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/#sample-read-xls-or-xlsx-file)
+In the code above, `ws` refers to the worksheet accessed previously. More examples on [reading Excel file data are available here.](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github#sample-read-xls-or-xlsx-file)
 
 <hr class="separator">
 
@@ -162,7 +162,7 @@ These functions provide outputs as displayed in the image links below:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1output.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1output.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1output.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1output.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -170,7 +170,7 @@ And, observe the data from the Excel file `sample.xlsx` here:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1excel.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/1excel.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -267,7 +267,7 @@ The output will be formatted as shown in the image below:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2output.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2output.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2output.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2output.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -275,7 +275,7 @@ The data range from the Excel file `sample.xlsx` is represented in the images:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2excel.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/c-sharp-parse-excel-file/2excel.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -293,7 +293,7 @@ For configuring DataTable column names based on the first row of the Excel file,
 DataTable dt = ws.ToDataTable(true);
 ```
 
-This parameter determines whether the first row in Excel acts as the column names. Detailed information on using ExcelWorksheet as DataTable in C# can be found at [this resource](https://ironsoftware.com/csharp/excel/#excel-sql-datatable).
+This parameter determines whether the first row in Excel acts as the column names. Detailed information on using ExcelWorksheet as DataTable in C# can be found at [this resource](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-sql-datatable).
 
 Consider this example for parsing into DataTable:
 
@@ -342,7 +342,7 @@ static void Main(string [] args)
 }
 ```
 
-Further details on working with Excel SQL Datasets are provided at [this resource](https://ironsoftware.com/csharp/excel/#excel-sql-dataset).
+Further details on working with Excel SQL Datasets are provided at [this resource](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-sql-dataset).
 
 <hr class="separator">
 <h4 class="tutorial-segment-title">Tutorial Quick Access</h4>
@@ -357,7 +357,7 @@ Further details on working with Excel SQL Datasets are provided at [this resourc
     <div class="col-sm-8">
       <h3>Documentation for Excel in C#</h3>
       <p>The IronXL documentation covers the rest of the Excel API.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">Explore Excel in C# Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">Explore Excel in C# Documentation <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

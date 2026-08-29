@@ -1,6 +1,6 @@
 # Customizing Cell Font and Size in Excel
 
-> Full guide: [Customizing Cell Font and Size in Excel](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/)
+> Full guide: [Customizing Cell Font and Size in Excel](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/?utm_source=github)
 
 
 Customizing the font attributes such as the font type, size, color, underline, bolding, italicizing, subscripting, and strike-through enhances the readability, emphasizes key details, and augments the visual aesthetics of your documents. IronXL allows you to modify these font properties easily in your C# .NET applications, simplifying the process to help you produce professional and polished outputs.
@@ -11,7 +11,7 @@ Customizing the font attributes such as the font type, size, color, underline, b
 
 ## Example: Adjusting Font and Size
 
-To tailor the font characteristics of a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/), you need to alter the **Font** attributes found in the **Style** of the cell. You can change the **Name** to pick the desired font family, adjust the **Height** for changing font size, and set **Bold** to highlight the text. Moreover, the **Underline** property is useful for adding an underline to make certain details stand out more.
+To tailor the font characteristics of a [specific cell, column, row, or range](https://ironsoftware.com/csharp/excel/how-to/select-range/?utm_source=github), you need to alter the **Font** attributes found in the **Style** of the cell. You can change the **Name** to pick the desired font family, adjust the **Height** for changing font size, and set **Bold** to highlight the text. Moreover, the **Underline** property is useful for adding an underline to make certain details stand out more.
 
 ```cs
 using IronXL;

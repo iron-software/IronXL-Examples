@@ -1,6 +1,6 @@
 # C# Excel Integration (Code Example Tutorial)
 
-> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
 
 
 Developing applications often requires the ability to manipulate Excel spreadsheets without the use of Excel itself. For instance, you might find it necessary to programmatically insert new rows or columns into an existing Excel spreadsheet. The C# "Excel: Add" functionality in IronXL enables you to do exactly this and much more. Below are detailed examples of how to implement these functions.
@@ -9,7 +9,7 @@ Developing applications often requires the ability to manipulate Excel spreadshe
 
 ### Step 1: Install the IronXL Excel Library
 
-To utilize the functionalities for adding rows and columns in Excel, you must initially download the IronXL Excel Library. It is available at no cost for development within your projects. You can [get the DLL directly here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Add.Excel.Csharp.zip) or utilize the [NuGet package manager](https://www.nuget.org/packages/IronXL.Excel).
+To utilize the functionalities for adding rows and columns in Excel, you must initially download the IronXL Excel Library. It is available at no cost for development within your projects. You can [get the DLL directly here](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Add.Excel.Csharp.zip?utm_source=github) or utilize the [NuGet package manager](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel
@@ -112,6 +112,6 @@ This shifts existing columns to the right and adds a new column at position `A` 
 
 Explore more functions and further documentation on adding and manipulating rows, columns, and other Excel functionalities with C# through IronXL's extensive documentation.
 
-[Read the IronXL Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/) on detailed API references and guides.
+[Read the IronXL Documentation](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github) on detailed API references and guides.
 
 ![IronXL Documentation](https://ironsoftware.com/img/svgs/documentation.svg)

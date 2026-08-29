@@ -1,6 +1,6 @@
 # C# Excel File Manipulation [Interop-Free] - Code Example Tutorial
 
-> Full guide: [C# Excel File Manipulation [Interop-Free] - Code Example Tutorial](https://ironsoftware.com/tutorials/csharp-open-write-excel-file/)
+> Full guide: [C# Excel File Manipulation [Interop-Free] - Code Example Tutorial](https://ironsoftware.com/tutorials/csharp-open-write-excel-file/?utm_source=github)
 
 Discover through practical examples how to create, open, and preserve Excel documents using C#, while performing elementary operations such as summing, averaging, counting, among others. IronXL.Excel is an independent .NET library capable of interacting with various spreadsheet formats. It needs neither an installed copy of [Microsoft Excel](https://products.office.com/en-us/excel) nor Interop.
 
@@ -11,7 +11,7 @@ Discover through practical examples how to create, open, and preserve Excel docu
 <h2>Use IronXL to Open and Write Excel Files</h2>
 
 ------
-Open, write, save, and modify Excel files with the [IronXL C# library](https://ironsoftware.com/csharp/excel/).
+Open, write, save, and modify Excel files with the [IronXL C# library](https://ironsoftware.com/csharp/excel/?utm_source=github).
 
 Acquire a [sample project from GitHub](https://github.com/magedo93/IronSoftware.git) or start with your own to follow along with this guide.
 
@@ -103,7 +103,7 @@ To install IronXL.Excel with the NuGet Package Manager, use the graphical interf
 </a>
 
 3. Installation Complete
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" target="_blank">
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg?utm_source=github" target="_blank">
     <p><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/and-we-are-done.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></p>
 </a>
 
@@ -127,7 +127,7 @@ To install IronXL.Excel with the NuGet Package Manager, use the graphical interf
 
 <h3>Manually Install with the DLL</h3>
 
-Additionally, you have the option to manually integrate the [DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) into your project or the global assembly cache if you prefer a non-NuGet installation method.
+Additionally, you have the option to manually integrate the [DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) into your project or the global assembly cache if you prefer a non-NuGet installation method.
 
 ```shell
 PM > Install-Package IronXL.Excel
@@ -143,7 +143,7 @@ This tutorial provides a series of step-by-step instructions for creating, openi
 
 <h2>Manipulate Excel Files with IronXL</h2>
 
-Learn how to manage Excel documents effectively using the straightforward features of the <a href="https://ironsoftware.com/csharp/excel/" target="_blank">IronXL C# Library.</a>
+Learn how to manage Excel documents effectively using the straightforward features of the <a href="https://ironsoftware.com/csharp/excel/?utm_source=github" target="_blank">IronXL C# Library.</a>
 
 Download a <a href="https://github.com/magedo93/IronSoftware.git" target="_blank">GitHub sample project</a> or initiate one on your own to proceed with the tutorial.
 
@@ -208,22 +208,22 @@ These instructions cover the IronXL library from a first spreadsheet through to 
 <p class="list-description">Creating the HelloWorld Project</p>
 
 <p class="list-decimal">2.1.1. Begin by Opening Visual Studio</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/open-visual-studio.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/open-visual-studio.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/open-visual-studio.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/open-visual-studio.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.2. Select the 'Create New Project' Option</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-create-new-project.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-create-new-project.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-create-new-project.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-create-new-project.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.3. Opt for Console App (.NET Framework)</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-console-app.jpg" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-console-app.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-console-app.jpg?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/choose-console-app.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.4. Assign the name “HelloWorld” to our sample and proceed to create it</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/give-our-sample-name.jpg" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/give-our-sample-name.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/give-our-sample-name.jpg?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/give-our-sample-name.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.5. You now have a console application ready</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/console-application-created.jpg" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/console-application-created.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/console-application-created.jpg?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/console-application-created.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.6. Include IronXL.Excel -> proceed with installation</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/add-ironxl-click-install.jpg" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/add-ironxl-click-install.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/add-ironxl-click-install.jpg?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/add-ironxl-click-install.jpg" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-decimal">2.1.7. Now, let's write some initial code to read the first cell of the first sheet in the Excel file and display it</p>
 
@@ -745,7 +745,7 @@ This section covers the common Excel functions SUM, AVG, and COUNT, with a code 
 ### Example 3.1: Calculating Sum ###
 
 <p class="list-description">This example demonstrates how to calculate the sum from a list of numbers that have been manually entered into an Excel file named "Sum.xlsx."</p>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/sum-example.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/sum-example.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/sum-example.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/sum-example.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 <p class="list-description"></p>
 
@@ -1086,7 +1086,7 @@ workBook.SaveAs("editedFile.xlsx");
 ```
 This method allows for efficient cleanup of data entries where extra spaces might cause data integrity issues or discrepancies. Here's a visual representation of where to apply the function:
 
-<a href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/trim-example.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/trim-example.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
+<a href="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/trim-example.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/csharp-open-write-excel-file/trim-example.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;"></a>
 
 By utilizing this approach, you can ensure that text data within your Excel documents is formatted consistently, eliminating any unwanted spaces.
 
@@ -1323,7 +1323,7 @@ databaseContext.SaveChanges();
 
 For those interested in deepening their understanding of IronXL, consider exploring the supplementary tutorials available in this segment, as well as the sample implementations on our main page, which generally provide sufficient introduction for most developers.
 
-For detailed insights into the `WorkBook` class and more, our [API Reference](https://ironsoftware.com/csharp/excel/object-reference/) is an invaluable resource.
+For detailed insights into the `WorkBook` class and more, our [API Reference](https://ironsoftware.com/csharp/excel/object-reference/?utm_source=github) is an invaluable resource.
 
 <hr class="separator">
 
@@ -1371,7 +1371,7 @@ For detailed insights into the `WorkBook` class and more, our [API Reference](ht
     <div class="col-sm-8">
       <h3>API Reference for IronXL</h3>
       <p>Explore the API Reference for IronXL, outlining the details of all of IronXL’s features, namespaces, classes, methods fields and enums.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

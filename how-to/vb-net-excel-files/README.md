@@ -1,6 +1,6 @@
 # VB .NET Read & Create Excel Files (Code Example Tutorial)
 
-> Full guide: [VB .NET Read & Create Excel Files (Code Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/)
+> Full guide: [VB .NET Read & Create Excel Files (Code Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/?utm_source=github)
 
 
 For developers working in VB .NET, a straightforward method to manage Excel files is crucial. In this tutorial, we'll explore how to utilize IronXL to manipulate Excel files in VB.NET, allowing us to read and create spreadsheets in various formats like `.xls`, `.xlsx`, `.csv`, and `.tsv`. We'll also dive into ways to customize cell styles and populate data programmatically.
@@ -11,7 +11,7 @@ For developers working in VB .NET, a straightforward method to manage Excel file
 
 ## 1. Excel for VB.NET Library
 
-Begin by integrating the IronXL Excel library for VB.NET into your project. This can be done either by downloading the DLL from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.vb.net.excel.files.zip) or by using [NuGet](https://www.nuget.org/packages/IronXL.Excel). IronXL will be instrumental in our walkthrough, particularly for rapid Excel data handling in our VB.NET applications.
+Begin by integrating the IronXL Excel library for VB.NET into your project. This can be done either by downloading the DLL from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.vb.net.excel.files.zip?utm_source=github) or by using [NuGet](https://www.nuget.org/packages/IronXL.Excel). IronXL will be instrumental in our walkthrough, particularly for rapid Excel data handling in our VB.NET applications.
 
 ```shell
 Install-Package IronXL.Excel
@@ -107,7 +107,7 @@ Here is the screenshot of our newly created Excel file `sample.xlsx`:
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 

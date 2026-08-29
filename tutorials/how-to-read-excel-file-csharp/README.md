@@ -1,6 +1,6 @@
 # C# Tutorial on Reading Excel Files
 
-> Full guide: [C# Tutorial on Reading Excel Files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
+> Full guide: [C# Tutorial on Reading Excel Files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github)
 
 This guide provides a comprehensive overview of how to read Excel documents using C#, covering common tasks such as data validation, converting databases, integrating with Web APIs, and altering formulas. It includes practical code examples that demonstrate the use of the IronXL .NET Excel library.
 
@@ -8,7 +8,7 @@ This guide provides a comprehensive overview of how to read Excel documents usin
 
 <p class="main-content__segment-title">Overview</p>
 
-IronXL allows the handling and modification of Microsoft Excel documents using C#. It operates independently of Microsoft Excel and does not utilize [Interop](https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia). Moreover, [IronXL offers a more rapid and user-friendly API compared to `Microsoft.Office.Interop.Excel`](https://ironsoftware.com/csharp/excel/blog/compare-to-other-components/microsoft-office-excel-interop-alternative/).
+IronXL allows the handling and modification of Microsoft Excel documents using C#. It operates independently of Microsoft Excel and does not utilize [Interop](https://learn.microsoft.com/en-us/dotnet/api/microsoft.office.interop.excel?view=excel-pia). Moreover, [IronXL offers a more rapid and user-friendly API compared to `Microsoft.Office.Interop.Excel`](https://ironsoftware.com/csharp/excel/blog/compare-to-other-components/microsoft-office-excel-interop-alternative/?utm_source=github).
 
 ## What IronXL Provides:
 
@@ -22,7 +22,7 @@ Utilizing IronXL, handling Excel files in both C# and VB.NET becomes straightfor
 
 Here's a quick guide to reading Excel files with the IronXL library:
 
-1. **Install IronXL**: Begin by installing the IronXL Excel Library. This can be accomplished by adding it through our [NuGet package](https://www.nuget.org/packages/IronXL.Excel/) or by directly downloading the [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip).
+1. **Install IronXL**: Begin by installing the IronXL Excel Library. This can be accomplished by adding it through our [NuGet package](https://www.nuget.org/packages/IronXL.Excel/) or by directly downloading the [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github).
 
 2. **Loading Documents**: Open your XLS, XLSX, or CSV files by employing the `WorkBook.Load` method.
 
@@ -57,7 +57,7 @@ This rewrite maintains the original functionality and instructional purpose, app
 
 In the upcoming sections of this guide (including the accompanying sample project code), you’ll be able to apply what you learn on three example Excel spreadsheets. Below is a visual representation of these spreadsheets:
 
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" target="_blank">
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png?utm_source=github" target="_blank">
   <img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/vs-spreadsheets.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 </a>
 
@@ -73,7 +73,7 @@ In the upcoming sections of this guide (including the accompanying sample projec
 
 To get started, you'll need to install the `IronXL.Excel` library to add Excel capabilities to your .NET framework.
 
-The easiest way to install `IronXL.Excel` is through our NuGet package, but you also have the option to directly download and install the [DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) into your project or your global assembly cache.
+The easiest way to install `IronXL.Excel` is through our NuGet package, but you also have the option to directly download and install the [DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) into your project or your global assembly cache.
 
 ### How to Install the IronXL NuGet Package
 
@@ -100,11 +100,11 @@ Additionally, you can [explore the package on the NuGet website](https://www.nug
 
 ### Manual Setup Procedure
 
-As an alternative, you have the option to manually download the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and proceed with its manual installation within Visual Studio.
+As an alternative, you have the option to manually download the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) and proceed with its manual installation within Visual Studio.
 
 ## 2. Load an Excel Workbook
 
-The [`WorkBook`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html) class signifies an Excel workbook. To initiate the opening of an Excel file in C#, utilize the method `WorkBook.Load`, where the file's directory should be provided.
+The [`WorkBook`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html?utm_source=github) class signifies an Excel workbook. To initiate the opening of an Excel file in C#, utilize the method `WorkBook.Load`, where the file's directory should be provided.
 
 The following line of C# code demonstrates how to open an Excel file named "GDP.xlsx" located in the "Spreadsheets" directory on your computer using the IronXL library:
 
@@ -115,7 +115,7 @@ WorkBook workBook = WorkBook.Load(@"Spreadsheets\\GDP.xlsx");
 
 Sample: *ExcelToDBProcessor*
 
-Multiple [`WorkSheet`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkSheet.html) objects can exist within a single `WorkBook`, with each representing an individual sheet within the Excel document. To access a particular `WorkSheet`, employ the [`WorkBook.GetWorkSheet`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html) method which allows you to specify and retrieve any sheet by its name.
+Multiple [`WorkSheet`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkSheet.html?utm_source=github) objects can exist within a single `WorkBook`, with each representing an individual sheet within the Excel document. To access a particular `WorkSheet`, employ the [`WorkBook.GetWorkSheet`](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.WorkBook.html?utm_source=github) method which allows you to specify and retrieve any sheet by its name.
 
 ```csharp
 WorkSheet workSheet = workBook.GetWorkSheet("GDPByCountry");
@@ -468,7 +468,7 @@ By orchestrating the `IronXL.WorkBook` and `IronXL.WorkSheet` classes effectivel
 
 ### Implementing Formulas in a Spreadsheet
 
-To assign formulas to cells, the `Formula` property of the `Cell` class is used, as detailed in the [IronXL Cell class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.Cell.html).
+To assign formulas to cells, the `Formula` property of the `Cell` class is used, as detailed in the [IronXL Cell class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/IronXL.Cell.html?utm_source=github).
 
 The ensuing code demonstrates how to loop through each state in a list and calculate percentage totals in column C.
 
@@ -745,7 +745,7 @@ Sample: *ApiToExcel*
 
 Here's a visual representation of the JSON data obtained from the API.
 
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" target="_blank">
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png?utm_source=github" target="_blank">
   <img src="https://ironsoftware.com/img/tutorials/how-to-read-excel-file-csharp/country-data.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%;">
 </a>
 
@@ -785,9 +785,9 @@ In this version, variable names are more descriptive, enhancing the readability 
 
 ## Object Reference and Resources
 
-The [IronXL class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/) available in the Object Reference section is a useful resource.
+The [IronXL class documentation](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github) available in the Object Reference section is a useful resource.
 
-Furthermore, you can explore additional tutorials that provide insights into various functionalities of `IronXL.Excel`. These include guides on [Creating](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/), [Opening, Writing, Editing, Saving, and Exporting](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/) XLS, XLSX, and CSV files all without the need for *Excel Interop*.
+Furthermore, you can explore additional tutorials that provide insights into various functionalities of `IronXL.Excel`. These include guides on [Creating](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/?utm_source=github), [Opening, Writing, Editing, Saving, and Exporting](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/?utm_source=github) XLS, XLSX, and CSV files all without the need for *Excel Interop*.
 
 ## Summary
 
@@ -841,7 +841,7 @@ Should you find the .NET library beneficial for altering Excel documents, consid
     <div class="col-sm-8">
       <h3>View the API Reference</h3>
       <p>Explore the API Reference for IronXL, outlining the details of all of IronXL’s features, namespaces, classes, methods fields and enums.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

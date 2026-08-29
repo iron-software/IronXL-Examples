@@ -1,11 +1,11 @@
 # Implementing Conditional Formatting with Cells
 
-> Full guide: [Implementing Conditional Formatting with Cells](https://ironsoftware.com/csharp/excel/how-to/conditional-formatting/)
+> Full guide: [Implementing Conditional Formatting with Cells](https://ironsoftware.com/csharp/excel/how-to/conditional-formatting/?utm_source=github)
 
 
 Conditional Formatting is an invaluable tool for spreadsheet and data management applications, facilitating the visual differentiation of data based on specific conditions or criteria. This functionality is crucial for highlighting significant data points within a spreadsheet or table, allowing for a simplified data analysis and interpretation process.
 
-IronXL enhances this experience by offering straightforward methods to add, retrieve, and erase conditional formatting. This includes customization capabilities like [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [borders and alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/).
+IronXL enhances this experience by offering straightforward methods to add, retrieve, and erase conditional formatting. This includes customization capabilities like [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/?utm_source=github), [borders and alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/?utm_source=github), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/?utm_source=github).
 
 ### Getting Started with IronXL
 
@@ -13,7 +13,7 @@ IronXL enhances this experience by offering straightforward methods to add, retr
 
 ## Example: Adding Conditional Formatting
 
-Conditional formatting in IronXL involves creating rules and applying specific styles when cells meet these rules. Styles may encompass [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/), [border and alignment settings](https://ironsoftware.com/csharp/excel/how-to/border-alignment/), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/).
+Conditional formatting in IronXL involves creating rules and applying specific styles when cells meet these rules. Styles may encompass [font and size adjustments](https://ironsoftware.com/csharp/excel/how-to/cell-font-size/?utm_source=github), [border and alignment settings](https://ironsoftware.com/csharp/excel/how-to/border-alignment/?utm_source=github), and [background patterns and colors](https://ironsoftware.com/csharp/excel/how-to/background-pattern-color/?utm_source=github).
 
 To set up a rule, use the `CreateConditionalFormattingRule` method from the `ConditionalFormatting` object. Assigning the resulting object to a variable allows you to impose the desired styling. To implement the styling, use the `AddConditionalFormatting` method and specify both the rule and the affected cell range.
 

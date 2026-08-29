@@ -1,12 +1,12 @@
 # Utilizing IronXL License Keys
 
-> Full guide: [Utilizing IronXL License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/)
+> Full guide: [Utilizing IronXL License Keys](https://ironsoftware.com/csharp/barcode/get-started/license-keys/?utm_source=github)
 
 ## Acquiring a License Key
 
 Implementing an IronXL license key in your project means you can go live without any operational restrictions or watermarks.
 
-Purchase a license key on the [buy a license page](https://ironsoftware.com/csharp/excel/licensing/) or begin a [free 30-day trial here](https://ironsoftware.com/trial-license).
+Purchase a license key on the [buy a license page](https://ironsoftware.com/csharp/excel/licensing/?utm_source=github) or begin a [free 30-day trial here](https://ironsoftware.com/trial-license?utm_source=github).
 
 <hr class="separator">
 
@@ -30,7 +30,7 @@ Alternatively,
 
 ### Installation via DLL Direct Download
 
-Directly download the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually integrate it within Visual Studio.
+Directly download the IronXL [.NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) and manually integrate it within Visual Studio.
 
 <hr class="separator">
 
@@ -66,7 +66,7 @@ A noted issue affects IronXL versions from [2023.4.13](https://www.nuget.org/pac
 - **ASP.NET**
 - **.NET Framework version >= 4.6.2**
 
-The key inside a `Web.config` is **NOT** recognized. Visit the [Troubleshooting License Key in Web.config](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/) for details.
+The key inside a `Web.config` is **NOT** recognized. Visit the [Troubleshooting License Key in Web.config](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/?utm_source=github) for details.
 
 Ensure that `IronXL.License.IsLicensed` reports `true`.
 
@@ -109,7 +109,7 @@ bool is_licensed = IronXL.License.IsLicensed;
 
 ## Step 4: Begin Your Project
 
-Explore our guide on [Getting Started with IronXL](https://ironsoftware.com/csharp/excel/docs/).
+Explore our guide on [Getting Started with IronXL](https://ironsoftware.com/csharp/excel/docs/?utm_source=github).
 
 <hr class="separator">
 

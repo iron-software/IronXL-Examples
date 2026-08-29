@@ -1,6 +1,6 @@
 # Creating and Modifying Excel Charts Using C# with IronXL
 
-> Full guide: [Creating and Modifying Excel Charts Using C# with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-chart-create-edit-tutorial/)
+> Full guide: [Creating and Modifying Excel Charts Using C# with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-chart-create-edit-tutorial/?utm_source=github)
 
 
 Excel charts provide a powerful way to visually represent data, making it easier to understand and analyze. Excel offers a variety of chart types such as bar, line, pie, and others, each designed for specific data presentations.
@@ -20,7 +20,7 @@ IronXL enables you to create various charts easily. Here are the steps to create
 3. Optionally, you can set the series name, chart title, and the position of the legend.
 4. Use the `Plot` method to render the chart. Each invocation of this method creates a new chart on the worksheet instead of modifying an existing one.
 
-Below is an example based on data from the [chart.xlsx](https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/chart.xlsx) file:
+Below is an example based on data from the [chart.xlsx](https://ironsoftware.com/static-assets/excel/how-to/create-edit-charts/chart.xlsx?utm_source=github) file:
 
 <div class="content-img-align-center">
     <div class="center-image-wrapper">

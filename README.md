@@ -1,6 +1,6 @@
 # IronXL.Examples
 
-Runnable C# examples for [IronXL](https://ironsoftware.com/csharp/excel/), a .NET Excel library that reads, writes, and edits XLSX, XLS, CSV, and TSV files without Microsoft Office or COM Interop.
+Runnable C# examples for [IronXL](https://ironsoftware.com/csharp/excel/?utm_source=github), a .NET Excel library that reads, writes, and edits XLSX, XLS, CSV, and TSV files without Microsoft Office or COM Interop.
 
 ## Install
 
@@ -52,15 +52,15 @@ Each folder contains a self-contained .NET project you can open and run:
 
 ## Platform support
 
-.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS. See the [installation docs](https://ironsoftware.com/csharp/excel/docs/) for environment-specific notes.
+.NET 8, 7, 6, 5, .NET Core, .NET Standard, and .NET Framework. Windows, macOS, Linux, Docker, Azure, and AWS. See the [installation docs](https://ironsoftware.com/csharp/excel/docs/?utm_source=github) for environment-specific notes.
 
 ## Documentation and support
 
-- Full documentation: [ironsoftware.com/csharp/excel/docs](https://ironsoftware.com/csharp/excel/docs/)
-- API reference: [ironsoftware.com/csharp/excel/object-reference/api](https://ironsoftware.com/csharp/excel/object-reference/api/)
+- Full documentation: [ironsoftware.com/csharp/excel/docs](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
+- API reference: [ironsoftware.com/csharp/excel/object-reference/api](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github)
 - Issues with these examples: file directly on this repository
 - Product support: [support@ironsoftware.com](mailto:support@ironsoftware.com)
 
 ## About
 
-This repository is maintained by [Iron Software](https://ironsoftware.com/). IronXL is a commercial library — see [licensing](https://ironsoftware.com/csharp/excel/licensing/) for terms and trial details.
+This repository is maintained by [Iron Software](https://ironsoftware.com/?utm_source=github). IronXL is a commercial library — see [licensing](https://ironsoftware.com/csharp/excel/licensing/?utm_source=github) for terms and trial details.

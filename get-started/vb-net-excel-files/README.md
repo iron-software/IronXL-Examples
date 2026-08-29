@@ -1,6 +1,6 @@
 # VB.NET Techniques for Reading and Creating Excel Documents
 
-> Full guide: [VB.NET Techniques for Reading and Creating Excel Documents](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/)
+> Full guide: [VB.NET Techniques for Reading and Creating Excel Documents](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/?utm_source=github)
 
 
 For developers using VB.NET, accessing and manipulating Excel files can often be essential. This guide introduces IronXL, demonstrating how it can facilitate the creation and reading of Excel files - including various formats like `.xls`, `.xlsx`, `.csv`, and `.tsv`. Additionally, you'll learn to customize cell styles and populate data using VB.NET Excel functions.
@@ -11,7 +11,7 @@ For developers using VB.NET, accessing and manipulating Excel files can often be
 
 ### 1. Acquire IronXL for VB.NET
 
-Start by adding the IronXL library to your project. You can download the DLL directly from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) or integrate via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
+Start by adding the IronXL library to your project. You can download the DLL directly from [DLL Download](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or integrate via [NuGet](https://www.nuget.org/packages/IronXL.Excel).
 
 ```shell
 Install-Package IronXL.Excel
@@ -109,7 +109,7 @@ wb.SaveAs(@"E:\IronXL\Sample.xlsx")
 
 Check out the results from the generated file `Sample.xlsx`:
 
-[View the created Excel file](https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png)
+[View the created Excel file](https://ironsoftware.com/img/faq/excel/vb-net-excel-files/doc5-1.png?utm_source=github)
 
 The ease of generating and handling Excel documents with `IronXL` in your VB.NET applications is evident through these examples.
 
@@ -172,7 +172,7 @@ Console.WriteLine("Min is: {0}", min)
 Console.WriteLine("Max is: {0}", max)
 ```
 
-Learn more about these processes in the comprehensive [Excel reading guide](https://ironsoftware.com/csharp/excel/#read-excel).
+Learn more about these processes in the comprehensive [Excel reading guide](https://ironsoftware.com/csharp/excel/?utm_source=github#read-excel).
 
 ---
 
@@ -180,6 +180,6 @@ Learn more about these processes in the comprehensive [Excel reading guide](http
 
 Visit the following section to explore the API documentation and discover additional functionalities available within IronXL for managing Excel in your VB.NET endeavors:
 
-[Documentation API Reference](https://ironsoftware.com/csharp/excel/object-reference/api/)
+[Documentation API Reference](https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github)
 
 ---

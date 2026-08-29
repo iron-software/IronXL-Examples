@@ -1,6 +1,6 @@
 # Alternative Approach to Excel in C# 
 
-> Full guide: [Alternative Approach to Excel in C#](https://ironsoftware.com/csharp/excel/get-started/c-sharp-excel-interop/)
+> Full guide: [Alternative Approach to Excel in C#](https://ironsoftware.com/csharp/excel/get-started/c-sharp-excel-interop/?utm_source=github)
 
 
 In many software projects, Excel serves as a straightforward way to manage data. However, the `Microsoft.Office.Interop.Excel` can introduce complex code requirements. This tutorial introduces IronXL, an alternative for handling Excel with C#, which alleviates the need to deal with Interop complexities, allowing you to manipulate Excel data.
@@ -38,7 +38,7 @@ In many software projects, Excel serves as a straightforward way to manage data.
 
 ## 1. Acquire IronXL Library
 
-Acquire the IronXL Library either by [downloading it directly](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) or by [using NuGet](https://www.nuget.org/packages/IronXL.Excel) to integrate it into your project. Licenses are available for live project implementation.
+Acquire the IronXL Library either by [downloading it directly](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) or by [using NuGet](https://www.nuget.org/packages/IronXL.Excel) to integrate it into your project. Licenses are available for live project implementation.
 
 ```shell
 Install-Package IronXL.Excel
@@ -98,7 +98,7 @@ DataSet ds = wb.ToDataSet();
 DataTable dt = ws.ToDataTable(true);
 ```
 
-More details are available on the process and applications of using [Excel DataSet and DataTables](https://ironsoftware.com/csharp/excel/#excel-sql-dataset) on IronXL's official website.
+More details are available on the process and applications of using [Excel DataSet and DataTables](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-sql-dataset) on IronXL's official website.
 
 ## 3. Excel File Creation
 
@@ -129,7 +129,7 @@ This example illustrates the simplicity of creating and configuring new Excel fi
 
 **Important: Always save the Excel file as demonstrated to preserve your changes.**
 
-Explore in-depth how to [construct new Excel files in C#](https://ironsoftware.com/csharp/excel/#create-excel-spreadsheet) with practical examples on the IronXL webpage.
+Explore in-depth how to [construct new Excel files in C#](https://ironsoftware.com/csharp/excel/?utm_source=github#create-excel-spreadsheet) with practical examples on the IronXL webpage.
 
 ## 4. Modifying Existing Excel Files
 
@@ -158,7 +158,7 @@ static void Main(string[] args)
 
 This snippet updates `A3`'s cell value and highlights the straightforward approach of modifying individual cell values.
 
-Advanced usage scenarios and further functions, such as range operations, are detailed under the section on [using the Range Function in C#](https://ironsoftware.com/csharp/excel/#excel-ranges).
+Advanced usage scenarios and further functions, such as range operations, are detailed under the section on [using the Range Function in C#](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-ranges).
 
 ### Replacing Cell Values
 
@@ -215,7 +215,7 @@ This segment removes a row and saves the updated Excel file, maintaining the str
     <div class="col-sm-8">
       <h3>Comprehensive IronXL Guide</h3>
       <p>Consult the complete API Reference for IronXL to learn more about its capabilities, functions, classes, and namespaces.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">IronXL Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">IronXL Reference <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

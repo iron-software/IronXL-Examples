@@ -1,6 +1,6 @@
 # Develop an XLSX File in C#
 
-> Full guide: [Develop an XLSX File in C#](https://ironsoftware.com/csharp/excel/how-to/create-spreadsheet/)
+> Full guide: [Develop an XLSX File in C#](https://ironsoftware.com/csharp/excel/how-to/create-spreadsheet/?utm_source=github)
 
 
 Reading and writing Excel spreadsheets is a common requirement for .NET applications. This includes not only creating new spreadsheets but also populating them programmatically with data. This tutorial looks at how you can generate Excel spreadsheets in various formats such as `.xls`, `.xlsx`, `.csv`, and `.tsv`, apply cell styles, and insert data using C#.
@@ -39,7 +39,7 @@ Reading and writing Excel spreadsheets is a common requirement for .NET applicat
 
 ## 1. Download IronXL DLL
 
-IronXL simplifies the process of creating Excel files in C# projects. [Download the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.create.xlsx.zip) or use [NuGet](https://www.nuget.org/packages/IronXL.Excel) for a simple setup to use it freely during development.
+IronXL simplifies the process of creating Excel files in C# projects. [Download the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.create.xlsx.zip?utm_source=github) or use [NuGet](https://www.nuget.org/packages/IronXL.Excel) for a simple setup to use it freely during development.
 
 ```shell
 Install-Package IronXL.Excel
@@ -124,6 +124,6 @@ ws1 ["A3:A8"].Value = "NewValue";
 
 ### Further Steps and Tutorial
 
-Dive deeper into the structured step-by-step guide for Excel file creation with .NET available at the [Create Excel Files Using C# tutorial.](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/) 
+Dive deeper into the structured step-by-step guide for Excel file creation with .NET available at the [Create Excel Files Using C# tutorial.](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/?utm_source=github) 
 
 ... and additional content about gaining quick access to the API Reference etc...

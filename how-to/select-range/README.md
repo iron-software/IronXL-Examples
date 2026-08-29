@@ -1,6 +1,6 @@
 # How to Select a Range in Excel with IronXL
 
-> Full guide: [How to Select a Range in Excel with IronXL](https://ironsoftware.com/csharp/excel/how-to/select-range/)
+> Full guide: [How to Select a Range in Excel with IronXL](https://ironsoftware.com/csharp/excel/how-to/select-range/?utm_source=github)
 
 
 IronXL simplifies the process of selecting and manipulating ranges in an Excel worksheet, offering a powerful alternative to Office Interop.
@@ -11,7 +11,7 @@ IronXL simplifies the process of selecting and manipulating ranges in an Excel w
 
 ## Example of Selecting a Range
 
-IronXL enables a variety of operations on selected ranges, including [sorting](https://ironsoftware.com/csharp/excel/how-to/sort-cells/), calculations, and aggregations. When executing methods that modify or relocate cell values, the targeted range, row, or column will be automatically updated. IronXL also allows the merging of multiple `IronXL.Ranges.Range` objects using the '+' operator.
+IronXL enables a variety of operations on selected ranges, including [sorting](https://ironsoftware.com/csharp/excel/how-to/sort-cells/?utm_source=github), calculations, and aggregations. When executing methods that modify or relocate cell values, the targeted range, row, or column will be automatically updated. IronXL also allows the merging of multiple `IronXL.Ranges.Range` objects using the '+' operator.
 
 ### Selecting a Range
 

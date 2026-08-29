@@ -1,6 +1,6 @@
 # Generating Excel Charts with C# Using IronXL
 
-> Full guide: [Generating Excel Charts with C# Using IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/)
+> Full guide: [Generating Excel Charts with C# Using IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/?utm_source=github)
 
 
 This guide provides step-by-step instructions for creating Excel charts in C# utilizing the IronXL library.
@@ -50,7 +50,7 @@ Alternatively, you can run the following command in the Developer Command Prompt
 Install-Package IronXL.Excel
 ```
 
-Or, download the package directly through this link: <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip" data-modal-id="trial-license-after-download">IronXL Package</a>
+Or, download the package directly through this link: <a class="js-modal-open" href="https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github" data-modal-id="trial-license-after-download">IronXL Package</a>
 
 <hr class="separator">
 
@@ -134,7 +134,7 @@ In this example, we configure the chart type and location using the `CreateChart
     <div class="col-sm-8">
       <h3>IronXL API Reference Documentation</h3>
       <p>Explore additional capabilities like merging, unmerging, and manipulating cells in Excel sheets through the detailed IronXL API Reference Documentation.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Learn More <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> Learn More <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

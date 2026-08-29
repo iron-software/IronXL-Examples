@@ -1,6 +1,6 @@
 # Managing Worksheets with IronXL
 
-> Full guide: [Managing Worksheets with IronXL](https://ironsoftware.com/csharp/excel/how-to/manage-worksheet/)
+> Full guide: [Managing Worksheets with IronXL](https://ironsoftware.com/csharp/excel/how-to/manage-worksheet/?utm_source=github)
 
 
 The IronXL library provides a straightforward approach to managing worksheets within your C# applications. This powerful tool enables you to create, delete, reposition, and set the active worksheet in an Excel file, completely eliminating the need for Office Interop.
@@ -19,7 +19,7 @@ Indices used here are zero-based.
 
 ## Creating a Worksheet
 
-To add a new worksheet, use the `CreateWorksheet` method, which only requires the desired name of the worksheet. Once created, additional operations such as [merging cells](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/) can be immediately applied.
+To add a new worksheet, use the `CreateWorksheet` method, which only requires the desired name of the worksheet. Once created, additional operations such as [merging cells](https://ironsoftware.com/csharp/excel/how-to/csharp-excel-merge-cells/?utm_source=github) can be immediately applied.
 
 ```cs
 using IronXL;

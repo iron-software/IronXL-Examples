@@ -1,6 +1,6 @@
 # Working with Excel Files in C# & VB.NET Applications
 
-> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/)
+> Docs: [IronXL documentation](https://ironsoftware.com/csharp/excel/docs/?utm_source=github)
 
 
 Manipulating Excel files such as XLS, XLSX, and CSV is straightforward in C# and other .NET languages with the help of the IronXL library from Iron Software.
@@ -16,7 +16,7 @@ IronXL is compatible with a range of platforms:
 
 ## Setting Up IronXL
 
-To begin using IronXL, you can either install it via NuGet package or by [downloading the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip). The `IronXL` namespace encompasses all necessary classes.
+To begin using IronXL, you can either install it via NuGet package or by [downloading the DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github). The `IronXL` namespace encompasses all necessary classes.
 
 The simplest method to integrate IronXL is through the NuGet Package Manager in Visual Studio:
 The required package name is **IronXL.Excel**.
@@ -132,4 +132,4 @@ IronXL offers a developer-friendly API for handling Excel documents in .NET envi
 
 ## Further Steps
 
-For the rest of the API, see the [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/) styled like MSDN documentation.
+For the rest of the API, see the [.NET API Reference](https://ironsoftware.com/csharp/excel/object-reference/?utm_source=github) styled like MSDN documentation.

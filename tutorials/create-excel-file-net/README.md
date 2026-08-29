@@ -1,6 +1,6 @@
 # C# Excel File Creation Tutorial
 
-> Full guide: [C# Excel File Creation Tutorial](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/)
+> Full guide: [C# Excel File Creation Tutorial](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/?utm_source=github)
 
 In this tutorial, we'll walk you through the process of creating an Excel Workbook on any platform compatible with either .NET Framework 4.5 or .NET Core. Creating Excel files using C# is straightforward and does not rely on the outdated **Microsoft.Office.Interop.Excel** library. Learn to utilize IronXL to manage worksheet attributes such as freezing panes and adding protection, as well as configuring printing settings and more.
 
@@ -10,7 +10,7 @@ In this tutorial, we'll walk you through the process of creating an Excel Workbo
 
 <h2>IronXL Creates C&num; Excel Files in .NET</h2>
 
-[IronXL offers a comprehensive C# & VB Excel API](https://ironsoftware.com/csharp/excel/) designed for high-speed manipulation of Excel spreadsheets in .NET environments. This eliminates the need for installing MS Office or Excel Interop components.
+[IronXL offers a comprehensive C# & VB Excel API](https://ironsoftware.com/csharp/excel/?utm_source=github) designed for high-speed manipulation of Excel spreadsheets in .NET environments. This eliminates the need for installing MS Office or Excel Interop components.
 
 The IronXL library is compatible with multiple platforms including .NET Core, .NET Framework, Xamarin, Mobile, Linux, macOS, and Azure.
 
@@ -26,7 +26,7 @@ The IronXL library is compatible with multiple platforms including .NET Core, .N
 
 <a class="js-modal-open" href="https://www.nuget.org/packages/IronXL.Excel/" target="_blank" data-modal-id="trial-license-after-download">https://www.nuget.org/packages/IronXL.Excel/</a>
 
-Alternatively, you can download the `IronXL.dll` directly via this [link](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and incorporate it into your project.
+Alternatively, you can download the `IronXL.dll` directly via this [link](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) and incorporate it into your project.
 
 ```cs
 using IronXL;
@@ -133,7 +133,7 @@ To successfully download the NuGet package, follow these steps:
 
 <h3>Install IronXL by Direct Download of the Library</h3>
 
-Another method to set up IronXL is via direct download. Access the file from this link: [https://ironsoftware.com/csharp/excel/](https://ironsoftware.com/csharp/excel/).
+Another method to set up IronXL is via direct download. Access the file from this link: [https://ironsoftware.com/csharp/excel/](https://ironsoftware.com/csharp/excel/?utm_source=github).
 
 <center>
   <div style="display: inline-block; text-align: left;">
@@ -169,14 +169,14 @@ The following steps will help you create an ASP.NET website:
 4. Choose `ASP.NET Web Application` as depicted below.
 
 <div align="center">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
 </div>
 <div style="margin-left: 40px;"><strong>Figure 1</strong> – <em>New Project window in Visual Studio</em></div>
     
 5. Confirm with `OK`.
 6. On the following screen, opt for `Web Forms` as illustrated in the figure below.
 <div align="center">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/web-form.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
 </div>
 <div style="margin-left: 40px;"><strong>Figure 2</strong> – <em>Selecting Web Forms</em></div>
 
@@ -204,7 +204,7 @@ Follow these instructions to start building an ASP.NET website:
 
 <br>
 <center>
-<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" target="_blank"><p><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></p></a>
+<a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png?utm_source=github" target="_blank"><p><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/new-project-asp-net.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></p></a>
 </center>
 <strong style="margin-left: 40px;">Figure 1</strong> – *New Project*
 
@@ -664,14 +664,14 @@ This code freezes the first row and secures the worksheet, preventing unauthoriz
 
 <center>
   <div style="display: inline-block; text-align: left;">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
     <p><strong>Figure 7</strong> – <em>View of Freeze Panes</em></p>
   </div>
 </center>
 
 <center>
   <div style="display: inline-block; text-align: left;">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
     <p><strong>Figure 8</strong> – <em>Protected Worksheet Display</em></p>
   </div>
 </center>
@@ -690,7 +690,7 @@ This configures the print area of A1 to L12, sets the page orientation to landsc
 
 <center>
   <div style="display: inline-block; text-align: left;">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/print-setup.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
     <p><strong>Figure 9</strong> – <em>Preview of Print Setup</em></p>
   </div>
 </center>
@@ -713,14 +713,14 @@ The topmost row remains static and won't move vertically with the rest of the sh
 
 <center>
   <div style="display: inline-block; text-align: left;">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/freeze-panes.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
     <p><strong>Figure 7</strong> – <em>Freeze Panes</em></p>
   </div>
 </center>
 
 <center>
   <div style="display: inline-block; text-align: left;">
-    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
+    <a rel="nofollow" href="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/tutorials/create-excel-file-net/protected-worksheet.png" alt="" class="img-responsive add-shadow img-margin" style="max-width:100%; margin: 0;"></a>
     <p><strong>Figure 8</strong> – <em>Protected Worksheet</em></p>
   </div>
 </center>
@@ -820,7 +820,7 @@ workBook.SaveAs("FinancialPlanning.xlsx");
     <div class="col-sm-8">
       <h3>Read the XL API Reference</h3>
       <p>Explore the API Reference for IronXL, outlining the details of all of IronXL’s features, namespaces, classes, methods fields and enums.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank">View the API Reference <i class="fa fa-chevron-right"></i></a>
       </div>
   </div>
 </div>

@@ -1,9 +1,9 @@
 # Setting up IronXL in Docker Containers
 
-> Full guide: [Setting up IronXL in Docker Containers](https://ironsoftware.com/csharp/excel/get-started/docker/)
+> Full guide: [Setting up IronXL in Docker Containers](https://ironsoftware.com/csharp/excel/get-started/docker/?utm_source=github)
 
 
-Explore how to [interact with Excel spreadsheets using C#](https://ironsoftware.com/csharp/excel/)?
+Explore how to [interact with Excel spreadsheets using C#](https://ironsoftware.com/csharp/excel/?utm_source=github)?
 
 IronXL offers complete support for Docker environments, including Linux and Windows-based Azure Docker Containers.
 
@@ -21,7 +21,7 @@ Docker simplifies the deployment process, enabling developers to package and dep
 
 New to Docker and .NET? Explore this informative resource on [debugging Docker with Visual Studio and integrating within projects](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2019).
 
-We strongly suggest reviewing our [IronXL Linux Setup and Compatibility Guide](https://ironsoftware.com/csharp/excel/how-to/linux/).
+We strongly suggest reviewing our [IronXL Linux Setup and Compatibility Guide](https://ironsoftware.com/csharp/excel/how-to/linux/?utm_source=github).
 
 ### Preferred Linux Docker Distributions for IronXL
 
@@ -35,7 +35,7 @@ container images for:
 - RHEL / UBI 8 or 9, for RHEL-family deployments. Microsoft no longer publishes
   official CentOS runtime images; CentOS 7 and 8 are both end of life.
 
-We advise utilizing Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). While other Linux distributions are compatible, they might require `apt-get` for manual setup. Refer to our "[Linux Manual Setup](https://ironsoftware.com/csharp/excel/how-to/linux/)" guide.
+We advise utilizing Microsoft's [Official Docker Images](https://hub.docker.com/_/microsoft-dotnet-runtime/). While other Linux distributions are compatible, they might require `apt-get` for manual setup. Refer to our "[Linux Manual Setup](https://ironsoftware.com/csharp/excel/how-to/linux/?utm_source=github)" guide.
 
 Included below are Docker files for Ubuntu, Debian and RHEL/UBI:
 

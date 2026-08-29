@@ -1,4 +1,4 @@
-> Full guide: [C sharp excel interop](https://ironsoftware.com/csharp/excel/get-started/c-sharp-excel-interop/)
+> Full guide: [C sharp excel interop](https://ironsoftware.com/csharp/excel/get-started/c-sharp-excel-interop/?utm_source=github)
 
 ```cs
 static void Main(string [] args)
@@ -24,7 +24,7 @@ Additionally, multiple cells can be updated with a singular value using a range:
 
 This will modify row 3 from cell `A3` to `C3`, replacing all values with `Unified New Value`.
 
-Learn more about the [Range Function in C#](https://ironsoftware.com/csharp/excel/#excel-ranges) from these practical examples.
+Learn more about the [Range Function in C#](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-ranges) from these practical examples.
 
 ### Replacing Cell Values
 
@@ -68,7 +68,7 @@ static void Main(string [] args)
 }
 ```
 
-This code alters values within the range `B5` to `G5` from `Normal` to `Improved`. You can find more insights about [Editing Excel Cell Values in a Range](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/#sample-edit-cell-values-in-range) on the IronXL web page.
+This code alters values within the range `B5` to `G5` from `Normal` to `Improved`. You can find more insights about [Editing Excel Cell Values in a Range](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/?utm_source=github#sample-edit-cell-values-in-range) on the IronXL web page.
 
 ### Removing Rows from an Excel File
 
@@ -104,7 +104,7 @@ This code removes row number `2` from the file named `sample.xlsx`.
     <div class="col-sm-8">
       <h3>IronXL Documentation Reference</h3>
       <p>Review the API Reference for IronXL to explore more about functions, features, classes, and namespaces available for handling Excel files.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> IronXL Documentation Reference <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> IronXL Documentation Reference <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

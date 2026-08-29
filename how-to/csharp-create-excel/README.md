@@ -1,6 +1,6 @@
 # C# Create Excel Workbooks
 
-> Full guide: [C# Create Excel Workbooks](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/)
+> Full guide: [C# Create Excel Workbooks](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/?utm_source=github)
 
 
 In this tutorial, we explore the process of creating Excel workbooks in C#, including how to instantiate new files, format cells, and populate them with data using the IronXL library. By following these steps, you'll be able to tailor your spreadsheets precisely to your requirements within a .NET application.
@@ -33,7 +33,7 @@ In this tutorial, we explore the process of creating Excel workbooks in C#, incl
 
 We'll utilize the IronXL library, a C# tool for Excel manipulation, enabling efficient file creation and management for development projects. Start by installing this tool and following this tutorial.
 
-[Download for your project](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Create.Excel.Csharp.Spreadsheets.zip) or via [NuGet to integrate into Visual Studio](https://www.nuget.org/packages/IronXL.Excel).
+[Download for your project](https://ironsoftware.com/csharp/excel/packages/IronXL.Package.For.Create.Excel.Csharp.Spreadsheets.zip?utm_source=github) or via [NuGet to integrate into Visual Studio](https://www.nuget.org/packages/IronXL.Excel).
 
 <br>
 
@@ -100,7 +100,7 @@ For data insertion over a wider cell range, use `Range`:
 WorkSheet["FromCellAddress : ToCellAddress"].Value = "value";
 ```
 
-This fills all encompassed cells with the specified `value`. For more details, visit [C# Excel Ranges](https://ironsoftware.com/csharp/excel/#excel-ranges).
+This fills all encompassed cells with the specified `value`. For more details, visit [C# Excel Ranges](https://ironsoftware.com/csharp/excel/?utm_source=github#excel-ranges).
 
 <h...
 (For brevity, the expansive list of steps has been shortened, focusing on a subset that showcases the gist of the tutorial. If you need the continuation and further detailed instructions, kindly let me know!)

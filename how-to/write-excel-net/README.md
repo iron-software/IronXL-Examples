@@ -1,6 +1,6 @@
 # .NET Excel Functions with IronXL
 
-> Full guide: [.NET Excel Functions with IronXL](https://ironsoftware.com/csharp/excel/how-to/write-excel-net/)
+> Full guide: [.NET Excel Functions with IronXL](https://ironsoftware.com/csharp/excel/how-to/write-excel-net/?utm_source=github)
 
 
 Developing C# applications often includes tasks like creating or updating Excel spreadsheets programmatically. While Excel .NET integration can seem daunting, the IronXL library simplifies these tasks significantly. It allows developers to work with Excel files of any format by directly accessing and modifying cells without extensive code.
@@ -45,7 +45,7 @@ This code will load the designated Excel file. Next, let's open a Worksheet:
 WorkSheet workSheet = workBook.GetWorkSheet("Sheet1");
 ```
 
-You can start manipulating the data in the Excel file using `workSheet`. For additional insights on how to load and interact with different spreadsheet formats, visit [this detailed guide](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/).
+You can start manipulating the data in the Excel file using `workSheet`. For additional insights on how to load and interact with different spreadsheet formats, visit [this detailed guide](https://ironsoftware.com/csharp/excel/how-to/load-spreadsheet/?utm_source=github).
 
 <b>Note: Remember to include the `IronXL` library in your project references and import it using `using IronXL`.</b>
 
@@ -151,7 +151,7 @@ This approach dynamically assigns values in columns `B` and `D` ranging from row
 
 <center>
 	<div class="center-image-wrapper">
-		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png" alt="" class="img-responsive add-shadow"></a>
+		<a rel="nofollow" href="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png?utm_source=github" target="_blank"><img src="https://ironsoftware.com/img/faq/excel/write-excel-net/1excel.png" alt="" class="img-responsive add-shadow"></a>
 	</div>
 </center>
 
@@ -213,7 +213,7 @@ workSheet["A5:H5"].Replace("old", "new");
 workBook.SaveAs("sample.xlsx");
 ```
 
-For comprehensive guidance on creating .NET applications that operate with Excel files, explore our full tutorial on [how to open and write to Excel files in C#](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/).
+For comprehensive guidance on creating .NET applications that operate with Excel files, explore our full tutorial on [how to open and write to Excel files in C#](https://ironsoftware.com/csharp/excel/tutorials/csharp-open-write-excel-file/?utm_source=github).
 
 <hr class="separator">
 
@@ -224,7 +224,7 @@ For comprehensive guidance on creating .NET applications that operate with Excel
     <div class="col-sm-8">
       <h3>Access Our Complete API Reference</h3>
       <p>The IronXL documentation lists every function, namespace, class and enum.</p>
-      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/" target="_blank"> Explore API Documentation <i class="fa fa-chevron-right"></i></a>
+      <a class="doc-link" href="https://ironsoftware.com/csharp/excel/object-reference/api/?utm_source=github" target="_blank"> Explore API Documentation <i class="fa fa-chevron-right"></i></a>
     </div>
     <div class="col-sm-4">
       <div class="tutorial-image">

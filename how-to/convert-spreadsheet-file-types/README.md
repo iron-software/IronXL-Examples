@@ -1,10 +1,10 @@
 # How to Convert Spreadsheet File Formats
 
-> Full guide: [How to Convert Spreadsheet File Formats](https://ironsoftware.com/csharp/excel/how-to/convert-spreadsheet-file-types/)
+> Full guide: [How to Convert Spreadsheet File Formats](https://ironsoftware.com/csharp/excel/how-to/convert-spreadsheet-file-types/?utm_source=github)
 
 
 ## Introduction
-IronXL enables the transformation of spreadsheet files across a variety of formats such as XLS, XLSX, XLSM, XLTX, CSV, TSV, JSON, XML, and HTML. It also accommodates inline code data types like HTML string, Binary, Byte array, Data set, and Memory stream. To open a spreadsheet file, use the `Load` method, and to convert it to a different format, employ the `SaveAs` method. Learn more about exporting spreadsheets with IronXL [here](https://ironsoftware.com/csharp/excel/how-to/c-sharp-export-to-excel/).
+IronXL enables the transformation of spreadsheet files across a variety of formats such as XLS, XLSX, XLSM, XLTX, CSV, TSV, JSON, XML, and HTML. It also accommodates inline code data types like HTML string, Binary, Byte array, Data set, and Memory stream. To open a spreadsheet file, use the `Load` method, and to convert it to a different format, employ the `SaveAs` method. Learn more about exporting spreadsheets with IronXL [here](https://ironsoftware.com/csharp/excel/how-to/c-sharp-export-to-excel/?utm_source=github).
 
 ***
 

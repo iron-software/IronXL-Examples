@@ -1,13 +1,13 @@
 # Working with IronXL License Keys
 
-> Full guide: [Working with IronXL License Keys](https://ironsoftware.com/csharp/excel/get-started/license-keys/)
+> Full guide: [Working with IronXL License Keys](https://ironsoftware.com/csharp/excel/get-started/license-keys/?utm_source=github)
 
 
 ## Obtaining a License Key
 
 Deploying your project without any limitations or watermarks requires an IronXL license key.
 
-You can [purchase a license here](https://ironsoftware.com/csharp/excel/licensing/) or opt for a [free 30-day trial key here](https://ironsoftware.com/#trial-license), accessible through an interactive modal.
+You can [purchase a license here](https://ironsoftware.com/csharp/excel/licensing/?utm_source=github) or opt for a [free 30-day trial key here](https://ironsoftware.com/?utm_source=github#trial-license), accessible through an interactive modal.
 
 ---
 
@@ -33,7 +33,7 @@ Check out [the package on the NuGet website](https://www.nuget.org/packages/Iron
 
 ### Installation via Direct DLL Download
 
-[Download the IronXL .NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip) and manually integrate it into Visual Studio.
+[Download the IronXL .NET Excel DLL](https://ironsoftware.com/csharp/excel/packages/IronXL.zip?utm_source=github) and manually integrate it into Visual Studio.
 
 ---
 
@@ -65,7 +65,7 @@ Please note an ongoing licensing issue affecting versions [2023.4.13](https://ww
 - ASP.NET
 - .NET Framework version 4.6.2 or higher
 
-The configuration details provided in a `Web.config` file may not be recognized. For guidance, refer to the ['Setting License Key in Web.config'](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/) article.
+The configuration details provided in a `Web.config` file may not be recognized. For guidance, refer to the ['Setting License Key in Web.config'](https://ironsoftware.com/csharp/excel/troubleshooting/license-key-web.config/?utm_source=github) article.
 
 It's crucial to verify the licensing status with `IronXL.License.IsLicensed`.
 
@@ -104,7 +104,7 @@ bool is_licensed = IronXL.License.IsLicensed;
 
 ## Step 4: Kickstart Your Project
 
-Explore our step-by-step guide on [Getting Started with IronXL](https://ironsoftware.com/csharp/excel/docs/).
+Explore our step-by-step guide on [Getting Started with IronXL](https://ironsoftware.com/csharp/excel/docs/?utm_source=github).
 
 ---
 
