@@ -1,6 +1,6 @@
 # .NET Excel Functions with IronXL
 
-> Full guide: [.NET Excel Functions with IronXL](https://ironsoftware.com/how-to/write-excel-net/)
+> Full guide: [.NET Excel Functions with IronXL](https://ironsoftware.com/csharp/excel/how-to/write-excel-net/)
 
 
 Developing C# applications often includes tasks like creating or updating Excel spreadsheets programmatically. While Excel .NET integration can seem daunting, the IronXL library simplifies these tasks significantly. It allows developers to work with Excel files of any format by directly accessing and modifying cells without extensive code.

@@ -1,6 +1,6 @@
 # Managing Worksheets with IronXL
 
-> Full guide: [Managing Worksheets with IronXL](https://ironsoftware.com/how-to/manage-worksheet/)
+> Full guide: [Managing Worksheets with IronXL](https://ironsoftware.com/csharp/excel/how-to/manage-worksheet/)
 
 
 The IronXL library provides a straightforward approach to managing worksheets within your C# applications. This powerful tool enables you to create, delete, reposition, and set the active worksheet in an Excel file, completely eliminating the need for Office Interop.

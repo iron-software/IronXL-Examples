@@ -1,6 +1,6 @@
 # C# Excel File Creation Tutorial
 
-> Full guide: [C# Excel File Creation Tutorial](https://ironsoftware.com/tutorials/create-excel-file-net/)
+> Full guide: [C# Excel File Creation Tutorial](https://ironsoftware.com/csharp/excel/tutorials/create-excel-file-net/)
 
 In this tutorial, we'll walk you through the process of creating an Excel Workbook on any platform compatible with either .NET Framework 4.5 or .NET Core. Creating Excel files using C# is straightforward and does not rely on the outdated **Microsoft.Office.Interop.Excel** library. Learn to utilize IronXL to manage worksheet attributes such as freezing panes and adding protection, as well as configuring printing settings and more.
 

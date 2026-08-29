@@ -1,6 +1,6 @@
 # Implementing Conditional Formatting with Cells
 
-> Full guide: [Implementing Conditional Formatting with Cells](https://ironsoftware.com/how-to/conditional-formatting/)
+> Full guide: [Implementing Conditional Formatting with Cells](https://ironsoftware.com/csharp/excel/how-to/conditional-formatting/)
 
 
 Conditional Formatting is an invaluable tool for spreadsheet and data management applications, facilitating the visual differentiation of data based on specific conditions or criteria. This functionality is crucial for highlighting significant data points within a spreadsheet or table, allowing for a simplified data analysis and interpretation process.

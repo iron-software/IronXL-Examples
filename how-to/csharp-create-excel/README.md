@@ -1,6 +1,6 @@
 # C# Create Excel Workbooks
 
-> Full guide: [C# Create Excel Workbooks](https://ironsoftware.com/how-to/csharp-create-excel/)
+> Full guide: [C# Create Excel Workbooks](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/)
 
 
 In this tutorial, we explore the process of creating Excel workbooks in C#, including how to instantiate new files, format cells, and populate them with data using the IronXL library. By following these steps, you'll be able to tailor your spreadsheets precisely to your requirements within a .NET application.

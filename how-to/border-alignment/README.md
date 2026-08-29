@@ -1,6 +1,6 @@
 # How to Configure Cell Border and Text Alignment
 
-> Full guide: [How to Configure Cell Border and Text Alignment](https://ironsoftware.com/how-to/border-alignment/)
+> Full guide: [How to Configure Cell Border and Text Alignment](https://ironsoftware.com/csharp/excel/how-to/border-alignment/)
 
 
 Cell borders in Excel are the distinct lines that can be added around cells or groups of cells. Text alignment, conversely, determines the placement of text within a cell both on the vertical and horizontal axes.

@@ -1,6 +1,6 @@
 # How to Implement Freeze Pane in Excel
 
-> Full guide: [How to Implement Freeze Pane in Excel](https://ironsoftware.com/how-to/add-freeze-panes/)
+> Full guide: [How to Implement Freeze Pane in Excel](https://ironsoftware.com/csharp/excel/how-to/add-freeze-panes/)
 
 
 ## Introduction

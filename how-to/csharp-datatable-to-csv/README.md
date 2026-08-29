@@ -1,6 +1,6 @@
 # C# Tutorial: Convert DataTable to CSV with IronXL
 
-> Full guide: [C# Tutorial: Convert DataTable to CSV with IronXL](https://ironsoftware.com/how-to/csharp-datatable-to-csv/)
+> Full guide: [C# Tutorial: Convert DataTable to CSV with IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-datatable-to-csv/)
 
 
 This guide will illustrate how to transform a DataTable into a CSV file using IronXL, simplifying the process into simple, easy-to-follow steps.

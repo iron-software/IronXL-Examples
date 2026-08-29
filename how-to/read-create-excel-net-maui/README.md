@@ -1,6 +1,6 @@
 # Generate, Manipulate, and Manage Excel Documents in .NET MAUI
 
-> Full guide: [Generate, Manipulate, and Manage Excel Documents in .NET MAUI](https://ironsoftware.com/how-to/read-create-excel-net-maui/)
+> Full guide: [Generate, Manipulate, and Manage Excel Documents in .NET MAUI](https://ironsoftware.com/csharp/excel/get-started/read-create-excel-net-maui/)
 
 ## Overview
 

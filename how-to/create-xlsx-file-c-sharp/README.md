@@ -1,6 +1,6 @@
 # Develop an XLSX File in C#
 
-> Full guide: [Develop an XLSX File in C#](https://ironsoftware.com/how-to/create-xlsx-file-c-sharp/)
+> Full guide: [Develop an XLSX File in C#](https://ironsoftware.com/csharp/excel/how-to/create-spreadsheet/)
 
 
 Reading and writing Excel spreadsheets is a common requirement for .NET applications. This includes not only creating new spreadsheets but also populating them programmatically with data. This tutorial looks at how you can generate Excel spreadsheets in various formats such as `.xls`, `.xlsx`, `.csv`, and `.tsv`, apply cell styles, and insert data using C#.

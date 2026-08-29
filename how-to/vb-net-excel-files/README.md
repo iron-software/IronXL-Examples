@@ -1,6 +1,6 @@
 # VB .NET Read & Create Excel Files (Code Example Tutorial)
 
-> Full guide: [VB .NET Read & Create Excel Files (Code Example Tutorial)](https://ironsoftware.com/how-to/vb-net-excel-files/)
+> Full guide: [VB .NET Read & Create Excel Files (Code Example Tutorial)](https://ironsoftware.com/csharp/excel/get-started/vb-net-excel-files/)
 
 
 For developers working in VB .NET, a straightforward method to manage Excel files is crucial. In this tutorial, we'll explore how to utilize IronXL to manipulate Excel files in VB.NET, allowing us to read and create spreadsheets in various formats like `.xls`, `.xlsx`, `.csv`, and `.tsv`. We'll also dive into ways to customize cell styles and populate data programmatically.

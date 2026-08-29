@@ -1,6 +1,6 @@
 # Running IronXL with .NET on Azure
 
-> Full guide: [Running IronXL with .NET on Azure](https://ironsoftware.com/how-to/azure-support/)
+> Full guide: [Running IronXL with .NET on Azure](https://ironsoftware.com/csharp/excel/get-started/azure/)
 
 IronXL reads and writes Excel spreadsheets from C# and VB.NET applications hosted in Azure. It has been tested on Azure services including MVC websites and Azure Functions.
 

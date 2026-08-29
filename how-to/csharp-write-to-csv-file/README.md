@@ -1,6 +1,6 @@
 # How to Write CSV in .NET
 
-> Full guide: [How to Write CSV in .NET](https://ironsoftware.com/how-to/csharp-write-to-csv-file/)
+> Full guide: [How to Write CSV in .NET](https://ironsoftware.com/csharp/excel/how-to/csharp-write-to-csv-file/)
 
 
 Curious about using C# to write to CSV? Discover how IronXL simplifies the process of writing data into CSV files in the .NET framework.

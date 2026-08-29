@@ -1,6 +1,6 @@
 # How to Password Protect an Excel Workbook with IronXL
 
-> Full guide: [How to Password Protect an Excel Workbook with IronXL](https://ironsoftware.com/how-to/set-password-workbook/)
+> Full guide: [How to Password Protect an Excel Workbook with IronXL](https://ironsoftware.com/csharp/excel/how-to/set-password-workbook/)
 
 
 It's important to ensure that sensitive data within an Excel file is accessible only to authorized users. Using IronXL, you can secure your data by applying password protection to both the Excel workbook and individual [worksheets](https://ironsoftware.com/csharp/excel/how-to/set-password-worksheet/).

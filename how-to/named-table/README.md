@@ -1,6 +1,6 @@
 # How to Insert a Named Table
 
-> Full guide: [How to Insert a Named Table](https://ironsoftware.com/how-to/named-table/)
+> Full guide: [How to Insert a Named Table](https://ironsoftware.com/csharp/excel/how-to/named-table/)
 
 
 A named table, often referred to as an Excel Table, is a range that has been distinctly named and possesses enhanced features and capabilities.

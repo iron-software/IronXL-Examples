@@ -1,6 +1,6 @@
 # Editing Formulas in an Excel Worksheet
 
-> Full guide: [Editing Formulas in an Excel Worksheet](https://ironsoftware.com/how-to/edit-formulas/)
+> Full guide: [Editing Formulas in an Excel Worksheet](https://ironsoftware.com/csharp/excel/how-to/edit-formulas/)
 
 An Excel formula, which begins with an equal sign (=), is used for carrying out mathematical operations, manipulating data, and deriving results from the values of cells. Such formulas might include arithmetic operators, function calls, cell references, constants, and logical operations, allowing for dynamic changes as the content of cells evolves. This adaptability makes Excel an indispensable tool for task automation and comprehensive data analysis.
 

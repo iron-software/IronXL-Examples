@@ -1,6 +1,6 @@
 # How to Import and Export as DataSet
 
-> Full guide: [How to Import and Export as DataSet](https://ironsoftware.com/how-to/export-dataset-datatable/)
+> Full guide: [How to Import and Export as DataSet](https://ironsoftware.com/csharp/excel/how-to/export-dataset-datatable/)
 
 
 A DataSet serves as a powerful in-memory data structure that can accommodate numerous related tables, along with their relationships and constraints. It's particularly useful for managing data from diverse sources like databases, XML files, and more.

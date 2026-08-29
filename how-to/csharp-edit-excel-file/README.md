@@ -1,6 +1,6 @@
 # C# Edit Excel File
 
-> Full guide: [C# Edit Excel File](https://ironsoftware.com/how-to/csharp-edit-excel-file/)
+> Full guide: [C# Edit Excel File](https://ironsoftware.com/csharp/excel/how-to/csharp-edit-excel-file/)
 
 
 When working with Excel files in C#, developers should proceed with caution to avoid unwanted modifications to the document. Short, well-tested code both lowers the risk of error and keeps programmatic edits and deletions readable. This guide edits Excel files in C# using IronXL's functions.

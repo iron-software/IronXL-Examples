@@ -1,6 +1,6 @@
 # C# Read XLSX File
 
-> Full guide: [C# Read XLSX File](https://ironsoftware.com/how-to/c-sharp-read-xlsx-file/)
+> Full guide: [C# Read XLSX File](https://ironsoftware.com/csharp/excel/how-to/c-sharp-read-xlsx-file/)
 
 
 Dealing with different Excel file formats typically involves reading and manipulating the data with C# programming. In this tutorial, we'll explore how to read information from an Excel spreadsheet using the IronXL library.

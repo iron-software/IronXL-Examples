@@ -1,6 +1,6 @@
 # C# Tutorial on Reading Excel Files
 
-> Full guide: [C# Tutorial on Reading Excel Files](https://ironsoftware.com/tutorials/how-to-read-excel-file-csharp/)
+> Full guide: [C# Tutorial on Reading Excel Files](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
 
 This guide provides a comprehensive overview of how to read Excel documents using C#, covering common tasks such as data validation, converting databases, integrating with Web APIs, and altering formulas. It includes practical code examples that demonstrate the use of the IronXL .NET Excel library.
 

@@ -1,6 +1,6 @@
 # How to Automatically Adjust Row and Column Sizes
 
-> Full guide: [How to Automatically Adjust Row and Column Sizes](https://ironsoftware.com/how-to/autosize-rows-columns/)
+> Full guide: [How to Automatically Adjust Row and Column Sizes](https://ironsoftware.com/csharp/excel/how-to/autosize-rows-columns/)
 
 
 Adjusting row and column sizes efficiently in a spreadsheet contributes to improved readability and space optimization. **IronXL**, a C# library, simplifies the process by enabling automatic resizing of rows and columns in .NET environments. This automation replaces the tedious manual adjustments typically required in spreadsheets.

@@ -1,6 +1,6 @@
 # How to Convert Spreadsheet File Formats
 
-> Full guide: [How to Convert Spreadsheet File Formats](https://ironsoftware.com/how-to/convert-spreadsheet-file-types/)
+> Full guide: [How to Convert Spreadsheet File Formats](https://ironsoftware.com/csharp/excel/how-to/convert-spreadsheet-file-types/)
 
 
 ## Introduction

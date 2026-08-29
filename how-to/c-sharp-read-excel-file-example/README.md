@@ -1,6 +1,6 @@
 # C# Read Excel File Example
 
-> Full guide: [C# Read Excel File Example](https://ironsoftware.com/how-to/c-sharp-read-excel-file-example/)
+> Full guide: [C# Read Excel File Example](https://ironsoftware.com/csharp/excel/tutorials/how-to-read-excel-file-csharp/)
 
 
 For developers, it's crucial to efficiently process and analyze a vast array of Excel data within our projects. The goal is to find a straightforward and rapid approach to reading Excel data using C# and integrating it with our applications. This guide presents various examples on how to utilize IronXL to facilitate this task efficiently.

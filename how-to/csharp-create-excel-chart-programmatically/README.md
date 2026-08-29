@@ -1,6 +1,6 @@
 # Generating Excel Charts with C# Using IronXL
 
-> Full guide: [Generating Excel Charts with C# Using IronXL](https://ironsoftware.com/how-to/csharp-create-excel-chart-programmatically/)
+> Full guide: [Generating Excel Charts with C# Using IronXL](https://ironsoftware.com/csharp/excel/how-to/csharp-create-excel-chart-programmatically/)
 
 
 This guide provides step-by-step instructions for creating Excel charts in C# utilizing the IronXL library.
